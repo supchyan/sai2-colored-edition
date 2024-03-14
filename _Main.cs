@@ -57,7 +57,7 @@ namespace drak_mode_sai2 {
                 }
                 Process.GetCurrentProcess().WaitForExit();
                 
-            } catch(Exception e) {
+            } catch {
                 _Interface.CONSOLE_DRAW_ERROR();
                 Console.ReadKey();
                 Environment.Exit(0);
