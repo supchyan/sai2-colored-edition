@@ -22,9 +22,9 @@ namespace drak_mode_sai2 {
         /// <summary>
         /// Straightly edits binaries of the current .exe
         /// </summary>
-        public static void EditHEX(string targetFile, string resultFile, List<_Replacer> toReplace) {
+        public static void EditHEX(List<_Replacer> toReplace, int from, int to) {
 
-            byte[] binaries = File.ReadAllBytes(targetFile);
+            byte[] binaries = File.ReadAllBytes("sai.old.exe");
             
             foreach (_Replacer _ in toReplace) {
 
@@ -59,7 +59,7 @@ namespace drak_mode_sai2 {
                 // from 2260000
                 // "000000" -> "F5F5F5" bad
                 // to 2470410
-                for (int i = 0; i < binaries.Length; i++) {
+                for (int i = from; i < to; i++) {
                     
                     if (!ContainsHEX(binaries, i, seeker)) continue;
                     
@@ -80,15 +80,15 @@ namespace drak_mode_sai2 {
                     // 0800F9 FF?
                     // E9FFE9 FF?
                     // 0100E9 FF?
-                    for (int j = 2085392; j < 2084909; j++) {
+                    for (int j = from; j < to; j++) {
                         binaries[i + j] = hider[j];
                     }
                 }
             }
 
-            _Console.Write($"left gap => {left} right gap => {right}", ConsoleColor.Blue);
+            _Console.Write($"all good.", ConsoleColor.Blue);
 
-            File.WriteAllBytes(resultFile, binaries);
+            File.WriteAllBytes("sai2.exe", binaries);
         }
     }
 }

@@ -5,30 +5,28 @@ using Microsoft.VisualBasic;
 
 namespace drak_mode_sai2 {
     class _Main {
-        static string? old_sai = "sai2.old";
+        static string? old_sai = "sai2.old.exe";
         static string? sai = "sai2.exe";
-        static string? tmp;
         static bool exit_proc = true;
         static void Main(string[] args) {
 
             if(old_sai is null || sai is null) return;
             if(!OperatingSystem.IsWindows()) {
-                Console.WriteLine($"This application can't be run on {Environment.OSVersion}, I'm sorry");
+                Console.WriteLine($"This application can't be run on {Environment.OSVersion}, I'm sorry.");
                 return;
             }
 
+            #region console preparations
             Console.OutputEncoding = System.Text.Encoding.UTF8;
-
             Console.Title = "Do you like a whales?!";
-            
             Console.CursorVisible = false;
             Console.SetWindowSize(_Console.Size[0],_Console.Size[1]);
             Console.SetBufferSize(_Console.Size[0],_Console.Size[1]);
+            #endregion
 
+            #region ui
             CONSOLE_DRAW_HEADER();
-
             CONSOLE_SELECT_START();
-
             while(true) {
                 var current_key = Console.ReadKey().Key;
                 if(current_key is ConsoleKey.DownArrow) CONSOLE_SELECT_EXIT();
@@ -40,16 +38,21 @@ namespace drak_mode_sai2 {
                     } else Environment.Exit(0);
                 }
             }
-            // return;
+            #endregion
 
-            List<_Replacer> val = [
-                // new _Replacer("f8f8f8", "424242"),
-                // new _Replacer("ffffff", "424242"),
-                // new _Replacer("c5c5c5", "212121"),
-                // new _Replacer("000000", "E0E0E0")
+
+            List<_Replacer> colors = [
+                new _Replacer("E0E0E0", "424242"),
+                new _Replacer("F8F8F8", "424242"),
+                new _Replacer("C0C0C0", "424242"),
+
+                new _Replacer("FF3050", "424242"),
+
+                new _Replacer("90B0E8", "424242"),
+                new _Replacer("204080", "424242")
             ];
             
-            // _HexEditor.EditHEX(old_sai, sai, val);
+            _HexEditor.EditHEX(colors, 0, 1024);
             Process sai_proc = Process.Start("sai2.exe");
             if (sai_proc != null) {
                 sai_proc.EnableRaisingEvents = true;
