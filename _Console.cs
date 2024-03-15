@@ -1,7 +1,7 @@
 using System.Diagnostics;
 using System.Numerics;
 
-namespace drak_mode_sai2 {
+namespace yum2_theme_toolkit {
     public static class _Console {
         public const string exit_message = "Press any key to exit...";
         public static readonly int[] Size = {44,12};

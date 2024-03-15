@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics;
 
-namespace drak_mode_sai2 {
+namespace yum2_theme_toolkit {
     class _Main {
         static string? old_sai = "sai2.old.exe";
         static string? sai = "sai2.exe";

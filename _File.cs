@@ -1,4 +1,4 @@
-namespace drak_mode_sai2 {
+namespace yum2_theme_toolkit {
     public static class _File {
         public static void DeleteOldFile(string old_sai, string sai) {
             
