@@ -3,7 +3,7 @@
 </div>
 <br />
 
-`themes toolkit for SAI 2 patch ver. 2024.02.02` `*`
+`themes toolkit for SAI 2 64bit patch ver. 2024.02.22` `*`
 
 ``` 
 * I'm almost sure, toolkit won't work with other patches, so keep it in mind.
