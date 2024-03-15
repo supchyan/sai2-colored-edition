@@ -6,7 +6,7 @@
 `themes toolkit for SAI 2 64bit patch ver. 2024.02.22` `*`
 
 ``` 
-* I'm almost sure, toolkit won't work with other patches,
+* I'm almost sure, this toolkit won't work with other patches,
   so keep it in mind.
   If you know .exe principles, you can try to adapt this tools for any sai versions.
   Major chance, patch differences won't be a big problem,
