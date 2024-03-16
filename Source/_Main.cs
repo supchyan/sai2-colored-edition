@@ -39,27 +39,6 @@ namespace YumToolkit {
                     } else Environment.Exit(0);
                 }
             }
-            
-            // _HexEditor.EditHEX(colors, 0, 1024);
-            try {
-                _Interface.CONSOLE_DRAW_WARNING();
-                Process sai_proc = Process.Start("sai2.exe");
-
-                if (sai_proc != null) {
-                    sai_proc.EnableRaisingEvents = true;
-                    sai_proc.Exited += _Exited;
-                }
-                Process.GetCurrentProcess().WaitForExit();
-                
-            } catch {
-                _Interface.CONSOLE_DRAW_ERROR();
-                Console.ReadKey();
-                Environment.Exit(0);
-            }
-        }
-
-        static void _Exited(object? sender, EventArgs e) { 
-            Environment.Exit(0);
         }
     }
 }
