@@ -2,29 +2,29 @@ using YumToolkit.Data;
 
 namespace YumToolkit {
     public class _File {
-        public static _Name Name = new _Name();
+        public static _Name GetName = new _Name();
         static _ServiceMessages serviceMessages = new _ServiceMessages();
         public static void CreateDevFile() {
-            if(!File.Exists(Name.classic)) {
+            if(!File.Exists(GetName.classic)) {
                 _Console.WriteLine(serviceMessages.ClassicFileIsNotExists, ConsoleColor.DarkRed);
                 return;
-            } File.Copy(Name.classic, Name.dev);
+            } File.Copy(GetName.classic, GetName.dev);
         }
         public static void DeleteDevFile() {
-            if(File.Exists(Name.dev)) {
-                File.Delete(Name.dev);
+            if(File.Exists(GetName.dev)) {
+                File.Delete(GetName.dev);
             }
         }
 
         public static void CreateOldFile() {
-            if(!File.Exists(Name.classic)) {
+            if(!File.Exists(GetName.classic)) {
                 _Console.WriteLine(serviceMessages.ClassicFileIsNotExists, ConsoleColor.DarkRed);
                 return;
-            } File.Copy(Name.classic, Name.old);
+            } File.Copy(GetName.classic, GetName.old);
         }
         public static void DeleteOldFile() {
-            if(File.Exists(Name.old)) {
-                File.Delete(Name.old);
+            if(File.Exists(GetName.old)) {
+                File.Delete(GetName.old);
             }
         }
         public class _Name {

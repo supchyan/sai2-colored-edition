@@ -9,13 +9,13 @@ namespace YumToolkit {
         public static _Address GetAddress = new _Address();
         public static void SetElementColor(byte[] color, int color_address) {
 
-            if(!File.Exists(_File.Name.dev)) {
+            if(!File.Exists(_File.GetName.dev)) {
                 Console.Clear();
                 _Console.WriteLine(serviceMessages.DevFileIsNotExists, ConsoleColor.DarkRed);
                 return;
             }
 
-            byte[] binary = File.ReadAllBytes(_File.Name.dev);
+            byte[] binary = File.ReadAllBytes(_File.GetName.dev);
             
             // RGBA in SAI2 is BGRA. Live your life with that.
             (color[0], color[2]) = (color[2], color[0]);
@@ -24,7 +24,7 @@ namespace YumToolkit {
             for(int i = 0; i < color.Length; i++) { binary[color_address + i] = color[i]; }
 
             try {
-                File.WriteAllBytes(_File.Name.classic, binary);
+                File.WriteAllBytes(_File.GetName.classic, binary);
                 Console.Clear();
                 _Console.Write($"Binary data overwritten!", ConsoleColor.Blue);
 
