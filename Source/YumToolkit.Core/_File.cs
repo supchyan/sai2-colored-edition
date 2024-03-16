@@ -1,40 +1,26 @@
-using YumToolkit.Core.Data;
-
 namespace YumToolkit.Core {
-    public class _File {
-        public static _Name GetName = new _Name();
-        static _ServiceMessages serviceMessages = new _ServiceMessages();
+    public class _File : _YumTools {
         public static void CreateDevFile() {
-            if(!File.Exists(GetName.Classic)) {
-                _Console.WriteLine(serviceMessages.ClassicFileIsNotExists, ConsoleColor.DarkRed);
+            if(!File.Exists(GetFileName.Classic)) {
+                _Console.WriteLine(ServiceMessage.ClassicFileIsNotExists, ConsoleColor.DarkRed);
                 return;
-            } File.Copy(GetName.Classic, GetName.Dev);
+            } File.Copy(GetFileName.Classic, GetFileName.Dev);
         }
         public static void DeleteDevFile() {
-            if(File.Exists(GetName.Dev)) {
-                File.Delete(GetName.Dev);
+            if(File.Exists(GetFileName.Dev)) {
+                File.Delete(GetFileName.Dev);
             }
         }
 
         public static void CreateOldFile() {
-            if(!File.Exists(GetName.Classic)) {
-                _Console.WriteLine(serviceMessages.ClassicFileIsNotExists, ConsoleColor.DarkRed);
+            if(!File.Exists(GetFileName.Classic)) {
+                _Console.WriteLine(ServiceMessage.ClassicFileIsNotExists, ConsoleColor.DarkRed);
                 return;
-            } File.Copy(GetName.Classic, GetName.Old);
+            } File.Copy(GetFileName.Classic, GetFileName.Old);
         }
         public static void DeleteOldFile() {
-            if(File.Exists(GetName.Old)) {
-                File.Delete(GetName.Old);
-            }
-        }
-        public class _Name {
-            public string Classic { get; }
-            public string Dev { get; }
-            public string Old { get; }
-            public _Name() {
-                Classic = "sai2.exe";
-                Dev = "sai2.dev.exe";
-                Old = "sai2.old.exe";
+            if(File.Exists(GetFileName.Old)) {
+                File.Delete(GetFileName.Old);
             }
         }
     }
