@@ -1,6 +1,4 @@
-using YumToolkit._;
-
-namespace YumToolkit.Data {
+namespace YumToolkit.Core.Data {
     public class _ServiceMessages {
         public string DevFileIsNotExists { get; }
         public string ClassicFileIsNotExists { get; }

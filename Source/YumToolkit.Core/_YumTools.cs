@@ -1,14 +1,13 @@
 using System.Text;
-using YumToolkit.Data;
+using YumToolkit.Core.Data;
 
-namespace YumToolkit._ {
+namespace YumToolkit.Core {
     public class _YumTools {
         static _ServiceMessages serviceMessages = new _ServiceMessages();
         public static _File YumFile = new _File();
         public static _Color GetColor = new _Color();
         public static _Address GetAddress = new _Address();
         public static void SetElementColor(byte[] color, int color_address) {
-
             if(!File.Exists(_File.GetName.Dev)) {
                 Console.Clear();
                 _Console.WriteLine(serviceMessages.DevFileIsNotExists, ConsoleColor.DarkRed);

@@ -1,4 +1,4 @@
-namespace YumToolkit.Data {
+namespace YumToolkit.Core.Data {
     /// <summary>
     /// You can edit this class to add branch of a new colors,
     /// but make sure, it has 4 RGBA channels [ 0 - 255 ]

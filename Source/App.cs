@@ -1,4 +1,4 @@
-﻿using YumToolkit._;
+﻿using YumToolkit.Core;
 
 namespace YumToolkit {
     class App : _YumTools {

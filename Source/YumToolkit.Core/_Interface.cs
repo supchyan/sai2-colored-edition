@@ -1,4 +1,4 @@
-namespace YumToolkit._ {
+namespace YumToolkit.Core {
     public static class _Interface {
         public static bool EXIT_PROC = true;
         public static void CONSOLE_DRAW_MAIN() {

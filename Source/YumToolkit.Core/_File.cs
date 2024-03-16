@@ -1,6 +1,6 @@
-using YumToolkit.Data;
+using YumToolkit.Core.Data;
 
-namespace YumToolkit._ {
+namespace YumToolkit.Core {
     public class _File {
         public static _Name GetName = new _Name();
         static _ServiceMessages serviceMessages = new _ServiceMessages();

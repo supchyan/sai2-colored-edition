@@ -1,6 +1,4 @@
-using YumToolkit._;
-
-namespace YumToolkit.Data {
+namespace YumToolkit.Core.Data {
     public class _Address {
         public int InActiveText { get; }
         public int InActiveCanvasBackground { get; }
