@@ -1,16 +1,23 @@
 ﻿using System.Diagnostics;
+using System.Drawing;
+using System.Text;
+using YumToolkit.Data;
 
-namespace yum2_theme_toolkit {
+namespace YumToolkit {
     class _Main {
-        static string? old_sai = "sai2.old.exe";
-        static string? sai = "sai2.exe";
+        static _Color color = new _Color();
+        static _Addresses addresses = new _Addresses();
+        static _FileName sai_FileName = new _FileName();
         static void Main(string[] args) {
-
-            if(old_sai is null || sai is null) return;
             if(!OperatingSystem.IsWindows()) {
-                Console.WriteLine($"This application can't be run on {Environment.OSVersion}, I'm sorry.");
+                Console.WriteLine($"This program cannot be run on {Environment.OSVersion}.");
                 return;
             }
+
+            // _Theme.SetColor(color.Primary, addresses.SlidersHorizontal);
+            Console.WriteLine(sai_FileName.old);
+
+            return;
 
             // console preparations
             Console.OutputEncoding = System.Text.Encoding.UTF8;
@@ -33,18 +40,6 @@ namespace yum2_theme_toolkit {
                     } else Environment.Exit(0);
                 }
             }
-
-            // proc
-            List<_Replacer> colors = [
-                new _Replacer("E0E0E0", "424242"),
-                new _Replacer("F8F8F8", "424242"),
-                new _Replacer("C0C0C0", "424242"),
-
-                new _Replacer("FF3050", "424242"),
-
-                new _Replacer("90B0E8", "424242"),
-                new _Replacer("204080", "424242")
-            ];
             
             // _HexEditor.EditHEX(colors, 0, 1024);
             try {
