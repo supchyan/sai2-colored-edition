@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://github.com/supchyan/yum2-theme-toolkit/assets/123704468/b0539a42-e829-44ec-8bd8-a2c57ae322bc" height="150" />
+  <img src="https://github.com/supchyan/yum2-theme-toolkit/assets/123704468/6a6c2116-0c8e-4f8d-ac0f-d6c1996d273f" height="150" />
 </div>
 <br />
 
