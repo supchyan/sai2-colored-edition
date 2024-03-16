@@ -5,36 +5,36 @@ namespace YumToolkit {
         public static _Name GetName = new _Name();
         static _ServiceMessages serviceMessages = new _ServiceMessages();
         public static void CreateDevFile() {
-            if(!File.Exists(GetName.classic)) {
+            if(!File.Exists(GetName.Classic)) {
                 _Console.WriteLine(serviceMessages.ClassicFileIsNotExists, ConsoleColor.DarkRed);
                 return;
-            } File.Copy(GetName.classic, GetName.dev);
+            } File.Copy(GetName.Classic, GetName.Dev);
         }
         public static void DeleteDevFile() {
-            if(File.Exists(GetName.dev)) {
-                File.Delete(GetName.dev);
+            if(File.Exists(GetName.Dev)) {
+                File.Delete(GetName.Dev);
             }
         }
 
         public static void CreateOldFile() {
-            if(!File.Exists(GetName.classic)) {
+            if(!File.Exists(GetName.Classic)) {
                 _Console.WriteLine(serviceMessages.ClassicFileIsNotExists, ConsoleColor.DarkRed);
                 return;
-            } File.Copy(GetName.classic, GetName.old);
+            } File.Copy(GetName.Classic, GetName.Old);
         }
         public static void DeleteOldFile() {
-            if(File.Exists(GetName.old)) {
-                File.Delete(GetName.old);
+            if(File.Exists(GetName.Old)) {
+                File.Delete(GetName.Old);
             }
         }
         public class _Name {
-            public string classic { get; }
-            public string dev { get; }
-            public string old { get; }
+            public string Classic { get; }
+            public string Dev { get; }
+            public string Old { get; }
             public _Name() {
-                classic = "sai2.exe";
-                dev = "sai2.dev.exe";
-                old = "sai2.old.exe";
+                Classic = "sai2.exe";
+                Dev = "sai2.dev.exe";
+                Old = "sai2.old.exe";
             }
         }
     }

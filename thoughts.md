@@ -1,4 +1,4 @@
-2085392 = .data header begins ... nvm old ver that one was.
+2085392 = .data header begins ... nvm Old ver that one was.
 Probably pallete:
 
     C0C0C0
