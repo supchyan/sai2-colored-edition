@@ -1,7 +1,7 @@
 using System.Text;
 using YumToolkit.Data;
 
-namespace YumToolkit {
+namespace YumToolkit._ {
     public class _YumTools {
         static _ServiceMessages serviceMessages = new _ServiceMessages();
         public static _File YumFile = new _File();

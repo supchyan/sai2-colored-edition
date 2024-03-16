@@ -1,3 +1,5 @@
+using YumToolkit._;
+
 namespace YumToolkit.Data {
     public class _Address {
         public int InActiveText { get; }

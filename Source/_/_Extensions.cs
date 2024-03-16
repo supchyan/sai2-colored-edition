@@ -1,4 +1,4 @@
-namespace YumToolkit {
+namespace YumToolkit._ {
     public static class _Extensions {
         /// <summary>
         /// Converts HEX address to decimal form.

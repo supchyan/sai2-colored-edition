@@ -1,7 +1,4 @@
-﻿using System.Diagnostics;
-using System.Drawing;
-using System.Text;
-using YumToolkit.Data;
+﻿using YumToolkit._;
 
 namespace YumToolkit {
     class App : _YumTools {
