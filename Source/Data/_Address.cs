@@ -1,5 +1,5 @@
 namespace YumToolkit.Data {
-    public class _Addresses {
+    public class _Address {
         public int InActiveText { get; }
         public int InActiveCanvasBackground { get; }
         public int BehindLayersUIBackground { get; }
@@ -26,7 +26,7 @@ namespace YumToolkit.Data {
         public int TabsResizeGrabberHorizontal { get; }
         public int ScaleAngleSliders { get; }
         
-        public _Addresses() {
+        public _Address() {
             InActiveText = "0x001BC95B".GetDecimalAddress();
             InActiveCanvasBackground = "0x00534688".GetDecimalAddress();
             BehindLayersUIBackground = "0x0053468C".GetDecimalAddress();

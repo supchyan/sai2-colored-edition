@@ -4,17 +4,14 @@ using System.Text;
 using YumToolkit.Data;
 
 namespace YumToolkit {
-    class _Main {
-        static _Color color = new _Color();
-        static _Addresses addresses = new _Addresses();
-        static _FileName fileName = new _FileName();
+    class App : _YumTools {
         static void Main(string[] args) {
             if(!OperatingSystem.IsWindows()) {
                 Console.WriteLine($"This program cannot be run on {Environment.OSVersion}.");
                 return;
             }
 
-            _Theme.SetColor(color.Secondary, addresses.TopBar);
+            SetElementColor(GetColor.Secondary, GetAddress.TopBar);
 
             // console preparations
             Console.OutputEncoding = System.Text.Encoding.UTF8;

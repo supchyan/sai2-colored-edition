@@ -2,21 +2,20 @@ using System.Text;
 using YumToolkit.Data;
 
 namespace YumToolkit {
-    public static class _Theme {
+    public class _YumTools {
         static _ServiceMessages serviceMessages = new _ServiceMessages();
-        static _FileName fileName = new _FileName();
-        public static byte[] GetByteArray(string str) {
-            return Enumerable.Range(0, str.Length).Where(x => x % 2 == 0).Select(x => Convert.ToByte(str.Substring(x, 2), 16)).ToArray();
-        }
-        public static void SetColor(byte[] color, int color_address) {
+        public static _File YumFile = new _File();
+        public static _Color GetColor = new _Color();
+        public static _Address GetAddress = new _Address();
+        public static void SetElementColor(byte[] color, int color_address) {
 
-            if(!File.Exists(fileName.dev)) {
+            if(!File.Exists(_File.Name.dev)) {
                 Console.Clear();
                 _Console.WriteLine(serviceMessages.DevFileIsNotExists, ConsoleColor.DarkRed);
                 return;
             }
 
-            byte[] binary = File.ReadAllBytes(fileName.dev);
+            byte[] binary = File.ReadAllBytes(_File.Name.dev);
             
             // RGBA in SAI2 is BGRA. Live your life with that.
             (color[0], color[2]) = (color[2], color[0]);
@@ -25,7 +24,7 @@ namespace YumToolkit {
             for(int i = 0; i < color.Length; i++) { binary[color_address + i] = color[i]; }
 
             try {
-                File.WriteAllBytes(fileName.classic, binary);
+                File.WriteAllBytes(_File.Name.classic, binary);
                 Console.Clear();
                 _Console.Write($"Binary data overwritten!", ConsoleColor.Blue);
 

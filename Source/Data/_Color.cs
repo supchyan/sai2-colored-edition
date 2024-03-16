@@ -6,6 +6,7 @@ namespace YumToolkit.Data {
     /// Be sure to make it always equal to 0.
     /// </summary>
     public class _Color {
+        public static _Color color = new _Color();
         public byte[] Primary { get; }
         public byte[] Secondary { get; }
         public _Color() {
