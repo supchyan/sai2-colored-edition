@@ -7,15 +7,14 @@ namespace YumToolkit {
     class _Main {
         static _Color color = new _Color();
         static _Addresses addresses = new _Addresses();
-        static _FileName sai_FileName = new _FileName();
+        static _FileName fileName = new _FileName();
         static void Main(string[] args) {
             if(!OperatingSystem.IsWindows()) {
                 Console.WriteLine($"This program cannot be run on {Environment.OSVersion}.");
                 return;
             }
 
-            // _Theme.SetColor(color.Primary, addresses.SlidersHorizontal);
-            Console.WriteLine(sai_FileName.old);
+            _Theme.SetColor(color.Secondary, addresses.TopBar);
 
             return;
 

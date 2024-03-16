@@ -2,7 +2,7 @@ namespace YumToolkit.Data {
     public class _Addresses {
         public int InActiveText { get; }
         public int InActiveCanvasBackground { get; }
-        public int BehindLayersBackground { get; }
+        public int BehindLayersUIBackground { get; }
         public int ActiveCanvasBackground { get; }
         public int ActiveCanvasBackground2 { get; }
         public int ActiveCanvasBackground3 { get; }
@@ -29,7 +29,7 @@ namespace YumToolkit.Data {
         public _Addresses() {
             InActiveText = "0x001BC95B".GetDecimalAddress();
             InActiveCanvasBackground = "0x00534688".GetDecimalAddress();
-            BehindLayersBackground = "0x0053468C".GetDecimalAddress();
+            BehindLayersUIBackground = "0x0053468C".GetDecimalAddress();
             ActiveCanvasBackground = "0x0018838B".GetDecimalAddress();
             ActiveCanvasBackground2 = "0x001880AC".GetDecimalAddress();
             ActiveCanvasBackground3 = "0x0018A004".GetDecimalAddress();
