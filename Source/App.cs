@@ -8,7 +8,7 @@ namespace YumToolkit {
                 return;
             }
 
-            SetElementColor(GetColor.Secondary, GetAddress.TopBar);
+            // SetElementColor(GetColor.Secondary, GetAddress.TopBar);
 
             // console preparations
             Console.OutputEncoding = System.Text.Encoding.UTF8;
@@ -18,19 +18,23 @@ namespace YumToolkit {
             Console.SetBufferSize(_Console.Size[0],_Console.Size[1]);
 
             // ui
-            _Interface.CONSOLE_DRAW_MAIN();
-            _Interface.CONSOLE_SELECT_START();
+            _Console.Drawing.CONSOLE_DRAW_MAIN();
+
             while(true) {
                 var current_key = Console.ReadKey().Key;
-                if(current_key is ConsoleKey.DownArrow) _Interface.CONSOLE_SELECT_EXIT();
-                if(current_key is ConsoleKey.UpArrow) _Interface.CONSOLE_SELECT_START();
+                if(current_key is ConsoleKey.DownArrow) _Console.Drawing.CONSOLE_SELECT_EXIT();
+                if(current_key is ConsoleKey.UpArrow) _Console.Drawing.CONSOLE_SELECT_START();
                 if(current_key is ConsoleKey.Enter) {
-                    if(!_Interface.EXIT_PROC) {
+                    if(!_Console.Drawing.exit_proc) {
                         break;
 
                     } else Environment.Exit(0);
                 }
             }
+
+            Console.Clear();
+            Console.WriteLine("amogus");
+            Console.ReadKey();
         }
     }
 }
