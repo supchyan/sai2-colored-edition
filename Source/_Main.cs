@@ -16,8 +16,6 @@ namespace YumToolkit {
 
             _Theme.SetColor(color.Secondary, addresses.TopBar);
 
-            return;
-
             // console preparations
             Console.OutputEncoding = System.Text.Encoding.UTF8;
             Console.Title = "Do you like a whales?!";
