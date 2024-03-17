@@ -1,6 +1,5 @@
 namespace YumToolkit.Core {
     public class _Console {
-        public static readonly int[] Size = { 38, 16 };
         public static void Write(string line, ConsoleColor  text_color = ConsoleColor.White, ConsoleColor bg_color = ConsoleColor.Black) {
             Console.ForegroundColor = text_color;
             Console.BackgroundColor = bg_color;

@@ -9,23 +9,21 @@ namespace YumToolkit {
                 Console.WriteLine($"This program cannot be run on {Environment.OSVersion}.");
                 return;
             }
-            if(!File.Exists(_Name.GetFileName.Classic)) {
-                _Console.WriteLine(_ServiceMessage.GetMessage.ClassicFileIsNotExists, ConsoleColor.DarkRed);
-                Console.ReadKey();
-                return;
-            }
-            if(!File.Exists(_Name.GetFileName.Old)) {
-                _File.CreateOldFile();
-            }
+            // if(!File.Exists(_Name.GetFileName.Classic)) {
+            //     _Console.WriteLine(_ServiceMessage.GetMessage.ClassicFileIsNotExists, ConsoleColor.DarkRed);
+            //     Console.ReadKey();
+            //     return;
+            // }
+            // if(!File.Exists(_Name.GetFileName.Old)) {
+            //     _File.CreateOldFile();
+            // }
 
             // SetElementColor(GetColor.Secondary, GetAddress.TopBar);
 
             // console preparations
             Console.OutputEncoding = System.Text.Encoding.UTF8;
-            Console.Title = "Console";
+            Console.Title = "Yum2Tools";
             Console.CursorVisible = false;
-            Console.SetWindowSize(_Console.Size[0], _Console.Size[1]);
-            Console.SetBufferSize(_Console.Size[0], _Console.Size[1]);
 
             // ui
             _Console.Drawing.CONSOLE_DRAW_MAIN();

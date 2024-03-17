@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.002.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YumToolkit", "YumToolkit.csproj", "{0D15135D-6DF2-46D1-8489-51EF0E65309B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Yum2Tools", "Yum2Tools.csproj", "{0D15135D-6DF2-46D1-8489-51EF0E65309B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
