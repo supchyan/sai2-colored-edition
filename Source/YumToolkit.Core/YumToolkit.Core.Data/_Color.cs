@@ -4,6 +4,7 @@ namespace YumToolkit.Core.Data {
     /// Alpha channel [ A ] is used for sequences separation. It should be equal to 0.
     /// </summary>
     public class _Color {
+        public static _Color GetColor = new _Color();
         public byte[] Primary { get; }
         public byte[] Secondary { get; }
         public _Color() {

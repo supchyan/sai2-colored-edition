@@ -1,12 +1,21 @@
-﻿using YumToolkit.Core;
+﻿using System.Drawing;
+using YumToolkit.Core;
 using YumToolkit.Core.Data;
 
 namespace YumToolkit {
-    class App : _YumTools {
+    class App {
         static void Main(string[] args) {
             if(!OperatingSystem.IsWindows()) {
                 Console.WriteLine($"This program cannot be run on {Environment.OSVersion}.");
                 return;
+            }
+            if(!File.Exists(_Name.GetFileName.Classic)) {
+                _Console.WriteLine(_ServiceMessage.GetMessage.ClassicFileIsNotExists, ConsoleColor.DarkRed);
+                Console.ReadKey();
+                return;
+            }
+            if(!File.Exists(_Name.GetFileName.Old)) {
+                _File.CreateOldFile();
             }
 
             // SetElementColor(GetColor.Secondary, GetAddress.TopBar);

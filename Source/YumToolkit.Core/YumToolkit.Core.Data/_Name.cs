@@ -1,5 +1,6 @@
 namespace YumToolkit.Core.Data {
     public class _Name {
+        public static _Name GetFileName = new _Name();
         public string Classic { get; }
         public string Dev { get; }
         public string Old { get; }

@@ -1,5 +1,6 @@
 namespace YumToolkit.Core.Data {
     public class _Address {
+        public static _Address GetAddress = new _Address();
         public int InActiveText { get; }
         public int InActiveCanvasBackground { get; }
         public int BehindLayersUIBackground { get; }
