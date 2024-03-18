@@ -10,60 +10,69 @@ namespace YumToolkit {
                 return;
             }
 
-            // if(!File.Exists(_Name.original)) {
-            //     _Console.WriteLine(_ServiceMessage.OriginalFileIsNotExists, ConsoleColor.DarkRed);
-            //     Console.ReadKey();
-            //     return;
-            // }
+            if(!File.Exists(_Name.original)) {
+                _Console.WriteLine(_ServiceMessage.OriginalFileIsNotExists, ConsoleColor.DarkRed);
+                Console.ReadKey();
+                return;
+            }
 
-            // // Creating backup file to restore data if needed;
-            // if(!File.Exists(_Name.old)) {
-            //     _File.CreateOldFile();
-            // }
+            // Creating backup file to restore data if needed;
+            if(!File.Exists(_Name.old)) {
+                _File.CreateOldFile();
+            }
 
-            // // Creating tmp .exe to replace binary data inside;
-            // if(!File.Exists(_Name.tmp)) {
-            //     _File.CreateTmpFile();
-            // }
+            // Creating tmp .exe to replace binary data inside;
+            if(!File.Exists(_Name.tmp)) {
+                _File.CreateTmpFile();
+            }
 
             // Replace binary colors
-            // _Theme.SetElementColor(_Color.Primary, _Address.InActiveCanvasBackground);
             // _Theme.SetElementColor(_Color.Primary, _Address.ActiveCanvasBackground);
             // _Theme.SetElementColor(_Color.Primary, _Address.ActiveCanvasBackground2);
             // _Theme.SetElementColor(_Color.Primary, _Address.ActiveCanvasBackground3);
             // _Theme.SetElementColor(_Color.Primary, _Address.ActiveCanvasBackground4);
-            // _Theme.SetElementColor(_Color.Secondary, _Address.BehindLayersUIBackground);
-            // _Theme.SetElementColor(_Color.Secondary, _Address.GlobalBorders);
-            // _Theme.SetElementColor(_Color.Secondary, _Address.GlobalBorders2);
-            // _Theme.SetElementColor(_Color.Primary, _Address.BrushBorders);
-            // _Theme.SetElementColor(_Color.Primary, _Address.Separator);
-            // _Theme.SetElementColor(_Color.Secondary, _Address.TopBar);
-            // _Theme.SetElementColor(_Color.LightGrey, _Address.TopBarText);
-            // _Theme.SetElementColor(_Color.Secondary, _Address.ContextMenu);
-            // _Theme.SetElementColor(_Color.LightGrey, _Address.ContextMenuText);
-            // _Theme.SetElementColor(_Color.Primary, _Address.SlidersVertical);
-            // _Theme.SetElementColor(_Color.Primary, _Address.SlidersHorizontal);
-            // _Theme.SetElementColor(_Color.Primary, _Address.GlobalResizeGrabber);
-            // _Theme.SetElementColor(_Color.Primary, _Address.TabsResizeGrabberVertical);
-            // _Theme.SetElementColor(_Color.Primary, _Address.TabsResizeGrabberHorizontal);
-            // _Theme.SetElementColor(_Color.Secondary, _Address.ScaleAngleSliders);
-            // _Theme.SetElementColor(_Color.Secondary, _Address.SlidersInActiveBackground);
-            // _Theme.SetElementColor(_Color.Primary, _Address.SlidersActiveBackground);
-            // _Theme.SetElementColor(_Color.Primary, _Address.SlidersActiveBackgroundHoveredFocused);
-            // _Theme.SetElementColor(_Color.Secondary, _Address.SlidersColor);
-            // _Theme.SetElementColor(_Color.Secondary, _Address.BookmarkBackgroundAndOutlinesSomewhere);
-            // _Theme.SetElementColor(_Color.Secondary, _Address.RadioButtonsBackground);
-            // _Theme.SetElementColor(_Color.LightGrey, _Address.FileMenuScrollableText);
-            // _Theme.SetElementColor(_Color.LightGrey, _Address.FileMenuTilesText);
-            // _Theme.SetElementColor(_Color.LightGrey, _Address.BrushesText);
+            _Theme.SetElementColor(_Color.Primary, _Address.InActiveCanvasBackground);
+            _Theme.SetElementColor(_Color.Primary, _Address.BehindLayersUIBackground);
+            _Theme.SetElementColor(_Color.Secondary, _Address.GlobalBorders);
+            _Theme.SetElementColor(_Color.Secondary, _Address.GlobalBorders2);
+            _Theme.SetElementColor(_Color.Secondary, _Address.BrushBorders);
+            _Theme.SetElementColor(_Color.Secondary, _Address.Separator);
+            _Theme.SetElementColor(_Color.Secondary, _Address.TopBar);
+            _Theme.SetElementColor(_Color.LightGrey, _Address.TopBarText);
+            _Theme.SetElementColor(_Color.Secondary, _Address.ContextMenu);
+            _Theme.SetElementColor(_Color.LightGrey, _Address.ContextMenuText);
+            _Theme.SetElementColor(_Color.Primary, _Address.SlidersVertical);
+            _Theme.SetElementColor(_Color.Primary, _Address.SlidersHorizontal);
+            _Theme.SetElementColor(_Color.Secondary, _Address.ResizeWindowGrabber);
+            _Theme.SetElementColor(_Color.Secondary, _Address.TabsResizeGrabberVertical);
+            _Theme.SetElementColor(_Color.Secondary, _Address.TabsResizeGrabberHorizontal);
+            _Theme.SetElementColor(_Color.Secondary, _Address.ScaleAngleSliders);
+            _Theme.SetElementColor(_Color.Secondary, _Address.SlidersInActiveBackground);
+            _Theme.SetElementColor(_Color.Primary, _Address.SlidersActiveBackground);
+            _Theme.SetElementColor(_Color.Primary, _Address.SlidersActiveBackgroundHoveredFocused);
+            _Theme.SetElementColor(_Color.Secondary, _Address.SlidersColor);
+            _Theme.SetElementColor(_Color.Secondary, _Address.BookmarkBackgroundAndOutlinesSomewhere);
+            _Theme.SetElementColor(_Color.Secondary, _Address.RadioButtonsBackground);
+            _Theme.SetElementColor(_Color.LightGrey, _Address.FileMenuScrollableText);
+            _Theme.SetElementColor(_Color.LightGrey, _Address.FileMenuTilesText);
+            _Theme.SetElementColor(_Color.LightGrey, _Address.BrushesText);
             
+            _Theme.SetElementColorComplicated(_Color.Primary, _Address.BrushesFileMenuTilesScrollableListsBackground[0], _Address.BrushesFileMenuTilesScrollableListsBackground[1], _Color.White);
+            
+            _Theme.SetElementColorComplicated(_Color.Secondary, _Address.GlobalSectionSrclibs[0], _Address.GlobalSectionSrclibs[1], _Color.DefaultColor1);
+            _Theme.SetElementColorComplicated(_Color.Secondary, _Address.GlobalSectionSrclibs[0], _Address.GlobalSectionSrclibs[1], _Color.DefaultColor2);
+            _Theme.SetElementColorComplicated(_Color.Secondary, _Address.GlobalSectionSrclibs[0], _Address.GlobalSectionSrclibs[1], _Color.DefaultColor3);
+            _Theme.SetElementColorComplicated(_Color.Secondary, _Address.GlobalSectionSrclibs[0], _Address.GlobalSectionSrclibs[1], _Color.DefaultColor4);
+            _Theme.SetElementColorComplicated(_Color.Secondary, _Address.GlobalSectionSrclibs[0], _Address.GlobalSectionSrclibs[1], _Color.DefaultColor5);
+            _Theme.SetElementColorComplicated(_Color.Secondary, _Address.GlobalSectionSrclibs[0], _Address.GlobalSectionSrclibs[1], _Color.DefaultColor6);
+            _Theme.SetElementColorComplicated(_Color.Primary, _Address.SomeButtons[0], _Address.SomeButtons[1], _Color.DefaultColor7);
+            _Theme.SetElementColorComplicated(_Color.Secondary, _Address.GlobalSectionSrclibs[0], _Address.GlobalSectionSrclibs[1], _Color.DefaultColor8);
+            _Theme.SetElementColorComplicated(_Color.Secondary, _Address.SomeButtons[0], _Address.SomeButtons[1], _Color.DefaultColor9);
+            _Theme.SetElementColorComplicated(_Color.Secondary, _Address.GlobalSectionAppskin[0], _Address.GlobalSectionAppskin[1], _Color.DefaultColor10);
+            // _Theme.SetElementColorComplicated(_Color.Secondary, _Address.GlobalSectionSrclibs[0], _Address.GlobalSectionSrclibs[1], _Color.DefaultColor11);
 
-
-            _Theme.SetElementColorComplicated(_Color.Secondary, 0, 32, _Color.Test);
-            Console.ReadKey();
-            return;
-            // _Theme.SaveTheme();
-            //
+            _Theme.SaveTheme();
+            
 
             // Removing unnecessary file.
             if(File.Exists(_Name.tmp)) {

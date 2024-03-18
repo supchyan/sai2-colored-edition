@@ -15,6 +15,16 @@ namespace YumToolkit.Core {
             for(int i = 0; i < color.Length; i++) { binary[color_address + i] = color[i]; }
             
         }
+        static bool WrongSequence(byte[] bin, int index, byte[] default_color) {
+            // If some bytes in sequence doesn't equal certain default_color -> skip this sequence and go to next one.
+            // Useful to replace huge sequence arrays.
+            for(int cur_index = 0; cur_index  < 4; cur_index++) {
+                if(bin[index + cur_index] != default_color[cur_index]) {
+                    return true;
+                }
+            }
+            return false;
+        }
         /// <summary>
         /// Searches sequences in certain byte's range and replaces pack of the colors. 
         /// P.S. Some parts of the SAI2 contains long byte sequences, which is hard to debug, so I decided to replace it at one try,
@@ -26,24 +36,11 @@ namespace YumToolkit.Core {
         /// <param name="end_index">End of byte sequence</param>
         /// <param name="default_color">Color, which should be replaced</param>
         public static void SetElementColorComplicated(byte[] color, int start_index, int end_index, byte[] default_color) {
-            // if(!File.Exists(_Name.tmp)) {
-            //     Console.Clear();
-            //     _Console.WriteLine(_ServiceMessage.TmpFileIsNotExists, ConsoleColor.DarkRed);
-            //     return;
-            // }
-
-            // TODO замена только нужных цветов в огромном массиве последовательностей
-
-            byte[] tmp = 
-            [   0,0,0,0,
-                0,0,0,0,
-                1,1,1,1,
-                2,2,2,2,
-                0,0,0,0,
-                0,0,0,0,
-                1,1,1,1,
-                2,2,2,2
-            ];
+            if(!File.Exists(_Name.tmp)) {
+                Console.Clear();
+                _Console.WriteLine(_ServiceMessage.TmpFileIsNotExists, ConsoleColor.DarkRed);
+                return;
+            }
 
             // RGBA in SAI2 is BGRA. Live your life with that.
             (color[0], color[2]) = (color[2], color[0]);
@@ -51,31 +48,31 @@ namespace YumToolkit.Core {
             // Find certain sequence position and move on until the end
             for(int index = start_index; index < end_index; index += 4) {
                 
-                // If some bytes in sequence isn't equals certain default_color -> skip this sequence and go to next one.
-                for(int cur_index = 0; cur_index  < 4; cur_index++) {
-                    if(tmp[index + cur_index] != default_color[cur_index]) {
-                        break;
-                    }
+                if(WrongSequence(binary, index, default_color)) { 
+                    // _Console.WriteLine($"Wrong sequence. current is {binary[index]} {binary[index+1]} {binary[index+2]} {binary[index+3]}.", ConsoleColor.DarkYellow);
+                    continue;
                 }
 
                 // Change color in certain sequence
                 for(int col_index = 0; col_index  < color.Length; col_index++) {
-                    tmp[index + col_index] = color[col_index];
+                    binary[index + col_index] = color[col_index];
                 }
+                _Console.WriteLine($"Sequence overwritten!", ConsoleColor.DarkGreen);
                 
             }
-
-            Console.WriteLine("[{0}]", string.Join(", ", tmp));
             
         }
+
+        /// <summary>
+        /// Saves current theme changes.
+        /// </summary>
         public static void SaveTheme() {
             try {
                 File.WriteAllBytes(_Name.original, binary);
                 Console.Clear();
-                _Console.Write($"Binary data overwritten!", ConsoleColor.DarkGreen);
+                _Console.Write($"All colors data overwritten!", ConsoleColor.Green);
 
             } catch (Exception e) {
-                Console.Clear();
                 _Console.WriteLine($"{e}",ConsoleColor.DarkRed);
                 
             }
