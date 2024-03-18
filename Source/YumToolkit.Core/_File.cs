@@ -1,27 +1,27 @@
 using YumToolkit.Core.Data;
 namespace YumToolkit.Core {
     public class _File {
-        public static void CreateDevFile() {
-            if(!File.Exists(_Name.GetFileName.Classic)) {
-                _Console.WriteLine(_ServiceMessage.GetMessage.ClassicFileIsNotExists, ConsoleColor.DarkRed);
+        public static void CreateTmpFile() {
+            if(!File.Exists(_Name.original)) {
+                _Console.WriteLine(_ServiceMessage.OriginalFileIsNotExists, ConsoleColor.DarkRed);
                 return;
-            } File.Copy(_Name.GetFileName.Classic, _Name.GetFileName.Dev);
+            } File.Copy(_Name.original, _Name.tmp);
         }
-        public static void DeleteDevFile() {
-            if(File.Exists(_Name.GetFileName.Dev)) {
-                File.Delete(_Name.GetFileName.Dev);
+        public static void DeleteTmpFile() {
+            if(File.Exists(_Name.tmp)) {
+                File.Delete(_Name.tmp);
             }
         }
 
         public static void CreateOldFile() {
-            if(!File.Exists(_Name.GetFileName.Classic)) {
-                _Console.WriteLine(_ServiceMessage.GetMessage.ClassicFileIsNotExists, ConsoleColor.DarkRed);
+            if(!File.Exists(_Name.original)) {
+                _Console.WriteLine(_ServiceMessage.OriginalFileIsNotExists, ConsoleColor.DarkRed);
                 return;
-            } File.Copy(_Name.GetFileName.Classic, _Name.GetFileName.Old);
+            } File.Copy(_Name.original, _Name.old);
         }
         public static void DeleteOldFile() {
-            if(File.Exists(_Name.GetFileName.Old)) {
-                File.Delete(_Name.GetFileName.Old);
+            if(File.Exists(_Name.old)) {
+                File.Delete(_Name.old);
             }
         }
     }

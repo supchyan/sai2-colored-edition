@@ -1,33 +1,45 @@
 namespace YumToolkit.Core.Data {
-    public class _Address {
-        public static _Address GetAddress = new _Address();
-        public int InActiveText { get; }
-        public int InActiveCanvasBackground { get; }
-        public int BehindLayersUIBackground { get; }
-        public int ActiveCanvasBackground { get; }
-        public int ActiveCanvasBackground2 { get; }
-        public int ActiveCanvasBackground3 { get; }
-        public int ActiveCanvasBackground4 { get; }
-        public int GlobalBorders { get; }
-        public int GlobalBorders2 { get; }
-        public int BrushBorders { get; }
-        public int Separator { get; }
-        public int TopBar { get; }
-        public int TopBarText { get; }
-        public int TopBarTextHovered { get; }
-        public int TopBarTextFocused { get; }
-        public int ContextMenu { get; }
-        public int ContextMenuText { get; }
-        public int ContextMenuTextHovered { get; }
-        public int ContextMenuTextFocused { get; }
-        public int SlidersVertical { get; }
-        public int SlidersHorizontal { get; }
-        public int GlobalResizeGrabber { get; }
-        public int TabsResizeGrabberVertical { get; }
-        public int TabsResizeGrabberHorizontal { get; }
-        public int ScaleAngleSliders { get; }
+    public static class _Address {
+        public static int InActiveText { get; }
+        public static int InActiveCanvasBackground { get; }
+        public static int BehindLayersUIBackground { get; }
+        public static int ActiveCanvasBackground { get; }
+        public static int ActiveCanvasBackground2 { get; }
+        public static int ActiveCanvasBackground3 { get; }
+        public static int ActiveCanvasBackground4 { get; }
+        public static int GlobalBorders { get; }
+        public static int GlobalBorders2 { get; }
+        public static int BrushBorders { get; }
+        public static int Separator { get; }
+        public static int TopBar { get; }
+        public static int TopBarText { get; }
+        public static int TopBarTextHovered { get; }
+        public static int TopBarTextFocused { get; }
+        public static int ContextMenu { get; }
+        public static int ContextMenuText { get; }
+        public static int ContextMenuTextHovered { get; }
+        public static int ContextMenuTextFocused { get; }
+        public static int SlidersVertical { get; }
+        public static int SlidersHorizontal { get; }
+        public static int GlobalResizeGrabber { get; }
+        public static int TabsResizeGrabberVertical { get; }
+        public static int TabsResizeGrabberHorizontal { get; }
+        public static int ScaleAngleSliders { get; }
+        public static int SlidersInActiveBackground { get; }
+        public static int SlidersActiveBackground { get; }
+        public static int SlidersActiveBackgroundHoveredFocused { get; }
+        public static int SlidersColor { get; }
+        public static int BookmarkBackgroundAndOutlinesSomewhere { get; }
+        public static int MinimizeApplicationIcon { get; }
+        public static int MaximizeApplicationIcon { get; }
+        public static int CloseApplicationIcon { get; }
+        public static int RadioButtonsBackground { get; }
+        public static int FileMenuScrollableText { get; }
+        public static int FileMenuTilesText { get; }
+        public static int BrushesText { get; }
+        public static int[] BrushesFileMenuTilesScrollableListsBackground { get; }
         
-        public _Address() {
+        static _Address() {
             InActiveText = "0x001BC95B".GetDecimalAddress();
             InActiveCanvasBackground = "0x00534688".GetDecimalAddress();
             BehindLayersUIBackground = "0x0053468C".GetDecimalAddress();
@@ -53,6 +65,21 @@ namespace YumToolkit.Core.Data {
             TabsResizeGrabberVertical = "0x00535E28".GetDecimalAddress();
             TabsResizeGrabberHorizontal = "0x00535CD8".GetDecimalAddress();
             ScaleAngleSliders = "0x00536C00".GetDecimalAddress();
+            SlidersInActiveBackground = "0x0031B4B8".GetDecimalAddress();
+            SlidersActiveBackground = "0x0031B498".GetDecimalAddress();
+            SlidersActiveBackgroundHoveredFocused = "0x0031B49C".GetDecimalAddress();
+            SlidersColor = "0x0031B4C0".GetDecimalAddress();
+            BookmarkBackgroundAndOutlinesSomewhere = "0x003709B0".GetDecimalAddress();
+            MinimizeApplicationIcon = "0x00535568".GetDecimalAddress();
+            MaximizeApplicationIcon = "0x00535590".GetDecimalAddress();
+            CloseApplicationIcon = "0x005355E0".GetDecimalAddress();
+            RadioButtonsBackground = "0x0053644C".GetDecimalAddress();
+            FileMenuScrollableText = "0x00370A40".GetDecimalAddress();
+            FileMenuTilesText = "0x00370B30".GetDecimalAddress();
+            BrushesText = "0x00370760".GetDecimalAddress();
+            BrushesFileMenuTilesScrollableListsBackground = ["0x004D1038".GetDecimalAddress(), "0x004D1C33".GetDecimalAddress()];
         }
     }
 }
+
+// BrushesFileMenuTilesScrollableListsBackground = [5050424, 5053491] ^

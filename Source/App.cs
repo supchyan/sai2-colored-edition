@@ -9,16 +9,69 @@ namespace YumToolkit {
                 Console.WriteLine($"This program cannot be run on {Environment.OSVersion}.");
                 return;
             }
-            // if(!File.Exists(_Name.GetFileName.Classic)) {
-            //     _Console.WriteLine(_ServiceMessage.GetMessage.ClassicFileIsNotExists, ConsoleColor.DarkRed);
+
+            // if(!File.Exists(_Name.original)) {
+            //     _Console.WriteLine(_ServiceMessage.OriginalFileIsNotExists, ConsoleColor.DarkRed);
             //     Console.ReadKey();
             //     return;
             // }
-            // if(!File.Exists(_Name.GetFileName.Old)) {
+
+            // // Creating backup file to restore data if needed;
+            // if(!File.Exists(_Name.old)) {
             //     _File.CreateOldFile();
             // }
 
-            // SetElementColor(GetColor.Secondary, GetAddress.TopBar);
+            // // Creating tmp .exe to replace binary data inside;
+            // if(!File.Exists(_Name.tmp)) {
+            //     _File.CreateTmpFile();
+            // }
+
+            // Replace binary colors
+            // _Theme.SetElementColor(_Color.Primary, _Address.InActiveCanvasBackground);
+            // _Theme.SetElementColor(_Color.Primary, _Address.ActiveCanvasBackground);
+            // _Theme.SetElementColor(_Color.Primary, _Address.ActiveCanvasBackground2);
+            // _Theme.SetElementColor(_Color.Primary, _Address.ActiveCanvasBackground3);
+            // _Theme.SetElementColor(_Color.Primary, _Address.ActiveCanvasBackground4);
+            // _Theme.SetElementColor(_Color.Secondary, _Address.BehindLayersUIBackground);
+            // _Theme.SetElementColor(_Color.Secondary, _Address.GlobalBorders);
+            // _Theme.SetElementColor(_Color.Secondary, _Address.GlobalBorders2);
+            // _Theme.SetElementColor(_Color.Primary, _Address.BrushBorders);
+            // _Theme.SetElementColor(_Color.Primary, _Address.Separator);
+            // _Theme.SetElementColor(_Color.Secondary, _Address.TopBar);
+            // _Theme.SetElementColor(_Color.LightGrey, _Address.TopBarText);
+            // _Theme.SetElementColor(_Color.Secondary, _Address.ContextMenu);
+            // _Theme.SetElementColor(_Color.LightGrey, _Address.ContextMenuText);
+            // _Theme.SetElementColor(_Color.Primary, _Address.SlidersVertical);
+            // _Theme.SetElementColor(_Color.Primary, _Address.SlidersHorizontal);
+            // _Theme.SetElementColor(_Color.Primary, _Address.GlobalResizeGrabber);
+            // _Theme.SetElementColor(_Color.Primary, _Address.TabsResizeGrabberVertical);
+            // _Theme.SetElementColor(_Color.Primary, _Address.TabsResizeGrabberHorizontal);
+            // _Theme.SetElementColor(_Color.Secondary, _Address.ScaleAngleSliders);
+            // _Theme.SetElementColor(_Color.Secondary, _Address.SlidersInActiveBackground);
+            // _Theme.SetElementColor(_Color.Primary, _Address.SlidersActiveBackground);
+            // _Theme.SetElementColor(_Color.Primary, _Address.SlidersActiveBackgroundHoveredFocused);
+            // _Theme.SetElementColor(_Color.Secondary, _Address.SlidersColor);
+            // _Theme.SetElementColor(_Color.Secondary, _Address.BookmarkBackgroundAndOutlinesSomewhere);
+            // _Theme.SetElementColor(_Color.Secondary, _Address.RadioButtonsBackground);
+            // _Theme.SetElementColor(_Color.LightGrey, _Address.FileMenuScrollableText);
+            // _Theme.SetElementColor(_Color.LightGrey, _Address.FileMenuTilesText);
+            // _Theme.SetElementColor(_Color.LightGrey, _Address.BrushesText);
+            
+
+
+            _Theme.SetElementColorComplicated(_Color.Secondary, 0, 32, _Color.Test);
+            Console.ReadKey();
+            return;
+            // _Theme.SaveTheme();
+            //
+
+            // Removing unnecessary file.
+            if(File.Exists(_Name.tmp)) {
+                _File.DeleteTmpFile();
+            }
+
+            Console.ReadKey();
+            return;
 
             // console preparations
             Console.OutputEncoding = System.Text.Encoding.UTF8;

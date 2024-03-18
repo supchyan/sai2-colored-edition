@@ -1,13 +1,12 @@
 namespace YumToolkit.Core.Data {
-    public class _ServiceMessage {
-        public static _ServiceMessage GetMessage = new _ServiceMessage();
-        public string DevFileIsNotExists { get; }
-        public string ClassicFileIsNotExists { get; }
-        public string ExitMessage { get; }
-        public _ServiceMessage() {
+    public static class _ServiceMessage {
+        public static string TmpFileIsNotExists { get; }
+        public static string OriginalFileIsNotExists { get; }
+        public static string ExitMessage { get; }
+        static _ServiceMessage() {
             ExitMessage = "Press any key to exit...";
-            DevFileIsNotExists = $"[ ERROR ] {_Name.GetFileName.Dev} is not found. {ExitMessage}";
-            ClassicFileIsNotExists = $"[ ERROR ] {_Name.GetFileName.Classic} is not found. {ExitMessage}";
+            TmpFileIsNotExists = $"[ ERROR ] {_Name.tmp} is not found. {ExitMessage}";
+            OriginalFileIsNotExists = $"[ ERROR ] {_Name.original} is not found. {ExitMessage}";
         }
     }
 }

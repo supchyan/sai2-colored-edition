@@ -1,13 +1,12 @@
 namespace YumToolkit.Core.Data {
-    public class _Name {
-        public static _Name GetFileName = new _Name();
-        public string Classic { get; }
-        public string Dev { get; }
-        public string Old { get; }
-        public _Name() {
-            Classic = "sai2.exe";
-            Dev = "sai2.dev.exe";
-            Old = "sai2.old.exe";
+    public static class _Name {
+        public static string original { get; }
+        public static string tmp { get; }
+        public static string old { get; }
+        static _Name() {
+            original = "sai2.exe";
+            tmp = "sai2.dev.exe";
+            old = "sai2.old.exe";
         }
     }
 }
