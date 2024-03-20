@@ -59,17 +59,17 @@ namespace YumToolkit {
             
             _Theme.SetElementColorComplicated(_Color.Primary, _Address.BrushesFileMenuTilesScrollableListsBackground[0], _Address.BrushesFileMenuTilesScrollableListsBackground[1], _Color.White);
             
-            _Theme.SetElementColorComplicated(_Color.Secondary, _Address.GlobalSectionSrclibs[0], _Address.GlobalSectionSrclibs[1], _Color.DefaultColor1);
-            _Theme.SetElementColorComplicated(_Color.Secondary, _Address.GlobalSectionSrclibs[0], _Address.GlobalSectionSrclibs[1], _Color.DefaultColor2);
-            _Theme.SetElementColorComplicated(_Color.Secondary, _Address.GlobalSectionSrclibs[0], _Address.GlobalSectionSrclibs[1], _Color.DefaultColor3);
-            _Theme.SetElementColorComplicated(_Color.Secondary, _Address.GlobalSectionSrclibs[0], _Address.GlobalSectionSrclibs[1], _Color.DefaultColor4);
-            _Theme.SetElementColorComplicated(_Color.Secondary, _Address.GlobalSectionSrclibs[0], _Address.GlobalSectionSrclibs[1], _Color.DefaultColor5);
-            _Theme.SetElementColorComplicated(_Color.Secondary, _Address.GlobalSectionSrclibs[0], _Address.GlobalSectionSrclibs[1], _Color.DefaultColor6);
-            _Theme.SetElementColorComplicated(_Color.Primary, _Address.SomeButtons[0], _Address.SomeButtons[1], _Color.DefaultColor7);
-            _Theme.SetElementColorComplicated(_Color.Secondary, _Address.GlobalSectionSrclibs[0], _Address.GlobalSectionSrclibs[1], _Color.DefaultColor8);
-            _Theme.SetElementColorComplicated(_Color.Secondary, _Address.SomeButtons[0], _Address.SomeButtons[1], _Color.DefaultColor9);
+            _Theme.SetElementColorComplicated(_Color.Secondary, _Address.LayerServiceButtons[0], _Address.LayerServiceButtons[1], _Color.DefaultColor1);
+            _Theme.SetElementColorComplicated(_Color.Secondary, _Address.LayerServiceButtons[0], _Address.LayerServiceButtons[1], _Color.DefaultColor2);
+            _Theme.SetElementColorComplicated(_Color.Secondary, _Address.LayerServiceButtons[0], _Address.LayerServiceButtons[1], _Color.DefaultColor3);
+            _Theme.SetElementColorComplicated(_Color.Secondary, _Address.LayerServiceButtons[0], _Address.LayerServiceButtons[1], _Color.DefaultColor4);
+            _Theme.SetElementColorComplicated(_Color.Secondary, _Address.LayerServiceButtons[0], _Address.LayerServiceButtons[1], _Color.DefaultColor5);
+            _Theme.SetElementColorComplicated(_Color.Secondary, _Address.LayerServiceButtons[0], _Address.LayerServiceButtons[1], _Color.DefaultColor6);
+            _Theme.SetElementColorComplicated(_Color.Primary, _Address.LayerServiceButtons[0], _Address.LayerServiceButtons[1], _Color.DefaultColor7);
+            _Theme.SetElementColorComplicated(_Color.Secondary, _Address.LayerServiceButtons[0], _Address.LayerServiceButtons[1], _Color.DefaultColor8);
+            _Theme.SetElementColorComplicated(_Color.Secondary, _Address.LayerServiceButtons[0], _Address.LayerServiceButtons[1], _Color.DefaultColor9);
             _Theme.SetElementColorComplicated(_Color.Secondary, _Address.GlobalSectionAppskin[0], _Address.GlobalSectionAppskin[1], _Color.DefaultColor10);
-            // _Theme.SetElementColorComplicated(_Color.Secondary, _Address.GlobalSectionSrclibs[0], _Address.GlobalSectionSrclibs[1], _Color.DefaultColor11);
+            _Theme.SetElementColorComplicated(_Color.Secondary, _Address.LayerServiceButtons[0], _Address.LayerServiceButtons[1], _Color.DefaultColor11);
 
             _Theme.SaveTheme();
             
