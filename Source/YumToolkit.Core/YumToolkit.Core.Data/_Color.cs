@@ -58,6 +58,14 @@ namespace YumToolkit.Core.Data {
         /// #F8F8F8F8
         /// </summary>
         public static byte[] DefaultColor11 { get; }
+        /// <summary>
+        /// #F0F0F000
+        /// </summary>
+        public static byte[] DefaultColor12 { get; }
+        /// <summary>
+        /// #ACACACAC
+        /// </summary>
+        public static byte[] DefaultColor13 { get; }
 
         static _Color() {
             Primary = [ 32, 32, 32, 32 ];
@@ -79,6 +87,8 @@ namespace YumToolkit.Core.Data {
             DefaultColor9 = [ 238, 238, 238, 0];
             DefaultColor10 = [ 240, 240, 240, 240];
             DefaultColor11 = [ 248, 248, 248, 248];
+            DefaultColor12 = [ 240, 240, 240, 0];
+            DefaultColor13 = [ 172, 172, 172, 172];
         }
     }
 }

@@ -15,10 +15,10 @@ namespace YumToolkit.Core {
             for(int i = 0; i < color.Length; i++) { binary[color_address + i] = color[i]; }
             
         }
-        static bool WrongSequence(byte[] bin, int index, byte[] default_color) {
+        static bool WrongSequence(byte[] bin, int index, byte[] default_color, int interval) {
             // If some bytes in sequence doesn't equal certain default_color -> skip this sequence and go to next one.
             // Useful to replace huge sequence arrays.
-            for(int cur_index = 0; cur_index  < 4; cur_index++) {
+            for(int cur_index = 0; cur_index  < interval; cur_index++) {
                 if(bin[index + cur_index] != default_color[cur_index]) {
                     return true;
                 }
@@ -48,7 +48,7 @@ namespace YumToolkit.Core {
             // Find certain sequence position and move on until the end
             for(int index = start_index; index < end_index; index += 4) {
                 
-                if(WrongSequence(binary, index, default_color)) { 
+                if(WrongSequence(binary, index, default_color, 4)) { 
                     // _Console.WriteLine($"Wrong sequence. current is {binary[index]} {binary[index+1]} {binary[index+2]} {binary[index+3]}.", ConsoleColor.DarkYellow);
                     continue;
                 }
@@ -57,8 +57,39 @@ namespace YumToolkit.Core {
                 for(int col_index = 0; col_index  < color.Length; col_index++) {
                     binary[index + col_index] = color[col_index];
                 }
-                _Console.WriteLine($"Sequence overwritten!", ConsoleColor.DarkGreen);
+                _Console.WriteLine($"{binary[index]}", ConsoleColor.DarkGreen);
                 
+            }
+            
+        }
+
+        // ??? not working im dumb
+        public static void FixColorPicker(int start_index, int end_index, byte[] color) {
+            for(byte col = 215; col < 248; col++) {
+                if(!File.Exists(_Name.tmp)) {
+                    Console.Clear();
+                    _Console.WriteLine(_ServiceMessage.TmpFileIsNotExists, ConsoleColor.DarkRed);
+                    return;
+                }
+
+                // RGBA in SAI2 is BGRA. Live your life with that.
+                (color[0], color[2]) = (color[2], color[0]);
+
+                // Find certain sequence position and move on until the end
+                for(int index = start_index; index < end_index; index += 4) {
+                    
+                    if(WrongSequence(binary, index, [col,col,col], 3)) { 
+                        // _Console.WriteLine($"Wrong sequence. current is {binary[index]} {binary[index+1]} {binary[index+2]} {binary[index+3]}.", ConsoleColor.DarkYellow);
+                        continue;
+                    }
+
+                    // Change color in certain sequence
+                    for(int col_index = 0; col_index  < color.Length - 1; col_index++) {
+                        binary[index + col_index] = color[col_index];
+                    }
+                    _Console.WriteLine($"{binary[index]}", ConsoleColor.DarkGreen);
+                    
+                }
             }
             
         }
