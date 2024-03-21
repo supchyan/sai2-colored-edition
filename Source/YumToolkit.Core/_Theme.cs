@@ -35,8 +35,8 @@ namespace YumToolkit.Core {
         /// <param name="start_index">Beggining of byte sequence</param>
         /// <param name="end_index">End of byte sequence</param>
         /// <param name="default_color">Color, which should be replaced</param>
-        /// /// <param name="isArtefacted">Condition for semi colors replacer behavior. False as default</param>
-        public static void SetElementColorComplicated(byte[] color, int start_index, int end_index, byte[] default_color, bool isArtefacted = false) {
+        /// /// <param name="isArtifacted">Condition for semi colors replacer behavior. False as default</param>
+        public static void SetElementColorComplicated(byte[] color, int start_index, int end_index, byte[] default_color, bool isArtifacted = false) {
             if(!File.Exists(_Name.tmp)) {
                 Console.Clear();
                 _Console.WriteLine(_ServiceMessage.TmpFileIsNotExists, ConsoleColor.DarkRed);
@@ -46,7 +46,7 @@ namespace YumToolkit.Core {
             // RGBA in SAI2 is BGRA. Live your life with that.
             (color[0], color[2]) = (color[2], color[0]);
             
-            int value = isArtefacted ? 1 : color.Length;
+            int value = isArtifacted ? 1 : color.Length;
             // Find certain sequence position and move on until the end
             for(int index = start_index; index < end_index; index += value) {
                 
@@ -61,7 +61,7 @@ namespace YumToolkit.Core {
             
         }
 
-        // ??? not working im dumb
+        // ??? Should fix color picker circle, but doesn't. I'm blind to fix it, so anybody will, someday. 
         static byte[] col = [0,0,0];
         public static void FixColorPicker(int start_index, int end_index, byte[] color) {
             for(byte i = 1; i < 254; i++) {

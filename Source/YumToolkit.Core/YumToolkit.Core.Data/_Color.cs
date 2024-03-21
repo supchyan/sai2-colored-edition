@@ -100,42 +100,6 @@ namespace YumToolkit.Core.Data {
         /// </summary>
         public static byte[] DefaultColor21 { get; }
 
-
-
-        /// <summary>
-        /// # FF FF Elements[0]
-        /// </summary>
-        public static byte[] ArtefactsColor1 { get; }
-        /// <summary>
-        /// # Elements[0] FF FF
-        /// </summary>
-        public static byte[] ArtefactsColor2 { get; }
-        /// <summary>
-        /// # F8 Elements[0] Elements[0]
-        /// </summary>
-        public static byte[] ArtefactsColor3 { get; }
-        /// <summary>
-        /// # Elements[0] Elements[0] F8
-        /// </summary>
-        public static byte[] ArtefactsColor4 { get; }
-        /// <summary>
-        /// # F8 F8 Elements[0]
-        /// </summary>
-        public static byte[] ArtefactsColor5 { get; }
-        /// <summary>
-        /// # Elements[0] F8 F8
-        /// </summary>
-        public static byte[] ArtefactsColor6 { get; }
-        /// <summary>
-        /// # F8 F8 Elements[0]
-        /// </summary>
-        public static byte[] ArtefactsColor7 { get; }
-        /// <summary>
-        /// # Elements[0] Elements[0] F8
-        /// </summary>
-        public static byte[] ArtefactsColor8 { get; }
-        
-
         static _Color() {
             Primary = [ 32, 32, 32, 32 ];
             Secondary = [ 48, 48, 48, 48 ];
@@ -168,15 +132,57 @@ namespace YumToolkit.Core.Data {
             DefaultColor20 = [ 222, 222, 222 ];
             DefaultColor21 = [ 248, 248, 248 ];
 
-            // Artefacts fix
-            ArtefactsColor1 = [ 255, 255, Elements[0] ];
-            ArtefactsColor2 = [ Elements[0], 255, 255 ];
-            ArtefactsColor3 = [ 248, Elements[0], Elements[0] ];
-            ArtefactsColor4 = [ Elements[0], 248, 248 ];
-            ArtefactsColor5 = [ 255, 255, Elements[0] ];
-            ArtefactsColor6 = [ Elements[0], 255, 255 ];
-            ArtefactsColor7 = [ 248, 248, Elements[0] ];
-            ArtefactsColor8 = [ Elements[0], Elements[0], 248 ];
+        }
+        public static class _SemiColor {
+            public static byte[] SecondaryRGB { get; }
+            public static byte[] ElementsRGB { get; }
+            /// <summary>
+            /// # FF FF Elements[0]
+            /// </summary>
+            public static byte[] ArtifactsColor1 { get; }
+            /// <summary>
+            /// # Elements[0] FF FF
+            /// </summary>
+            public static byte[] ArtifactsColor2 { get; }
+            /// <summary>
+            /// # F8 Elements[0] Elements[0]
+            /// </summary>
+            public static byte[] ArtifactsColor3 { get; }
+            /// <summary>
+            /// # Elements[0] Elements[0] F8
+            /// </summary>
+            public static byte[] ArtifactsColor4 { get; }
+            /// <summary>
+            /// # F8 F8 Elements[0]
+            /// </summary>
+            public static byte[] ArtifactsColor5 { get; }
+            /// <summary>
+            /// # Elements[0] F8 F8
+            /// </summary>
+            public static byte[] ArtifactsColor6 { get; }
+            /// <summary>
+            /// # F8 F8 Elements[0]
+            /// </summary>
+            public static byte[] ArtifactsColor7 { get; }
+            /// <summary>
+            /// # Elements[0] Elements[0] F8
+            /// </summary>
+            public static byte[] ArtifactsColor8 { get; }
+
+            static _SemiColor() {
+                SecondaryRGB = Secondary.Where(n => n != Secondary[3]).ToArray();
+                ElementsRGB = Elements.Where(n => n != Elements[3]).ToArray();
+
+                // Artifacts fix
+                ArtifactsColor1 = [ 255, 255, Elements[0] ];
+                ArtifactsColor2 = [ Elements[0], 255, 255 ];
+                ArtifactsColor3 = [ 248, Elements[0], Elements[0] ];
+                ArtifactsColor4 = [ Elements[0], 248, 248 ];
+                ArtifactsColor5 = [ 255, 255, Elements[0] ];
+                ArtifactsColor6 = [ Elements[0], 255, 255 ];
+                ArtifactsColor7 = [ 248, 248, Elements[0] ];
+                ArtifactsColor8 = [ Elements[0], Elements[0], 248 ];
+            }
         }
     }
 }

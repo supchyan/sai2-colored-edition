@@ -39,9 +39,7 @@ namespace YumToolkit {
             _Theme.SetElementColor(_Color.Primary, _Address.BrushBorders);
             _Theme.SetElementColor(_Color.Secondary, _Address.Separator);
             _Theme.SetElementColor(_Color.Secondary, _Address.TopBar);
-            _Theme.SetElementColor(_Color.LightGrey, _Address.TopBarText);
             _Theme.SetElementColor(_Color.Secondary, _Address.ContextMenu);
-            _Theme.SetElementColor(_Color.LightGrey, _Address.ContextMenuText);
             _Theme.SetElementColor(_Color.Primary, _Address.SlidersVertical);
             _Theme.SetElementColor(_Color.Primary, _Address.SlidersHorizontal);
             _Theme.SetElementColor(_Color.Secondary, _Address.ResizeWindowGrabber);
@@ -54,10 +52,12 @@ namespace YumToolkit {
             _Theme.SetElementColor(_Color.Secondary, _Address.SlidersColor);
             _Theme.SetElementColor(_Color.Secondary, _Address.BookmarkBackgroundAndOutlinesSomewhere);
             _Theme.SetElementColor(_Color.Secondary, _Address.RadioButtonsBackground);
+            _Theme.SetElementColor(_Color.Black, _Address.BrushesSpecialText);
+            _Theme.SetElementColor(_Color.LightGrey, _Address.ContextMenuText);
+            _Theme.SetElementColor(_Color.LightGrey, _Address.TopBarText);
             // _Theme.SetElementColor(_Color.LightGrey, _Address.FileMenuScrollableText);
             // _Theme.SetElementColor(_Color.LightGrey, _Address.FileMenuTilesText);
             // _Theme.SetElementColor(_Color.LightGrey, _Address.BrushesText);
-            _Theme.SetElementColor(_Color.Black, _Address.BrushesSpecialText);
             // _Theme.SetElementColor(_Color.LightGrey, _Address.BrushesTabsText);
             // _Theme.SetElementColor(_Color.LightGrey, _Address.BrushesCirclesText);
             
@@ -80,25 +80,25 @@ namespace YumToolkit {
             _Theme.SetElementColorComplicated(_Color.Elements, _Address.GlobalSectionAppskin[0], _Address.GlobalSectionAppskin[1], _Color.DefaultColor13);
             
             // Semi colors fixes [ borders in sort of buttons ]
-            _Theme.SetElementColorComplicated([_Color.Elements[0],_Color.Elements[1],_Color.Elements[2]], _Address.GlobalSectionSrclibs[0], _Address.GlobalSectionSrclibs[1], _Color.DefaultColor14, true);
-            _Theme.SetElementColorComplicated([_Color.Elements[0],_Color.Elements[1],_Color.Elements[2]], _Address.GlobalSectionSrclibs[0], _Address.GlobalSectionSrclibs[1], _Color.DefaultColor15, true);
-            _Theme.SetElementColorComplicated([_Color.Elements[0],_Color.Elements[1],_Color.Elements[2]], _Address.GlobalSectionSrclibs[0], _Address.GlobalSectionSrclibs[1], _Color.DefaultColor16, true);
-            _Theme.SetElementColorComplicated([_Color.Elements[0],_Color.Elements[1],_Color.Elements[2]], _Address.GlobalSectionSrclibs[0], _Address.GlobalSectionSrclibs[1], _Color.DefaultColor17, true);
-            _Theme.SetElementColorComplicated([_Color.Elements[0],_Color.Elements[1],_Color.Elements[2]], _Address.GlobalSectionSrclibs[0], _Address.GlobalSectionSrclibs[1], _Color.DefaultColor18, true);
-            _Theme.SetElementColorComplicated([_Color.Elements[0],_Color.Elements[1],_Color.Elements[2]], _Address.GlobalSectionSrclibs[0], _Address.GlobalSectionSrclibs[1], _Color.DefaultColor19, true);
-            _Theme.SetElementColorComplicated([_Color.Elements[0],_Color.Elements[1],_Color.Elements[2]], _Address.GlobalSectionSrclibs[0], _Address.GlobalSectionSrclibs[1], _Color.DefaultColor20, true);
-            _Theme.SetElementColorComplicated([_Color.Elements[0],_Color.Elements[1],_Color.Elements[2]], _Address.GlobalSectionSrclibs[0], _Address.GlobalSectionSrclibs[1], _Color.DefaultColor21, true);
+            _Theme.SetElementColorComplicated(_Color._SemiColor.ElementsRGB, _Address.GlobalSectionSrclibs[0], _Address.GlobalSectionSrclibs[1], _Color.DefaultColor14, true);
+            _Theme.SetElementColorComplicated(_Color._SemiColor.ElementsRGB, _Address.GlobalSectionSrclibs[0], _Address.GlobalSectionSrclibs[1], _Color.DefaultColor15, true);
+            _Theme.SetElementColorComplicated(_Color._SemiColor.ElementsRGB, _Address.GlobalSectionSrclibs[0], _Address.GlobalSectionSrclibs[1], _Color.DefaultColor16, true);
+            _Theme.SetElementColorComplicated(_Color._SemiColor.ElementsRGB, _Address.GlobalSectionSrclibs[0], _Address.GlobalSectionSrclibs[1], _Color.DefaultColor17, true);
+            _Theme.SetElementColorComplicated(_Color._SemiColor.ElementsRGB, _Address.GlobalSectionSrclibs[0], _Address.GlobalSectionSrclibs[1], _Color.DefaultColor18, true);
+            _Theme.SetElementColorComplicated(_Color._SemiColor.ElementsRGB, _Address.GlobalSectionSrclibs[0], _Address.GlobalSectionSrclibs[1], _Color.DefaultColor19, true);
+            _Theme.SetElementColorComplicated(_Color._SemiColor.ElementsRGB, _Address.GlobalSectionSrclibs[0], _Address.GlobalSectionSrclibs[1], _Color.DefaultColor20, true);
+            _Theme.SetElementColorComplicated(_Color._SemiColor.ElementsRGB, _Address.GlobalSectionSrclibs[0], _Address.GlobalSectionSrclibs[1], _Color.DefaultColor21, true);
             //
 
-            // Artefacts fixes
-            _Theme.SetElementColorComplicated([_Color.Secondary[0],_Color.Secondary[1],_Color.Secondary[2]], _Address.GlobalSectionSrclibs[0], _Address.GlobalSectionSrclibs[1], _Color.ArtefactsColor1);
-            _Theme.SetElementColorComplicated([_Color.Secondary[0],_Color.Secondary[1],_Color.Secondary[2]], _Address.GlobalSectionSrclibs[0], _Address.GlobalSectionSrclibs[1], _Color.ArtefactsColor2);
-            _Theme.SetElementColorComplicated([_Color.Secondary[0],_Color.Secondary[1],_Color.Secondary[2]], _Address.GlobalSectionSrclibs[0], _Address.GlobalSectionSrclibs[1], _Color.ArtefactsColor3);
-            _Theme.SetElementColorComplicated([_Color.Secondary[0],_Color.Secondary[1],_Color.Secondary[2]], _Address.GlobalSectionSrclibs[0], _Address.GlobalSectionSrclibs[1], _Color.ArtefactsColor4);
-            _Theme.SetElementColorComplicated([_Color.Secondary[0],_Color.Secondary[1],_Color.Secondary[2]], _Address.GlobalSectionSrclibs[0], _Address.GlobalSectionSrclibs[1], _Color.ArtefactsColor5);
-            _Theme.SetElementColorComplicated([_Color.Secondary[0],_Color.Secondary[1],_Color.Secondary[2]], _Address.GlobalSectionSrclibs[0], _Address.GlobalSectionSrclibs[1], _Color.ArtefactsColor6);
-            _Theme.SetElementColorComplicated([_Color.Secondary[0],_Color.Secondary[1],_Color.Secondary[2]], _Address.GlobalSectionSrclibs[0], _Address.GlobalSectionSrclibs[1], _Color.ArtefactsColor7);
-            _Theme.SetElementColorComplicated([_Color.Secondary[0],_Color.Secondary[1],_Color.Secondary[2]], _Address.GlobalSectionSrclibs[0], _Address.GlobalSectionSrclibs[1], _Color.ArtefactsColor8);
+            // Artifacts fixes
+            _Theme.SetElementColorComplicated(_Color._SemiColor.SecondaryRGB, _Address.GlobalSectionSrclibs[0], _Address.GlobalSectionSrclibs[1], _Color._SemiColor.ArtifactsColor1);
+            _Theme.SetElementColorComplicated(_Color._SemiColor.SecondaryRGB, _Address.GlobalSectionSrclibs[0], _Address.GlobalSectionSrclibs[1], _Color._SemiColor.ArtifactsColor2);
+            _Theme.SetElementColorComplicated(_Color._SemiColor.SecondaryRGB, _Address.GlobalSectionSrclibs[0], _Address.GlobalSectionSrclibs[1], _Color._SemiColor.ArtifactsColor3);
+            _Theme.SetElementColorComplicated(_Color._SemiColor.SecondaryRGB, _Address.GlobalSectionSrclibs[0], _Address.GlobalSectionSrclibs[1], _Color._SemiColor.ArtifactsColor4);
+            _Theme.SetElementColorComplicated(_Color._SemiColor.SecondaryRGB, _Address.GlobalSectionSrclibs[0], _Address.GlobalSectionSrclibs[1], _Color._SemiColor.ArtifactsColor5);
+            _Theme.SetElementColorComplicated(_Color._SemiColor.SecondaryRGB, _Address.GlobalSectionSrclibs[0], _Address.GlobalSectionSrclibs[1], _Color._SemiColor.ArtifactsColor6);
+            _Theme.SetElementColorComplicated(_Color._SemiColor.SecondaryRGB, _Address.GlobalSectionSrclibs[0], _Address.GlobalSectionSrclibs[1], _Color._SemiColor.ArtifactsColor7);
+            _Theme.SetElementColorComplicated(_Color._SemiColor.SecondaryRGB, _Address.GlobalSectionSrclibs[0], _Address.GlobalSectionSrclibs[1], _Color._SemiColor.ArtifactsColor8);
             
             _Theme.SaveTheme();
             
