@@ -75,7 +75,11 @@ namespace YumToolkit {
             _Theme.SetElementColorComplicated(_Color.Elements, _Address.GlobalSectionSrclibs[0], _Address.GlobalSectionSrclibs[1], _Color.DefaultColor10);
             _Theme.SetElementColorComplicated(_Color.Elements, _Address.GlobalSectionSrclibs[0], _Address.GlobalSectionSrclibs[1], _Color.DefaultColor11);
             _Theme.SetElementColorComplicated(_Color.Elements, _Address.GlobalSectionSrclibs[0], _Address.GlobalSectionSrclibs[1], _Color.DefaultColor12);
-           
+
+            _Theme.SetElementColorComplicated(_Color.Elements, _Address.GlobalSectionAppskin[0], _Address.GlobalSectionAppskin[1], _Color.DefaultColor10);
+            _Theme.SetElementColorComplicated(_Color.Elements, _Address.GlobalSectionAppskin[0], _Address.GlobalSectionAppskin[1], _Color.DefaultColor13);
+            
+            // Semi colors fixes
             _Theme.SetElementColorComplicated([_Color.Secondary[0],_Color.Secondary[1],_Color.Secondary[2]], _Address.GlobalSectionSrclibs[0], _Address.GlobalSectionSrclibs[1], _Color.DefaultColor14, true);
             _Theme.SetElementColorComplicated([_Color.Secondary[0],_Color.Secondary[1],_Color.Secondary[2]], _Address.GlobalSectionSrclibs[0], _Address.GlobalSectionSrclibs[1], _Color.DefaultColor15, true);
             _Theme.SetElementColorComplicated([_Color.Secondary[0],_Color.Secondary[1],_Color.Secondary[2]], _Address.GlobalSectionSrclibs[0], _Address.GlobalSectionSrclibs[1], _Color.DefaultColor16, true);
@@ -83,11 +87,9 @@ namespace YumToolkit {
             _Theme.SetElementColorComplicated([_Color.Secondary[0],_Color.Secondary[1],_Color.Secondary[2]], _Address.GlobalSectionSrclibs[0], _Address.GlobalSectionSrclibs[1], _Color.DefaultColor18, true);
             _Theme.SetElementColorComplicated([_Color.Secondary[0],_Color.Secondary[1],_Color.Secondary[2]], _Address.GlobalSectionSrclibs[0], _Address.GlobalSectionSrclibs[1], _Color.DefaultColor19, true);
             _Theme.SetElementColorComplicated([_Color.Secondary[0],_Color.Secondary[1],_Color.Secondary[2]], _Address.GlobalSectionSrclibs[0], _Address.GlobalSectionSrclibs[1], _Color.DefaultColor20, true);
-            _Theme.SetElementColorComplicated([_Color.Elements[0],_Color.Elements[1],_Color.Elements[2]], _Address.GlobalSectionSrclibs[0], _Address.GlobalSectionSrclibs[1], _Color.DefaultColor21, true);
+            _Theme.SetElementColorComplicated([_Color.Elements[0],_Color.Elements[1],_Color.Elements[2]], _Address.GlobalSectionSrclibs[0], _Address.GlobalSectionSrclibs[1], _Color.DefaultColor21, false);
+            //
 
-            _Theme.SetElementColorComplicated(_Color.Elements, _Address.GlobalSectionAppskin[0], _Address.GlobalSectionAppskin[1], _Color.DefaultColor10);
-            _Theme.SetElementColorComplicated(_Color.Elements, _Address.GlobalSectionAppskin[0], _Address.GlobalSectionAppskin[1], _Color.DefaultColor13);
-            
             // Artefacts fixes
             _Theme.SetElementColorComplicated([_Color.Elements[0],_Color.Elements[1],_Color.Elements[2]], _Address.GlobalSectionSrclibs[0], _Address.GlobalSectionSrclibs[1], _Color.ArtefactsColor1);
             _Theme.SetElementColorComplicated([_Color.Elements[0],_Color.Elements[1],_Color.Elements[2]], _Address.GlobalSectionSrclibs[0], _Address.GlobalSectionSrclibs[1], _Color.ArtefactsColor2);
