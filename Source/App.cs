@@ -36,12 +36,12 @@ namespace YumToolkit {
             _Theme.SetElementColor(_Color.Primary, _Address.BehindLayersUIBackground);
             _Theme.SetElementColor(_Color.Secondary, _Address.GlobalBorders);
             _Theme.SetElementColor(_Color.Secondary, _Address.GlobalBorders2);
-            _Theme.SetElementColor(_Color.Secondary, _Address.BrushBorders);
+            _Theme.SetElementColor(_Color.Primary, _Address.BrushBorders);
             _Theme.SetElementColor(_Color.Secondary, _Address.Separator);
             _Theme.SetElementColor(_Color.Secondary, _Address.TopBar);
-            _Theme.SetElementColor(_Color.LightGrey, _Address.TopBarText);
+            _Theme.SetElementColor(_Color.Green, _Address.TopBarText);
             _Theme.SetElementColor(_Color.Secondary, _Address.ContextMenu);
-            _Theme.SetElementColor(_Color.LightGrey, _Address.ContextMenuText);
+            _Theme.SetElementColor(_Color.Green, _Address.ContextMenuText);
             _Theme.SetElementColor(_Color.Primary, _Address.SlidersVertical);
             _Theme.SetElementColor(_Color.Primary, _Address.SlidersHorizontal);
             _Theme.SetElementColor(_Color.Secondary, _Address.ResizeWindowGrabber);
@@ -54,11 +54,13 @@ namespace YumToolkit {
             _Theme.SetElementColor(_Color.Secondary, _Address.SlidersColor);
             _Theme.SetElementColor(_Color.Secondary, _Address.BookmarkBackgroundAndOutlinesSomewhere);
             _Theme.SetElementColor(_Color.Secondary, _Address.RadioButtonsBackground);
-            _Theme.SetElementColor(_Color.LightGrey, _Address.FileMenuScrollableText);
-            _Theme.SetElementColor(_Color.LightGrey, _Address.FileMenuTilesText);
-            _Theme.SetElementColor(_Color.LightGrey, _Address.BrushesText);
+            _Theme.SetElementColor(_Color.Green, _Address.FileMenuScrollableText);
+            _Theme.SetElementColor(_Color.Green, _Address.FileMenuTilesText);
+            _Theme.SetElementColor(_Color.Green, _Address.BrushesText);
+            _Theme.SetElementColor(_Color.Green, _Address.BrushesTabsText);
+            _Theme.SetElementColor(_Color.Green, _Address.BrushesCirclesText);
             
-            _Theme.SetElementColorComplicated(_Color.Primary, _Address.BrushesFileMenuTilesScrollableListsBackground[0], _Address.BrushesFileMenuTilesScrollableListsBackground[1], _Color.White);
+            _Theme.SetElementColorComplicated(_Color.Secondary, _Address.BrushesFileMenuTilesScrollableListsBackground[0], _Address.BrushesFileMenuTilesScrollableListsBackground[1], _Color.White);
             
             _Theme.SetElementColorComplicated(_Color.Elements, _Address.GlobalSectionSrclibs[0], _Address.GlobalSectionSrclibs[1], _Color.DefaultColor1);
             _Theme.SetElementColorComplicated(_Color.Elements, _Address.GlobalSectionSrclibs[0], _Address.GlobalSectionSrclibs[1], _Color.DefaultColor2);
@@ -72,11 +74,23 @@ namespace YumToolkit {
             _Theme.SetElementColorComplicated(_Color.Secondary, _Address.GlobalSectionSrclibs[0], _Address.GlobalSectionSrclibs[1], _Color.DefaultColor10);
             _Theme.SetElementColorComplicated(_Color.Secondary, _Address.GlobalSectionSrclibs[0], _Address.GlobalSectionSrclibs[1], _Color.DefaultColor11);
             _Theme.SetElementColorComplicated(_Color.Secondary, _Address.GlobalSectionSrclibs[0], _Address.GlobalSectionSrclibs[1], _Color.DefaultColor12);
-
-            _Theme.SetElementColorComplicated(_Color.Secondary, _Address.GlobalSectionAppskin[0], _Address.GlobalSectionAppskin[1], _Color.DefaultColor11);
             _Theme.SetElementColorComplicated(_Color.Secondary, _Address.GlobalSectionAppskin[0], _Address.GlobalSectionAppskin[1], _Color.DefaultColor10);
             _Theme.SetElementColorComplicated(_Color.Secondary, _Address.GlobalSectionAppskin[0], _Address.GlobalSectionAppskin[1], _Color.DefaultColor13);
-            _Theme.FixColorPicker(_Address.GlobalSectionAppskin[0], _Address.GlobalSectionAppskin[1], _Color.Secondary);
+            
+            _Theme.SetElementColorComplicated([_Color.Secondary[0],_Color.Secondary[1],_Color.Secondary[2]], _Address.GlobalSectionAppskin[0], _Address.GlobalSectionAppskin[1], _Color.DefaultColor14);
+            _Theme.SetElementColorComplicated([_Color.Secondary[0],_Color.Secondary[1],_Color.Secondary[2]], _Address.GlobalSectionAppskin[0], _Address.GlobalSectionAppskin[1], _Color.DefaultColor15);
+            _Theme.SetElementColorComplicated([_Color.Secondary[0],_Color.Secondary[1],_Color.Secondary[2]], _Address.GlobalSectionAppskin[0], _Address.GlobalSectionAppskin[1], _Color.DefaultColor16);
+            _Theme.SetElementColorComplicated([_Color.Secondary[0],_Color.Secondary[1],_Color.Secondary[2]], _Address.GlobalSectionAppskin[0], _Address.GlobalSectionAppskin[1], _Color.DefaultColor17);
+            _Theme.SetElementColorComplicated([_Color.Secondary[0],_Color.Secondary[1],_Color.Secondary[2]], _Address.GlobalSectionAppskin[0], _Address.GlobalSectionAppskin[1], _Color.DefaultColor18);
+            _Theme.SetElementColorComplicated([_Color.Secondary[0],_Color.Secondary[1],_Color.Secondary[2]], _Address.GlobalSectionAppskin[0], _Address.GlobalSectionAppskin[1], _Color.DefaultColor19);
+
+            _Theme.SetElementColorComplicated([_Color.Secondary[0],_Color.Secondary[1],_Color.Secondary[2]], _Address.GlobalSectionSrclibs[0], _Address.GlobalSectionSrclibs[1], _Color.DefaultColor14);
+            _Theme.SetElementColorComplicated([_Color.Secondary[0],_Color.Secondary[1],_Color.Secondary[2]], _Address.GlobalSectionSrclibs[0], _Address.GlobalSectionSrclibs[1], _Color.DefaultColor15);
+            _Theme.SetElementColorComplicated([_Color.Secondary[0],_Color.Secondary[1],_Color.Secondary[2]], _Address.GlobalSectionSrclibs[0], _Address.GlobalSectionSrclibs[1], _Color.DefaultColor16);
+            _Theme.SetElementColorComplicated([_Color.Secondary[0],_Color.Secondary[1],_Color.Secondary[2]], _Address.GlobalSectionSrclibs[0], _Address.GlobalSectionSrclibs[1], _Color.DefaultColor17);
+            _Theme.SetElementColorComplicated([_Color.Secondary[0],_Color.Secondary[1],_Color.Secondary[2]], _Address.GlobalSectionSrclibs[0], _Address.GlobalSectionSrclibs[1], _Color.DefaultColor18);
+            _Theme.SetElementColorComplicated([_Color.Secondary[0],_Color.Secondary[1],_Color.Secondary[2]], _Address.GlobalSectionSrclibs[0], _Address.GlobalSectionSrclibs[1], _Color.DefaultColor19);
+
 
             _Theme.SaveTheme();
             

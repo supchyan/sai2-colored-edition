@@ -37,6 +37,8 @@ namespace YumToolkit.Core.Data {
         public static int FileMenuScrollableText { get; }
         public static int FileMenuTilesText { get; }
         public static int BrushesText { get; }
+        public static int BrushesTabsText { get; }
+        public static int BrushesCirclesText { get; }
         public static int[] BrushesFileMenuTilesScrollableListsBackground { get; }
         public static int[] LayerServiceButtons { get; }
         public static int[] GlobalSectionAppskin { get; }
@@ -80,6 +82,9 @@ namespace YumToolkit.Core.Data {
             FileMenuScrollableText = "0x00370A40".GetDecimalAddress();
             FileMenuTilesText = "0x00370B30".GetDecimalAddress();
             BrushesText = "0x00370760".GetDecimalAddress();
+            BrushesTabsText = "0x003706D0".GetDecimalAddress();
+            BrushesCirclesText = "0x00370900".GetDecimalAddress();
+            
             BrushesFileMenuTilesScrollableListsBackground = ["0x004D1038".GetDecimalAddress(), "0x004D1C33".GetDecimalAddress()];
             LayerServiceButtons = ["0x004DD400".GetDecimalAddress(), "0x004FC2AF".GetDecimalAddress()];
             GlobalSectionAppskin = ["0x00340000".GetDecimalAddress(), "0x004D0FFF".GetDecimalAddress()];

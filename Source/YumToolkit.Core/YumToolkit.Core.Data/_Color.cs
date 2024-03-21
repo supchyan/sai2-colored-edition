@@ -10,6 +10,7 @@ namespace YumToolkit.Core.Data {
         public static byte[] Secondary { get; }
         public static byte[] Elements { get; }
         public static byte[] LightGrey { get; }
+        public static byte[] Green { get; }
         public static byte[] Black { get; }
         public static byte[] White { get; }
 
@@ -66,29 +67,63 @@ namespace YumToolkit.Core.Data {
         /// #ACACACAC
         /// </summary>
         public static byte[] DefaultColor13 { get; }
+        /// <summary>
+        /// #FFFF30
+        /// </summary>
+        public static byte[] DefaultColor14 { get; }
+        /// <summary>
+        /// #30FFFF
+        /// </summary>
+        public static byte[] DefaultColor15 { get; }
+        /// <summary>
+        /// #F83030
+        /// </summary>
+        public static byte[] DefaultColor16 { get; }
+        /// <summary>
+        /// 3030F8
+        /// </summary>
+        public static byte[] DefaultColor17 { get; }
+        /// <summary>
+        /// F8F830
+        /// </summary>
+        public static byte[] DefaultColor18 { get; }
+        /// <summary>
+        /// #30F8F8
+        /// </summary>
+        public static byte[] DefaultColor19 { get; }
+        
 
         static _Color() {
             Primary = [ 32, 32, 32, 32 ];
             Secondary = [ 48, 48, 48, 48 ];
             Elements = [ 80, 80, 80, 80];
             LightGrey = [ 238, 238, 238, 238 ];
+            Green = [ 100, 150, 100, 0 ];
             Black = [ 0, 0, 0, 0 ];
             White = [ 255, 255, 255, 255 ];
 
             // Default colors
-            DefaultColor1 = [ 242, 242, 242, 0];
-            DefaultColor2 = [ 244, 244, 244, 0];
-            DefaultColor3 = [ 228, 228, 228, 0];
-            DefaultColor4 = [ 224, 224, 224, 0];
-            DefaultColor5 = [ 232, 232, 232, 0];
-            DefaultColor6 = [ 240, 240, 240, 0];
-            DefaultColor7 = [ 248, 248, 248, 0];
-            DefaultColor8 = [ 218, 218, 218, 0];
-            DefaultColor9 = [ 238, 238, 238, 0];
-            DefaultColor10 = [ 240, 240, 240, 240];
-            DefaultColor11 = [ 248, 248, 248, 248];
-            DefaultColor12 = [ 240, 240, 240, 0];
-            DefaultColor13 = [ 172, 172, 172, 172];
+            DefaultColor1 = [ 242, 242, 242, 0 ];
+            DefaultColor2 = [ 244, 244, 244, 0 ];
+            DefaultColor3 = [ 228, 228, 228, 0 ];
+            DefaultColor4 = [ 224, 224, 224, 0 ];
+            DefaultColor5 = [ 232, 232, 232, 0 ];
+            DefaultColor6 = [ 240, 240, 240, 0 ];
+            DefaultColor7 = [ 248, 248, 248, 0 ];
+            DefaultColor8 = [ 218, 218, 218, 0 ];
+            DefaultColor9 = [ 238, 238, 238, 0 ];
+            DefaultColor10 = [ 240, 240, 240, 240 ];
+            DefaultColor11 = [ 248, 248, 248, 248 ];
+            DefaultColor12 = [ 240, 240, 240, 0 ];
+            DefaultColor13 = [ 172, 172, 172, 172 ];
+
+            // Artefacts fix
+            DefaultColor14 = [ 255, 255, 48 ];
+            DefaultColor15 = [ 48, 255, 255 ];
+            DefaultColor16 = [ 248, 48, 48 ];
+            DefaultColor17 = [ 48, 248, 48 ];
+            DefaultColor18 = [ 255, 255, 48 ];
+            DefaultColor19 = [ 48, 255, 255 ];
         }
     }
 }
