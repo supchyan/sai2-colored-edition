@@ -16,81 +16,124 @@ namespace YumToolkit.Core.Data {
 
         // Default colors
         /// <summary>
-        /// #F2F2F200
+        /// # F2 F2 F2 00
         /// </summary>
         public static byte[] DefaultColor1 { get; }
         /// <summary>
-        /// #F4F4F400
+        /// # F4 F4 F4 00
         /// </summary>
         public static byte[] DefaultColor2 { get; }
         /// <summary>
-        /// #E4E4E400
+        /// # E4 E4 E4 00
         /// </summary>
         public static byte[] DefaultColor3 { get; }
         /// <summary>
-        /// #E0E0E000
+        /// # E0 E0 E0 00
         /// </summary>
         public static byte[] DefaultColor4 { get; }
         /// <summary>
-        /// #E8E8E800
+        /// # E8 E8 E8 00
         /// </summary>
         public static byte[] DefaultColor5 { get; }
         /// <summary>
-        /// #F0F0F000
+        /// # F0 F0 F0 00
         /// </summary>
         public static byte[] DefaultColor6 { get; }
         /// <summary>
-        /// #F8F8F800
+        /// # F8 F8 F8 00
         /// </summary>
         public static byte[] DefaultColor7 { get; }
         /// <summary>
-        /// #DADADA00
+        /// # DA DA DA 00
         /// </summary>
         public static byte[] DefaultColor8 { get; }
         /// <summary>
-        /// #EEEEEE00
+        /// # EE EE EE 00
         /// </summary>
         public static byte[] DefaultColor9 { get; }
         /// <summary>
-        /// #F0F0F0F0
+        /// # F0 F0 F0 F0
         /// </summary>
         public static byte[] DefaultColor10 { get; }
         /// <summary>
-        /// #F8F8F8F8
+        /// # F8 F8 F8 F8
         /// </summary>
         public static byte[] DefaultColor11 { get; }
         /// <summary>
-        /// #F0F0F000
+        /// # F0 F0 F0 00
         /// </summary>
         public static byte[] DefaultColor12 { get; }
         /// <summary>
-        /// #ACACACAC
+        /// # AC AC AC AC
         /// </summary>
         public static byte[] DefaultColor13 { get; }
         /// <summary>
-        /// #FFFF30
+        /// # C6 C6 C6
         /// </summary>
         public static byte[] DefaultColor14 { get; }
         /// <summary>
-        /// #30FFFF
+        /// # E8 E8 E8
         /// </summary>
         public static byte[] DefaultColor15 { get; }
         /// <summary>
-        /// #F83030
+        /// # B1 B1 B1
         /// </summary>
         public static byte[] DefaultColor16 { get; }
         /// <summary>
-        /// 3030F8
+        /// # B0 B0 B0
         /// </summary>
         public static byte[] DefaultColor17 { get; }
         /// <summary>
-        /// F8F830
+        /// # B4 B4 B4
         /// </summary>
         public static byte[] DefaultColor18 { get; }
         /// <summary>
-        /// #30F8F8
+        /// # D4 D4 D4
         /// </summary>
         public static byte[] DefaultColor19 { get; }
+        /// <summary>
+        /// # DE DE DE
+        /// </summary>
+        public static byte[] DefaultColor20 { get; }
+        /// <summary>
+        /// # F8 F8 F8
+        /// </summary>
+        public static byte[] DefaultColor21 { get; }
+
+
+
+        /// <summary>
+        /// # FF FF Elements[0]
+        /// </summary>
+        public static byte[] ArtefactsColor1 { get; }
+        /// <summary>
+        /// # Elements[0] FF FF
+        /// </summary>
+        public static byte[] ArtefactsColor2 { get; }
+        /// <summary>
+        /// # F8 Elements[0] Elements[0]
+        /// </summary>
+        public static byte[] ArtefactsColor3 { get; }
+        /// <summary>
+        /// # Elements[0] Elements[0] F8
+        /// </summary>
+        public static byte[] ArtefactsColor4 { get; }
+        /// <summary>
+        /// # F8 F8 Elements[0]
+        /// </summary>
+        public static byte[] ArtefactsColor5 { get; }
+        /// <summary>
+        /// # Elements[0] F8 F8
+        /// </summary>
+        public static byte[] ArtefactsColor6 { get; }
+        /// <summary>
+        /// # F8 F8 Elements[0]
+        /// </summary>
+        public static byte[] ArtefactsColor7 { get; }
+        /// <summary>
+        /// # Elements[0] Elements[0] F8
+        /// </summary>
+        public static byte[] ArtefactsColor8 { get; }
         
 
         static _Color() {
@@ -116,14 +159,24 @@ namespace YumToolkit.Core.Data {
             DefaultColor11 = [ 248, 248, 248, 248 ];
             DefaultColor12 = [ 240, 240, 240, 0 ];
             DefaultColor13 = [ 172, 172, 172, 172 ];
+            DefaultColor14 = [ 198, 198, 198 ];
+            DefaultColor15 = [ 232, 232, 232 ];
+            DefaultColor16 = [ 177, 177, 177 ];
+            DefaultColor17 = [ 176, 176, 176 ];
+            DefaultColor18 = [ 180, 180, 180 ];
+            DefaultColor19 = [ 216, 216, 216 ];
+            DefaultColor20 = [ 222, 222, 222 ];
+            DefaultColor21 = [ 248, 248, 248 ];
 
             // Artefacts fix
-            DefaultColor14 = [ 255, 255, 48 ];
-            DefaultColor15 = [ 48, 255, 255 ];
-            DefaultColor16 = [ 248, 48, 48 ];
-            DefaultColor17 = [ 48, 248, 48 ];
-            DefaultColor18 = [ 255, 255, 48 ];
-            DefaultColor19 = [ 48, 255, 255 ];
+            ArtefactsColor1 = [ 255, 255, Elements[0] ];
+            ArtefactsColor2 = [ Elements[0], 255, 255 ];
+            ArtefactsColor3 = [ 248, Elements[0], Elements[0] ];
+            ArtefactsColor4 = [ Elements[0], 248, 248 ];
+            ArtefactsColor5 = [ 255, 255, Elements[0] ];
+            ArtefactsColor6 = [ Elements[0], 255, 255 ];
+            ArtefactsColor7 = [ 248, 248, Elements[0] ];
+            ArtefactsColor8 = [ Elements[0], Elements[0], 248 ];
         }
     }
 }

@@ -35,7 +35,7 @@ namespace YumToolkit.Core {
         /// <param name="start_index">Beggining of byte sequence</param>
         /// <param name="end_index">End of byte sequence</param>
         /// <param name="default_color">Color, which should be replaced</param>
-        public static void SetElementColorComplicated(byte[] color, int start_index, int end_index, byte[] default_color) {
+        public static void SetElementColorComplicated(byte[] color, int start_index, int end_index, byte[] default_color, bool isArtefacted = false) {
             if(!File.Exists(_Name.tmp)) {
                 Console.Clear();
                 _Console.WriteLine(_ServiceMessage.TmpFileIsNotExists, ConsoleColor.DarkRed);
@@ -44,9 +44,10 @@ namespace YumToolkit.Core {
 
             // RGBA in SAI2 is BGRA. Live your life with that.
             (color[0], color[2]) = (color[2], color[0]);
-
+            
+            int value = isArtefacted ? 1 : color.Length;
             // Find certain sequence position and move on until the end
-            for(int index = start_index; index < end_index; index += color.Length) {
+            for(int index = start_index; index < end_index; index += value) {
                 
                 if(WrongSequence(binary, index, default_color)) { continue; }
 

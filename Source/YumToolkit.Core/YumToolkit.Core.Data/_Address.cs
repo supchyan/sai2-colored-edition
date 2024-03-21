@@ -37,6 +37,7 @@ namespace YumToolkit.Core.Data {
         public static int FileMenuScrollableText { get; }
         public static int FileMenuTilesText { get; }
         public static int BrushesText { get; }
+        public static int BrushesSpecialText { get; }
         public static int BrushesTabsText { get; }
         public static int BrushesCirclesText { get; }
         public static int[] BrushesFileMenuTilesScrollableListsBackground { get; }
@@ -82,6 +83,7 @@ namespace YumToolkit.Core.Data {
             FileMenuScrollableText = "0x00370A40".GetDecimalAddress();
             FileMenuTilesText = "0x00370B30".GetDecimalAddress();
             BrushesText = "0x00370760".GetDecimalAddress();
+            BrushesSpecialText = "0x00370768".GetDecimalAddress();
             BrushesTabsText = "0x003706D0".GetDecimalAddress();
             BrushesCirclesText = "0x00370900".GetDecimalAddress();
             
