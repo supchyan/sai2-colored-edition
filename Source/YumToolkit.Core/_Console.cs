@@ -27,6 +27,11 @@ namespace YumToolkit.Core {
             Console.ForegroundColor = ConsoleColor.White;
             Console.BackgroundColor = ConsoleColor.Black;
         }
+        public static void SendMessage(string msg, ConsoleColor color) {
+            Console.Clear();
+            WriteLine(msg, color);
+            Console.ReadKey();
+        }
         public class Drawing {
             public static void CONSOLE_RESTART() {
                 
@@ -89,6 +94,8 @@ namespace YumToolkit.Core {
             }
         }
         static _Console() {
+            if(!Directory.Exists(_Path.ThemesFolder)) { SendMessage(_ServiceMessage.ThemeFolderIsNotExist, ConsoleColor.DarkRed); Environment.Exit(0); }
+
             _ThemesList = Directory.GetFiles(_Path.ThemesFolder).ToList();
             _MaxListValue = _ThemesList.Count + 2;
             _isSelected = false;

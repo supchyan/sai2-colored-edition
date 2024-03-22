@@ -43,6 +43,9 @@ namespace YumToolkit {
         }
 
         static void REcolor() {
+
+            if(!File.Exists(_Name.original)) { _Console.SendMessage(_ServiceMessage.OriginalFileIsNotExist, ConsoleColor.DarkRed); return; }
+
             // Creating backup file to restore data or replace original file
             // with backup one to recolor it;
             if(!File.Exists(_Name.old)) { _File.CreateOldFile(); }
@@ -178,17 +181,15 @@ namespace YumToolkit {
             if(File.Exists(_Name.tmp)) { _File.DeleteTmpFile(); }
 
             Console.ReadKey();
-
+            
         }
         static void RemoveTheme() {
-            if(File.Exists(_Name.old)) { 
-                File.Delete(_Name.original);
-                _File.ReplaceOriginalFile();
-                _File.DeleteOldFile();
-            }
-            Console.Clear();
-            _Console.WriteLine(_ServiceMessage.DefaultThemeHasBeenRestored, ConsoleColor.DarkGreen);
-            Console.ReadKey();
+            if(!File.Exists(_Name.old)) { _Console.SendMessage(_ServiceMessage.OldFileIsNotExist, ConsoleColor.DarkRed); return; }
+
+            File.Delete(_Name.original);
+            _File.ReplaceOriginalFile();
+            _File.DeleteOldFile();
+            _Console.SendMessage(_ServiceMessage.DefaultThemeHasBeenRestored, ConsoleColor.DarkGreen);
         } 
     }
 }

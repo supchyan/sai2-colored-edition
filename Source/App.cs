@@ -15,13 +15,7 @@ namespace YumToolkit {
                 Console.WriteLine($"This program cannot be run on {Environment.OSVersion}... Or can't be :)");
                 return;
             }
-
-            if(!File.Exists(_Name.original)) {
-                _Console.WriteLine(_ServiceMessage.OriginalFileIsNotExists, ConsoleColor.DarkRed);
-                Console.ReadKey();
-                return;
-            }
-
+            
             Begin:
 
                 _Console.Drawing.CONSOLE_RESTART();

@@ -10,7 +10,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <Content Include="Themes\*.*">
+        <Content Include="Themes\*.json">
             <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </Content>
     </ItemGroup> 
