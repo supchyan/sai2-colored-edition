@@ -3,8 +3,10 @@
 </div>
 <br />
 
-#### `themes toolkit for SAI 2 64bit patch ver. 2024.02.22` `*`
+### `themes toolkit for SAI 2 64bit patch ver. 2024.02.22` `*`
 
+## 🌔Introduction:
+[Русская версия ↓](#вступление)
 ``` 
 * I'm almost sure, this toolkit won't work with other sai versions,
   so keep it in mind.
@@ -17,8 +19,23 @@
 * SAI 2 is a license software, so you need an .slc file
   to run it properly. ( Are you serious )
   I don't care, how do you plan to receive a license, I just made a toolkit.
-[ en ]
 ```
+## 🌓How to install:
+Just unzip application build in root sai2's directory. Launch and select theme to apply.
+<br/><br/>
+
+## 🌒Resources:
+**Creating custom themes →** [Themes](https://github.com/supchyan/yum2-theme-toolkit/tree/main/Themes)
+<br/>
+**Releases links →** [Releases](https://github.com/supchyan/yum2-theme-toolkit/releases/tag/whale)
+<br/><br/>
+
+## 🌑Screenshots:
+![image](https://github.com/supchyan/yum2-theme-toolkit/assets/123704468/6f0b27da-b8f6-403b-ae73-8b35e25f933f)
+<br/><br/>
+
+## 🌔Вступление:
+[English version ↑](#introduction)
 ``` 
 * Я почти уверен, что этот набор инструментов не будет работать на других версиях sai,
   так что помните об этом.
@@ -31,5 +48,17 @@
 * SAI 2 - это лицензионный продукт, так что вам нужен .slc файл
   для корректной работы программы. ( Камень я не дам )
   Мне всё равно, как вы получили лицензию, я просто сделал этот набор инструментов.
-[ ru ]
 ```
+## 🌓Установка:
+Просто распакуйте архив с билдом в коренную папку sai2. Запустите программу и выберите тему, которую хотите установить.
+<br/><br/>
+
+## 🌒Ресурсы:
+**Создание собственных тем →** [Themes](https://github.com/supchyan/yum2-theme-toolkit/tree/main/Themes)
+<br/>
+**Ссылки на релиз →** [Releases](https://github.com/supchyan/yum2-theme-toolkit/releases/tag/whale)
+<br/><br/>
+
+## 🌑Скриншоты:
+![image](https://github.com/supchyan/yum2-theme-toolkit/assets/123704468/6f0b27da-b8f6-403b-ae73-8b35e25f933f)
+
