@@ -1,6 +1,13 @@
 using YumToolkit.Core.Data;
 namespace YumToolkit.Core {
     public class _File {
+
+        public static void ReplaceOriginalFile() {
+            if(!File.Exists(_Name.old)) {
+                return;
+            } File.Copy(_Name.old, _Name.original);
+        }
+
         public static void CreateTmpFile() {
             if(!File.Exists(_Name.original)) {
                 _Console.WriteLine(_ServiceMessage.OriginalFileIsNotExists, ConsoleColor.DarkRed);

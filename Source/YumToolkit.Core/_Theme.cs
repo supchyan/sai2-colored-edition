@@ -89,7 +89,7 @@ namespace YumToolkit.Core {
             try {
                 File.WriteAllBytes(_Name.original, binary);
                 Console.Clear();
-                _Console.Write($"All colors data overwritten!", ConsoleColor.Green);
+                _Console.Write(_ServiceMessage.ThemeHasBeenApplied, ConsoleColor.DarkGreen);
 
             } catch (Exception e) {
                 _Console.WriteLine($"{e}",ConsoleColor.DarkRed);

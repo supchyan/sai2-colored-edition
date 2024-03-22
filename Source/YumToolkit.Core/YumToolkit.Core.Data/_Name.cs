@@ -5,7 +5,7 @@ namespace YumToolkit.Core.Data {
         public static string old { get; }
         static _Name() {
             original = "sai2.exe";
-            tmp = "sai2.dev.exe";
+            tmp = "sai2.tmp.exe";
             old = "sai2.old.exe";
         }
     }

@@ -6,13 +6,10 @@ namespace YumToolkit.Core.Data {
     /// But I can be wrong so, you can repair this shit, if you know reverse engineering better than me...
     /// </summary>
     public static class _Color {
-        public static byte[] Primary { get; }
-        public static byte[] Secondary { get; }
-        public static byte[] Elements { get; }
-        public static byte[] LightGrey { get; }
-        public static byte[] Green { get; }
-        public static byte[] Black { get; }
-        public static byte[] White { get; }
+        public static byte[] Primary { get; set; }
+        public static byte[] Secondary { get; set; }
+        public static byte[] Ternary { get; set; }
+        public static byte[] Text { get; set; }
 
         // Default colors
         /// <summary>
@@ -99,15 +96,21 @@ namespace YumToolkit.Core.Data {
         /// # F8 F8 F8
         /// </summary>
         public static byte[] DefaultColor21 { get; }
+        /// <summary>
+        /// # FF FF FF FF
+        /// </summary>
+        public static byte[] DefaultColor22 { get; }
+        /// <summary>
+        /// # 20 40 80 00
+        /// </summary>
+        public static byte[] DefaultColor23 { get; }
+
 
         static _Color() {
             Primary = [ 32, 32, 32, 32 ];
             Secondary = [ 48, 48, 48, 48 ];
-            Elements = [ 80, 80, 80, 80];
-            LightGrey = [ 238, 238, 238, 238 ];
-            Green = [ 100, 150, 100, 0 ];
-            Black = [ 0, 0, 0, 0 ];
-            White = [ 255, 255, 255, 255 ];
+            Ternary = [ 80, 80, 80, 80];
+            Text = [ 0, 0, 0, 0 ];
 
             // Default colors
             DefaultColor1 = [ 242, 242, 242, 0 ];
@@ -131,57 +134,59 @@ namespace YumToolkit.Core.Data {
             DefaultColor19 = [ 216, 216, 216 ];
             DefaultColor20 = [ 222, 222, 222 ];
             DefaultColor21 = [ 248, 248, 248 ];
+            DefaultColor22 = [ 255, 255, 255, 255];
+            DefaultColor23 = [ 32, 64, 128, 0 ];
 
         }
         public static class _SemiColor {
-            public static byte[] SecondaryRGB { get; }
-            public static byte[] ElementsRGB { get; }
+            public static byte[] SecondaryRGB { get; set; }
+            public static byte[] TernaryRGB { get; set; }
             /// <summary>
-            /// # FF FF Elements[0]
+            /// # FF FF Ternary[0]
             /// </summary>
             public static byte[] ArtifactsColor1 { get; }
             /// <summary>
-            /// # Elements[0] FF FF
+            /// # Ternary[0] FF FF
             /// </summary>
             public static byte[] ArtifactsColor2 { get; }
             /// <summary>
-            /// # F8 Elements[0] Elements[0]
+            /// # F8 Ternary[0] Ternary[0]
             /// </summary>
             public static byte[] ArtifactsColor3 { get; }
             /// <summary>
-            /// # Elements[0] Elements[0] F8
+            /// # Ternary[0] Ternary[0] F8
             /// </summary>
             public static byte[] ArtifactsColor4 { get; }
             /// <summary>
-            /// # F8 F8 Elements[0]
+            /// # F8 F8 Ternary[0]
             /// </summary>
             public static byte[] ArtifactsColor5 { get; }
             /// <summary>
-            /// # Elements[0] F8 F8
+            /// # Ternary[0] F8 F8
             /// </summary>
             public static byte[] ArtifactsColor6 { get; }
             /// <summary>
-            /// # F8 F8 Elements[0]
+            /// # F8 F8 Ternary[0]
             /// </summary>
             public static byte[] ArtifactsColor7 { get; }
             /// <summary>
-            /// # Elements[0] Elements[0] F8
+            /// # Ternary[0] Ternary[0] F8
             /// </summary>
             public static byte[] ArtifactsColor8 { get; }
 
             static _SemiColor() {
-                SecondaryRGB = Secondary.Where(n => n != Secondary[3]).ToArray();
-                ElementsRGB = Elements.Where(n => n != Elements[3]).ToArray();
+                SecondaryRGB = Secondary.NoAlpha();
+                TernaryRGB = Ternary.NoAlpha();
 
                 // Artifacts fix
-                ArtifactsColor1 = [ 255, 255, Elements[0] ];
-                ArtifactsColor2 = [ Elements[0], 255, 255 ];
-                ArtifactsColor3 = [ 248, Elements[0], Elements[0] ];
-                ArtifactsColor4 = [ Elements[0], 248, 248 ];
-                ArtifactsColor5 = [ 255, 255, Elements[0] ];
-                ArtifactsColor6 = [ Elements[0], 255, 255 ];
-                ArtifactsColor7 = [ 248, 248, Elements[0] ];
-                ArtifactsColor8 = [ Elements[0], Elements[0], 248 ];
+                ArtifactsColor1 = [ 255, 255, Ternary[0] ];
+                ArtifactsColor2 = [ Ternary[0], 255, 255 ];
+                ArtifactsColor3 = [ 248, Ternary[0], Ternary[0] ];
+                ArtifactsColor4 = [ Ternary[0], 248, 248 ];
+                ArtifactsColor5 = [ 255, 255, Ternary[0] ];
+                ArtifactsColor6 = [ Ternary[0], 255, 255 ];
+                ArtifactsColor7 = [ 248, 248, Ternary[0] ];
+                ArtifactsColor8 = [ Ternary[0], Ternary[0], 248 ];
             }
         }
     }
