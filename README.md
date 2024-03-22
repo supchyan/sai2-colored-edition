@@ -6,12 +6,13 @@
 #### `themes toolkit for SAI 2 64bit patch ver. 2024.02.22` `*`
 
 ``` 
-* I'm almost sure, this toolkit won't work with other patches,
+* I'm almost sure, this toolkit won't work with other sai versions,
   so keep it in mind.
 
-* If you know .exe principles, you can try to adapt this tools for any sai versions.
+* If you know .exe principles, you can try
+  to adapt this tools for any software patches.
   Major chance, patch differences won't be a big problem,
-  so sequences seeking is pretty much real.
+  so sequences seeking shouldn't be complicated.
 
 * SAI 2 is a license software, so you need an .slc file
   to run it properly. ( Are you serious )
@@ -19,11 +20,11 @@
 [ en ]
 ```
 ``` 
-* Я почти уверен, что этот набор инструментов не будет работать на других патчах,
+* Я почти уверен, что этот набор инструментов не будет работать на других версиях sai,
   так что помните об этом.
 
-* Если вы знаете работу .exe файлов, то можете сами попробовать адаптировать эти инструменты
-  под другие версии sai.
+* Если вы знаете принцип работы .exe файлов, то можете сами попробовать
+  адаптировать эти инструменты под другие патчи программы.
   Велика вероятность, что изменения в патчах некритичны,
   так что найти нужные байты вполне реально.
 
