@@ -1,3 +1,4 @@
+using System.Numerics;
 using YumToolkit.Core.Data;
 namespace YumToolkit.Core {
     public class _Console {
@@ -12,6 +13,10 @@ namespace YumToolkit.Core {
 
         static List<string> _ThemesList { get; set; }
         public static List<string> ThemesList => _ThemesList;
+        
+        static Thread ASCIImation = new Thread(() => {});
+        // Protects interface from `break lines` when drawing animation
+        static bool InterfaceHasBeenDrawn { get; set; }
 
         public static void Write(string line, ConsoleColor  text_color = ConsoleColor.White, ConsoleColor bg_color = ConsoleColor.Black) {
             Console.ForegroundColor = text_color;
@@ -34,7 +39,7 @@ namespace YumToolkit.Core {
         }
         public class Drawing {
             public static void CONSOLE_RESTART() {
-                
+                InterfaceHasBeenDrawn = false;
                 _isSelected = false;
                 _Choice = 0;
 
@@ -78,6 +83,8 @@ namespace YumToolkit.Core {
                 Console.SetCursorPosition(4, 7);
                 Write("●");
 
+                InterfaceHasBeenDrawn = true;
+
             }
             public static void CONSOLE_MENU() {
                 var input = Console.ReadKey();
@@ -88,8 +95,35 @@ namespace YumToolkit.Core {
                 Console.SetCursorPosition(4, 7 + _Choice); Write("●");
 
                 if(input.Key == ConsoleKey.Enter) {
+                    InterfaceHasBeenDrawn = false;
                     _isSelected = true;
                     Console.Clear();
+                }
+            }
+            public static void CONSOLE_ASCIIMATION() {
+                while(true) {
+                    if(InterfaceHasBeenDrawn) {
+                        foreach(string frame in Animator.Emote) {
+                            Animator.SetFrame(frame, InterfaceHasBeenDrawn, new Vector2(29,2), 90);
+                            if(!InterfaceHasBeenDrawn) { break; }
+                        }
+                    }
+                }
+            }
+            static Drawing() {
+                ASCIImation = new Thread(CONSOLE_ASCIIMATION);
+                ASCIImation.IsBackground = true;
+                ASCIImation.Start();
+            }
+        }
+        class Animator {
+            public static readonly string[] Stick = [ "\\","|","/","-" ];
+            public static readonly string[] Emote = [ "<.<  ","<.<  ","-.-  "," -.- ","  -.-","  >.>","  >.>","  -.-"," -.- ","-.-  " ];
+            public static void SetFrame(string frame, bool safe_drawing, Vector2 sprite_pos, int delay) {
+                if(safe_drawing) {
+                    Console.SetCursorPosition((int)sprite_pos.X, (int)sprite_pos.Y);
+                    Write(frame);
+                    Thread.Sleep(delay);
                 }
             }
         }
@@ -99,6 +133,7 @@ namespace YumToolkit.Core {
             _ThemesList = Directory.GetFiles(_Path.ThemesFolder).ToList();
             _MaxListValue = _ThemesList.Count + 2;
             _isSelected = false;
+            InterfaceHasBeenDrawn = false;
         }
     }
 }

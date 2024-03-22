@@ -1,7 +1,4 @@
-﻿using System.Drawing;
-using YumToolkit.Core;
-using YumToolkit.Core.Data;
-
+﻿using YumToolkit.Core;
 namespace YumToolkit {
     class App : AppHelper {
         static void Main(string[] args) {
@@ -16,16 +13,19 @@ namespace YumToolkit {
                 return;
             }
             
-            Begin:
+            InterfaceBegin:
 
                 _Console.Drawing.CONSOLE_RESTART();
                 _Console.Drawing.CONSOLE_DRAW_MAIN();
-                while(!_Console.isSelected) { _Console.Drawing.CONSOLE_MENU(); }
+
+                while(!_Console.isSelected) {
+                    _Console.Drawing.CONSOLE_MENU();
+                };
 
                 // ai
                 ShowTime();
 
-            goto Begin;
+            goto InterfaceBegin;
 
         }
     }
