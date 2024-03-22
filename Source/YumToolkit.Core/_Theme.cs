@@ -9,6 +9,7 @@ namespace YumToolkit.Core {
                 return;
             }
 
+            // TODO: 0 - 2  2 - 0 -> 1 - 3  3 - 1
             // RGBA in SAI2 is BGRA. Live your life with that.
             (color[0], color[2]) = (color[2], color[0]);
 
@@ -43,6 +44,7 @@ namespace YumToolkit.Core {
                 return;
             }
 
+            // TODO: 0 - 2  2 - 0 -> 1 - 3  3 - 1
             // RGBA in SAI2 is BGRA. Live your life with that.
             (color[0], color[2]) = (color[2], color[0]);
             

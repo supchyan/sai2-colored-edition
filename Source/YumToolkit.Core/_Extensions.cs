@@ -10,10 +10,10 @@ namespace YumToolkit.Core {
         }
         public static byte[] toByteArray(this string hex_value) {
             return [
+                ColorTranslator.FromHtml(hex_value).A,
                 ColorTranslator.FromHtml(hex_value).R,
                 ColorTranslator.FromHtml(hex_value).G,
                 ColorTranslator.FromHtml(hex_value).B,
-                ColorTranslator.FromHtml(hex_value).A
             ];
         }
         public static byte[] NoAlpha(this byte[] col) {
