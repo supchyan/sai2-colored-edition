@@ -11,13 +11,14 @@ namespace YumToolkit {
         static Dictionary<string, string>? ThemeColors = new Dictionary<string, string>();
         public static void _Action() {
             // Since projcet can absorb any amount of themes,
-            // at this moment I decided to make unique behaviours
+            // at this moment, I decided to make unique behaviours
             // to anything in Console Menu, except of theme selection.
             // So users can select certain theme or anything else.
             // And because themes are in the top of Menu list,
             // I subtract user's choice from MaxListValue
             // to get unique Menu choices first and themes at the end.
-            // So yeah, ReColor() is universal method to work with any selected theme.
+            // So yeah, ReColor() is universal method to work with any selected theme,
+            // so index can't be greater than 3, while no more unique menu choices inside.
             int index = _Console.MaxListValue - _Console.Choice;
             if(index > 3) index = 3;
 
