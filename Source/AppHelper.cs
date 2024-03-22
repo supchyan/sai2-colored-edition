@@ -106,6 +106,7 @@ namespace YumToolkit {
             
             // 'Shit text' color replacer:
             _Theme.SetElementColorComplicated(_Color.Text, _Address.GlobalSectionSrclibs[0], _Address.GlobalSectionSrclibs[1], _Color.DefaultColor23);
+            _Theme.SetElementColorComplicated(_Color.Text, _Address.GlobalSectionAppskin[0], _Address.GlobalSectionAppskin[1], _Color.DefaultColor23);
 
             // Should be useful on dark backgrounds. Right now I can't find couple of this texts, so almost unusable ;;
             _Theme.SetElementColor(_Color.Text, _Address.ContextMenuText);

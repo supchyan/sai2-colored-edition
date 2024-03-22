@@ -17,7 +17,7 @@ namespace YumToolkit.Core {
             ];
         }
         public static byte[] NoAlpha(this byte[] col) {
-            return [col[0],col[1],col[2]];
+            return [col[1],col[2],col[3]];
         }
     }
 }
