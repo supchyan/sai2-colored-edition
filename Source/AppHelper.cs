@@ -182,8 +182,6 @@ namespace YumToolkit {
 
             // Removing unnecessary tmp file:
             if(File.Exists(_Name.tmp)) { _File.DeleteTmpFile(); }
-
-            Console.ReadKey();
             
         }
         static void RemoveTheme() {
