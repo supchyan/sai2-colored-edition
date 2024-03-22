@@ -4,11 +4,8 @@ namespace YumToolkit.Core {
         static byte[] binary = File.ReadAllBytes(_Name.tmp);
         public static void SetElementColor(byte[] color, int color_address) {
             if(!File.Exists(_Name.tmp)) { _Console.SendMessage(_ServiceMessage.TmpFileIsNotExist, ConsoleColor.DarkRed); return; } 
-            
             // Replaces certain color sequence:
-            for(int i = 0; i < color.Length; i++) {
-                binary[color_address + i] = color[i];
-            }
+            for(int i = 0; i < color.Length; i++) { binary[color_address + i] = color[i]; }
         }
         static bool WrongSequence(byte[] bin, int index, byte[] color_to_detect) {
             // Detects bytes in sequence which doesn't equal certain color_to_detect/
@@ -37,14 +34,10 @@ namespace YumToolkit.Core {
             for(int index = start_index; index < end_index; index += value) {
                 if(WrongSequence(binary, index, default_color)) { continue; }
                 // Change color in certain sequence
-                for(int col_index = 0; col_index  < color.Length; col_index++) {
-                    binary[index + col_index] = color[col_index];
-                }
-                
+                for(int col_index = 0; col_index  < color.Length; col_index++) { binary[index + col_index] = color[col_index]; }
             }
             
         }
-
         // TODO: Should fix color picker's circle, but doesn't. Thinking on better solution right now.. 
         static byte[] col = [0,0,0];
         public static void FixColorPicker(int start_index, int end_index, byte[] color) {
@@ -53,13 +46,10 @@ namespace YumToolkit.Core {
                 // Finds certain sequence position and moves on until the end
                 for(int index = start_index; index < end_index; index += col.Length) {
                     if(WrongSequence(binary, index, col)) { continue; }
-                    for(int col_index = 0; col_index  < color.Length - 1; col_index++) {
-                        binary[index + col_index] = color[col_index];
-                    }
+                    for(int col_index = 0; col_index  < color.Length - 1; col_index++) { binary[index + col_index] = color[col_index]; }
                 }
             }
         }
-
         /// <summary>
         /// Saves current theme changes.
         /// </summary>
@@ -67,7 +57,6 @@ namespace YumToolkit.Core {
             try {
                 File.WriteAllBytes(_Name.original, binary);
                 _Console.SendMessage(_ServiceMessage.ThemeHasBeenApplied, ConsoleColor.DarkGreen);
-
             } catch { _Console.SendMessage(_ServiceMessage.OriginalFileIsBusy,ConsoleColor.DarkRed); }
         }
     }
