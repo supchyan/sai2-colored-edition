@@ -10,7 +10,7 @@
   so keep it in mind.
 
 * If you know .exe principles, you can try
-  to adapt this tools for any software patches.
+  to adapt this tools for any sai patches.
   Major chance, patch differences won't be a big problem,
   so sequences seeking shouldn't be complicated.
 
@@ -24,7 +24,7 @@
   так что помните об этом.
 
 * Если вы знаете принцип работы .exe файлов, то можете сами попробовать
-  адаптировать эти инструменты под другие патчи программы.
+  адаптировать эти инструменты под другие патчи sai.
   Велика вероятность, что изменения в патчах некритичны,
   так что найти нужные байты вполне реально.
 
