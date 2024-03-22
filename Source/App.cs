@@ -18,7 +18,7 @@ namespace YumToolkit {
                 _Console.Drawing.CONSOLE_RESTART();
                 _Console.Drawing.CONSOLE_DRAW_MAIN();
                 while(!_Console.isSelected) { _Console.Drawing.CONSOLE_MENU(); };
-                // run selected ai
+                // Running selected ai
                 _Action();
 
             goto InterfaceBegin;
