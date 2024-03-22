@@ -20,14 +20,8 @@ namespace YumToolkit {
                 break;
 
                 case 1:
-                    
-                    if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows)) { 
-                        Process.Start(new ProcessStartInfo("cmd", $"/c start {_Path.GitHubLink}"));
-
-                    } else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux)) {
-                        Process.Start("xdg-open", _Path.GitHubLink);
-                    }
-
+                    if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows)) { Process.Start(new ProcessStartInfo("cmd", $"/c start {_Path.GitHubLink}")); }
+                    else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux)) { Process.Start("xdg-open", _Path.GitHubLink); }
                 break;
 
                 case 2: 
@@ -185,10 +179,11 @@ namespace YumToolkit {
         }
         static void RemoveTheme() {
             if(!File.Exists(_Name.old)) { _Console.SendMessage(_ServiceMessage.OldFileIsNotExist, ConsoleColor.DarkRed); return; }
-
+            
             File.Delete(_Name.original);
             _File.ReplaceOriginalFile();
             _File.DeleteOldFile();
+
             _Console.SendMessage(_ServiceMessage.DefaultThemeHasBeenRestored, ConsoleColor.DarkGreen);
         } 
     }
