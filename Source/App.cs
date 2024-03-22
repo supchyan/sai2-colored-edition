@@ -23,7 +23,7 @@ namespace YumToolkit {
                 };
 
                 // ai
-                ShowTime();
+                _Action();
 
             goto InterfaceBegin;
 

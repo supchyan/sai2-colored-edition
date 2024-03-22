@@ -49,7 +49,6 @@ namespace YumToolkit.Core {
             public static void CONSOLE_DRAW_MAIN() {
 
                 // ● ○ // ╭─╮ ├ ┤ // │ │ // ╰─╯
-
                 // 28 symbols for theme name is max value!
 
                 WriteLine("");

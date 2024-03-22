@@ -9,7 +9,7 @@ namespace YumToolkit {
     // Unneccessary stuff, to be stored here, but i did it to free space in App.cs
     class AppHelper {
         static Dictionary<string, string>? ThemeColors = new Dictionary<string, string>();
-        public static void ShowTime() {
+        public static void _Action() {
             int index = _Console.MaxListValue - _Console.Choice;
             if(index > 3) index = 3;
 
