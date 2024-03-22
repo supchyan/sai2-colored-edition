@@ -10,6 +10,14 @@ namespace YumToolkit {
     class AppHelper {
         static Dictionary<string, string>? ThemeColors = new Dictionary<string, string>();
         public static void _Action() {
+            // Since projcet can absorb any amount of themes,
+            // at this moment I decided to make unique behaviours
+            // to anything in Console Menu, except of theme selection.
+            // So users can select certain theme or anything else.
+            // And because themes are in the top of Menu list,
+            // I subtract user's choice from MaxListValue
+            // to get unique Menu choices first and themes at the end.
+            // So yeah, ReColor() is universal method to work with any selected theme.
             int index = _Console.MaxListValue - _Console.Choice;
             if(index > 3) index = 3;
 
@@ -29,19 +37,19 @@ namespace YumToolkit {
                 break;
 
                 case 3: 
-                    REcolor();
+                    ReColor();
                 break;
 
             }
             
         }
 
-        static void REcolor() {
+        static void ReColor() {
 
             if(!File.Exists(_Name.original)) { _Console.SendMessage(_ServiceMessage.OriginalFileIsNotExist, ConsoleColor.DarkRed); return; }
 
             // Creating backup file to restore data or replace original file
-            // with backup one to recolor it;
+            // with backup one to recolor it:
             if(!File.Exists(_Name.old)) { _File.CreateOldFile(); }
             else {
                 File.Delete(_Name.original);
