@@ -8,16 +8,19 @@ namespace YumToolkit.Core {
         public static int GetDecimalAddress(this string hex_address) {
             return int.Parse(hex_address.Replace("0x", ""), System.Globalization.NumberStyles.HexNumber);
         }
-        public static byte[] toByteArray(this string hex_value) {
+        public static byte[] toByteColor(this string hex_value) {
+
+            // RGBA in SAI2 is BGRA. Live your life with that.
+            // And also... Some BGRA sequences actually is ABGR! ^^
             return [
-                ColorTranslator.FromHtml(hex_value).A,
-                ColorTranslator.FromHtml(hex_value).R,
-                ColorTranslator.FromHtml(hex_value).G,
                 ColorTranslator.FromHtml(hex_value).B,
+                ColorTranslator.FromHtml(hex_value).G,
+                ColorTranslator.FromHtml(hex_value).R,
+                ColorTranslator.FromHtml(hex_value).A,
             ];
         }
-        public static byte[] NoAlpha(this byte[] col) {
-            return [col[1],col[2],col[3]];
+        public static byte[] NoAlpha(this byte[] c) {
+            return [ c[0], c[1], c[2] ];
         }
     }
 }

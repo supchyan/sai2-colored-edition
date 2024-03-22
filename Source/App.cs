@@ -25,10 +25,7 @@ namespace YumToolkit {
             Begin:
 
                 _Console.Drawing.CONSOLE_RESTART();
-
-                // ui
                 _Console.Drawing.CONSOLE_DRAW_MAIN();
-
                 while(!_Console.isSelected) { _Console.Drawing.CONSOLE_MENU(); }
 
                 // ai

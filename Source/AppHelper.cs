@@ -2,6 +2,7 @@ using System.Text.Json;
 using System.Diagnostics;
 using YumToolkit.Core;
 using YumToolkit.Core.Data;
+using System.Runtime.InteropServices;
 
 namespace YumToolkit {
 
@@ -18,8 +19,15 @@ namespace YumToolkit {
                     Environment.Exit(0);
                 break;
 
-                case 1: 
-                    Process.Start(_Path.GitHubLink);
+                case 1:
+                    
+                    if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows)) { 
+                        Process.Start(new ProcessStartInfo("cmd", $"/c start {_Path.GitHubLink}"));
+
+                    } else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux)) {
+                        Process.Start("xdg-open", _Path.GitHubLink);
+                    }
+
                 break;
 
                 case 2: 
@@ -52,10 +60,10 @@ namespace YumToolkit {
             if(ThemeColors is null) return;
             
             // Applying colors to... colors:
-            _Color.Primary = ThemeColors["Primary"].toByteArray();
-            _Color.Secondary = ThemeColors["Secondary"].toByteArray();
-            _Color.Ternary = ThemeColors["Ternary"].toByteArray();
-            _Color.Text = ThemeColors["Text"].toByteArray();
+            _Color.Primary = ThemeColors["Primary"].toByteColor();
+            _Color.Secondary = ThemeColors["Secondary"].toByteColor();
+            _Color.Ternary = ThemeColors["Ternary"].toByteColor();
+            _Color.Text = ThemeColors["Text"].toByteColor();
 
             _Color._SemiColor.SecondaryRGB = _Color.Secondary.NoAlpha();
             _Color._SemiColor.TernaryRGB = _Color.Ternary.NoAlpha();

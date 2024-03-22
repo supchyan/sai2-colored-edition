@@ -8,11 +8,7 @@ namespace YumToolkit.Core {
                 _Console.WriteLine(_ServiceMessage.TmpFileIsNotExists, ConsoleColor.DarkRed);
                 return;
             }
-
-            // TODO: 0 - 2  2 - 0 -> 1 - 3  3 - 1
-            // RGBA in SAI2 is BGRA. Live your life with that.
-            (color[0], color[2]) = (color[2], color[0]);
-
+            
             for(int i = 0; i < color.Length; i++) { binary[color_address + i] = color[i]; }
             
         }
@@ -43,10 +39,6 @@ namespace YumToolkit.Core {
                 _Console.WriteLine(_ServiceMessage.TmpFileIsNotExists, ConsoleColor.DarkRed);
                 return;
             }
-
-            // TODO: 0 - 2  2 - 0 -> 1 - 3  3 - 1
-            // RGBA in SAI2 is BGRA. Live your life with that.
-            (color[0], color[2]) = (color[2], color[0]);
             
             int value = isArtifacted ? 1 : color.Length;
             // Find certain sequence position and move on until the end
