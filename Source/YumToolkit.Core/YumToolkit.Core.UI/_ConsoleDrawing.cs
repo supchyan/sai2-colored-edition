@@ -1,7 +1,7 @@
 using System.Numerics;
 using YumToolkit.Core.Data;
 
-namespace YumToolkit.Core.YumConsole {
+namespace YumToolkit.Core.UI {
     public class _ConsoleDrawing {
         public static _ConsoleDrawing Call;
         int _Choice { get; set; }

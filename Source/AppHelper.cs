@@ -1,7 +1,7 @@
 using System.Text.Json;
 using System.Diagnostics;
 using YumToolkit.Core;
-using YumToolkit.Core.YumConsole;
+using YumToolkit.Core.UI;
 using YumToolkit.Core.Data;
 using System.Runtime.InteropServices;
 
@@ -62,7 +62,7 @@ namespace YumToolkit {
             
 
             // Reading theme file:
-            Get.ThemeColors = JsonSerializer.Deserialize<Dictionary<string,string>>(File.ReadAllText($"{_ConsoleDrawing.Call.ThemesList[_ConsoleDrawing.Call.Choice]}"));
+            ThemeColors = JsonSerializer.Deserialize<Dictionary<string,string>>(File.ReadAllText($"{_ConsoleDrawing.Call.ThemesList[_ConsoleDrawing.Call.Choice]}"));
             
             // Returning if nothing to replace to:
             if(ThemeColors is null) return;

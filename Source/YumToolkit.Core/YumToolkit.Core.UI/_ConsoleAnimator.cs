@@ -1,5 +1,5 @@
 using System.Numerics;
-namespace YumToolkit.Core.YumConsole {
+namespace YumToolkit.Core.UI {
     public class _ConsoleAnimator {
         public static _ConsoleAnimator Call;
         public string[] Stick { get; private set; } = [];

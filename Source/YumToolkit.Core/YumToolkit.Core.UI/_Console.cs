@@ -1,5 +1,5 @@
 using YumToolkit.Core.Data;
-namespace YumToolkit.Core.YumConsole {
+namespace YumToolkit.Core.UI {
     public class _Console {
         public static _Console Call = new _Console();
 

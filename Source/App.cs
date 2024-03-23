@@ -1,6 +1,6 @@
 ﻿using System.Dynamic;
 using YumToolkit.Core;
-using YumToolkit.Core.YumConsole;
+using YumToolkit.Core.UI;
 namespace YumToolkit {
     class App {
         static void Main(string[] args) {
