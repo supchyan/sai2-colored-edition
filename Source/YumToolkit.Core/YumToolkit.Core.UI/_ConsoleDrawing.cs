@@ -4,25 +4,19 @@ using YumToolkit.Core.Data;
 namespace YumToolkit.Core.UI {
     public class _ConsoleDrawing {
         public static _ConsoleDrawing Call;
-        int _Choice { get; set; }
-        public int Choice => _Choice;
-        
-        bool _isSelected { get; set; }
-        public bool isSelected => _isSelected;
-        
-        int _MaxListValue { get; set; }
-        public int MaxListValue => _MaxListValue;
-
-        List<string> _ThemesList { get; set; } = new List<string>();
-        public List<string> ThemesList => _ThemesList;
+        public int Choice { get; private set; }
+        public bool isSelected { get; private set; }
+        public int MaxListValue { get; private set; }
+        public List<string> ThemesList { get; private set; } = new List<string>();
 
         Thread? ASCIImation { get; set; }
         // Protects interface from `break lines` when drawing animation
         bool InterfaceHasBeenDrawn { get; set; }
+
         public void CONSOLE_RESTART() {
             InterfaceHasBeenDrawn = false;
-            _isSelected = false;
-            _Choice = 0;
+            isSelected = false;
+            Choice = 0;
 
             Console.Clear();
             Console.SetCursorPosition(0, 0);
@@ -39,7 +33,7 @@ namespace YumToolkit.Core.UI {
             _Console.Call.WriteLine("  ╭─────────────────────────────────╮"); // 4
             _Console.Call.WriteLine("  │ Select one in list below:       │"); // 5
             _Console.Call.WriteLine("  ├─────────────────────────────────┤"); // 6
-            foreach(string theme in _ThemesList)
+            foreach(string theme in ThemesList)
             {
                 var line = $"{Path.GetFileNameWithoutExtension(theme)}";
                 if(line.Length <= 27) {
@@ -69,14 +63,14 @@ namespace YumToolkit.Core.UI {
         public void CONSOLE_MENU() {
             var input = Console.ReadKey();
 
-            Console.SetCursorPosition(4, 7 + _Choice); _Console.Call.Write("○");
-            if(input.Key == ConsoleKey.UpArrow) {_Choice = _Choice > 0 ? _Choice - 1 : _MaxListValue; }
-            if(input.Key == ConsoleKey.DownArrow) {  _Choice = _Choice < _MaxListValue ? _Choice + 1 : 0; }
-            Console.SetCursorPosition(4, 7 + _Choice); _Console.Call.Write("●");
+            Console.SetCursorPosition(4, 7 + Choice); _Console.Call.Write("○");
+            if(input.Key == ConsoleKey.UpArrow) { Choice = Choice > 0 ? Choice - 1 : MaxListValue; }
+            if(input.Key == ConsoleKey.DownArrow) {  Choice = Choice < MaxListValue ? Choice + 1 : 0; }
+            Console.SetCursorPosition(4, 7 + Choice); _Console.Call.Write("●");
 
             if(input.Key == ConsoleKey.Enter) {
                 InterfaceHasBeenDrawn = false;
-                _isSelected = true;
+                isSelected = true;
                 Console.Clear();
             }
         }
@@ -92,9 +86,9 @@ namespace YumToolkit.Core.UI {
         }
         static _ConsoleDrawing() {
             Call = new _ConsoleDrawing();
-            Call._ThemesList = Directory.GetFiles(_Path.Get.ThemesFolder).ToList();
-            Call._MaxListValue = Call._ThemesList.Count + 2;
-            Call._isSelected = false;
+            Call.ThemesList = Directory.GetFiles(_Path.Get.ThemesFolder).ToList();
+            Call.MaxListValue = Call.ThemesList.Count + 2;
+            Call.isSelected = false;
             Call.InterfaceHasBeenDrawn = false;
             Call.ASCIImation = new Thread(Call.CONSOLE_ASCIIMATION) { IsBackground = true };
             Call.ASCIImation.Start();
