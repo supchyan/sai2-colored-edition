@@ -1,6 +1,8 @@
-﻿using YumToolkit.Core;
+﻿using System.Dynamic;
+using YumToolkit.Core;
+using YumToolkit.Core.YumConsole;
 namespace YumToolkit {
-    class App : AppHelper {
+    class App {
         static void Main(string[] args) {
             
             // Setting Default console props:
@@ -15,11 +17,11 @@ namespace YumToolkit {
             
             InterfaceBegin:
 
-                _Console.Drawing.CONSOLE_RESTART();
-                _Console.Drawing.CONSOLE_DRAW_MAIN();
-                while(!_Console.isSelected) { _Console.Drawing.CONSOLE_MENU(); };
+                _ConsoleDrawing.Call.CONSOLE_RESTART();
+                _ConsoleDrawing.Call.CONSOLE_DRAW_MAIN();
+                while(!_ConsoleDrawing.Call.isSelected) { _ConsoleDrawing.Call.CONSOLE_MENU(); };
                 // Running selected ai
-                _Action();
+                AppHelper.Get._Action();
 
             goto InterfaceBegin;
 

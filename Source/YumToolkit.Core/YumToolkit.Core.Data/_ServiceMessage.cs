@@ -1,23 +1,26 @@
 namespace YumToolkit.Core.Data {
-    public static class _ServiceMessage {
-        public static string ExitMessage { get; }
-        public static string ThemeFolderIsNotExist { get; }
-        public static string OldFileIsNotExist { get; }
-        public static string TmpFileIsNotExist { get; }
-        public static string OriginalFileIsNotExist { get; }
-        public static string DefaultThemeHasBeenRestored { get; }
-        public static string ThemeHasBeenApplied { get; }
-        public static string OriginalFileIsBusy { get; }
+    public class _ServiceMessage {
+        public static _ServiceMessage Get;
+        public string ExitMessage { get; private set; } = string.Empty;
+        public string ThemeFolderIsNotExist { get; private set; } = string.Empty;
+        public string OldFileIsNotExist { get; private set; } = string.Empty;
+        public string TmpFileIsNotExist { get; private set; } = string.Empty;
+        public string OriginalFileIsNotExist { get; private set; } = string.Empty;
+        public string DefaultThemeHasBeenRestored { get; private set; } = string.Empty;
+        public string ThemeHasBeenApplied { get; private set; } = string.Empty;
+        public string OriginalFileIsBusy { get; private set; } = string.Empty;
         
         static _ServiceMessage() {
-            ExitMessage = "Press any key to continue...";
-            ThemeFolderIsNotExist = $"[ ERROR ] '{_Path.ThemesFolder}' folder could not be found. {ExitMessage}";
-            OldFileIsNotExist = $"[ ERROR ] Backup file could not be found. {ExitMessage}";
-            TmpFileIsNotExist = $"[ ERROR ] {_Name.tmp} could not be found. {ExitMessage}";
-            OriginalFileIsNotExist = $"[ ERROR ] {_Name.original} could not be found. {ExitMessage}";
-            DefaultThemeHasBeenRestored = $"[ OK ] Default theme has been restored. {ExitMessage}";
-            ThemeHasBeenApplied = $"[ OK ] Theme has been applied. {ExitMessage}";
-            OriginalFileIsBusy = $"[ ERROR ] {_Name.original} is busy and can't be reached. Try again later. {ExitMessage}";
+            Get = new _ServiceMessage();
+            Get.ExitMessage = "Press any key to continue...";
+            Get.ThemeFolderIsNotExist = $"[ ERROR ] '{_Path.Get.ThemesFolder}' folder could not be found. {Get.ExitMessage}";
+            Get.OldFileIsNotExist = $"[ ERROR ] Backup file could not be found. {Get.ExitMessage}";
+            Get.TmpFileIsNotExist = $"[ ERROR ] {_Name.Get.tmp} could not be found. {Get.ExitMessage}";
+            Get.OriginalFileIsNotExist = $"[ ERROR ] {_Name.Get.original} could not be found. {Get.ExitMessage}";
+            Get.DefaultThemeHasBeenRestored = $"[ OK ] Default theme has been restored. {Get.ExitMessage}";
+            Get.ThemeHasBeenApplied = $"[ OK ] Theme has been applied. {Get.ExitMessage}";
+            Get.OriginalFileIsBusy = $"[ ERROR ] {_Name.Get.original} is busy and can't be reached. Try again later. {Get.ExitMessage}";
+            
         }
     }
 }
