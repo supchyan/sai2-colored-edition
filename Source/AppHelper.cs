@@ -81,10 +81,10 @@ namespace YumToolkit {
             if(!File.Exists(_Name.Get.tmp)) { _File.Call.CreateTmpFile(); }
 
             // Too glitchy, so I decided to disable canvas bg recoloring rn:
-            // _Theme.Call.SetElementColor(_Color.Get.Secondary, _Address.ActiveCanvasBackground);
-            // _Theme.Call.SetElementColor(_Color.Get.Secondary, _Address.ActiveCanvasBackground2);
-            // _Theme.Call.SetElementColor(_Color.Get.Secondary, _Address.ActiveCanvasBackground3);
-            // _Theme.Call.SetElementColor(_Color.Get.Secondary, _Address.ActiveCanvasBackground4);
+            _Theme.Call.SetElementColor(_Color.Get.Secondary, _Address.Get.ActiveCanvasBackground);
+            _Theme.Call.SetElementColor(_Color.Get.Secondary, _Address.Get.ActiveCanvasBackground2);
+            _Theme.Call.SetElementColor(_Color.Get.Secondary, _Address.Get.ActiveCanvasBackground3);
+            _Theme.Call.SetElementColor(_Color.Get.Secondary, _Address.Get.ActiveCanvasBackground4);
 
             _Theme.Call.SetElementColor(_Color.Get.Primary, _Address.Get.InActiveCanvasBackground);
             _Theme.Call.SetElementColor(_Color.Get.Primary, _Address.Get.BehindLayersUIBackground);
