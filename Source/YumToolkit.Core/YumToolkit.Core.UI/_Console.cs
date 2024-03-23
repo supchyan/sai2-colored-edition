@@ -1,7 +1,7 @@
 using YumToolkit.Core.Data;
 namespace YumToolkit.Core.UI {
-    public class _Console {
-        public static _Console Call = new _Console();
+    class _Console {
+        public static _Console Call { get; private set; }
 
         public void Write(string line, ConsoleColor  text_color = ConsoleColor.White, ConsoleColor bg_color = ConsoleColor.Black) {
             Console.ForegroundColor = text_color;
@@ -23,7 +23,7 @@ namespace YumToolkit.Core.UI {
             Console.ReadKey();
         }
         static _Console() {
-            
+            Call = new _Console();
             if(!Directory.Exists(_Path.Get.ThemesFolder)) { Call.SendMessage(_ServiceMessage.Get.ThemeFolderIsNotExist, ConsoleColor.DarkRed); Environment.Exit(0); }
             
         }

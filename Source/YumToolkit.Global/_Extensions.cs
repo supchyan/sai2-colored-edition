@@ -1,7 +1,7 @@
 using System.Drawing;
 
-namespace YumToolkit.Core {
-    public static class _Extensions {
+namespace YumToolkit.Global {
+    static class _Extensions {
         /// <summary>
         /// Converts HEX address to decimal one.
         /// </summary>

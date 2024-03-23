@@ -1,7 +1,7 @@
 using System.Numerics;
 namespace YumToolkit.Core.UI {
-    public class _ConsoleAnimator {
-        public static _ConsoleAnimator Call;
+    class _ConsoleAnimator {
+        public static _ConsoleAnimator Call { get; private set; }
         public string[] Stick { get; private set; } = [];
         public string[] Emote { get; private set; } = [];
         public void SetFrame(string frame, bool safe_drawing, Vector2 sprite_pos, int delay) {

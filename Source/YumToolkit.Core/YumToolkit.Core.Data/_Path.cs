@@ -1,6 +1,6 @@
 namespace YumToolkit.Core.Data {
     class _Path {
-        public static _Path Get;
+        public static _Path Get { get; private set; }
         public string ThemesFolder { get; private set; } = string.Empty;
         public string ThemesExtension { get; private set; } = string.Empty;
         public string GitHubLink { get; private set; } = string.Empty;

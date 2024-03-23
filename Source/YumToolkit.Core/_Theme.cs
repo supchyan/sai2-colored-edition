@@ -1,8 +1,8 @@
 using YumToolkit.Core.Data;
 using YumToolkit.Core.UI;
 namespace YumToolkit.Core {
-    public class _Theme {
-        public static _Theme Call;
+    class _Theme {
+        public static _Theme Call { get; private set; }
         byte[] binary = File.ReadAllBytes(_Name.Get.tmp);
         public void SetElementColor(byte[] color, int color_address) {
             if(!File.Exists(_Name.Get.tmp)) { _Console.Call.SendMessage(_ServiceMessage.Get.TmpFileIsNotExist, ConsoleColor.DarkRed); return; } 

@@ -2,8 +2,8 @@ using System.Numerics;
 using YumToolkit.Core.Data;
 
 namespace YumToolkit.Core.UI {
-    public class _ConsoleDrawing {
-        public static _ConsoleDrawing Call;
+    class _ConsoleDrawing {
+        public static _ConsoleDrawing Call { get; private set; }
         public int Choice { get; private set; }
         public bool isSelected { get; private set; }
         public int MaxListValue { get; private set; }

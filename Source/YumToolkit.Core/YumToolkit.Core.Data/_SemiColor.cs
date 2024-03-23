@@ -1,6 +1,8 @@
+using YumToolkit.Global;
+
 namespace YumToolkit.Core.Data {
-    public class _SemiColor {
-        public static _SemiColor Get;
+    class _SemiColor {
+        public static _SemiColor Get { get; private set; }
         public byte[] SecondaryRGB { get; set; } = [];
         public byte[] TernaryRGB { get; set; } = [];
         /// <summary>

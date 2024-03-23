@@ -1,6 +1,8 @@
+using YumToolkit.Global;
+
 namespace YumToolkit.Core.Data {
-    public class _Address {
-        public static _Address Get;
+    class _Address {
+        public static _Address Get { get; private set; }
         public int InActiveText { get; private set; }
         public int InActiveCanvasBackground { get; private set; }
         public int BehindLayersUIBackground { get; private set; }

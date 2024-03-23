@@ -1,15 +1,16 @@
 using System.Text.Json;
 using System.Diagnostics;
+using System.Runtime.InteropServices;
+using YumToolkit.Global;
 using YumToolkit.Core;
 using YumToolkit.Core.UI;
 using YumToolkit.Core.Data;
-using System.Runtime.InteropServices;
 
 namespace YumToolkit {
 
     // Unneccessary stuff, to be stored here, but i did it to free space in App.cs
     class AppHelper {
-        public static AppHelper Get;
+        public static AppHelper Get { get; private set; }
         Dictionary<string, string>? ThemeColors { get; set; }
         public void _Action() {
             // Since projcet can absorb any amount of themes,

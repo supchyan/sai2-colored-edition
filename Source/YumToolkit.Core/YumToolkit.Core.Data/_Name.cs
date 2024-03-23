@@ -1,6 +1,6 @@
 namespace YumToolkit.Core.Data {
-    public class _Name {
-        public static _Name Get;
+    class _Name {
+        public static _Name Get { get; private set; }
         public string original { get; private set; } = string.Empty;
         public string tmp { get; private set; } = string.Empty;
         public string old { get; private set; } = string.Empty;

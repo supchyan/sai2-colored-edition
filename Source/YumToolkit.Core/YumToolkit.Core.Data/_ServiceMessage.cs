@@ -1,6 +1,6 @@
 namespace YumToolkit.Core.Data {
-    public class _ServiceMessage {
-        public static _ServiceMessage Get;
+    class _ServiceMessage {
+        public static _ServiceMessage Get { get; private set; }
         public string ExitMessage { get; private set; } = string.Empty;
         public string ThemeFolderIsNotExist { get; private set; } = string.Empty;
         public string OldFileIsNotExist { get; private set; } = string.Empty;

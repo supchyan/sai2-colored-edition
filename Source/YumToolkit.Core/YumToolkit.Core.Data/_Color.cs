@@ -5,8 +5,8 @@ namespace YumToolkit.Core.Data {
     /// Brush's buttons and parts of the scrollable UI can't be colored in any color beyond the grey space color palette ;;
     /// But I can be wrong so, you can repair this shit, if you know reverse engineering better than me...
     /// </summary>
-    public class _Color {
-        public static _Color Get;
+    class _Color {
+        public static _Color Get { get; private set; }
         public byte[] Primary { get; set; } = [];
         public byte[] Secondary { get; set; } = [];
         public byte[] Ternary { get; set; } = [];

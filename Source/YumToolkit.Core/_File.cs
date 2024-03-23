@@ -1,8 +1,8 @@
 using YumToolkit.Core.Data;
 using YumToolkit.Core.UI;
 namespace YumToolkit.Core {
-    public class _File {
-        public static _File Call;
+    class _File {
+        public static _File Call { get; private set; }
         public void ReplaceOriginalFile() {
             if(File.Exists(_Name.Get.old)) { File.Copy(_Name.Get.old, _Name.Get.original); } 
         }
