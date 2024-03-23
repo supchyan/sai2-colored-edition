@@ -4,9 +4,10 @@
 <br />
 
 ### `themes toolkit for SAI 2 64bit patch ver. 2024.02.22` `*`
+### [English](#introduction) & [Русский](#вступление)
+<br/>
 
 ## 🌔Introduction:
-[Русская версия ↓](#вступление)
 ``` 
 * I'm almost sure, this toolkit won't work with other sai versions,
   so keep it in mind.
@@ -20,22 +21,22 @@
   to run it properly. ( Are you serious )
   I don't care, how do you plan to receive a license, I just made a toolkit.
 ```
+<br/>
+
 ## 🌓How to install:
-Just unzip application build in root sai2's directory. Launch and select theme to apply.
+Just unzip application build in sai2's root directory. Launch and select theme to apply.
 <br/><br/>
 
 ## 🌒Resources:
-**Creating custom themes →** [Themes](https://github.com/supchyan/yum2-theme-toolkit/tree/main/Themes)
+### 🎨 Creating custom themes → [Themes](https://github.com/supchyan/yum2-theme-toolkit/tree/main/Themes)
+### 💾 Check out releases → [Releases](https://github.com/supchyan/yum2-theme-toolkit/releases/tag/whale)
 <br/>
-**Releases links →** [Releases](https://github.com/supchyan/yum2-theme-toolkit/releases/tag/whale)
-<br/><br/>
 
 ## 🌑Screenshots:
-![image](https://github.com/supchyan/yum2-theme-toolkit/assets/123704468/6f0b27da-b8f6-403b-ae73-8b35e25f933f)
+![screenshot](https://github.com/supchyan/yum2-theme-toolkit/assets/123704468/f22eb0d1-a0ee-41e0-a98d-f72e3ee1a901)
 <br/><br/>
 
 ## 🌔Вступление:
-[English version ↑](#introduction)
 ``` 
 * Я почти уверен, что этот набор инструментов не будет работать на других версиях sai,
   так что помните об этом.
@@ -49,16 +50,17 @@ Just unzip application build in root sai2's directory. Launch and select theme t
   для корректной работы программы. ( Камень я не дам )
   Мне всё равно, как вы получили лицензию, я просто сделал этот набор инструментов.
 ```
+<br/>
+
 ## 🌓Установка:
-Просто распакуйте архив с билдом в коренную папку sai2. Запустите программу и выберите тему, которую хотите установить.
+Просто распакуйте содержимое архива с билдом в корневую папку sai2. Запустите программу и выберите тему, которую хотите установить.
 <br/><br/>
 
 ## 🌒Ресурсы:
-**Создание собственных тем →** [Themes](https://github.com/supchyan/yum2-theme-toolkit/tree/main/Themes)
+### 🎨 Создание собственных тем → [Themes](https://github.com/supchyan/yum2-theme-toolkit/tree/main/Themes)
+### 💾 Последние релизы → [Releases](https://github.com/supchyan/yum2-theme-toolkit/releases/tag/whale)
 <br/>
-**Ссылки на релиз →** [Releases](https://github.com/supchyan/yum2-theme-toolkit/releases/tag/whale)
-<br/><br/>
 
 ## 🌑Скриншоты:
-![image](https://github.com/supchyan/yum2-theme-toolkit/assets/123704468/6f0b27da-b8f6-403b-ae73-8b35e25f933f)
+![screenshot](https://github.com/supchyan/yum2-theme-toolkit/assets/123704468/6260b839-3d5b-4973-b416-4ee510b4bf89)
 
