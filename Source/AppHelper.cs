@@ -85,6 +85,8 @@ namespace YumToolkit {
             _Theme.Call.SetElementColor(_Color.Get.Secondary, _Address.Get.ActiveCanvasBackground2);
             _Theme.Call.SetElementColor(_Color.Get.Secondary, _Address.Get.ActiveCanvasBackground3);
             _Theme.Call.SetElementColor(_Color.Get.Secondary, _Address.Get.ActiveCanvasBackground4);
+            _Theme.Call.SetElementColorComplicated(_Color.Get.Secondary, _Address.Get.GlobalSectionText[0], _Address.Get.GlobalSectionText[1], _Color.Get.DefaultColor17, true);
+           
 
             _Theme.Call.SetElementColor(_Color.Get.Primary, _Address.Get.InActiveCanvasBackground);
             _Theme.Call.SetElementColor(_Color.Get.Primary, _Address.Get.BehindLayersUIBackground);

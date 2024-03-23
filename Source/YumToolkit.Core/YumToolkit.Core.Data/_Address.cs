@@ -45,6 +45,7 @@ namespace YumToolkit.Core.Data {
         public int BrushesCirclesText { get; private set; }
         public int[] BrushesFileMenuTilesScrollableListsBackground { get; private set; } = [];
         public int[] LayerServiceButtons { get; private set; } = [];
+        public int[] GlobalSectionText { get; private set; } = [];
         public int[] GlobalSectionAppskin { get; private set; } = [];
         public int[] GlobalSectionSrclibs { get; private set; } = [];
         
@@ -93,6 +94,8 @@ namespace YumToolkit.Core.Data {
                 
                 BrushesFileMenuTilesScrollableListsBackground = ["0x004D1038".GetDecimalAddress(), "0x004D1C33".GetDecimalAddress()],
                 LayerServiceButtons = ["0x004DD400".GetDecimalAddress(), "0x004FC2AF".GetDecimalAddress()],
+                
+                GlobalSectionText = ["0x00000400".GetDecimalAddress(), "0x00257F4F".GetDecimalAddress()],
                 GlobalSectionAppskin = ["0x00340000".GetDecimalAddress(), "0x004D0FFF".GetDecimalAddress()],
                 GlobalSectionSrclibs = ["0x004D1000".GetDecimalAddress(), "0x0053E3FF".GetDecimalAddress()],
             };

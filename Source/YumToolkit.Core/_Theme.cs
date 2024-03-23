@@ -27,7 +27,10 @@ namespace YumToolkit.Core {
         /// <param name="start_index">Beggining of byte sequence</param>
         /// <param name="end_index">End of byte sequence</param>
         /// <param name="default_color">Color, which should be replaced</param>
-        /// /// <param name="isArtifacted">Condition for semi colors replacer behavior. False as default</param>
+        /// <param name="isArtifacted">
+        /// Set this to true, if you want to check every single byte as independent sequence.
+        /// Useful to fix different kind of artifacts. False as default.
+        /// </param>
         public void SetElementColorComplicated(byte[] color, int start_index, int end_index, byte[] default_color, bool isArtifacted = false) {
             if(!File.Exists(_Name.Get.tmp)) { _Console.Call.SendMessage(_ServiceMessage.Get.TmpFileIsNotExist, ConsoleColor.DarkRed); return; }
             
