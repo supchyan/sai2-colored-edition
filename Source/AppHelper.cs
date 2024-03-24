@@ -3,13 +3,11 @@ using System.Diagnostics;
 using System.Runtime.InteropServices;
 using YumToolkit.Global;
 using YumToolkit.Core;
-using YumToolkit.Core.UI;
-using YumToolkit.Core.Data;
 
 namespace YumToolkit {
 
     // Unneccessary stuff, to be stored here, but i did it to free space in App.cs
-    class AppHelper {
+    class AppHelper :  _Globals {
         public static AppHelper Get { get; private set; }
         Dictionary<string, string>? ThemeColors { get; set; }
         public void _Action() {
@@ -22,7 +20,7 @@ namespace YumToolkit {
             // to get unique Menu choices first and themes at the end.
             // So yeah, ReColor() is universal method to work with any selected theme,
             // so index can't be greater than 3, while no more unique menu choices inside.
-            int index = _ConsoleDrawing.Get.MaxListValue - _ConsoleDrawing.Get.Choice;
+            int index = consoleDrawing.MaxListValue - consoleDrawing.Choice;
             if(index > 3) index = 3;
 
             switch(index) {
@@ -32,8 +30,8 @@ namespace YumToolkit {
                 break;
 
                 case 1:
-                    if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows)) { Process.Start(new ProcessStartInfo("cmd", $"/c start {_Path.Get.GitHubLink}")); }
-                    else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux)) { Process.Start("xdg-open", _Path.Get.GitHubLink); }
+                    if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows)) { Process.Start(new ProcessStartInfo("cmd", $"/c start {path.GitHubLink}")); }
+                    else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux)) { Process.Start("xdg-open", path.GitHubLink); }
                 break;
 
                 case 2: 
@@ -50,91 +48,94 @@ namespace YumToolkit {
 
         void ReColor() {
 
-            if(!File.Exists(_Name.Get.original)) { _Console.Get.SendMessage(_ServiceMessage.Get.OriginalFileIsNotExist, ConsoleColor.DarkRed); return; }
+            if(!File.Exists(name.original)) { console.SendMessage(serviceMessage.OriginalFileIsNotExist, ConsoleColor.DarkRed); return; }
 
             // Creating backup file to restore data or replace original file
             // with backup one to recolor it:
-            if(!File.Exists(_Name.Get.old)) { _File.Get.CreateOldFile(); }
+            if(!File.Exists(name.old)) { _File.Get.CreateOldFile(); }
             else {
-                File.Delete(_Name.Get.original);
+                File.Delete(name.original);
                 // This won't delete sai2.old.exe! Just cloning it to original one:
                 _File.Get.ReplaceOriginalFile();
             }
             
 
             // Reading theme file:
-            ThemeColors = JsonSerializer.Deserialize<Dictionary<string,string>>(File.ReadAllText($"{_ConsoleDrawing.Get.ThemesList[_ConsoleDrawing.Get.Choice]}"));
+            ThemeColors = JsonSerializer.Deserialize<Dictionary<string,string>>(File.ReadAllText($"{consoleDrawing.ThemesList[consoleDrawing.Choice]}"));
             
             // Returning if nothing to replace to:
             if(ThemeColors is null) return;
             
             // Applying colors to... colors:
-            _Color.Get.Primary = ThemeColors["Primary"].toByteColor();
-            _Color.Get.Secondary = ThemeColors["Secondary"].toByteColor();
-            _Color.Get.Ternary = ThemeColors["Ternary"].toByteColor();
-            _Color.Get.Text = ThemeColors["Text"].toByteColor();
+            color.Primary = ThemeColors["Primary"].toByteColor();
+            color.Secondary = ThemeColors["Secondary"].toByteColor();
+            color.Ternary = ThemeColors["Ternary"].toByteColor();
+            color.Text = ThemeColors["Text"].toByteColor();
 
-            _SemiColor.Get.SecondaryRGB = _Color.Get.Secondary.NoAlpha();
-            _SemiColor.Get.TernaryRGB = _Color.Get.Ternary.NoAlpha();
+            semiColor.SecondaryRGB = color.Secondary.NoAlpha();
+            semiColor.TernaryRGB = color.Ternary.NoAlpha();
 
             // Creating tmp .exe to replace binary data inside:
-            if(!File.Exists(_Name.Get.tmp)) { _File.Get.CreateTmpFile(); }
+            if(!File.Exists(name.tmp)) { _File.Get.CreateTmpFile(); }
+
+            // Reading tmp .exe:
+            theme.binary = theme.ReadTmpFile(name.tmp);
 
             // Too glitchy, so I decided to disable canvas bg recoloring rn:
-            _Theme.Get.SetElementColor(_Color.Get.Secondary, _Address.Get.ActiveCanvasBackground);
-            _Theme.Get.SetElementColor(_Color.Get.Secondary, _Address.Get.ActiveCanvasBackground2);
-            _Theme.Get.SetElementColor(_Color.Get.Secondary, _Address.Get.ActiveCanvasBackground3);
-            _Theme.Get.SetElementColor(_Color.Get.Secondary, _Address.Get.ActiveCanvasBackground4);
-            _Theme.Get.SetElementColorComplicated(_Color.Get.Secondary, _Address.Get.GlobalSectionText[0], _Address.Get.GlobalSectionText[1], _Color.Get.DefaultColor17, true);
+            theme.SetElementColor(color.Secondary, address.ActiveCanvasBackground);
+            theme.SetElementColor(color.Secondary, address.ActiveCanvasBackground2);
+            theme.SetElementColor(color.Secondary, address.ActiveCanvasBackground3);
+            theme.SetElementColor(color.Secondary, address.ActiveCanvasBackground4);
+            theme.SetElementColorComplicated(color.Secondary, address.GlobalSectionText[0], address.GlobalSectionText[1], color.DefaultColor17, true);
            
 
-            _Theme.Get.SetElementColor(_Color.Get.Primary, _Address.Get.InActiveCanvasBackground);
-            _Theme.Get.SetElementColor(_Color.Get.Primary, _Address.Get.BehindLayersUIBackground);
-            _Theme.Get.SetElementColor(_Color.Get.Primary, _Address.Get.BrushBorders);
-            _Theme.Get.SetElementColor(_Color.Get.Primary, _Address.Get.SlidersVertical);
-            _Theme.Get.SetElementColor(_Color.Get.Primary, _Address.Get.SlidersHorizontal);
-            _Theme.Get.SetElementColor(_Color.Get.Primary, _Address.Get.SlidersActiveBackground);
-            _Theme.Get.SetElementColor(_Color.Get.Primary, _Address.Get.SlidersActiveBackgroundHoveredFocused);
+            theme.SetElementColor(color.Primary, address.InActiveCanvasBackground);
+            theme.SetElementColor(color.Primary, address.BehindLayersUIBackground);
+            theme.SetElementColor(color.Primary, address.BrushBorders);
+            theme.SetElementColor(color.Primary, address.SlidersVertical);
+            theme.SetElementColor(color.Primary, address.SlidersHorizontal);
+            theme.SetElementColor(color.Primary, address.SlidersActiveBackground);
+            theme.SetElementColor(color.Primary, address.SlidersActiveBackgroundHoveredFocused);
             
             
             // I'm not sure, should I manage this two elements as Ternary color,
             // because it looks much better in Secondary colors. But for Secondary color,
             // I need to find all text's Black sequences [ 00 00 00 00 ].
             // In other way, those black texts will suck as look style:
-            _Theme.Get.SetElementColor(_Color.Get.Ternary, _Address.Get.GlobalBorders);
-            _Theme.Get.SetElementColor(_Color.Get.Ternary, _Address.Get.GlobalBorders2);
+            theme.SetElementColor(color.Ternary, address.GlobalBorders);
+            theme.SetElementColor(color.Ternary, address.GlobalBorders2);
 
             
 
-            _Theme.Get.SetElementColor(_Color.Get.Ternary, _Address.Get.TabsResizeGrabberVertical);
-            _Theme.Get.SetElementColor(_Color.Get.Ternary, _Address.Get.TabsResizeGrabberHorizontal);
-            _Theme.Get.SetElementColor(_Color.Get.Ternary, _Address.Get.ScaleAngleSliders);
+            theme.SetElementColor(color.Ternary, address.TabsResizeGrabberVertical);
+            theme.SetElementColor(color.Ternary, address.TabsResizeGrabberHorizontal);
+            theme.SetElementColor(color.Ternary, address.ScaleAngleSliders);
 
-            _Theme.Get.SetElementColor(_Color.Get.Secondary, _Address.Get.Separator);
-            _Theme.Get.SetElementColor(_Color.Get.Secondary, _Address.Get.TopBar);
-            _Theme.Get.SetElementColor(_Color.Get.Secondary, _Address.Get.ContextMenu);
-            _Theme.Get.SetElementColor(_Color.Get.Secondary, _Address.Get.ResizeWindowGrabber);
-            _Theme.Get.SetElementColor(_Color.Get.Secondary, _Address.Get.SlidersInActiveBackground);
-            _Theme.Get.SetElementColor(_Color.Get.Secondary, _Address.Get.SlidersColor);
-            _Theme.Get.SetElementColor(_Color.Get.Secondary, _Address.Get.BookmarkBackgroundAndOutlinesSomewhere);
-            _Theme.Get.SetElementColor(_Color.Get.Secondary, _Address.Get.RadioButtonsBackground);
+            theme.SetElementColor(color.Secondary, address.Separator);
+            theme.SetElementColor(color.Secondary, address.TopBar);
+            theme.SetElementColor(color.Secondary, address.ContextMenu);
+            theme.SetElementColor(color.Secondary, address.ResizeWindowGrabber);
+            theme.SetElementColor(color.Secondary, address.SlidersInActiveBackground);
+            theme.SetElementColor(color.Secondary, address.SlidersColor);
+            theme.SetElementColor(color.Secondary, address.BookmarkBackgroundAndOutlinesSomewhere);
+            theme.SetElementColor(color.Secondary, address.RadioButtonsBackground);
 
 
             // That 'blue text' sai2's glitch of some brushes names:
-            _Theme.Get.SetElementColor(_Color.Get.Text, _Address.Get.BrushesSpecialText); 
+            theme.SetElementColor(color.Text, address.BrushesSpecialText); 
             
             // 'Shit text' color replacer:
-            _Theme.Get.SetElementColorComplicated(_Color.Get.Text, _Address.Get.GlobalSectionSrclibs[0], _Address.Get.GlobalSectionSrclibs[1], _Color.Get.DefaultColor23);
-            _Theme.Get.SetElementColorComplicated(_Color.Get.Text, _Address.Get.GlobalSectionAppskin[0], _Address.Get.GlobalSectionAppskin[1], _Color.Get.DefaultColor23);
+            theme.SetElementColorComplicated(color.Text, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], color.DefaultColor23);
+            theme.SetElementColorComplicated(color.Text, address.GlobalSectionAppskin[0], address.GlobalSectionAppskin[1], color.DefaultColor23);
 
             // Should be useful on dark backgrounds. Right now I can't find couple of this texts, so almost unusable ;;
-            _Theme.Get.SetElementColor(_Color.Get.Text, _Address.Get.ContextMenuText);
-            _Theme.Get.SetElementColor(_Color.Get.Text, _Address.Get.TopBarText);
-            // _Theme.Get.SetElementColor(_Color.Get.Text, _Address.Get.FileMenuScrollableText);
-            // _Theme.Get.SetElementColor(_Color.Get.Text, _Address.Get.FileMenuTilesText);
-            // _Theme.Get.SetElementColor(_Color.Get.Text, _Address.Get.BrushesText);
-            // _Theme.Get.SetElementColor(_Color.Get.Text, _Address.Get.BrushesTabsText);
-            // _Theme.Get.SetElementColor(_Color.Get.Text, _Address.Get.BrushesCirclesText);
+            theme.SetElementColor(color.Text, address.ContextMenuText);
+            theme.SetElementColor(color.Text, address.TopBarText);
+            // theme.SetElementColor(color.Text, address.FileMenuScrollableText);
+            // theme.SetElementColor(color.Text, address.FileMenuTilesText);
+            // theme.SetElementColor(color.Text, address.BrushesText);
+            // theme.SetElementColor(color.Text, address.BrushesTabsText);
+            // theme.SetElementColor(color.Text, address.BrushesCirclesText);
 
 
             // This section is replacing huge parts of sequences,
@@ -142,61 +143,61 @@ namespace YumToolkit {
             // so it was much easer to make this method to override the certain colors.
             // In this case, it means, this method is about artifacts after coloring, so
             // also, there is a method to fix consequences after coloring that way:
-            _Theme.Get.SetElementColorComplicated(_Color.Get.Ternary, _Address.Get.BrushesFileMenuTilesScrollableListsBackground[0], _Address.Get.BrushesFileMenuTilesScrollableListsBackground[1], _Color.Get.DefaultColor22);
-            _Theme.Get.SetElementColorComplicated(_Color.Get.Ternary, _Address.Get.GlobalSectionSrclibs[0], _Address.Get.GlobalSectionSrclibs[1], _Color.Get.DefaultColor7);
-            _Theme.Get.SetElementColorComplicated(_Color.Get.Ternary, _Address.Get.GlobalSectionSrclibs[0], _Address.Get.GlobalSectionSrclibs[1], _Color.Get.DefaultColor11);
-            _Theme.Get.SetElementColorComplicated(_Color.Get.Ternary, _Address.Get.GlobalSectionAppskin[0], _Address.Get.GlobalSectionAppskin[1], _Color.Get.DefaultColor10);
-            _Theme.Get.SetElementColorComplicated(_Color.Get.Ternary, _Address.Get.GlobalSectionAppskin[0], _Address.Get.GlobalSectionAppskin[1], _Color.Get.DefaultColor13);
+            theme.SetElementColorComplicated(color.Ternary, address.BrushesFileMenuTilesScrollableListsBackground[0], address.BrushesFileMenuTilesScrollableListsBackground[1], color.DefaultColor22);
+            theme.SetElementColorComplicated(color.Ternary, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], color.DefaultColor7);
+            theme.SetElementColorComplicated(color.Ternary, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], color.DefaultColor11);
+            theme.SetElementColorComplicated(color.Ternary, address.GlobalSectionAppskin[0], address.GlobalSectionAppskin[1], color.DefaultColor10);
+            theme.SetElementColorComplicated(color.Ternary, address.GlobalSectionAppskin[0], address.GlobalSectionAppskin[1], color.DefaultColor13);
             
-            _Theme.Get.SetElementColorComplicated(_Color.Get.Secondary, _Address.Get.GlobalSectionSrclibs[0], _Address.Get.GlobalSectionSrclibs[1], _Color.Get.DefaultColor1);
-            _Theme.Get.SetElementColorComplicated(_Color.Get.Secondary, _Address.Get.GlobalSectionSrclibs[0], _Address.Get.GlobalSectionSrclibs[1], _Color.Get.DefaultColor2);
-            _Theme.Get.SetElementColorComplicated(_Color.Get.Secondary, _Address.Get.GlobalSectionSrclibs[0], _Address.Get.GlobalSectionSrclibs[1], _Color.Get.DefaultColor3);
-            _Theme.Get.SetElementColorComplicated(_Color.Get.Secondary, _Address.Get.GlobalSectionSrclibs[0], _Address.Get.GlobalSectionSrclibs[1], _Color.Get.DefaultColor4);
-            _Theme.Get.SetElementColorComplicated(_Color.Get.Secondary, _Address.Get.GlobalSectionSrclibs[0], _Address.Get.GlobalSectionSrclibs[1], _Color.Get.DefaultColor5);
-            _Theme.Get.SetElementColorComplicated(_Color.Get.Secondary, _Address.Get.GlobalSectionSrclibs[0], _Address.Get.GlobalSectionSrclibs[1], _Color.Get.DefaultColor6);
-            _Theme.Get.SetElementColorComplicated(_Color.Get.Secondary, _Address.Get.GlobalSectionSrclibs[0], _Address.Get.GlobalSectionSrclibs[1], _Color.Get.DefaultColor8);
-            _Theme.Get.SetElementColorComplicated(_Color.Get.Secondary, _Address.Get.GlobalSectionSrclibs[0], _Address.Get.GlobalSectionSrclibs[1], _Color.Get.DefaultColor9);
-            _Theme.Get.SetElementColorComplicated(_Color.Get.Secondary, _Address.Get.GlobalSectionSrclibs[0], _Address.Get.GlobalSectionSrclibs[1], _Color.Get.DefaultColor10);
-            _Theme.Get.SetElementColorComplicated(_Color.Get.Secondary, _Address.Get.GlobalSectionSrclibs[0], _Address.Get.GlobalSectionSrclibs[1], _Color.Get.DefaultColor12);
+            theme.SetElementColorComplicated(color.Secondary, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], color.DefaultColor1);
+            theme.SetElementColorComplicated(color.Secondary, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], color.DefaultColor2);
+            theme.SetElementColorComplicated(color.Secondary, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], color.DefaultColor3);
+            theme.SetElementColorComplicated(color.Secondary, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], color.DefaultColor4);
+            theme.SetElementColorComplicated(color.Secondary, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], color.DefaultColor5);
+            theme.SetElementColorComplicated(color.Secondary, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], color.DefaultColor6);
+            theme.SetElementColorComplicated(color.Secondary, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], color.DefaultColor8);
+            theme.SetElementColorComplicated(color.Secondary, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], color.DefaultColor9);
+            theme.SetElementColorComplicated(color.Secondary, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], color.DefaultColor10);
+            theme.SetElementColorComplicated(color.Secondary, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], color.DefaultColor12);
 
             
             
             // Semi colors fixes [ borders in sort of buttons ] [[ `bordering colors`, as you wish ]]:
-            _Theme.Get.SetElementColorComplicated(_SemiColor.Get.TernaryRGB, _Address.Get.GlobalSectionSrclibs[0], _Address.Get.GlobalSectionSrclibs[1], _Color.Get.DefaultColor14, true);
-            _Theme.Get.SetElementColorComplicated(_SemiColor.Get.TernaryRGB, _Address.Get.GlobalSectionSrclibs[0], _Address.Get.GlobalSectionSrclibs[1], _Color.Get.DefaultColor15, true);
-            _Theme.Get.SetElementColorComplicated(_SemiColor.Get.TernaryRGB, _Address.Get.GlobalSectionSrclibs[0], _Address.Get.GlobalSectionSrclibs[1], _Color.Get.DefaultColor16, true);
-            _Theme.Get.SetElementColorComplicated(_SemiColor.Get.TernaryRGB, _Address.Get.GlobalSectionSrclibs[0], _Address.Get.GlobalSectionSrclibs[1], _Color.Get.DefaultColor17, true);
-            _Theme.Get.SetElementColorComplicated(_SemiColor.Get.TernaryRGB, _Address.Get.GlobalSectionSrclibs[0], _Address.Get.GlobalSectionSrclibs[1], _Color.Get.DefaultColor18, true);
-            _Theme.Get.SetElementColorComplicated(_SemiColor.Get.TernaryRGB, _Address.Get.GlobalSectionSrclibs[0], _Address.Get.GlobalSectionSrclibs[1], _Color.Get.DefaultColor19, true);
-            _Theme.Get.SetElementColorComplicated(_SemiColor.Get.TernaryRGB, _Address.Get.GlobalSectionSrclibs[0], _Address.Get.GlobalSectionSrclibs[1], _Color.Get.DefaultColor20, true);
-            _Theme.Get.SetElementColorComplicated(_SemiColor.Get.TernaryRGB, _Address.Get.GlobalSectionSrclibs[0], _Address.Get.GlobalSectionSrclibs[1], _Color.Get.DefaultColor21, true);
+            theme.SetElementColorComplicated(semiColor.TernaryRGB, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], color.DefaultColor14, true);
+            theme.SetElementColorComplicated(semiColor.TernaryRGB, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], color.DefaultColor15, true);
+            theme.SetElementColorComplicated(semiColor.TernaryRGB, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], color.DefaultColor16, true);
+            theme.SetElementColorComplicated(semiColor.TernaryRGB, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], color.DefaultColor17, true);
+            theme.SetElementColorComplicated(semiColor.TernaryRGB, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], color.DefaultColor18, true);
+            theme.SetElementColorComplicated(semiColor.TernaryRGB, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], color.DefaultColor19, true);
+            theme.SetElementColorComplicated(semiColor.TernaryRGB, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], color.DefaultColor20, true);
+            theme.SetElementColorComplicated(semiColor.TernaryRGB, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], color.DefaultColor21, true);
             //
 
             // Artifacts fixes [ which is inevitable after that colring method. ]:
-            _Theme.Get.SetElementColorComplicated(_SemiColor.Get.SecondaryRGB, _Address.Get.GlobalSectionSrclibs[0], _Address.Get.GlobalSectionSrclibs[1], _SemiColor.Get.ArtifactsColor1);
-            _Theme.Get.SetElementColorComplicated(_SemiColor.Get.SecondaryRGB, _Address.Get.GlobalSectionSrclibs[0], _Address.Get.GlobalSectionSrclibs[1], _SemiColor.Get.ArtifactsColor2);
-            _Theme.Get.SetElementColorComplicated(_SemiColor.Get.SecondaryRGB, _Address.Get.GlobalSectionSrclibs[0], _Address.Get.GlobalSectionSrclibs[1], _SemiColor.Get.ArtifactsColor3);
-            _Theme.Get.SetElementColorComplicated(_SemiColor.Get.SecondaryRGB, _Address.Get.GlobalSectionSrclibs[0], _Address.Get.GlobalSectionSrclibs[1], _SemiColor.Get.ArtifactsColor4);
-            _Theme.Get.SetElementColorComplicated(_SemiColor.Get.SecondaryRGB, _Address.Get.GlobalSectionSrclibs[0], _Address.Get.GlobalSectionSrclibs[1], _SemiColor.Get.ArtifactsColor5);
-            _Theme.Get.SetElementColorComplicated(_SemiColor.Get.SecondaryRGB, _Address.Get.GlobalSectionSrclibs[0], _Address.Get.GlobalSectionSrclibs[1], _SemiColor.Get.ArtifactsColor6);
-            _Theme.Get.SetElementColorComplicated(_SemiColor.Get.SecondaryRGB, _Address.Get.GlobalSectionSrclibs[0], _Address.Get.GlobalSectionSrclibs[1], _SemiColor.Get.ArtifactsColor7);
-            _Theme.Get.SetElementColorComplicated(_SemiColor.Get.SecondaryRGB, _Address.Get.GlobalSectionSrclibs[0], _Address.Get.GlobalSectionSrclibs[1], _SemiColor.Get.ArtifactsColor8);
+            theme.SetElementColorComplicated(semiColor.SecondaryRGB, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], semiColor.ArtifactsColor1);
+            theme.SetElementColorComplicated(semiColor.SecondaryRGB, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], semiColor.ArtifactsColor2);
+            theme.SetElementColorComplicated(semiColor.SecondaryRGB, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], semiColor.ArtifactsColor3);
+            theme.SetElementColorComplicated(semiColor.SecondaryRGB, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], semiColor.ArtifactsColor4);
+            theme.SetElementColorComplicated(semiColor.SecondaryRGB, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], semiColor.ArtifactsColor5);
+            theme.SetElementColorComplicated(semiColor.SecondaryRGB, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], semiColor.ArtifactsColor6);
+            theme.SetElementColorComplicated(semiColor.SecondaryRGB, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], semiColor.ArtifactsColor7);
+            theme.SetElementColorComplicated(semiColor.SecondaryRGB, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], semiColor.ArtifactsColor8);
 
             // Saving current theme changes:
-            _Theme.Get.SaveTheme();
+            theme.SaveTheme();
 
             // Removing unnecessary tmp file:
-            if(File.Exists(_Name.Get.tmp)) { _File.Get.DeleteTmpFile(); }
+            if(File.Exists(name.tmp)) { _File.Get.DeleteTmpFile(); }
             
         }
         void RemoveTheme() {
-            if(!File.Exists(_Name.Get.old)) { _Console.Get.SendMessage(_ServiceMessage.Get.OldFileIsNotExist, ConsoleColor.DarkRed); return; }
+            if(!File.Exists(name.old)) { console.SendMessage(serviceMessage.OldFileIsNotExist, ConsoleColor.DarkRed); return; }
             
-            File.Delete(_Name.Get.original);
+            File.Delete(name.original);
             _File.Get.ReplaceOriginalFile();
             _File.Get.DeleteOldFile();
 
-            _Console.Get.SendMessage(_ServiceMessage.Get.DefaultThemeHasBeenRestored, ConsoleColor.DarkGreen);
+            console.SendMessage(serviceMessage.DefaultThemeHasBeenRestored, ConsoleColor.DarkGreen);
         }
         static AppHelper() {
             Get = new AppHelper {

@@ -1,7 +1,8 @@
-using YumToolkit.Core.Data;
+using YumToolkit.Core.Interfaces.UI;
+using YumToolkit.Global;
+
 namespace YumToolkit.Core.UI {
-    class _Console {
-        public static _Console Get { get; private set; }
+    class _Console : _Globals, IConsole {
 
         public void Write(string line, ConsoleColor  text_color = ConsoleColor.White, ConsoleColor bg_color = ConsoleColor.Black) {
             Console.ForegroundColor = text_color;
@@ -22,10 +23,11 @@ namespace YumToolkit.Core.UI {
             WriteLine(msg, color);
             Console.ReadKey();
         }
-        static _Console() {
-            Get = new _Console();
-            if(!Directory.Exists(_Path.Get.ThemesFolder)) { Get.SendMessage(_ServiceMessage.Get.ThemeFolderIsNotExist, ConsoleColor.DarkRed); Environment.Exit(0); }
-            
+        public void CloseConsole() {
+            Environment.Exit(0);
+        }
+        public _Console() {
+            if(!Directory.Exists(path.ThemesFolder)) { SendMessage(serviceMessage.ThemeFolderIsNotExist, ConsoleColor.DarkRed); CloseConsole(); }
         }
     }
 }

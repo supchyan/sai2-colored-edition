@@ -1,15 +1,14 @@
+using YumToolkit.Core.Interfaces;
+
 namespace YumToolkit.Core.Data {
-    class _Path {
-        public static _Path Get { get; private set; }
-        public string ThemesFolder { get; private set; } = string.Empty;
-        public string ThemesExtension { get; private set; } = string.Empty;
-        public string GitHubLink { get; private set; } = string.Empty;
-        static _Path() {
-            Get = new _Path {
-                ThemesFolder = "./Themes",
-                ThemesExtension = ".json",
-                GitHubLink = "https://github.com/supchyan/yum2-theme-toolkit",
-            };
+    class _Path : IPath {
+        public string ThemesFolder { get; }
+        public string ThemesExtension { get; }
+        public string GitHubLink { get; }
+        public _Path() {
+            ThemesFolder = "./Themes";
+            ThemesExtension = ".json";
+            GitHubLink = "https://github.com/supchyan/yum2-theme-toolkit";
         }
     }
 }

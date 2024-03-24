@@ -1,11 +1,13 @@
-using YumToolkit.Core.Data;
-using YumToolkit.Core.UI;
+using YumToolkit.Global;
+
 namespace YumToolkit.Core {
-    class _Theme {
-        public static _Theme Get { get; private set; }
-        byte[] binary = File.ReadAllBytes(_Name.Get.tmp);
+    class _Theme : _Globals {
+        public byte[] binary { get; set; } = [];
+        public byte[] ReadTmpFile(string tmp_file_name) {
+            return File.ReadAllBytes(tmp_file_name);
+        }
         public void SetElementColor(byte[] color, int color_address) {
-            if(!File.Exists(_Name.Get.tmp)) { _Console.Get.SendMessage(_ServiceMessage.Get.TmpFileIsNotExist, ConsoleColor.DarkRed); return; } 
+            if(!File.Exists(name.tmp)) { console.SendMessage(serviceMessage.TmpFileIsNotExist, ConsoleColor.DarkRed); return; } 
             // Replaces certain color sequence:
             for(int i = 0; i < color.Length; i++) { binary[color_address + i] = color[i]; }
         }
@@ -32,7 +34,7 @@ namespace YumToolkit.Core {
         /// Useful to fix different kind of artifacts. False as default.
         /// </param>
         public void SetElementColorComplicated(byte[] color, int start_index, int end_index, byte[] default_color, bool isArtifacted = false) {
-            if(!File.Exists(_Name.Get.tmp)) { _Console.Get.SendMessage(_ServiceMessage.Get.TmpFileIsNotExist, ConsoleColor.DarkRed); return; }
+            if(!File.Exists(name.tmp)) { console.SendMessage(serviceMessage.TmpFileIsNotExist, ConsoleColor.DarkRed); return; }
             
             int value = isArtifacted ? 1 : color.Length;
             // Find certain sequence position and move on until the end
@@ -60,12 +62,9 @@ namespace YumToolkit.Core {
         /// </summary>
         public void SaveTheme() {
             try {
-                File.WriteAllBytes(_Name.Get.original, binary);
-                _Console.Get.SendMessage(_ServiceMessage.Get.ThemeHasBeenApplied, ConsoleColor.DarkGreen);
-            } catch { _Console.Get.SendMessage(_ServiceMessage.Get.OriginalFileIsBusy,ConsoleColor.DarkRed); }
-        }
-        static _Theme() {
-            Get = new _Theme();
+                File.WriteAllBytes(name.original, binary);
+                console.SendMessage(serviceMessage.ThemeHasBeenApplied, ConsoleColor.DarkGreen);
+            } catch { console.SendMessage(serviceMessage.OriginalFileIsBusy,ConsoleColor.DarkRed); }
         }
     }
 }
