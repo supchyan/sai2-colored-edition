@@ -17,9 +17,9 @@ namespace YumToolkit {
             
             InterfaceBegin:
 
-                _ConsoleDrawing.Call.CONSOLE_RESTART();
-                _ConsoleDrawing.Call.CONSOLE_DRAW_MAIN();
-                while(!_ConsoleDrawing.Call.isSelected) { _ConsoleDrawing.Call.CONSOLE_MENU(); };
+                _ConsoleDrawing.Get.CONSOLE_RESTART();
+                _ConsoleDrawing.Get.CONSOLE_DRAW_MAIN();
+                while(!_ConsoleDrawing.Get.isSelected) { _ConsoleDrawing.Get.CONSOLE_MENU(); };
                 // Running selected ai
                 AppHelper.Get._Action();
 

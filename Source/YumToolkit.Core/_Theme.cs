@@ -2,10 +2,10 @@ using YumToolkit.Core.Data;
 using YumToolkit.Core.UI;
 namespace YumToolkit.Core {
     class _Theme {
-        public static _Theme Call { get; private set; }
+        public static _Theme Get { get; private set; }
         byte[] binary = File.ReadAllBytes(_Name.Get.tmp);
         public void SetElementColor(byte[] color, int color_address) {
-            if(!File.Exists(_Name.Get.tmp)) { _Console.Call.SendMessage(_ServiceMessage.Get.TmpFileIsNotExist, ConsoleColor.DarkRed); return; } 
+            if(!File.Exists(_Name.Get.tmp)) { _Console.Get.SendMessage(_ServiceMessage.Get.TmpFileIsNotExist, ConsoleColor.DarkRed); return; } 
             // Replaces certain color sequence:
             for(int i = 0; i < color.Length; i++) { binary[color_address + i] = color[i]; }
         }
@@ -32,7 +32,7 @@ namespace YumToolkit.Core {
         /// Useful to fix different kind of artifacts. False as default.
         /// </param>
         public void SetElementColorComplicated(byte[] color, int start_index, int end_index, byte[] default_color, bool isArtifacted = false) {
-            if(!File.Exists(_Name.Get.tmp)) { _Console.Call.SendMessage(_ServiceMessage.Get.TmpFileIsNotExist, ConsoleColor.DarkRed); return; }
+            if(!File.Exists(_Name.Get.tmp)) { _Console.Get.SendMessage(_ServiceMessage.Get.TmpFileIsNotExist, ConsoleColor.DarkRed); return; }
             
             int value = isArtifacted ? 1 : color.Length;
             // Find certain sequence position and move on until the end
@@ -61,11 +61,11 @@ namespace YumToolkit.Core {
         public void SaveTheme() {
             try {
                 File.WriteAllBytes(_Name.Get.original, binary);
-                _Console.Call.SendMessage(_ServiceMessage.Get.ThemeHasBeenApplied, ConsoleColor.DarkGreen);
-            } catch { _Console.Call.SendMessage(_ServiceMessage.Get.OriginalFileIsBusy,ConsoleColor.DarkRed); }
+                _Console.Get.SendMessage(_ServiceMessage.Get.ThemeHasBeenApplied, ConsoleColor.DarkGreen);
+            } catch { _Console.Get.SendMessage(_ServiceMessage.Get.OriginalFileIsBusy,ConsoleColor.DarkRed); }
         }
         static _Theme() {
-            Call = new _Theme();
+            Get = new _Theme();
         }
     }
 }
