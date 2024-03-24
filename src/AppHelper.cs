@@ -86,7 +86,7 @@ namespace YumToolkit {
             theme.SetElementColor(color.Secondary, address.ActiveCanvasBackground2);
             theme.SetElementColor(color.Secondary, address.ActiveCanvasBackground3);
             theme.SetElementColor(color.Secondary, address.ActiveCanvasBackground4);
-            theme.SetElementColorComplicated(color.Secondary, address.GlobalSectionText[0], address.GlobalSectionText[1], color.DefaultColor17, true);
+            theme.SetElementColorComplicated(color.Secondary, address.GlobalSectionText[0], address.GlobalSectionText[1], color.Default17, true);
            
 
             theme.SetElementColor(color.Primary, address.InActiveCanvasBackground);
@@ -96,7 +96,47 @@ namespace YumToolkit {
             theme.SetElementColor(color.Primary, address.SlidersHorizontal);
             theme.SetElementColor(color.Primary, address.SlidersActiveBackground);
             theme.SetElementColor(color.Primary, address.SlidersActiveBackgroundHoveredFocused);
-            
+
+            // TODO: I don't think, it's a good idea to paint outlines for example.
+            // But good idea to paint bg of the selected objects. Less artifacts and pretier look.
+            // Or! Probably paint outlines in White color. But should be tested.
+            // And also. This all doesn't paint stuff, when u holding it. Somehow I can't find color for it...
+
+            // Selected objects (light blue as default)
+            theme.SetElementColorComplicated(semiColor.SecondaryRGB, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], color.SelectedElementDefault1, true);
+            theme.SetElementColorComplicated(semiColor.SecondaryRGB, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], color.SelectedElementDefault2, true);
+            theme.SetElementColorComplicated(semiColor.SecondaryRGB, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], color.SelectedElementDefault3, true);
+            theme.SetElementColorComplicated(semiColor.SecondaryRGB, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], color.SelectedElementDefault4, true);
+            theme.SetElementColorComplicated(semiColor.SecondaryRGB, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], color.SelectedElementDefault5, true);
+            theme.SetElementColorComplicated(semiColor.SecondaryRGB, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], color.SelectedElementDefault6, true);
+            theme.SetElementColorComplicated(semiColor.SecondaryRGB, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], color.SelectedElementDefault7, true);
+            theme.SetElementColorComplicated(semiColor.SecondaryRGB, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], color.SelectedElementDefault8, true);
+            theme.SetElementColorComplicated(semiColor.SecondaryRGB, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], color.SelectedElementDefault9, true);
+            theme.SetElementColorComplicated(semiColor.SecondaryRGB, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], color.SelectedElementDefault10, true);
+            theme.SetElementColorComplicated(semiColor.SecondaryRGB, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], color.SelectedElementDefault11, true);
+            theme.SetElementColorComplicated(semiColor.SecondaryRGB, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], color.SelectedElementDefault12, true);
+            theme.SetElementColorComplicated(semiColor.SecondaryRGB, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], color.SelectedElementDefault13, true);
+            theme.SetElementColorComplicated(semiColor.SecondaryRGB, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], color.SelectedElementDefault14, true);
+            theme.SetElementColorComplicated(semiColor.SecondaryRGB, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], color.SelectedElementDefault15, true);
+            theme.SetElementColorComplicated(semiColor.SecondaryRGB, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], color.SelectedElementDefault16, true);
+
+            // Selected objects 2 (light blue as default)
+            theme.SetElementColorComplicated(semiColor.SecondaryRGB, address.GlobalSectionAppskin[0], address.GlobalSectionAppskin[1], color.SelectedElementDefault1, true);
+            theme.SetElementColorComplicated(semiColor.SecondaryRGB, address.GlobalSectionAppskin[0], address.GlobalSectionAppskin[1], color.SelectedElementDefault2, true);
+            theme.SetElementColorComplicated(semiColor.SecondaryRGB, address.GlobalSectionAppskin[0], address.GlobalSectionAppskin[1], color.SelectedElementDefault3, true);
+            theme.SetElementColorComplicated(semiColor.SecondaryRGB, address.GlobalSectionAppskin[0], address.GlobalSectionAppskin[1], color.SelectedElementDefault4, true);
+            theme.SetElementColorComplicated(semiColor.SecondaryRGB, address.GlobalSectionAppskin[0], address.GlobalSectionAppskin[1], color.SelectedElementDefault5, true);
+            theme.SetElementColorComplicated(semiColor.SecondaryRGB, address.GlobalSectionAppskin[0], address.GlobalSectionAppskin[1], color.SelectedElementDefault6, true);
+            theme.SetElementColorComplicated(semiColor.SecondaryRGB, address.GlobalSectionAppskin[0], address.GlobalSectionAppskin[1], color.SelectedElementDefault7, true);
+            theme.SetElementColorComplicated(semiColor.SecondaryRGB, address.GlobalSectionAppskin[0], address.GlobalSectionAppskin[1], color.SelectedElementDefault8, true);
+            theme.SetElementColorComplicated(semiColor.SecondaryRGB, address.GlobalSectionAppskin[0], address.GlobalSectionAppskin[1], color.SelectedElementDefault9, true);
+            theme.SetElementColorComplicated(semiColor.SecondaryRGB, address.GlobalSectionAppskin[0], address.GlobalSectionAppskin[1], color.SelectedElementDefault10, true);
+            theme.SetElementColorComplicated(semiColor.SecondaryRGB, address.GlobalSectionAppskin[0], address.GlobalSectionAppskin[1], color.SelectedElementDefault11, true);
+            theme.SetElementColorComplicated(semiColor.SecondaryRGB, address.GlobalSectionAppskin[0], address.GlobalSectionAppskin[1], color.SelectedElementDefault12, true);
+            theme.SetElementColorComplicated(semiColor.SecondaryRGB, address.GlobalSectionAppskin[0], address.GlobalSectionAppskin[1], color.SelectedElementDefault13, true);
+            theme.SetElementColorComplicated(semiColor.SecondaryRGB, address.GlobalSectionAppskin[0], address.GlobalSectionAppskin[1], color.SelectedElementDefault14, true);
+            theme.SetElementColorComplicated(semiColor.SecondaryRGB, address.GlobalSectionAppskin[0], address.GlobalSectionAppskin[1], color.SelectedElementDefault15, true);
+            theme.SetElementColorComplicated(semiColor.SecondaryRGB, address.GlobalSectionAppskin[0], address.GlobalSectionAppskin[1], color.SelectedElementDefault16, true);
             
             // I'm not sure, should I manage this two elements as Ternary color,
             // because it looks much better in Secondary colors. But for Secondary color,
@@ -125,17 +165,17 @@ namespace YumToolkit {
             theme.SetElementColor(color.Text, address.BrushesSpecialText); 
             
             // 'Shit text' color replacer:
-            theme.SetElementColorComplicated(color.Text, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], color.DefaultColor23);
-            theme.SetElementColorComplicated(color.Text, address.GlobalSectionAppskin[0], address.GlobalSectionAppskin[1], color.DefaultColor23);
+            theme.SetElementColorComplicated(color.Text, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], color.Default23);
+            theme.SetElementColorComplicated(color.Text, address.GlobalSectionAppskin[0], address.GlobalSectionAppskin[1], color.Default23);
 
             // Should be useful on dark backgrounds. Right now I can't find couple of this texts, so almost unusable ;;
             theme.SetElementColor(color.Text, address.ContextMenuText);
             theme.SetElementColor(color.Text, address.TopBarText);
-            // theme.SetElementColor(color.Text, address.FileMenuScrollableText);
-            // theme.SetElementColor(color.Text, address.FileMenuTilesText);
-            // theme.SetElementColor(color.Text, address.BrushesText);
-            // theme.SetElementColor(color.Text, address.BrushesTabsText);
-            // theme.SetElementColor(color.Text, address.BrushesCirclesText);
+            theme.SetElementColor(color.Text, address.FileMenuScrollableText);
+            theme.SetElementColor(color.Text, address.FileMenuTilesText);
+            theme.SetElementColor(color.Text, address.BrushesText);
+            theme.SetElementColor(color.Text, address.BrushesTabsText);
+            theme.SetElementColor(color.Text, address.BrushesCirclesText);
 
 
             // This section is replacing huge parts of sequences,
@@ -143,34 +183,34 @@ namespace YumToolkit {
             // so it was much easer to make this method to override the certain colors.
             // In this case, it means, this method is about artifacts after coloring, so
             // also, there is a method to fix consequences after coloring that way:
-            theme.SetElementColorComplicated(color.Ternary, address.BrushesFileMenuTilesScrollableListsBackground[0], address.BrushesFileMenuTilesScrollableListsBackground[1], color.DefaultColor22);
-            theme.SetElementColorComplicated(color.Ternary, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], color.DefaultColor7);
-            theme.SetElementColorComplicated(color.Ternary, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], color.DefaultColor11);
-            theme.SetElementColorComplicated(color.Ternary, address.GlobalSectionAppskin[0], address.GlobalSectionAppskin[1], color.DefaultColor10);
-            theme.SetElementColorComplicated(color.Ternary, address.GlobalSectionAppskin[0], address.GlobalSectionAppskin[1], color.DefaultColor13);
+            theme.SetElementColorComplicated(color.Ternary, address.BrushesFileMenuTilesScrollableListsBackground[0], address.BrushesFileMenuTilesScrollableListsBackground[1], color.Default22);
+            theme.SetElementColorComplicated(color.Ternary, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], color.Default7);
+            theme.SetElementColorComplicated(color.Ternary, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], color.Default11);
+            theme.SetElementColorComplicated(color.Ternary, address.GlobalSectionAppskin[0], address.GlobalSectionAppskin[1], color.Default10);
+            theme.SetElementColorComplicated(color.Ternary, address.GlobalSectionAppskin[0], address.GlobalSectionAppskin[1], color.Default13);
             
-            theme.SetElementColorComplicated(color.Secondary, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], color.DefaultColor1);
-            theme.SetElementColorComplicated(color.Secondary, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], color.DefaultColor2);
-            theme.SetElementColorComplicated(color.Secondary, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], color.DefaultColor3);
-            theme.SetElementColorComplicated(color.Secondary, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], color.DefaultColor4);
-            theme.SetElementColorComplicated(color.Secondary, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], color.DefaultColor5);
-            theme.SetElementColorComplicated(color.Secondary, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], color.DefaultColor6);
-            theme.SetElementColorComplicated(color.Secondary, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], color.DefaultColor8);
-            theme.SetElementColorComplicated(color.Secondary, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], color.DefaultColor9);
-            theme.SetElementColorComplicated(color.Secondary, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], color.DefaultColor10);
-            theme.SetElementColorComplicated(color.Secondary, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], color.DefaultColor12);
+            theme.SetElementColorComplicated(color.Secondary, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], color.Default1);
+            theme.SetElementColorComplicated(color.Secondary, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], color.Default2);
+            theme.SetElementColorComplicated(color.Secondary, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], color.Default3);
+            theme.SetElementColorComplicated(color.Secondary, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], color.Default4);
+            theme.SetElementColorComplicated(color.Secondary, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], color.Default5);
+            theme.SetElementColorComplicated(color.Secondary, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], color.Default6);
+            theme.SetElementColorComplicated(color.Secondary, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], color.Default8);
+            theme.SetElementColorComplicated(color.Secondary, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], color.Default9);
+            theme.SetElementColorComplicated(color.Secondary, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], color.Default10);
+            theme.SetElementColorComplicated(color.Secondary, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], color.Default12);
 
             
             
             // Semi colors fixes [ borders in sort of buttons ] [[ `bordering colors`, as you wish ]]:
-            theme.SetElementColorComplicated(semiColor.TernaryRGB, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], color.DefaultColor14, true);
-            theme.SetElementColorComplicated(semiColor.TernaryRGB, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], color.DefaultColor15, true);
-            theme.SetElementColorComplicated(semiColor.TernaryRGB, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], color.DefaultColor16, true);
-            theme.SetElementColorComplicated(semiColor.TernaryRGB, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], color.DefaultColor17, true);
-            theme.SetElementColorComplicated(semiColor.TernaryRGB, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], color.DefaultColor18, true);
-            theme.SetElementColorComplicated(semiColor.TernaryRGB, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], color.DefaultColor19, true);
-            theme.SetElementColorComplicated(semiColor.TernaryRGB, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], color.DefaultColor20, true);
-            theme.SetElementColorComplicated(semiColor.TernaryRGB, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], color.DefaultColor21, true);
+            theme.SetElementColorComplicated(semiColor.TernaryRGB, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], color.Default14, true);
+            theme.SetElementColorComplicated(semiColor.TernaryRGB, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], color.Default15, true);
+            theme.SetElementColorComplicated(semiColor.TernaryRGB, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], color.Default16, true);
+            theme.SetElementColorComplicated(semiColor.TernaryRGB, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], color.Default17, true);
+            theme.SetElementColorComplicated(semiColor.TernaryRGB, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], color.Default18, true);
+            theme.SetElementColorComplicated(semiColor.TernaryRGB, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], color.Default19, true);
+            theme.SetElementColorComplicated(semiColor.TernaryRGB, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], color.Default20, true);
+            theme.SetElementColorComplicated(semiColor.TernaryRGB, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], color.Default21, true);
             //
 
             // Artifacts fixes [ which is inevitable after that colring method. ]:
