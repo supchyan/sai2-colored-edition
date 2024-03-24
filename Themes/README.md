@@ -2,7 +2,7 @@
 [Русская версия ↓](#создание-своей-темы)
 <br/><br/>
 
-Themes stores in `Themes` folder as `.json` files. File names → Themes titles.
+Themes stores in `themes` folder as `.json` files. File names → Themes titles.
 <br/>
 You can check example theme in `supchyan's dark.json`.
 

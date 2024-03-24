@@ -28,7 +28,7 @@ Just unzip application build in sai2's root directory. Launch and select theme t
 <br/><br/>
 
 ## 🌒Resources:
-### 🎨 Creating custom themes → [Themes](https://github.com/supchyan/yum2-theme-toolkit/tree/main/Themes)
+### 🎨 Creating custom themes → [Themes](https://github.com/supchyan/yum2-theme-toolkit/tree/main/themes)
 ### 💾 Check out releases → [Releases](https://github.com/supchyan/yum2-theme-toolkit/releases/tag/whale)
 <br/>
 
