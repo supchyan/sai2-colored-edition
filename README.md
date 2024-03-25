@@ -18,7 +18,7 @@
   so sequences seeking shouldn't be complicated.
 
 * SAI 2 is a license software, so you need an .slc file
-  to run it properly. ( Are you serious )
+  to run it properly. ( Rock and stone )
   I don't care, how do you plan to receive a license, I just made a toolkit.
 ```
 <br/>
