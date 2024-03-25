@@ -37,17 +37,18 @@
 37. `F8 F8 F8 F8` → `section .appskin` → Color picker circle. *has artifacts*
 38. `F8 F8 F8 F8` → `section .srclibs` → Burger buttons background, sliders outlines, list outlines. *has artifacts*
 39. `F8 F8 F8 F8` → `from 0x004DD400 to 0x004FC2AF` → Burger buttons background, sliders outlines, list outlines. Alternative painting for `38`.
-40. `00 00 00 00` → `0x003706D0` → Brushes text
-41. `00 00 00 00` → `0x00370900` → Brushes size text
-42. `FF 00 00` → `0x00370768` → Blue brushes text ( selection brushes )
-43. `20 40 80 00` → `section .srclibs` → "Shit" colored text *good to replace as well in section .appskin* 
-44. `FF DB DB` → `section .srclibs` → Selected objects background [ idle ]
-45. `FF D4 D4` → `section .srclibs` → Selected objects background [ Active ]
-46. `FF F6 F6` → `section .srclibs` → Selected objects background [ Hovered ]
-47. `FF 80 80` → `section .srclibs` → Selected objects outline [ ??? ]
-48. `FF C2 C2` → `section .srclibs` → Selected objects inner outline [ Hovered ]
-49. `FF CF CF` → `section .srclibs` → Selected objects inner outline [ idle ]
-50. `FF D4 EC` → `???` → Selected objects background [ hold ]
-51. `FF 66 B5` → `???` → Selected objects outline [ hold ]
-52. `FF BF E4` → `???` → Selected objects inner outline [ hold ]
-53. `FF A6 A6` `FF 8E 8E` `F9 DF DF` `F9 E4 E4` → `section .srclibs` → Selected objects outline "gradient artifacts" fixes
+40. `00 00 00 00` → `0x003706D0` → Brushes text.
+41. `00 00 00 00` → `0x00370900` → Brushes size text.
+42. `00 00 FF` → `0x00370768` → Blue brushes text. ( selection brushes )
+43. `40 80 20 00` → `section .srclibs` → "Shit" colored text. *good to replace as well in section .appskin* 
+44. `DB DB FF`  → `section .srclibs` → Selected objects background. [ idle ]
+45. `D4 D4 FF` → `section .srclibs` → Selected objects background. [ Active ]
+46. `F6 F6 FF` → `section .srclibs` → Selected objects background. [ Hovered ]
+47. `80 80 FF` → `section .srclibs` → Selected objects outline. [ ??? ]
+48. `C2 C2 FF` → `section .srclibs` → Selected objects inner outline. [ Hovered ]
+49. `CF CF FF` → `section .srclibs` → Selected objects inner outline. [ idle ]
+50. `D4 EC FF` → `???` → Selected objects background. [ hold ]
+51. `66 B5 FF` → `???` → Selected objects outline. [ hold ]
+52. `BF E4 FF` → `???` → Selected objects inner outline. [ hold ]
+53. `A6 A6 FF` `8E 8E FF` `DF DF F9` `E4 E4 F9` `D4 EC FF` `66 B5 FF` `BF E4 FF` `7A C0 FF` `D5 E8 FA` `9C D0 FF` → `section .srclibs` → Selected objects outline "gradient artifacts" fixes.
+54. `D8 D8 D8` `F8 F8 F8` → `section .srclibs` → Sliders outline artifacts fix.

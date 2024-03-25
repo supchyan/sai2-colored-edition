@@ -71,9 +71,11 @@ namespace YumToolkit {
             color.Secondary = ThemeColors["Secondary"].toByteColor();
             color.Ternary = ThemeColors["Ternary"].toByteColor();
             color.Text = ThemeColors["Text"].toByteColor();
+            color.SelectablePrimary = ThemeColors["SelectablePrimary"].toByteColor();
+            color.SelectableSecondary = ThemeColors["SelectableSecondary"].toByteColor();
 
-            semiColor.SecondaryRGB = color.Secondary.NoAlpha();
-            semiColor.TernaryRGB = color.Ternary.NoAlpha();
+            semiColor.ConfigureRGBColors();
+            semiColor.ConfigureArtifactsColors();
 
             // Creating tmp .exe to replace binary data inside:
             if(!File.Exists(name.tmp)) { _File.Get.CreateTmpFile(); }
@@ -81,146 +83,205 @@ namespace YumToolkit {
             // Reading tmp .exe:
             theme.binary = theme.ReadTmpFile(name.tmp);
 
-            // Too glitchy, so I decided to disable canvas bg recoloring rn:
-            theme.SetElementColor(color.Secondary, address.ActiveCanvasBackground);
-            theme.SetElementColor(color.Secondary, address.ActiveCanvasBackground2);
-            theme.SetElementColor(color.Secondary, address.ActiveCanvasBackground3);
-            theme.SetElementColor(color.Secondary, address.ActiveCanvasBackground4);
-            theme.SetElementColorComplicated(color.Secondary, address.GlobalSectionText[0], address.GlobalSectionText[1], color.Default17, true);
-           
+            #region PRIMARY COLOR
+            int[] PrimaryItems = [
+                address.InActiveCanvasBackground,
+                address.BehindLayersUIBackground,
+                address.BrushBorders,
+                address.SlidersVertical,
+                address.SlidersHorizontal,
+                // address.SlidersActiveBackground,
+                // address.SlidersActiveBackgroundHoveredFocused,
+            ];
+            foreach(int n in PrimaryItems) {
+                theme.SetElementColor(color.Primary, n);
+            }
 
-            theme.SetElementColor(color.Primary, address.InActiveCanvasBackground);
-            theme.SetElementColor(color.Primary, address.BehindLayersUIBackground);
-            theme.SetElementColor(color.Primary, address.BrushBorders);
-            theme.SetElementColor(color.Primary, address.SlidersVertical);
-            theme.SetElementColor(color.Primary, address.SlidersHorizontal);
-            theme.SetElementColor(color.Primary, address.SlidersActiveBackground);
-            theme.SetElementColor(color.Primary, address.SlidersActiveBackgroundHoveredFocused);
+            byte[][] PrimaryComplicatedItemsSrclibs = [
+                color.BurgerButtonsOutlineSlidersOutline,
+            ];
+            foreach(byte[] n in PrimaryComplicatedItemsSrclibs) {
+                theme.SetElementColorComplicated(n, color.Primary, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1]);
+            }
+            #endregion
 
-            // TODO: I don't think, it's a good idea to paint outlines for example.
-            // But good idea to paint bg of the selected objects. Less artifacts and pretier look.
-            // Or! Probably paint outlines in White color. But should be tested.
-            // And also. This all doesn't paint stuff, when u holding it. Somehow I can't find color for it...
+            #region SECONDARY COLOR
+            int[] SecondaryItems = [
+                address.ActiveCanvasBackground,
+                address.ActiveCanvasBackground2,
+                address.ActiveCanvasBackground3,
+                address.ActiveCanvasBackground4,
+                address.Separator,
+                address.TopBar,
+                address.ContextMenu,
+                address.ResizeWindowGrabber,
+                address.SlidersInActiveBackground,
+                // address.SlidersColor,
+                address.BookmarkBackgroundAndOutlinesSomewhere,
+                address.RadioButtonsBackground
+            ];
+            foreach(int n in SecondaryItems) {
+                theme.SetElementColor(color.Secondary, n);
+            }
 
-            // Selected objects (light blue as default)
-            theme.SetElementColorComplicated(semiColor.SecondaryRGB, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], color.SelectedElementDefault1, true);
-            theme.SetElementColorComplicated(semiColor.SecondaryRGB, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], color.SelectedElementDefault2, true);
-            theme.SetElementColorComplicated(semiColor.SecondaryRGB, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], color.SelectedElementDefault3, true);
-            theme.SetElementColorComplicated(semiColor.SecondaryRGB, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], color.SelectedElementDefault4, true);
-            theme.SetElementColorComplicated(semiColor.SecondaryRGB, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], color.SelectedElementDefault5, true);
-            theme.SetElementColorComplicated(semiColor.SecondaryRGB, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], color.SelectedElementDefault6, true);
-            theme.SetElementColorComplicated(semiColor.SecondaryRGB, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], color.SelectedElementDefault7, true);
-            theme.SetElementColorComplicated(semiColor.SecondaryRGB, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], color.SelectedElementDefault8, true);
-            theme.SetElementColorComplicated(semiColor.SecondaryRGB, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], color.SelectedElementDefault9, true);
-            theme.SetElementColorComplicated(semiColor.SecondaryRGB, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], color.SelectedElementDefault10, true);
-            theme.SetElementColorComplicated(semiColor.SecondaryRGB, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], color.SelectedElementDefault11, true);
-            theme.SetElementColorComplicated(semiColor.SecondaryRGB, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], color.SelectedElementDefault12, true);
-            theme.SetElementColorComplicated(semiColor.SecondaryRGB, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], color.SelectedElementDefault13, true);
-            theme.SetElementColorComplicated(semiColor.SecondaryRGB, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], color.SelectedElementDefault14, true);
-            theme.SetElementColorComplicated(semiColor.SecondaryRGB, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], color.SelectedElementDefault15, true);
-            theme.SetElementColorComplicated(semiColor.SecondaryRGB, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], color.SelectedElementDefault16, true);
+            byte[][] SecondaryComplicatedItemsSrclibs = [
+                color.BurgerButtonsOutline1,
+                color.BurgerButtonsOutline2,
+                color.BurgerButtonsOutline3,
+                color.BurgerButtonsOutline4,
+                // color.BurgerButtonsOutlineAndScrollBarBackground,
+                color.InActiveScrollBarsBackground,
+                // color.BurgerButtonsOutlineSlidersOutline,
+                // color.BordersFix9,
+                color.EmplyElementsInBrushesUI,
+                color.ColorPickerCircleBody,
+            ];
+            foreach(byte[] n in SecondaryComplicatedItemsSrclibs) {
+                theme.SetElementColorComplicated(n, color.Secondary, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1]);
+            }
 
-            // Selected objects 2 (light blue as default)
-            theme.SetElementColorComplicated(semiColor.SecondaryRGB, address.GlobalSectionAppskin[0], address.GlobalSectionAppskin[1], color.SelectedElementDefault1, true);
-            theme.SetElementColorComplicated(semiColor.SecondaryRGB, address.GlobalSectionAppskin[0], address.GlobalSectionAppskin[1], color.SelectedElementDefault2, true);
-            theme.SetElementColorComplicated(semiColor.SecondaryRGB, address.GlobalSectionAppskin[0], address.GlobalSectionAppskin[1], color.SelectedElementDefault3, true);
-            theme.SetElementColorComplicated(semiColor.SecondaryRGB, address.GlobalSectionAppskin[0], address.GlobalSectionAppskin[1], color.SelectedElementDefault4, true);
-            theme.SetElementColorComplicated(semiColor.SecondaryRGB, address.GlobalSectionAppskin[0], address.GlobalSectionAppskin[1], color.SelectedElementDefault5, true);
-            theme.SetElementColorComplicated(semiColor.SecondaryRGB, address.GlobalSectionAppskin[0], address.GlobalSectionAppskin[1], color.SelectedElementDefault6, true);
-            theme.SetElementColorComplicated(semiColor.SecondaryRGB, address.GlobalSectionAppskin[0], address.GlobalSectionAppskin[1], color.SelectedElementDefault7, true);
-            theme.SetElementColorComplicated(semiColor.SecondaryRGB, address.GlobalSectionAppskin[0], address.GlobalSectionAppskin[1], color.SelectedElementDefault8, true);
-            theme.SetElementColorComplicated(semiColor.SecondaryRGB, address.GlobalSectionAppskin[0], address.GlobalSectionAppskin[1], color.SelectedElementDefault9, true);
-            theme.SetElementColorComplicated(semiColor.SecondaryRGB, address.GlobalSectionAppskin[0], address.GlobalSectionAppskin[1], color.SelectedElementDefault10, true);
-            theme.SetElementColorComplicated(semiColor.SecondaryRGB, address.GlobalSectionAppskin[0], address.GlobalSectionAppskin[1], color.SelectedElementDefault11, true);
-            theme.SetElementColorComplicated(semiColor.SecondaryRGB, address.GlobalSectionAppskin[0], address.GlobalSectionAppskin[1], color.SelectedElementDefault12, true);
-            theme.SetElementColorComplicated(semiColor.SecondaryRGB, address.GlobalSectionAppskin[0], address.GlobalSectionAppskin[1], color.SelectedElementDefault13, true);
-            theme.SetElementColorComplicated(semiColor.SecondaryRGB, address.GlobalSectionAppskin[0], address.GlobalSectionAppskin[1], color.SelectedElementDefault14, true);
-            theme.SetElementColorComplicated(semiColor.SecondaryRGB, address.GlobalSectionAppskin[0], address.GlobalSectionAppskin[1], color.SelectedElementDefault15, true);
-            theme.SetElementColorComplicated(semiColor.SecondaryRGB, address.GlobalSectionAppskin[0], address.GlobalSectionAppskin[1], color.SelectedElementDefault16, true);
+            theme.SetElementColorComplicated(color.ActiveCanvasBackgroundFix, color.Secondary, address.GlobalSectionText[0], address.GlobalSectionText[1], true);
+
+            byte[][] SecondaryRGBComplicatedItemsSrclibs = [
+                color.SelectedElementBackgroundIdle,
+                color.SelectedElementBackgroundActive,
+                color.SelectedElementBackgroundHovered,
+                color.SelectedElementOutlineNotStated,
+                color.SelectedElementOutlineHovered,
+                color.SelectedElementOutlineIdle,
+                color.SelectedElementOutlineNotFound1,
+                color.SelectedElementDefaultNotFound2,
+                color.SelectedElementDefaultNotFound3,
+                color.SelectedElementOutlineFix1,
+                color.SelectedElementOutlineFix2,
+                color.SelectedElementOutlineFix3,
+                color.SelectedElementOutlineFix5,
+                color.SelectedElementOutlineFix6,
+                color.SelectedElementOutlineFix7,
+                color.SelectedElementOutlineFix8,
+                color.SelectedElementOutlineFix9,
+                color.SelectedElementOutlineFix10,
+                color.SelectedElementOutlineFix11,
+            ];
+            foreach(byte[] n in SecondaryRGBComplicatedItemsSrclibs) {
+                theme.SetElementColorComplicated(n, semiColor.SecondaryRGB, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], true);
+                theme.SetElementColorComplicated(n, semiColor.SecondaryRGB, address.GlobalSectionSrclibs[0], address.GlobalSectionAppskin[1], true);
+            }
+
+            byte[][] SecondaryRGBComplicatedItemsSrclibsFix = [
+                semiColor.SecondaryArtifactsColor1,
+                semiColor.SecondaryArtifactsColor2,
+                semiColor.SecondaryArtifactsColor3,
+                semiColor.SecondaryArtifactsColor4,
+            ];
+            foreach(byte[] n in SecondaryRGBComplicatedItemsSrclibsFix) {
+                theme.SetElementColorComplicated(n, semiColor.SecondaryRGB, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], true);
+            }
+            #endregion
+
+            #region TERNARY COLOR
+            int[] TernaryItems = [
+                address.GlobalBorders,
+                address.GlobalBorders2,
+                address.TabsResizeGrabberVertical,
+                address.ScaleAngleSliders,
+            ];
+            foreach(int n in TernaryItems) {
+                theme.SetElementColor(color.Ternary, n);
+            }
+
+            byte[][] TernaryComplicatedItemsSrclibs = [
+                color.RadioButtonsMaskFixBurgerButtonsBackground,
+                // color.BurgerButtonsOutlineSlidersOutline,
+                // color.ColorPickerCircleBody,
+            ];
+            foreach(byte[] n in TernaryComplicatedItemsSrclibs) {
+                theme.SetElementColorComplicated(n, color.Ternary, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1]);
+            }
+
+            byte[][] TernaryComplicatedItemsAppskin = [
+                color.EmplyElementsInBrushesUI,
+                color.WhatIsThisColor2,
+            ];
+            foreach(byte[] n in TernaryComplicatedItemsAppskin) {
+                theme.SetElementColorComplicated(n, color.Ternary, address.GlobalSectionAppskin[0], address.GlobalSectionAppskin[1]);
+            }
+
+            byte[][] TernaryRGBComplicatedItemsSrclibs = [
+                color.BordersFix1,
+                color.BordersFix2,
+                color.BordersFix3,
+                color.BordersFix4,
+                color.BordersFix5,
+                color.BordersFix6,
+                color.BordersFix7,
+                color.BordersFix8,
+                color.BordersFix9,
+            ];
+            foreach(byte[] n in TernaryRGBComplicatedItemsSrclibs) {
+                theme.SetElementColorComplicated(n, semiColor.TernaryRGB, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], true);
+            }
+
+            theme.SetElementColorComplicated(color.BrushesBackgroundFileMenuBackgroundScrollBlockBackground, color.Ternary, address.BrushesFileMenuTilesScrollableListsBackground[0], address.BrushesFileMenuTilesScrollableListsBackground[1]);
             
-            // I'm not sure, should I manage this two elements as Ternary color,
-            // because it looks much better in Secondary colors. But for Secondary color,
-            // I need to find all text's Black sequences [ 00 00 00 00 ].
-            // In other way, those black texts will suck as look style:
-            theme.SetElementColor(color.Ternary, address.GlobalBorders);
-            theme.SetElementColor(color.Ternary, address.GlobalBorders2);
+            byte[][] TernaryRGBComplicatedItemsSrclibsFix = [
+                semiColor.TernaryArtifactsColor1,
+                semiColor.TernaryArtifactsColor2,
+                semiColor.TernaryArtifactsColor3,
+                semiColor.TernaryArtifactsColor4,
+                semiColor.TernaryArtifactsColor5,
+                semiColor.TernaryArtifactsColor6,
+                semiColor.TernaryArtifactsColor7,
+                semiColor.TernaryArtifactsColor8,
+            ];
+            foreach(byte[] n in TernaryRGBComplicatedItemsSrclibsFix) {
+                theme.SetElementColorComplicated(n, semiColor.TernaryRGB, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], true);
+            }
 
+            #endregion
+
+            #region TEXT COLOR
+            int[] TextItems = [
+                address.BrushesSpecialText,
+                address.ContextMenuText,
+                address.TopBarText,
+                address.FileMenuScrollableText,
+                address.FileMenuTilesText,
+                address.BrushesText,
+                address.BrushesTabsText,
+                address.BrushesCirclesText
+            ];
+            foreach(int n in TextItems) {
+                theme.SetElementColor(color.Text, n);
+            }
+
+            byte[][] TextComplicatedItems = [ color.ShitColoredText ];
+            foreach(byte[] n in TextComplicatedItems) {
+                theme.SetElementColorComplicated(n, color.Text, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1]);
+                theme.SetElementColorComplicated(n, color.Text, address.GlobalSectionAppskin[0], address.GlobalSectionAppskin[1]);
+            }
+            #endregion
+
+            #region SELECTABLE PRIMARY COLOR
+            int[] SelectablePrimaryItems = [
+                address.SlidersColor,
+            ];
+            foreach(int n in SelectablePrimaryItems) {
+                theme.SetElementColor(color.SelectablePrimary, n);
+            }
+            #endregion
+
+            #region SELECTABLE SECONDARY COLOR
+            int[] SelectableSecondaryItems = [
+                // address.SlidersInActiveBackground,
+                address.SlidersActiveBackground,
+                address.SlidersActiveBackgroundHoveredFocused,
+            ];
+            foreach(int n in SelectableSecondaryItems) {
+                theme.SetElementColor(color.SelectableSecondary, n);
+            }
+            #endregion
             
-
-            theme.SetElementColor(color.Ternary, address.TabsResizeGrabberVertical);
-            theme.SetElementColor(color.Ternary, address.TabsResizeGrabberHorizontal);
-            theme.SetElementColor(color.Ternary, address.ScaleAngleSliders);
-
-            theme.SetElementColor(color.Secondary, address.Separator);
-            theme.SetElementColor(color.Secondary, address.TopBar);
-            theme.SetElementColor(color.Secondary, address.ContextMenu);
-            theme.SetElementColor(color.Secondary, address.ResizeWindowGrabber);
-            theme.SetElementColor(color.Secondary, address.SlidersInActiveBackground);
-            theme.SetElementColor(color.Secondary, address.SlidersColor);
-            theme.SetElementColor(color.Secondary, address.BookmarkBackgroundAndOutlinesSomewhere);
-            theme.SetElementColor(color.Secondary, address.RadioButtonsBackground);
-
-
-            // That 'blue text' sai2's glitch of some brushes names:
-            theme.SetElementColor(color.Text, address.BrushesSpecialText); 
-            
-            // 'Shit text' color replacer:
-            theme.SetElementColorComplicated(color.Text, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], color.Default23);
-            theme.SetElementColorComplicated(color.Text, address.GlobalSectionAppskin[0], address.GlobalSectionAppskin[1], color.Default23);
-
-            // Should be useful on dark backgrounds. Right now I can't find couple of this texts, so almost unusable ;;
-            theme.SetElementColor(color.Text, address.ContextMenuText);
-            theme.SetElementColor(color.Text, address.TopBarText);
-            theme.SetElementColor(color.Text, address.FileMenuScrollableText);
-            theme.SetElementColor(color.Text, address.FileMenuTilesText);
-            theme.SetElementColor(color.Text, address.BrushesText);
-            theme.SetElementColor(color.Text, address.BrushesTabsText);
-            theme.SetElementColor(color.Text, address.BrushesCirclesText);
-
-
-            // This section is replacing huge parts of sequences,
-            // which is going one by one in binaries,
-            // so it was much easer to make this method to override the certain colors.
-            // In this case, it means, this method is about artifacts after coloring, so
-            // also, there is a method to fix consequences after coloring that way:
-            theme.SetElementColorComplicated(color.Ternary, address.BrushesFileMenuTilesScrollableListsBackground[0], address.BrushesFileMenuTilesScrollableListsBackground[1], color.Default22);
-            theme.SetElementColorComplicated(color.Ternary, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], color.Default7);
-            theme.SetElementColorComplicated(color.Ternary, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], color.Default11);
-            theme.SetElementColorComplicated(color.Ternary, address.GlobalSectionAppskin[0], address.GlobalSectionAppskin[1], color.Default10);
-            theme.SetElementColorComplicated(color.Ternary, address.GlobalSectionAppskin[0], address.GlobalSectionAppskin[1], color.Default13);
-            
-            theme.SetElementColorComplicated(color.Secondary, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], color.Default1);
-            theme.SetElementColorComplicated(color.Secondary, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], color.Default2);
-            theme.SetElementColorComplicated(color.Secondary, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], color.Default3);
-            theme.SetElementColorComplicated(color.Secondary, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], color.Default4);
-            theme.SetElementColorComplicated(color.Secondary, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], color.Default5);
-            theme.SetElementColorComplicated(color.Secondary, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], color.Default6);
-            theme.SetElementColorComplicated(color.Secondary, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], color.Default8);
-            theme.SetElementColorComplicated(color.Secondary, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], color.Default9);
-            theme.SetElementColorComplicated(color.Secondary, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], color.Default10);
-            theme.SetElementColorComplicated(color.Secondary, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], color.Default12);
-            
-            // Semi colors fixes [ borders in sort of buttons ] [[ `bordering colors`, as you wish ]]:
-            theme.SetElementColorComplicated(semiColor.TernaryRGB, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], color.Default14, true);
-            theme.SetElementColorComplicated(semiColor.TernaryRGB, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], color.Default15, true);
-            theme.SetElementColorComplicated(semiColor.TernaryRGB, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], color.Default16, true);
-            theme.SetElementColorComplicated(semiColor.TernaryRGB, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], color.Default17, true);
-            theme.SetElementColorComplicated(semiColor.TernaryRGB, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], color.Default18, true);
-            theme.SetElementColorComplicated(semiColor.TernaryRGB, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], color.Default19, true);
-            theme.SetElementColorComplicated(semiColor.TernaryRGB, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], color.Default20, true);
-            theme.SetElementColorComplicated(semiColor.TernaryRGB, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], color.Default21, true);
-            //
-
-            // Artifacts fixes [ which is inevitable after that colring method. ]:
-            theme.SetElementColorComplicated(semiColor.SecondaryRGB, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], semiColor.ArtifactsColor1);
-            theme.SetElementColorComplicated(semiColor.SecondaryRGB, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], semiColor.ArtifactsColor2);
-            theme.SetElementColorComplicated(semiColor.SecondaryRGB, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], semiColor.ArtifactsColor3);
-            theme.SetElementColorComplicated(semiColor.SecondaryRGB, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], semiColor.ArtifactsColor4);
-            theme.SetElementColorComplicated(semiColor.SecondaryRGB, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], semiColor.ArtifactsColor5);
-            theme.SetElementColorComplicated(semiColor.SecondaryRGB, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], semiColor.ArtifactsColor6);
-            theme.SetElementColorComplicated(semiColor.SecondaryRGB, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], semiColor.ArtifactsColor7);
-            theme.SetElementColorComplicated(semiColor.SecondaryRGB, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], semiColor.ArtifactsColor8);
-
             // Saving current theme changes:
             theme.SaveTheme();
 

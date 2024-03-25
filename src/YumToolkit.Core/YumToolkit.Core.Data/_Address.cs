@@ -2,6 +2,9 @@ using YumToolkit.Core.Interfaces;
 using YumToolkit.Global;
 
 namespace YumToolkit.Core.Data {
+    /// <summary>
+    /// Read colors and addresses.md before modifying this!
+    /// </summary>
     class _Address : IAddress {
         public int InActiveText { get; }
         public int InActiveCanvasBackground { get; }

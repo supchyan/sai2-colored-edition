@@ -2,13 +2,17 @@ namespace YumToolkit.Core.Interfaces {
     interface ISemiColor {
         byte[] SecondaryRGB { get; set; }
         byte[] TernaryRGB { get; set; }
-        byte[] ArtifactsColor1 { get; }
-        byte[] ArtifactsColor2 { get; }
-        byte[] ArtifactsColor3 { get; }
-        byte[] ArtifactsColor4 { get; }
-        byte[] ArtifactsColor5 { get; }
-        byte[] ArtifactsColor6 { get; }
-        byte[] ArtifactsColor7 { get; }
-        byte[] ArtifactsColor8 { get; }
+        byte[] TernaryArtifactsColor1 { get; set; }
+        byte[]  TernaryArtifactsColor2 { get; set; }
+        byte[]  TernaryArtifactsColor3 { get; set; }
+        byte[]  TernaryArtifactsColor4 { get; set; }
+        byte[]  TernaryArtifactsColor5 { get; set; }
+        byte[]  TernaryArtifactsColor6 { get; set; }
+        byte[]  TernaryArtifactsColor7 { get; set; }
+        byte[]  TernaryArtifactsColor8 { get; set; }
+        byte[]  SecondaryArtifactsColor1 { get; set; }
+        byte[]  SecondaryArtifactsColor2 { get; set; }
+        byte[]  SecondaryArtifactsColor3 { get; set; }
+        byte[]  SecondaryArtifactsColor4 { get; set; }
     }
 }

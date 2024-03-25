@@ -2,5 +2,7 @@
     "Primary":  "#20202020",
     "Secondary": "#30303030",
     "Ternary": "#50505050",
-    "Text": "#EEEEEEEE"
+    "Text": "#EEEEEEEE",
+    "SelectablePrimary": "#DDDDAA33",
+    "SelectableSecondary": "#88886630"
 }
