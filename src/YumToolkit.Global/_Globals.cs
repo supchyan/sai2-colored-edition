@@ -14,5 +14,6 @@ namespace YumToolkit.Global {
         public static _ConsoleAnimator consoleAnimator = new();
         public static _ConsoleDrawing consoleDrawing = new();
         public static _Theme theme = new();
+        public static _File file = new();
     }
 }

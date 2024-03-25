@@ -19,10 +19,11 @@ namespace YumToolkit.Core.Interfaces {
         byte[] EmplyElementsInBrushesUI { get; }
         byte[] ColorPickerCircleBody { get; }
         byte[] WhatIsThisColor2 { get; }
+        byte[] ActiveCanvasBackgroundFix { get; }
+        byte[] EmptyScrollBarBackground { get; }
         byte[] BordersFix1 { get; }
         byte[] BordersFix2 { get; }
         byte[] BordersFix3 { get; }
-        byte[] ActiveCanvasBackgroundFix { get; }
         byte[] BordersFix4 { get; }
         byte[] BordersFix5 { get; }
         byte[] BordersFix6 { get; }

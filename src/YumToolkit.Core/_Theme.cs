@@ -59,10 +59,9 @@ namespace YumToolkit.Core {
         /// Saves current theme changes.
         /// </summary>
         public void SaveTheme() {
-            try {
-                File.WriteAllBytes(name.original, binary);
-                console.SendMessage(serviceMessage.ThemeHasBeenApplied, ConsoleColor.DarkGreen);
-            } catch { console.SendMessage(serviceMessage.OriginalFileIsBusy,ConsoleColor.DarkRed); }
+            if(file.IsFileBusy()) { return; }
+            File.WriteAllBytes(name.original, binary);
+            console.SendMessage(serviceMessage.ThemeHasBeenApplied, ConsoleColor.DarkGreen);
         }
     }
 }

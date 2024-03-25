@@ -12,7 +12,7 @@ namespace YumToolkit {
             if(!OperatingSystem.IsWindows()) {
                 Console.WriteLine($"This program cannot be run on {Environment.OSVersion}... Or can't be :)");
                 return;
-            }
+            }    
             
             InterfaceBegin:
 

@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.Runtime.InteropServices;
 using YumToolkit.Global;
 using YumToolkit.Core;
+using System.Drawing;
 
 namespace YumToolkit {
 
@@ -48,15 +49,16 @@ namespace YumToolkit {
 
         void ReColor() {
 
-            if(!File.Exists(name.original)) { console.SendMessage(serviceMessage.OriginalFileIsNotExist, ConsoleColor.DarkRed); return; }
+            if(!file.IsOriginalFileExists()) { return; }
+            if(file.IsFileBusy()) { return; }
 
             // Creating backup file to restore data or replace original file
             // with backup one to recolor it:
-            if(!File.Exists(name.old)) { _File.Get.CreateOldFile(); }
+            if(!File.Exists(name.old)) { file.CreateOldFile(); }
             else {
                 File.Delete(name.original);
                 // This won't delete sai2.old.exe! Just cloning it to original one:
-                _File.Get.ReplaceOriginalFile();
+                file.ReplaceOriginalFile();
             }
             
 
@@ -78,7 +80,7 @@ namespace YumToolkit {
             semiColor.ConfigureArtifactsColors();
 
             // Creating tmp .exe to replace binary data inside:
-            if(!File.Exists(name.tmp)) { _File.Get.CreateTmpFile(); }
+            if(!File.Exists(name.tmp)) { file.CreateTmpFile(); }
 
             // Reading tmp .exe:
             theme.binary = theme.ReadTmpFile(name.tmp);
@@ -192,21 +194,6 @@ namespace YumToolkit {
                 theme.SetElementColorComplicated(n, color.Ternary, address.GlobalSectionAppskin[0], address.GlobalSectionAppskin[1]);
             }
 
-            byte[][] TernaryRGBComplicatedItemsSrclibs = [
-                color.BordersFix1,
-                color.BordersFix2,
-                color.BordersFix3,
-                color.BordersFix4,
-                color.BordersFix5,
-                color.BordersFix6,
-                color.BordersFix7,
-                color.BordersFix8,
-                color.BordersFix9,
-            ];
-            foreach(byte[] n in TernaryRGBComplicatedItemsSrclibs) {
-                theme.SetElementColorComplicated(n, semiColor.TernaryRGB, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], true);
-            }
-
             theme.SetElementColorComplicated(color.BrushesBackgroundFileMenuBackgroundScrollBlockBackground, color.Ternary, address.BrushesFileMenuTilesScrollableListsBackground[0], address.BrushesFileMenuTilesScrollableListsBackground[1]);
             
             byte[][] TernaryRGBComplicatedItemsSrclibsFix = [
@@ -220,6 +207,22 @@ namespace YumToolkit {
                 semiColor.TernaryArtifactsColor8,
             ];
             foreach(byte[] n in TernaryRGBComplicatedItemsSrclibsFix) {
+                theme.SetElementColorComplicated(n, semiColor.TernaryRGB, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], true);
+            }
+
+            byte[][] TernaryRGBComplicatedItemsSrclibs = [
+                color.BordersFix1,
+                color.BordersFix2,
+                color.BordersFix3,
+                color.BordersFix4,
+                color.BordersFix5,
+                color.BordersFix6,
+                color.BordersFix7,
+                color.BordersFix8,
+                color.BordersFix9,
+                color.EmptyScrollBarBackground
+            ];
+            foreach(byte[] n in TernaryRGBComplicatedItemsSrclibs) {
                 theme.SetElementColorComplicated(n, semiColor.TernaryRGB, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], true);
             }
 
@@ -294,15 +297,16 @@ namespace YumToolkit {
             theme.SaveTheme();
 
             // Removing unnecessary tmp file:
-            if(File.Exists(name.tmp)) { _File.Get.DeleteTmpFile(); }
+            if(File.Exists(name.tmp)) { file.DeleteTmpFile(); }
             
         }
         void RemoveTheme() {
-            if(!File.Exists(name.old)) { console.SendMessage(serviceMessage.OldFileIsNotExist, ConsoleColor.DarkRed); return; }
-            
+            if(!file.IsOldFileExists()) { return; }
+            if(file.IsFileBusy()) { return; }
+
             File.Delete(name.original);
-            _File.Get.ReplaceOriginalFile();
-            _File.Get.DeleteOldFile();
+            file.ReplaceOriginalFile();
+            file.DeleteOldFile();
 
             console.SendMessage(serviceMessage.DefaultThemeHasBeenRestored, ConsoleColor.DarkGreen);
         }

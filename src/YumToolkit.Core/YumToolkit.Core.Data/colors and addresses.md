@@ -52,3 +52,4 @@
 52. `BF E4 FF` → `???` → Selected objects inner outline. [ hold ]
 53. `A6 A6 FF` `8E 8E FF` `DF DF F9` `E4 E4 F9` `D4 EC FF` `66 B5 FF` `BF E4 FF` `7A C0 FF` `D5 E8 FA` `9C D0 FF` → `section .srclibs` → Selected objects outline "gradient artifacts" fixes.
 54. `D8 D8 D8` `F8 F8 F8` → `section .srclibs` → Sliders outline artifacts fix.
+55. `F0 F0 F0` → `section .srclibs` → Empty Scroll bar background.

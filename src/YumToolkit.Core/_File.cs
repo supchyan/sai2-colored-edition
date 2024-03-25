@@ -2,7 +2,6 @@ using YumToolkit.Global;
 
 namespace YumToolkit.Core {
     class _File : _Globals {
-        public static _File Get { get; private set; }
         public void ReplaceOriginalFile() {
             if(File.Exists(name.old)) { File.Copy(name.old, name.original); } 
         }
@@ -20,8 +19,29 @@ namespace YumToolkit.Core {
         public void DeleteOldFile() {
             if(File.Exists(name.old)) { File.Delete(name.old); }
         }
-        static _File() {
-            Get = new _File();
+        public bool IsOriginalFileExists() {
+            if(!File.Exists(name.original)) {
+                console.SendMessage(serviceMessage.OriginalFileIsNotExist,ConsoleColor.DarkRed);
+            }
+            return File.Exists(name.original);
         }
+        public bool IsOldFileExists() {
+            if(!File.Exists(name.old)) { 
+                console.SendMessage(serviceMessage.OldFileIsNotExist, ConsoleColor.DarkRed); 
+            }
+            return File.Exists(name.old);
+        }
+        public bool IsFileBusy() {
+            try { 
+                File.ReadAllBytes(name.original);
+                return false;
+            
+            } catch {
+                console.SendMessage(serviceMessage.OriginalFileIsBusy, ConsoleColor.DarkRed);
+                return true;
+            }
+            
+        }
+        public _File() { }
     }
 }

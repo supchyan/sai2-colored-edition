@@ -64,6 +64,14 @@ namespace YumToolkit.Core.Data {
         /// </summary>
         public byte[] WhatIsThisColor2 { get; }
         /// <summary>
+        /// # B0 B0 B0
+        /// </summary>
+        public byte[] ActiveCanvasBackgroundFix { get; }
+        /// <summary>
+        /// # F0 F0 F0
+        /// </summary>
+        public byte[] EmptyScrollBarBackground { get; }
+        /// <summary>
         /// # C6 C6 C6
         /// </summary>
         public byte[] BordersFix1 { get; }
@@ -75,10 +83,7 @@ namespace YumToolkit.Core.Data {
         /// # B1 B1 B1
         /// </summary>
         public byte[] BordersFix3 { get; }
-        /// <summary>
-        /// # B0 B0 B0
-        /// </summary>
-        public byte[] ActiveCanvasBackgroundFix { get; }
+        
         /// <summary>
         /// # D8 D8 D8
         /// </summary>
@@ -208,11 +213,12 @@ namespace YumToolkit.Core.Data {
             EmplyElementsInBrushesUI = "#F0F0F0F0".toByteColor();
             ColorPickerCircleBody = "#F8F8F8F8".toByteColor();
             WhatIsThisColor2 = "#ACACACAC".toByteColor();
+            ActiveCanvasBackgroundFix = "#00B0B0B0".toByteColor().NoAlpha();
+            EmptyScrollBarBackground = "#00F0F0F0".toByteColor().NoAlpha();
             BordersFix1 = "#00C6C6C6".toByteColor().NoAlpha();
             BordersFix2 = "#00E8E8E8".toByteColor().NoAlpha();
             BordersFix3 = "#00B1B1B1".toByteColor().NoAlpha();
             BordersFix4 = "#00D8D8D8".toByteColor().NoAlpha();
-            ActiveCanvasBackgroundFix = "#00B0B0B0".toByteColor().NoAlpha();
             BordersFix5 = "#00B4B4B4".toByteColor().NoAlpha();
             BordersFix6 = "#00D4D4D4".toByteColor().NoAlpha();
             BordersFix7 = "#00DEDEDE".toByteColor().NoAlpha();
