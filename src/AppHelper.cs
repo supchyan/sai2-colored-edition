@@ -146,26 +146,11 @@ namespace YumToolkit {
                 color.SelectedElementBackgroundIdle,
                 color.SelectedElementBackgroundActive,
                 color.SelectedElementBackgroundHovered,
-                color.SelectedElementOutlineNotStated,
-                color.SelectedElementOutlineHovered,
-                color.SelectedElementOutlineIdle,
-                color.SelectedElementOutlineNotFound1,
-                color.SelectedElementDefaultNotFound2,
-                color.SelectedElementDefaultNotFound3,
-                color.SelectedElementOutlineFix1,
-                color.SelectedElementOutlineFix2,
-                color.SelectedElementOutlineFix3,
-                color.SelectedElementOutlineFix5,
-                color.SelectedElementOutlineFix6,
-                color.SelectedElementOutlineFix7,
-                color.SelectedElementOutlineFix8,
-                color.SelectedElementOutlineFix9,
-                color.SelectedElementOutlineFix10,
-                color.SelectedElementOutlineFix11,
+                // color.SelectedElementDefaultNotFound2,
+                // color.SelectedElementDefaultNotFound3,
             ];
             foreach(byte[] n in SecondaryRGBComplicatedItemsSrclibs) {
                 theme.SetElementColorComplicated(n, semiColor.SecondaryRGB, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], true);
-                theme.SetElementColorComplicated(n, semiColor.SecondaryRGB, address.GlobalSectionSrclibs[0], address.GlobalSectionAppskin[1], true);
             }
 
             byte[][] SecondaryRGBComplicatedItemsSrclibsFix = [
@@ -244,12 +229,16 @@ namespace YumToolkit {
             int[] TextItems = [
                 address.BrushesSpecialText,
                 address.ContextMenuText,
+                // address.ContextMenuTextFocused,
+                address.ContextMenuTextHovered,
                 address.TopBarText,
+                // address.TopBarTextFocused,
+                address.TopBarTextHovered,
                 address.FileMenuScrollableText,
                 address.FileMenuTilesText,
                 address.BrushesText,
                 address.BrushesTabsText,
-                address.BrushesCirclesText
+                address.BrushesCirclesText,
             ];
             foreach(int n in TextItems) {
                 theme.SetElementColor(color.Text, n);
@@ -268,6 +257,25 @@ namespace YumToolkit {
             ];
             foreach(int n in SelectablePrimaryItems) {
                 theme.SetElementColor(color.SelectablePrimary, n);
+            }
+            byte[][] SelectablePrimaryComplicatedItems = [
+                color.SelectedElementOutlineActive,
+                color.SelectedElementOutlineHovered,
+                color.SelectedElementOutlineIdle,
+                color.SelectedElementBackgroundFocused,
+                color.SelectedElementOutlineFix1,
+                color.SelectedElementOutlineFix2,
+                color.SelectedElementOutlineFix3,
+                color.SelectedElementOutlineFix5,
+                color.SelectedElementOutlineFix6,
+                color.SelectedElementOutlineFix7,
+                color.SelectedElementOutlineFix8,
+                color.SelectedElementOutlineFix9,
+                color.SelectedElementOutlineFix10,
+                color.SelectedElementOutlineFix11,
+            ];
+            foreach(byte[] n in SelectablePrimaryComplicatedItems) {
+                theme.SetElementColorComplicated(n, color.SelectablePrimary.NoAlpha(), address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], true);
             }
             #endregion
 

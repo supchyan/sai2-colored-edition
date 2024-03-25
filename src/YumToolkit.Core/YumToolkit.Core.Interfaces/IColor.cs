@@ -35,10 +35,10 @@ namespace YumToolkit.Core.Interfaces {
         byte[] SelectedElementBackgroundIdle { get; }
         byte[] SelectedElementBackgroundActive { get; }
         byte[] SelectedElementBackgroundHovered { get; }
-        byte[] SelectedElementOutlineNotStated { get; }
+        byte[] SelectedElementOutlineActive { get; }
         byte[] SelectedElementOutlineHovered { get; }
         byte[] SelectedElementOutlineIdle { get; }
-        byte[] SelectedElementOutlineNotFound1 { get; }
+        byte[] SelectedElementBackgroundFocused { get; }
         byte[] SelectedElementDefaultNotFound2 { get; }
         byte[] SelectedElementDefaultNotFound3 { get; }
         byte[] SelectedElementOutlineFix1 { get; }

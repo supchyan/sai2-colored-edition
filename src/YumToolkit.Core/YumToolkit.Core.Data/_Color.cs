@@ -126,7 +126,7 @@ namespace YumToolkit.Core.Data {
         /// <summary>
         /// # 80 80 FF
         /// </summary>
-        public byte[] SelectedElementOutlineNotStated { get; }
+        public byte[] SelectedElementOutlineActive { get; }
         /// <summary>
         /// # C2 C2 FF
         /// </summary>
@@ -138,7 +138,7 @@ namespace YumToolkit.Core.Data {
         /// <summary>
         /// # D4 EC FF
         /// </summary>
-        public byte[] SelectedElementOutlineNotFound1 { get; }
+        public byte[] SelectedElementBackgroundFocused { get; }
         /// <summary>
         /// # 66 B5 FF
         /// </summary>
@@ -224,10 +224,10 @@ namespace YumToolkit.Core.Data {
             SelectedElementBackgroundIdle = "#00DBDBFF".toByteColor().NoAlpha();
             SelectedElementBackgroundActive = "#00D4D4FF".toByteColor().NoAlpha();
             SelectedElementBackgroundHovered = "#00F6F6FF".toByteColor().NoAlpha();
-            SelectedElementOutlineNotStated = "#008080FF".toByteColor().NoAlpha();
+            SelectedElementOutlineActive = "#008080FF".toByteColor().NoAlpha();
             SelectedElementOutlineHovered = "#00C2C2FF".toByteColor().NoAlpha();
             SelectedElementOutlineIdle = "#00CFCFFF".toByteColor().NoAlpha();
-            SelectedElementOutlineNotFound1 = "#00D4ECFF".toByteColor().NoAlpha();
+            SelectedElementBackgroundFocused = "#00D4ECFF".toByteColor().NoAlpha();
             SelectedElementDefaultNotFound2 = "#0066B5FF".toByteColor().NoAlpha();
             SelectedElementDefaultNotFound3 = "#00BFE4FF".toByteColor().NoAlpha();
             SelectedElementOutlineFix1 = "#00A6A6FF".toByteColor().NoAlpha();
