@@ -7,7 +7,7 @@ using YumToolkit.Core;
 namespace YumToolkit {
 
     // Unneccessary stuff, to be stored here, but i did it to free space in App.cs
-    class AppHelper :  _Globals {
+    class AppHelper : _Globals {
         public static AppHelper Get { get; private set; }
         Dictionary<string, string>? ThemeColors { get; set; }
         public void _Action() {
@@ -199,8 +199,6 @@ namespace YumToolkit {
             theme.SetElementColorComplicated(color.Secondary, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], color.Default9);
             theme.SetElementColorComplicated(color.Secondary, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], color.Default10);
             theme.SetElementColorComplicated(color.Secondary, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], color.Default12);
-
-            
             
             // Semi colors fixes [ borders in sort of buttons ] [[ `bordering colors`, as you wish ]]:
             theme.SetElementColorComplicated(semiColor.TernaryRGB, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], color.Default14, true);
