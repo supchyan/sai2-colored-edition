@@ -52,5 +52,14 @@ namespace YumToolkit.Core.Interfaces {
         byte[] SelectedElementOutlineFix9 { get; }
         byte[] SelectedElementOutlineFix10 { get; }
         byte[] SelectedElementOutlineFix11 { get; }
+        byte[] SelectedLayerBackgroundActive { get; }
+        byte[] SelectedLayerBackgroundHovered { get; }
+        byte[] SelectedLayerBackgroundFocused { get; }
+        byte[] SelectedLayerOutlineActiveHovered { get; }
+        byte[] SelectedLayerOutlineFocused { get; }
+        byte[] SelectedLayerInnerOutlineActive { get; }
+        byte[] SelectedLayerInnerOutlineHovered { get; }
+        byte[] SelectedLayerInnerOutlineFocused { get; }
+        byte[] LayerBackgroundFocused { get; }
     }
 }

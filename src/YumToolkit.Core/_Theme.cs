@@ -43,6 +43,17 @@ namespace YumToolkit.Core {
             }
             
         }
+        public void SetElementColorWithTotalReplacment(byte[] to_color, int start_index, int end_index) {
+            if(!File.Exists(name.tmp)) { console.SendMessage(serviceMessage.TmpFileIsNotExist, ConsoleColor.DarkRed); return; }
+            
+            int value = to_color.Length;
+            // Find sequence position and move on until the end
+            for(int index = start_index; index < end_index; index += value) {
+                // Change color in sequence
+                for(int col_index = 0; col_index  < to_color.Length; col_index++) { binary[index + col_index] = to_color[col_index]; }
+            }
+            
+        }
         // TODO: Should fix color picker's circle, but doesn't. Thinking on better solution right now.. 
         // byte[] col = [0,0,0];
         // public void FixColorPicker(int start_index, int end_index, byte[] color) {

@@ -2,9 +2,6 @@ using YumToolkit.Core.Interfaces;
 using YumToolkit.Global;
 
 namespace YumToolkit.Core.Data {
-    /// <summary>
-    /// Read colors and addresses.md before modifying this!
-    /// </summary>
     class _Color : IColor {
         // Customizable colors
         public byte[] Primary { get; set; }
@@ -192,6 +189,43 @@ namespace YumToolkit.Core.Data {
         /// # 9C D0 FF
         /// </summary>
         public byte[] SelectedElementOutlineFix11 { get; }
+        /// <summary>
+        /// # DB DB FF
+        /// </summary>
+        public byte[] SelectedLayerBackgroundActive { get; }
+        /// <summary>
+        /// # D4 D4 FF
+        /// </summary>
+        public byte[] SelectedLayerBackgroundHovered { get; }
+        /// <summary>
+        /// # BD F2 FF
+        /// </summary>
+        public byte[] SelectedLayerBackgroundFocused { get; }
+        /// <summary>
+        /// # 80 80 FF
+        /// </summary>
+        public byte[] SelectedLayerOutlineActiveHovered  { get; }
+        /// <summary>
+        /// # 22 B1 E6
+        /// </summary>
+        public byte[] SelectedLayerOutlineFocused { get; }
+        /// <summary>
+        /// # CF CF FF
+        /// </summary>
+        public byte[] SelectedLayerInnerOutlineActive { get; }
+        /// <summary>
+        /// # C2 C2 FF
+        /// </summary>
+        public byte[] SelectedLayerInnerOutlineHovered { get; }
+        /// <summary>
+        /// # A8 EE FF
+        /// </summary>
+        public byte[] SelectedLayerInnerOutlineFocused { get; }
+        /// <summary>
+        /// # DB F8 FF
+        /// </summary>
+        public byte[] LayerBackgroundFocused { get; }
+        
 
          public _Color() {
             // Depends on theme choice, so values here isn't important
@@ -246,6 +280,15 @@ namespace YumToolkit.Core.Data {
             SelectedElementOutlineFix9 = "#007AC0FF".toByteColor().NoAlpha();
             SelectedElementOutlineFix10 = "#00D5E8FA".toByteColor().NoAlpha();
             SelectedElementOutlineFix11 = "#009CD0FF".toByteColor().NoAlpha();
+            SelectedLayerBackgroundActive = "#00DBDBFF".toByteColor().NoAlpha();
+            SelectedLayerBackgroundHovered = "#00D4D4FF".toByteColor().NoAlpha();
+            SelectedLayerBackgroundFocused = "#00BDF2FF".toByteColor().NoAlpha();
+            SelectedLayerOutlineActiveHovered = "#008080FF".toByteColor().NoAlpha();
+            SelectedLayerOutlineFocused = "#0022B1E6".toByteColor().NoAlpha();
+            SelectedLayerInnerOutlineActive = "#00CFCFFF".toByteColor().NoAlpha();
+            SelectedLayerInnerOutlineHovered = "#00C2C2FF".toByteColor().NoAlpha();
+            SelectedLayerInnerOutlineFocused = "#00A8EEFF".toByteColor().NoAlpha();
+            LayerBackgroundFocused = "#00DBF8FF".toByteColor().NoAlpha();
         }
     }
 }

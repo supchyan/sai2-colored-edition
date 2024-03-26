@@ -8,6 +8,12 @@ namespace YumToolkit.Global {
         public static int GetDecimalAddress(this string hex_address) {
             return int.Parse(hex_address.Replace("0x", ""), System.Globalization.NumberStyles.HexNumber);
         }
+        /// <summary>
+        /// Converts hex color into byte version in BGRA format.
+        /// Remember, original HEX color should be ARGB as well.
+        /// </summary>
+        /// <param name="hex_value">#aarrggbb</param>
+        /// <returns></returns>
         public static byte[] toByteColor(this string hex_value) {
 
             // RGBA in SAI2 is BGRA. Live your life with that.
@@ -23,6 +29,11 @@ namespace YumToolkit.Global {
         public static string toHEXColor(this byte[] byte_value) {
             return BitConverter.ToString(byte_value).Replace("-", string.Empty);
         }
+        /// <summary>
+        /// Removes Alpha channel from byte color. Returns byte color with no 4th channel.
+        /// </summary>
+        /// <param name="c">Original color</param>
+        /// <returns></returns>
         public static byte[] NoAlpha(this byte[] c) {
             return [ c[0], c[1], c[2] ];
         }

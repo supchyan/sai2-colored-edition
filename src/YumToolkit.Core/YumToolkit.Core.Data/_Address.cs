@@ -2,9 +2,6 @@ using YumToolkit.Core.Interfaces;
 using YumToolkit.Global;
 
 namespace YumToolkit.Core.Data {
-    /// <summary>
-    /// Read colors and addresses.md before modifying this!
-    /// </summary>
     class _Address : IAddress {
         public int InActiveText { get; }
         public int InActiveCanvasBackground { get; }
@@ -51,6 +48,8 @@ namespace YumToolkit.Core.Data {
         public int[] GlobalSectionText { get; }
         public int[] GlobalSectionAppskin { get; }
         public int[] GlobalSectionSrclibs { get; }
+        public int[] HoveredEmptyBrushesBackground { get; }
+        public int[] HoveredLayersBackground { get; }
         public _Address() {
             InActiveText = "0x001BC95B".GetDecimalAddress();
             InActiveCanvasBackground = "0x00534688".GetDecimalAddress();
@@ -99,6 +98,8 @@ namespace YumToolkit.Core.Data {
             GlobalSectionText = ["0x00000400".GetDecimalAddress(), "0x00257F4F".GetDecimalAddress()];
             GlobalSectionAppskin = ["0x00340000".GetDecimalAddress(), "0x004D0FFF".GetDecimalAddress()];
             GlobalSectionSrclibs = ["0x004D1000".GetDecimalAddress(), "0x0053E3FF".GetDecimalAddress()];
+            HoveredEmptyBrushesBackground = ["0x004880F2".GetDecimalAddress(), "0x00488CF1".GetDecimalAddress()];
+            HoveredLayersBackground = ["0x0048E5F6".GetDecimalAddress(), "0x0048FB9D".GetDecimalAddress()];
         }
     }
 }

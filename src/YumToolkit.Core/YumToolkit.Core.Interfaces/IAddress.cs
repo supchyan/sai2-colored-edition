@@ -45,5 +45,7 @@ namespace YumToolkit.Core.Interfaces {
         int[] GlobalSectionText { get; }
         int[] GlobalSectionAppskin { get; }
         int[] GlobalSectionSrclibs { get; }
+        int[] HoveredEmptyBrushesBackground { get; }
+        int[] HoveredLayersBackground { get; }
     }
 }

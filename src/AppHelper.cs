@@ -126,6 +126,9 @@ namespace YumToolkit {
                 theme.SetElementColor(color.Secondary, n);
             }
 
+            theme.SetElementColorWithTotalReplacment(semiColor.SecondaryRGB, address.HoveredEmptyBrushesBackground[0], address.HoveredEmptyBrushesBackground[1]);
+            theme.SetElementColorWithTotalReplacment(semiColor.SecondaryRGB, address.HoveredLayersBackground[0], address.HoveredLayersBackground[1]);
+            
             byte[][] SecondaryComplicatedItemsSrclibs = [
                 color.BurgerButtonsOutline1,
                 color.BurgerButtonsOutline2,
@@ -261,7 +264,7 @@ namespace YumToolkit {
             foreach(int n in SelectablePrimaryItems) {
                 theme.SetElementColor(color.SelectablePrimary, n);
             }
-            byte[][] SelectablePrimaryComplicatedItems = [
+            byte[][] SelectablePrimaryComplicatedItemsSrclibs = [
                 color.SelectedElementOutlineActive,
                 color.SelectedElementOutlineHovered,
                 color.SelectedElementOutlineIdle,
@@ -277,8 +280,20 @@ namespace YumToolkit {
                 color.SelectedElementOutlineFix10,
                 color.SelectedElementOutlineFix11,
             ];
-            foreach(byte[] n in SelectablePrimaryComplicatedItems) {
+            foreach(byte[] n in SelectablePrimaryComplicatedItemsSrclibs) {
                 theme.SetElementColorComplicated(n, color.SelectablePrimary.NoAlpha(), address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], true);
+            }
+
+            byte[][] SelectablePrimaryComplicatedItemsAppskin = [
+                color.SelectedLayerOutlineActiveHovered,
+                color.SelectedLayerOutlineFocused,
+                color.SelectedLayerInnerOutlineActive,
+                color.SelectedLayerInnerOutlineHovered,
+                color.SelectedLayerInnerOutlineFocused,
+                color.LayerBackgroundFocused,
+            ];
+            foreach(byte[] n in SelectablePrimaryComplicatedItemsAppskin) {
+                theme.SetElementColorComplicated(n, color.SelectablePrimary.NoAlpha(), address.GlobalSectionAppskin[0], address.GlobalSectionAppskin[1], true);
             }
             #endregion
 
@@ -290,6 +305,15 @@ namespace YumToolkit {
             ];
             foreach(int n in SelectableSecondaryItems) {
                 theme.SetElementColor(color.SelectableSecondary, n);
+            }
+
+            byte[][] SelectableSecondaryComplicatedItemsAppskin = [
+                color.SelectedLayerBackgroundActive,
+                color.SelectedLayerBackgroundHovered,
+                color.SelectedLayerBackgroundFocused,
+            ];
+            foreach(byte[] n in SelectableSecondaryComplicatedItemsAppskin) {
+                theme.SetElementColorComplicated(n, color.SelectableSecondary.NoAlpha(), address.GlobalSectionAppskin[0], address.GlobalSectionAppskin[1], true);
             }
             #endregion
             
