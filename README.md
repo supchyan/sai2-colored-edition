@@ -5,7 +5,7 @@
 
 ### <p align=center>`themes toolkit for SAI 2 64bit patch ver. 2024.02.22` `*`</p>
 
-### <p align=center>`*` Current searching status: ~83% ...</p>
+### <p align=center>`*` Current research status: ~83%</p>
 ### [English](#introduction) & [Русский](#вступление)
 ## 🌔Introduction:
 ``` 
