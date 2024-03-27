@@ -140,8 +140,6 @@
 |71.1|`40 40 40`|`section .srclibs`|File menu Tree text|
 |71.2|`40 20 C0`|`section .srclibs`|File menu Tree text [ hovered ]|
 |71.3|`C0 60 40`|`section .srclibs`|File menu Tree text [ focused ]|
-
-//
 |72.2|`80 40 20`|`0x000DDEC0`|Shit text in windows.|
 |73.1|`00 00 00`|`0x00534C68`|Context menu Arrows [ idle ]|
 |73.2|`00 00 00`|`0x00534C70`|Context menu Arrows [ hovered ]|
