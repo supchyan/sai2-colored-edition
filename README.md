@@ -3,10 +3,10 @@
 </div>
 <br />
 
-### `themes toolkit for SAI 2 64bit patch ver. 2024.02.22` `*`
-### [English](#introduction) & [Русский](#вступление)
-<br/>
+### <p align=center>`themes toolkit for SAI 2 64bit patch ver. 2024.02.22` `*`</p>
 
+### <p align=center>`*` Current searching status: ~83% ...</p>
+### [English](#introduction) & [Русский](#вступление)
 ## 🌔Introduction:
 ``` 
 * I'm almost sure, this toolkit won't work with other sai versions,
