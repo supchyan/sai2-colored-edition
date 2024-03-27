@@ -1,15 +1,16 @@
-## Table of the all colors and it's place I found in sai2's binaries.
-|Number |Color |Address |Description |Warnings |
-|:---:  |:---: |:---:   |:---        |:---     |
+## Table of the all colors and it's place in binary I found for `2024.02.22` patch:
+|Num|Color|Address|Description|Warnings|
+|:---:|:---:|:---:|:---|:---|
 |1| `C0 C0 C0`|`0x001BC95B`|Inactive text.|
 |2| `C0 C0 C0`|`0x00534688`|Inactive canvas and minimap's backgrounds.|
 |3| `B0 B0 B0`|`0x0053468C`|Background behind layers UI.|
-|4.1| `B0 B0 B0`|`0x0018838B`|Active canvas background.| *has artifacts* |
-|4.2| `B0 B0 B0`|`0x001880AC`|Active canvas background.| *has artifacts* |
-|4.3| `B0 B0 B0`|`0x0018A004`|Active canvas background.| *has artifacts* |
-|4.4| `B0 B0 B0`|`0x0001AE93`|Active canvas background.| *has artifacts* |
+|4.1| `B0 B0 B0`|`0x0018838B`|Active canvas background.| *has artifacts, but has fix below* |
+|4.2| `B0 B0 B0`|`0x001880AC`|Active canvas background.| *has artifacts, but has fix below* |
+|4.3| `B0 B0 B0`|`0x0018A004`|Active canvas background.| *has artifacts, but has fix below* |
+|4.4| `B0 B0 B0`|`0x0001AE93`|Active canvas background.| *has artifacts, but has fix below* |
 |5| `B0 B0 B0 00`|`section .text`|Artifacts fixes for `4`.|
-|6| `F8 F8 F8`|`0x00534678` `0x0053467C`|Global UI borders.|
+|6.1| `F8 F8 F8`|`0x0053467C`|Global UI borders.|
+|6.2| `F8 F8 F8`|`0x00534678`|Global UI borders.|
 |7| `E0 E0 E0`|`0x00534680`|Brushes UI outlines.|
 |8| `D0 D0 D0`|`0x00534684`|Brushes separator.|
 |9| `F8 F8 F8`|`0x005349D0`|Topbar.|
