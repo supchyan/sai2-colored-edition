@@ -28,8 +28,9 @@ Just unzip application build in sai2's root directory. Launch and select theme t
 <br/><br/>
 
 ## 🌒Resources:
-### 🎨 Creating custom themes → [Themes](https://github.com/supchyan/yum2-theme-toolkit/tree/main/themes)
-### 💾 Check out releases → [Releases](https://github.com/supchyan/yum2-theme-toolkit/releases/tag/whale)
+### 🎨 Creating custom themes → [Themes](https://github.com/supchyan/yum2-theme-toolkit/tree/main/themes/README.md)
+### 🖌️ Found colors table → [Addresses and Colors](https://github.com/supchyan/yum2-theme-toolkit/blob/main/src/YumToolkit.Core/YumToolkit.Core.Data/README.md)
+### 💾 Check out releases → [Releases](https://github.com/supchyan/yum2-theme-toolkit/releases/)
 <br/>
 
 ## 🌑Screenshots:
@@ -57,8 +58,9 @@ Just unzip application build in sai2's root directory. Launch and select theme t
 <br/><br/>
 
 ## 🌒Ресурсы:
-### 🎨 Создание собственных тем → [Themes](https://github.com/supchyan/yum2-theme-toolkit/tree/main/Themes)
-### 💾 Последние релизы → [Releases](https://github.com/supchyan/yum2-theme-toolkit/releases/tag/whale)
+### 🎨 Создание собственных тем → [Themes](https://github.com/supchyan/yum2-theme-toolkit/tree/main/themes/README.md)
+### 🖌️ Таблица найденных цветов → [Addresses and Colors](https://github.com/supchyan/yum2-theme-toolkit/blob/main/src/YumToolkit.Core/YumToolkit.Core.Data/README.md)
+### 💾 Последние релизы → [Releases](https://github.com/supchyan/yum2-theme-toolkit/releases/)
 <br/>
 
 ## 🌑Скриншоты:
