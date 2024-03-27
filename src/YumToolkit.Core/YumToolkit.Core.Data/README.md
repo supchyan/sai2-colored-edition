@@ -58,7 +58,7 @@
 |40| `00 00 00 00`|`0x003706D0`|Brushes text.|
 |41| `00 00 00 00`|`0x00370900`|Brushes size text.|
 |42| `00 00 FF`|`0x00370768`|Blue brushes text. ( selection brushes )|
-|43| `40 80 20 00`|`section .srclibs`|"Shit" colored text.|
+|43| `80 40 20`|`section .srclibs`|"Shit" colored text.|
 |44.1| `DB DB FF` |`section .srclibs`|Selected objects background. [ idle ]|
 |44.2| `D4 D4 FF`|`section .srclibs`|Selected objects background. [ active ]|
 |44.3| `F6 F6 FF`|`section .srclibs`|Selected objects background. [ hovered ]|
@@ -82,15 +82,77 @@
 |47| `D8 D8 D8`|`section .srclibs`|Sliders outline artifacts fix.|
 |48| `F8 F8 F8`|`section .srclibs`|Sliders outline artifacts fix.|
 |49| `F0 F0 F0`|`section .srclibs`|Empty Scroll bar background.|
-|50.1| `DB DB FF`|`section .srclibs`|Selected Layer background. [ idle ]|
-|50.2| `D4 D4 FF`|`section .srclibs`|Selected Layer background. [ hovered ]|
-|50.3| `BD F2 FF`|`section .srclibs`|Selected Layer background. [ focused ]|
-|51.1| `80 80 FF`|`section .srclibs`|Selected Layer outline. [ idle / hovered ]|
-|51.2| `22 B1 E6`|`section .srclibs`|Selected Layer outline. [ focused ]|
+|50.1| `DB DB FF`|`section .appskin`|Selected Layer background. [ idle ]|
+|50.2| `D4 D4 FF`|`section .appskin`|Selected Layer background. [ hovered ]|
+|50.3| `BD F2 FF`|`section .appskin`|Selected Layer background. [ focused ]|
+|50.4|`D1 F6 FF`|`section .appskin`|Selected Layer background. [ grabbed ]|
+|51.1| `80 80 FF`|`section .appskin`|Selected Layer outline. [ idle / hovered ]|
+|51.2| `22 B1 E6`|`section .appskin`|Selected Layer outline. [ focused ]|
+|51.3|`B0 B0 B0`|`section .appskin`|Selected Layer outline fix.|
 |52.1| `CF CF FF`|`section .appskin`|Selected Layer inner outline. [ idle ]|
 |52.2| `C2 C2 FF`|`section .appskin`|Selected Layer inner outline. [ hovered ]|
 |52.3| `A8 EE FF`|`section .appskin`|Selected Layer inner outline. [ focused ]|
-|54| `DB F8 FF`|`section .appskin`|Layer Background Focused.|
+|52.4| `BF F3 FF`|`section .appskin`|Selected Layer inner outline. [ grabbed ]|
+|54.1| `DB F8 FF`|`section .appskin`|Layer background. [ focused ]|
+|54.2|`F6 F6 FF`|`from 0x0048E5F6 to 0x0048FB9D`|Layers background. [ hovered ]|
+|54.3|`B0 B0 B0`|`from 0x0048E5F6 to 0x0048FB9D`|Layers background. Addition to `57.1`. [ hovered ]|
 |55| `EE EE EE`|`section .srclibs`|FileMenu tree tabs.|*DON'T USE, DIDN'T FIND PATTERNS!*|
 |56| `F6 F6 FF`|`from 0x004880F2 to 0x00488CF1`|Hovered empty brushes.|
-|57| `F6 F6 FF` `B0 B0 B0`|`from 0x0048E5F6 to 0x0048FB9D`|Hovered Layers.|
+|57.1|`9D 9D FF`|`section .srclibs`|Scrollbar Fill. [ hovered ]|
+|57.2|`B5 B5 FF`|`section .srclibs`|Scrollbar Fill. [ focused ]|
+|58.1|`5E 5E EC`|`section .srclibs`|Scrollbar Outline. [ hovered ]|
+|58.2|`71 71 F1`|`section .srclibs`|Scrollbar Outline Fix. [ hovered ]|
+|58.3|`8C 8C F8`|`section .srclibs`|Scrollbar Outline Fix. [ hovered ]|
+|58.4|`CB CB FF`|`section .srclibs`|Scrollbar Outline Fix. [ hovered ]|*it's 4 pix on edges, so probably should be paintent to SelectablePrimary*|
+|58.5|`61 61 FF`|`section .srclibs`|Scrollbar Outline. [ focused ]|
+|58.6|`78 78 FF`|`section .srclibs`|Scrollbar Outline Fix. [ focused ]|
+|58.7|`9F 9F FF`|`section .srclibs`|Scrollbar Outline Fix. [ focused ]|
+|59|`7C 96 E2`|`section .srclibs`|Yes No Buttons background.|
+|60.1|`42 67 D6`|`section .srclibs`|Yes No Buttons outline.|
+|60.2|`53 75 D9`|`section .srclibs`|Yes No Buttons outline fix.|
+|60.3|`6C 88 DE`|`section .srclibs`|Yes No Buttons outline fix.|
+|60.3|`A5 B4 E1`|`section .srclibs`|Yes No Buttons outline fix.|*it's 4 pix on edges, so probably should be paintent to SelectablePrimary*|
+|61|`96 96 96`|`section .srclibs`|Scrollbar Fill; Service Buttons fill.|
+|62.1|`70 70 70`|`section .srclibs`|Scrollbar outline; Service Buttons outline.|
+|62.2|`7D 7D 7D`|`section .srclibs`|Scrollbar outline Fix; Service Buttons outline Fix.|
+|62.3|`8C 8C 8C`|`section .srclibs`|Scrollbar outline Fix; Service Buttons outline Fix.|
+|63|`FF FF FF`|`from 0x0048D018 to 0x0048E5BF`|Layers background.|
+|63|`E3 F9 FF`|`section .appskin`|Layers background. [ grabbed ]|
+|64.1|`EB EB EB`|`section .srclibs`|.sai file in menu below background.|
+|64.2|`E7 E7 E7`|`section .srclibs`|.sai file in menu below background. [ hovered ]|
+|65.1|`A6 A6 A6`|`section .srclibs`|.sai file in menu below outline.|
+|65.2|`DC DC DC`|`section .srclibs`|.sai file in menu below outline. [ hovered ]|
+|65.3|`B2 B2 B2`|`section .srclibs`|.sai file in menu below outline fix.|
+|65.4|`DF DF DF`|`section .srclibs`|.sai file in menu below inner outline.|
+|66|`FC FC FF`|`section .appskin`|File menu background|
+|67.1|`E6 E6 E6`|`section .srclibs`|File menu list Elements background. [ hovered ]|
+|67.2|`ED ED ED`|`section .srclibs`|File menu list Elements background. [ default ]|*`deafult` means u see this on first open. like last selected item or kind of.*|
+|68|`8E 8E 8E`|`section .srclibs`|File menu list Elements outline. [ default ]|*`deafult` means u see this on first open. like last selected item or kind of.*|
+|69.1|`EE EE EE`|`section .srclibs`|File menu tree non-selected tab artifacts fix.|*primary  color*|
+|69.2|`F3 F3 F3`|`section .srclibs`|File menu tree non-selected tab artifacts fix.|*primary  color*|
+|69.3|`A7 A7 A7`|`section .srclibs`|File menu tree non-selected tab artifacts fix.|*ternary  color*|
+|69.4|`B8 B8 B8`|`section .srclibs`|File menu tree non-selected tab artifacts fix.|*ternary  color*|
+|69.5|`DA DA DA`|`section .srclibs`|File menu tree non-selected tab artifacts fix.|*ternary  color*|
+|69.5|`E2 E2 E2`|`section .srclibs`|File menu tree non-selected tab artifacts fix.|*ternary  color*|
+|69.6|`EA EA EA`|`section .srclibs`|File menu tree non-selected tab artifacts fix.|*ternary  color*|
+|69.7|`AE AE AE`|`section .srclibs`|File menu tree non-selected tab artifacts fix.|*ternary  color*|
+|70|`34 34 34`|`section .appskin`|File menu list arrows. (minimize / maximize category, such as folder)|
+|71.1|`40 40 40`|`section .srclibs`|File menu Tree text|
+|71.2|`40 20 C0`|`section .srclibs`|File menu Tree text [ hovered ]|
+|71.3|`C0 60 40`|`section .srclibs`|File menu Tree text [ focused ]|
+
+//
+|72.2|`80 40 20`|`0x000DDEC0`|Shit text in windows.|
+|73.1|`00 00 00`|`0x00534C68`|Context menu Arrows [ idle ]|
+|73.2|`00 00 00`|`0x00534C70`|Context menu Arrows [ hovered ]|
+|73.3|`00 00 00`|`0x00534C78`|Context menu Arrows [ focused ]|
+|74.1|`00 00 00`|`0x00534DA8`|Context menu Check boxes [ idle ]|
+|74.2|`00 00 00`|`0x00534DB0`|Context menu Check boxes [ hovered ]|
+|74.3|`00 00 00`|`0x00534DB8`|Context menu Check boxes [ focused ]|
+|75.1|`00 00 00`|`0x00534DE8`|Context menu Check box marks [ idle ]|
+|75.2|`00 00 00`|`0x00534DF0`|Context menu Check box marks [ hovered ]|
+|75.3|`00 00 00`|`0x00534DF8`|Context menu Check box marks [ focused ]|
+|76.1|`00 00 00`|`0x00534E28`|Context menu Radio Buttons [ empty ]|
+|76.2|`00 00 00`|`0x00534E68`|Context menu Radio Buttons [ idle ]|
+|76.3|`00 00 00`|`0x00534E70`|Context menu Radio Buttons [ hovered ]|
+|76.4|`00 00 00`|`0x00534E78`|Context menu Radio Buttons [ focused ]|

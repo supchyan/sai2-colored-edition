@@ -50,6 +50,21 @@ namespace YumToolkit.Core.Data {
         public int[] GlobalSectionSrclibs { get; }
         public int[] HoveredEmptyBrushesBackground { get; }
         public int[] HoveredLayersBackground { get; }
+        public int[] LayerBackground { get; }
+        public int ShitTextInWindows { get; }
+        public int ContextMenuArrows { get; }
+        public int ContextMenuArrowsHovered { get; }
+        public int ContextMenuArrowsFocused { get; }
+        public int ContextMenuCheckBoxes { get; }
+        public int ContextMenuCheckBoxesHovered { get; }
+        public int ContextMenuCheckBoxesFocused { get; }
+        public int ContextMenuCheckBoxesMarks { get; }
+        public int ContextMenuCheckBoxesMarksHovered { get; }
+        public int ContextMenuCheckBoxesMarksFocused { get; }
+        public int ContextMenuRadioButtons { get; }
+        public int ContextMenuRadioButtonsEmpty { get; }
+        public int ContextMenuRadioButtonsHovered { get; }
+        public int ContextMenuRadioButtonsFocused { get; }
         public _Address() {
             InActiveText = "0x001BC95B".GetDecimalAddress();
             InActiveCanvasBackground = "0x00534688".GetDecimalAddress();
@@ -91,15 +106,28 @@ namespace YumToolkit.Core.Data {
             BrushesSpecialText = "0x00370768".GetDecimalAddress();
             BrushesTabsText = "0x003706D0".GetDecimalAddress();
             BrushesCirclesText = "0x00370900".GetDecimalAddress();
-            
             BrushesFileMenuTilesScrollableListsBackground = ["0x004D1038".GetDecimalAddress(), "0x004D1C33".GetDecimalAddress()];
             LayerServiceButtons = ["0x004DD400".GetDecimalAddress(), "0x004FC2AF".GetDecimalAddress()];
-            
             GlobalSectionText = ["0x00000400".GetDecimalAddress(), "0x00257F4F".GetDecimalAddress()];
             GlobalSectionAppskin = ["0x00340000".GetDecimalAddress(), "0x004D0FFF".GetDecimalAddress()];
             GlobalSectionSrclibs = ["0x004D1000".GetDecimalAddress(), "0x0053E3FF".GetDecimalAddress()];
             HoveredEmptyBrushesBackground = ["0x004880F2".GetDecimalAddress(), "0x00488CF1".GetDecimalAddress()];
             HoveredLayersBackground = ["0x0048E5F6".GetDecimalAddress(), "0x0048FB9D".GetDecimalAddress()];
+            LayerBackground = ["0x0048D018".GetDecimalAddress(), "0x0048E5BF".GetDecimalAddress()];
+            ShitTextInWindows = "0x000DDEC0".GetDecimalAddress();
+            ContextMenuArrows = "0x00534C68".GetDecimalAddress();
+            ContextMenuArrowsHovered = "0x00534C70".GetDecimalAddress();
+            ContextMenuArrowsFocused = "0x00534C78".GetDecimalAddress();
+            ContextMenuCheckBoxes = "0x00534DA8".GetDecimalAddress();
+            ContextMenuCheckBoxesHovered = "0x00534DB0".GetDecimalAddress();
+            ContextMenuCheckBoxesFocused = "0x00534DB8".GetDecimalAddress();
+            ContextMenuCheckBoxesMarks = "0x00534DE8".GetDecimalAddress();
+            ContextMenuCheckBoxesMarksHovered = "0x00534DF0".GetDecimalAddress();
+            ContextMenuCheckBoxesMarksFocused = "0x00534DF8".GetDecimalAddress();
+            ContextMenuRadioButtons = "0x00534E68".GetDecimalAddress();
+            ContextMenuRadioButtonsEmpty = "0x00534E28".GetDecimalAddress();
+            ContextMenuRadioButtonsHovered = "0x00534E70".GetDecimalAddress();
+            ContextMenuRadioButtonsFocused = "0x00534E78".GetDecimalAddress();
         }
     }
 }

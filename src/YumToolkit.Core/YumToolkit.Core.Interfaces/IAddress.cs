@@ -47,5 +47,20 @@ namespace YumToolkit.Core.Interfaces {
         int[] GlobalSectionSrclibs { get; }
         int[] HoveredEmptyBrushesBackground { get; }
         int[] HoveredLayersBackground { get; }
+        int[] LayerBackground { get; }
+        int ShitTextInWindows { get; }
+        int ContextMenuArrows { get; }
+        int ContextMenuArrowsHovered { get; }
+        int ContextMenuArrowsFocused { get; }
+        int ContextMenuCheckBoxes { get; }
+        int ContextMenuCheckBoxesHovered { get; }
+        int ContextMenuCheckBoxesFocused { get; }
+        int ContextMenuCheckBoxesMarks { get; }
+        int ContextMenuCheckBoxesMarksHovered { get; }
+        int ContextMenuCheckBoxesMarksFocused { get; }
+        int ContextMenuRadioButtons { get; }
+        int ContextMenuRadioButtonsEmpty { get; }
+        int ContextMenuRadioButtonsHovered { get; }
+        int ContextMenuRadioButtonsFocused { get; }
     }
 }

@@ -3,8 +3,11 @@ using YumToolkit.Core.Interfaces;
 
 namespace YumToolkit.Core.Data {
     class _SemiColor : _Globals, ISemiColor {
+        public byte[] PrimaryRGB { get; set; }
         public byte[] SecondaryRGB { get; set; }
         public byte[] TernaryRGB { get; set; }
+        public byte[] SelectablePrimaryRGB { get; set; }
+        public byte[] SelectableSecondaryRGB { get; set; }
         /// <summary>
         /// # FF FF Ternary[0]
         /// </summary>
@@ -56,8 +59,11 @@ namespace YumToolkit.Core.Data {
         
 
         public _SemiColor() {
+            PrimaryRGB = [];
             SecondaryRGB = [];
             TernaryRGB = [];
+            SelectablePrimaryRGB = [];
+            SelectableSecondaryRGB = [];
 
             // Artifacts fix
             TernaryArtifactsColor1 = [];
@@ -74,11 +80,13 @@ namespace YumToolkit.Core.Data {
             SecondaryArtifactsColor4 = [];
         }
         public void ConfigureRGBColors() {
+            PrimaryRGB = color.Primary.NoAlpha();
             SecondaryRGB = color.Secondary.NoAlpha();
             TernaryRGB = color.Ternary.NoAlpha();
+            SelectablePrimaryRGB = color.SelectablePrimary.NoAlpha();
+            SelectableSecondaryRGB = color.SelectableSecondary.NoAlpha();
         }
         public void ConfigureArtifactsColors() {
-            
             string s = SecondaryRGB.toHEXColor();
             s = $"{s[0]}{s[1]}";
             SecondaryArtifactsColor1 = $"#00F8F8{s}".toByteColor().NoAlpha();
@@ -97,8 +105,6 @@ namespace YumToolkit.Core.Data {
             TernaryArtifactsColor6 = $"#00{t}F8F8".toByteColor().NoAlpha();
             TernaryArtifactsColor7 = $"#00F8{t}{t}".toByteColor().NoAlpha();
             TernaryArtifactsColor8 = $"#00{t}{t}F8".toByteColor().NoAlpha();
-
-            
         }
     }
 }

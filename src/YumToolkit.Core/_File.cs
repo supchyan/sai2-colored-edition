@@ -31,6 +31,7 @@ namespace YumToolkit.Core {
             }
             return File.Exists(name.old);
         }
+        // TODO: Has problems to handle this.
         public bool IsFileBusy() {
             try { 
                 File.ReadAllBytes(name.original);

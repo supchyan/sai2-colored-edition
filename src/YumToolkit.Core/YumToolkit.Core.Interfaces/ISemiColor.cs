@@ -1,7 +1,10 @@
 namespace YumToolkit.Core.Interfaces {
     interface ISemiColor {
+        byte[] PrimaryRGB { get; set; }
         byte[] SecondaryRGB { get; set; }
         byte[] TernaryRGB { get; set; }
+        byte[] SelectablePrimaryRGB { get; set; }
+        byte[] SelectableSecondaryRGB { get; set; }
         byte[] TernaryArtifactsColor1 { get; set; }
         byte[]  TernaryArtifactsColor2 { get; set; }
         byte[]  TernaryArtifactsColor3 { get; set; }

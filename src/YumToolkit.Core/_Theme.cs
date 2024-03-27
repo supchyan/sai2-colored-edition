@@ -55,17 +55,54 @@ namespace YumToolkit.Core {
             
         }
         // TODO: Should fix color picker's circle, but doesn't. Thinking on better solution right now.. 
-        // byte[] col = [0,0,0];
-        // public void FixColorPicker(int start_index, int end_index, byte[] color) {
-        //     for(byte i = 1; i < 254; i++) {
-        //         col = [i,i,i];
-        //         // Finds certain sequence position and moves on until the end
-        //         for(int index = start_index; index < end_index; index += col.Length) {
-        //             if(WrongSequence(binary, index, col)) { continue; }
-        //             for(int col_index = 0; col_index  < color.Length - 1; col_index++) { binary[index + col_index] = color[col_index]; }
-        //         }
-        //     }
-        // }
+        public void FixColorPicker(byte[] to_color, int start_index, int end_index) {
+            string channel = string.Empty;
+            string chArr = "ABCDEF";
+            string numArr = "0123456789";
+            byte[] circleColor = [];
+            for(int ch = 0; ch < 6; ch++) {
+                for(int num = 0; num < 10; num++) {
+                    channel = $"{chArr[ch]}{numArr[num]}";
+                    circleColor = $"#00{channel}{channel}{channel}".toByteColor().NoAlpha();
+                    // Finds certain sequence position and moves on until the end
+                    int value = 1;
+                    // Find certain sequence position and move on until the end
+                    for(int index = start_index; index < end_index; index += value) {
+                        if(WrongSequence(binary, index, circleColor)) { continue; }
+                        // Change color in certain sequence
+                        for(int col_index = 0; col_index  < to_color.Length; col_index++) { binary[index + col_index] = to_color[col_index]; }
+                    }
+                }
+            }
+            for(int ch = 0; ch < 6; ch++) {
+                for(int ch2 = 0; ch2 < 6; ch2++) {
+                    channel = $"{chArr[ch]}{chArr[ch2]}";
+                    circleColor = $"#00{channel}{channel}{channel}".toByteColor().NoAlpha();
+                    // Finds certain sequence position and moves on until the end
+                    int value = 1;
+                    // Find certain sequence position and move on until the end
+                    for(int index = start_index; index < end_index; index += value) {
+                        if(WrongSequence(binary, index, circleColor)) { continue; }
+                        // Change color in certain sequence
+                        for(int col_index = 0; col_index  < to_color.Length; col_index++) { binary[index + col_index] = to_color[col_index]; }
+                    }
+                }
+            }
+            for(int num = 0; num < 10; num++) {
+                for(int ch = 0; ch < 6; ch++) {
+                    channel = $"{numArr[num]}{chArr[ch]}";
+                    circleColor = $"#00{channel}{channel}{channel}".toByteColor().NoAlpha();
+                    // Finds certain sequence position and moves on until the end
+                    int value = 1;
+                    // Find certain sequence position and move on until the end
+                    for(int index = start_index; index < end_index; index += value) {
+                        if(WrongSequence(binary, index, circleColor)) { continue; }
+                        // Change color in certain sequence
+                        for(int col_index = 0; col_index  < to_color.Length; col_index++) { binary[index + col_index] = to_color[col_index]; }
+                    }
+                }
+            }
+        }
         /// <summary>
         /// Saves current theme changes.
         /// </summary>
