@@ -37,5 +37,26 @@ namespace YumToolkit.Global {
         public static byte[] NoAlpha(this byte[] c) {
             return [ c[0], c[1], c[2] ];
         }
+        public static Dictionary<string, int> ConvertToDecimalAddressDictionary(this Dictionary<string,string> dictionary) {
+            var tmp = new Dictionary<string, int>();
+            foreach(var pair in dictionary) {
+                tmp[pair.Key] = pair.Value.GetDecimalAddress();
+            
+            } return tmp;
+        }
+        public static Dictionary<string, byte[]> ConvertToByteColorDictionary(this Dictionary<string,string> dictionary) {
+            var tmp = new Dictionary<string, byte[]>();
+            foreach(var pair in dictionary) {
+                tmp[pair.Key] = pair.Value.toByteColor();
+
+            } return tmp;
+        }
+        public static Dictionary<string, byte[]> ConvertToByteColorDictionaryRGB(this Dictionary<string,string> dictionary) {
+            var tmp = new Dictionary<string, byte[]>();
+            foreach(var pair in dictionary) {
+                tmp[pair.Key] = pair.Value.toByteColor().NoAlpha();
+
+            } return tmp;
+        }
     }
 }

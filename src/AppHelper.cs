@@ -6,11 +6,11 @@ using YumToolkit.Core;
 using System.Drawing;
 
 namespace YumToolkit {
-
-    // Unneccessary stuff, to be stored here, but i did it to free space in App.cs
     class AppHelper : _Globals {
-        public static AppHelper Get { get; private set; }
         Dictionary<string, string>? ThemeColors { get; set; }
+        Dictionary<string, byte[]>? saiColorARGB { get; set; }
+        Dictionary<string, byte[]>? saiColorRGB { get; set; }
+        Dictionary<string, int>? saiAddress { get; set; }
         public void _Action() {
             // Since projcet can absorb any amount of themes,
             // at this moment, I decided to make unique behaviours
@@ -62,11 +62,16 @@ namespace YumToolkit {
             }
             
 
-            // Reading theme file:
+            // Getting theme vaules:
             ThemeColors = JsonSerializer.Deserialize<Dictionary<string,string>>(File.ReadAllText($"{consoleDrawing.ThemesList[consoleDrawing.Choice]}"));
             
+            // Getting replacment libraries:
+            saiAddress = JsonSerializer.Deserialize<Dictionary<string,string>>(File.ReadAllText(path.saiAddressFile))?.ConvertToDecimalAddressDictionary();
+            saiColorARGB = JsonSerializer.Deserialize<Dictionary<string,string>>(File.ReadAllText(path.saiColorARGBFile))?.ConvertToByteColorDictionary();
+            saiColorRGB = JsonSerializer.Deserialize<Dictionary<string,string>>(File.ReadAllText(path.saiColorRGBFile))?.ConvertToByteColorDictionaryRGB();
+            
             // Returning if nothing to replace to:
-            if(ThemeColors is null) return;
+            if(ThemeColors is null || saiAddress is null || saiColorARGB is null || saiColorRGB is null) { return; }
             
             // Applying colors to... colors:
             color.Primary = ThemeColors["Primary"].toByteColor();
@@ -76,8 +81,8 @@ namespace YumToolkit {
             color.SelectablePrimary = ThemeColors["SelectablePrimary"].toByteColor();
             color.SelectableSecondary = ThemeColors["SelectableSecondary"].toByteColor();
 
-            semiColor.ConfigureRGBColors();
-            semiColor.ConfigureArtifactsColors();
+            colorRGB.ConfigureRGBColors();
+            colorRGB.ConfigureArtifactsColors();
 
             // Creating tmp .exe to replace binary data inside:
             if(!File.Exists(name.tmp)) { file.CreateTmpFile(); }
@@ -86,325 +91,301 @@ namespace YumToolkit {
             theme.binary = theme.ReadTmpFile(name.tmp);
 
             // Painting color circle. It's too complicated, so I disabled it for now.
-            // theme.FixColorPicker(semiColor.TernaryRGB,address.GlobalSectionAppskin[0],address.GlobalSectionAppskin[1]);
+            // theme.FixColorPicker(colorRGB.TernaryRGB,saiAddress["GlobalSectionAppskin[0],saiAddress["GlobalSectionAppskin[1]);
 
             #region PRIMARY COLOR
             int[] PrimaryItems = [
-                address.InActiveCanvasBackground,
-                address.BehindLayersUIBackground,
-                address.BrushBorders,
-                address.SlidersVertical,
-                address.SlidersHorizontal,
-                address.ContextMenuArrowsFocused,
-                address.ContextMenuCheckBoxesMarksFocused,
-                address.ContextMenuCheckBoxesFocused,
-                address.ContextMenuRadioButtonsFocused,
-                // address.SlidersActiveBackground,
-                // address.SlidersActiveBackgroundHoveredFocused,
+                saiAddress["InActiveCanvasBackground"],
+                saiAddress["BehindLayersUIBackground"],
+                saiAddress["BrushBorders"],
+                saiAddress["SlidersVertical"],
+                saiAddress["SlidersHorizontal"],
+                saiAddress["ContextMenuArrowsFocused"],
+                saiAddress["ContextMenuCheckBoxesMarksFocused"],
+                saiAddress["ContextMenuCheckBoxesFocused"],
+                saiAddress["ContextMenuRadioButtonsFocused"],
             ];
             foreach(int n in PrimaryItems) {
                 theme.SetElementColor(color.Primary, n);
             }
 
             byte[][] PrimaryComplicatedItemsSrclibs = [
-                color.BurgerButtonsOutlineSlidersOutline,
+                saiColorRGB["BurgerButtonsOutlineSlidersOutline"],
             ];
             foreach(byte[] n in PrimaryComplicatedItemsSrclibs) {
-                theme.SetElementColorComplicated(n, color.Primary, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1]);
+                theme.SetElementColorComplicated(n, color.Primary, saiAddress["GlobalSectionSrclibsFrom"], saiAddress["GlobalSectionSrclibsTo"]);
             }
             byte[][] PrimaryRGBComplicatedItemsSrclibsTrue = [
-                color.BurgerButtonsOutline1,
-                // color.BurgerButtonsOutline2,
-                color.BurgerButtonsOutline3,
-                color.BurgerButtonsOutline4,
-                color.BordersFix9,
-                color.saiFileInMenuBelowOutline,
-                color.saiFileInMenuBelowOutlineFix,
-                color.saiFileInMenuBelowInnerOutline,
-                color.FileMenuTreeTabsFix1,
-                color.FileMenuTreeTabsFix2,
+                saiColorRGB["BurgerButtonsOutline1"],
+                saiColorRGB["BurgerButtonsOutline3"],
+                saiColorRGB["BurgerButtonsOutline4"],
+                saiColorRGB["BordersFix9"],
+                saiColorRGB["saiFileInMenuBelowOutline"],
+                saiColorRGB["saiFileInMenuBelowOutlineFix"],
+                saiColorRGB["saiFileInMenuBelowInnerOutline"],
+                saiColorRGB["FileMenuTreeTabsFix1"],
+                saiColorRGB["FileMenuTreeTabsFix2"],
             ];
             foreach(byte[] n in PrimaryRGBComplicatedItemsSrclibsTrue) {
-                theme.SetElementColorComplicated(n, semiColor.PrimaryRGB, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], true);
+                theme.SetElementColorComplicated(n, colorRGB.PrimaryRGB, saiAddress["GlobalSectionSrclibsFrom"], saiAddress["GlobalSectionSrclibsTo"], true);
             }
 
             byte[][] PrimaryRGBComplicatedItemsAppskinTrue = [
-                color.LayerOutline,
-                color.FileMenuBackground,
+                saiColorRGB["LayerOutline"],
+                saiColorRGB["FileMenuBackground"],
             ];
             foreach(byte[] n in PrimaryRGBComplicatedItemsAppskinTrue) {
-                theme.SetElementColorComplicated(n, semiColor.PrimaryRGB, address.GlobalSectionAppskin[0], address.GlobalSectionAppskin[1], true);
+                theme.SetElementColorComplicated(n, colorRGB.PrimaryRGB, saiAddress["GlobalSectionAppskinFrom"], saiAddress["GlobalSectionAppskinTo"], true);
             }
             #endregion
 
             #region SECONDARY COLOR
             int[] SecondaryItems = [
-                address.ActiveCanvasBackground,
-                address.ActiveCanvasBackground2,
-                address.ActiveCanvasBackground3,
-                address.ActiveCanvasBackground4,
-                address.Separator,
-                address.TopBar,
-                address.ContextMenu,
-                address.SlidersInActiveBackground,
-                // address.SlidersColor,
-                address.BookmarkBackgroundAndOutlinesSomewhere,
-                address.RadioButtonsBackground
+                saiAddress["ActiveCanvasBackground"],
+                saiAddress["ActiveCanvasBackground2"],
+                saiAddress["ActiveCanvasBackground3"],
+                saiAddress["ActiveCanvasBackground4"],
+                saiAddress["Separator"],
+                saiAddress["TopBar"],
+                saiAddress["ContextMenu"],
+                saiAddress["SlidersInActiveBackground"],
+                saiAddress["BookmarkBackgroundAndOutlinesSomewhere"],
+                saiAddress["RadioButtonsBackground"],
             ];
             foreach(int n in SecondaryItems) {
                 theme.SetElementColor(color.Secondary, n);
             }
 
-            theme.SetElementColorWithTotalReplacment(semiColor.SecondaryRGB, address.HoveredEmptyBrushesBackground[0], address.HoveredEmptyBrushesBackground[1]);
-            theme.SetElementColorWithTotalReplacment(semiColor.SecondaryRGB, address.HoveredLayersBackground[0], address.HoveredLayersBackground[1]);
+            theme.SetElementColorWithTotalReplacment(colorRGB.SecondaryRGB, saiAddress["HoveredEmptyBrushesBackgroundFrom"], saiAddress["HoveredEmptyBrushesBackgroundTo"]);
+            theme.SetElementColorWithTotalReplacment(colorRGB.SecondaryRGB, saiAddress["HoveredLayersBackgroundFrom"], saiAddress["HoveredLayersBackgroundTo"]);
             
             byte[][] SecondaryComplicatedItemsSrclibs = [
-                // color.BurgerButtonsOutline1,
-                // color.BurgerButtonsOutline2,
-                // color.BurgerButtonsOutline3,
-                // color.BurgerButtonsOutline4,
-                // color.BurgerButtonsOutlineAndScrollBarBackground,
-                color.InActiveScrollBarsBackground,
-                // color.BurgerButtonsOutlineSlidersOutline,
-                // color.BordersFix9,
-                color.EmplyElementsInBrushesUI,
-                color.ColorPickerCircleBody,
+                saiColorARGB["InActiveScrollBarsBackground"],
+                saiColorARGB["EmplyElementsInBrushesUI"],
+                saiColorARGB["ColorPickerCircleBody"],
             ];
             foreach(byte[] n in SecondaryComplicatedItemsSrclibs) {
-                theme.SetElementColorComplicated(n, color.Secondary, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1]);
+                theme.SetElementColorComplicated(n, color.Secondary, saiAddress["GlobalSectionSrclibsFrom"], saiAddress["GlobalSectionSrclibsTo"]);
             }
 
-            theme.SetElementColorComplicated(color.ActiveCanvasBackgroundFix, color.Secondary, address.GlobalSectionText[0], address.GlobalSectionText[1], true);
+            theme.SetElementColorComplicated(saiColorRGB["ActiveCanvasBackgroundFix"], color.Secondary, saiAddress["GlobalSectionTextFrom"], saiAddress["GlobalSectionTextTo"], true);
 
             byte[][] SecondaryRGBComplicatedItemsSrclibs = [
-                color.SelectedElementBackgroundIdle,
-                color.SelectedElementBackgroundActive,
-                color.SelectedElementBackgroundHovered,
-                color.FileMenuListElementsBackgroundHovered,
-                color.FileMenuListElementsBackgroundDefault,
-                // color.SelectedElementDefaultNotFound2,
-                // color.SelectedElementDefaultNotFound3,
+                saiColorRGB["SelectedElementBackgroundIdle"],
+                saiColorRGB["SelectedElementBackgroundActive"],
+                saiColorRGB["SelectedElementBackgroundHovered"],
+                saiColorRGB["FileMenuListElementsBackgroundHovered"],
+                saiColorRGB["FileMenuListElementsBackgroundDefault"],
             ];
             foreach(byte[] n in SecondaryRGBComplicatedItemsSrclibs) {
-                theme.SetElementColorComplicated(n, semiColor.SecondaryRGB, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], true);
+                theme.SetElementColorComplicated(n, colorRGB.SecondaryRGB, saiAddress["GlobalSectionSrclibsFrom"], saiAddress["GlobalSectionSrclibsTo"], true);
             }
 
             byte[][] SecondaryRGBComplicatedItemsSrclibsTrue = [
-                semiColor.SecondaryArtifactsColor1,
-                semiColor.SecondaryArtifactsColor2,
-                semiColor.SecondaryArtifactsColor3,
-                semiColor.SecondaryArtifactsColor4,
+                colorRGB.SecondaryArtifactsColor1,
+                colorRGB.SecondaryArtifactsColor2,
+                colorRGB.SecondaryArtifactsColor3,
+                colorRGB.SecondaryArtifactsColor4,
             ];
             foreach(byte[] n in SecondaryRGBComplicatedItemsSrclibsTrue) {
-                theme.SetElementColorComplicated(n, semiColor.SecondaryRGB, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], true);
+                theme.SetElementColorComplicated(n, colorRGB.SecondaryRGB, saiAddress["GlobalSectionSrclibsFrom"], saiAddress["GlobalSectionSrclibsTo"], true);
             }
             #endregion
 
             #region TERNARY COLOR
             int[] TernaryItems = [
-                address.GlobalBorders,
-                address.GlobalBorders2,
-                address.TabsResizeGrabberVertical,
-                address.ScaleAngleSliders,
-                address.ResizeWindowGrabber,
+                saiAddress["GlobalBorders"],
+                saiAddress["GlobalBorders2"],
+                saiAddress["TabsResizeGrabberVertical"],
+                saiAddress["ScaleAngleSliders"],
+                saiAddress["ResizeWindowGrabber"],
             ];
             foreach(int n in TernaryItems) {
                 theme.SetElementColor(color.Ternary, n);
             }
 
             byte[][] TernaryComplicatedItemsSrclibs = [
-                color.RadioButtonsMaskFixBurgerButtonsBackground,
-                // color.BurgerButtonsOutlineSlidersOutline,
-                // color.ColorPickerCircleBody,
+                saiColorRGB["RadioButtonsMaskFixBurgerButtonsBackground"],
             ];
             foreach(byte[] n in TernaryComplicatedItemsSrclibs) {
-                theme.SetElementColorComplicated(n, color.Ternary, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1]);
+                theme.SetElementColorComplicated(n, color.Ternary, saiAddress["GlobalSectionSrclibsFrom"], saiAddress["GlobalSectionSrclibsTo"]);
             }
 
             byte[][] TernaryComplicatedItemsAppskin = [
-                color.EmplyElementsInBrushesUI,
-                color.WhatIsThisColor2,
+                saiColorARGB["EmplyElementsInBrushesUI"],
+                saiColorARGB["WhatIsThisColor2"],
             ];
             foreach(byte[] n in TernaryComplicatedItemsAppskin) {
-                theme.SetElementColorComplicated(n, color.Ternary, address.GlobalSectionAppskin[0], address.GlobalSectionAppskin[1]);
+                theme.SetElementColorComplicated(n, color.Ternary, saiAddress["GlobalSectionAppskinFrom"], saiAddress["GlobalSectionAppskinTo"]);
             }
 
-            theme.SetElementColorComplicated(color.BrushesBackgroundFileMenuBackgroundScrollBlockBackground, color.Ternary, address.BrushesFileMenuTilesScrollableListsBackground[0], address.BrushesFileMenuTilesScrollableListsBackground[1]);
+            theme.SetElementColorComplicated(saiColorARGB["BrushesBackgroundFileMenuBackgroundScrollBlockBackground"], color.Ternary, saiAddress["BrushesFileMenuTilesScrollableListsBackgroundFrom"], saiAddress["BrushesFileMenuTilesScrollableListsBackgroundTo"]);
             
             byte[][] TernaryRGBComplicatedItemsSrclibsTrue = [
-                semiColor.TernaryArtifactsColor1,
-                semiColor.TernaryArtifactsColor2,
-                semiColor.TernaryArtifactsColor3,
-                semiColor.TernaryArtifactsColor4,
-                semiColor.TernaryArtifactsColor5,
-                semiColor.TernaryArtifactsColor6,
-                semiColor.TernaryArtifactsColor7,
-                semiColor.TernaryArtifactsColor8,
-                color.BurgerButtonsOutline2,
-                color.BordersFix1,
-                color.BordersFix2,
-                color.BordersFix3,
-                color.BordersFix4,
-                color.BordersFix5,
-                color.BordersFix6,
-                color.BordersFix7,
-                color.BordersFix8,
-                // color.BordersFix9,
-                color.EmptyScrollBarBackground,
-                color.ScrollBarOutlineHoveredFix3,
-                color.saiFileInMenuBelowBackground,
-                color.FileMenuTreeTabsFix3,
-                color.FileMenuTreeTabsFix4,
-                color.FileMenuTreeTabsFix5,
-                color.FileMenuTreeTabsFix6,
-                color.FileMenuTreeTabsFix7,
-                color.FileMenuTreeTabsFix8,
+                colorRGB.TernaryArtifactsColor1,
+                colorRGB.TernaryArtifactsColor2,
+                colorRGB.TernaryArtifactsColor3,
+                colorRGB.TernaryArtifactsColor4,
+                colorRGB.TernaryArtifactsColor5,
+                colorRGB.TernaryArtifactsColor6,
+                colorRGB.TernaryArtifactsColor7,
+                colorRGB.TernaryArtifactsColor8,
+                saiColorRGB["BurgerButtonsOutline2"],
+                saiColorRGB["BordersFix1"],
+                saiColorRGB["BordersFix2"],
+                saiColorRGB["BordersFix3"],
+                saiColorRGB["BordersFix4"],
+                saiColorRGB["BordersFix5"],
+                saiColorRGB["BordersFix6"],
+                saiColorRGB["BordersFix7"],
+                saiColorRGB["BordersFix8"],
+                saiColorRGB["EmptyScrollBarBackground"],
+                saiColorRGB["ScrollBarOutlineHoveredFix3"],
+                saiColorRGB["saiFileInMenuBelowBackground"],
+                saiColorRGB["FileMenuTreeTabsFix3"],
+                saiColorRGB["FileMenuTreeTabsFix4"],
+                saiColorRGB["FileMenuTreeTabsFix5"],
+                saiColorRGB["FileMenuTreeTabsFix6"],
+                saiColorRGB["FileMenuTreeTabsFix7"],
+                saiColorRGB["FileMenuTreeTabsFix8"],
             ];
             foreach(byte[] n in TernaryRGBComplicatedItemsSrclibsTrue) {
-                theme.SetElementColorComplicated(n, semiColor.TernaryRGB, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], true);
+                theme.SetElementColorComplicated(n, colorRGB.TernaryRGB, saiAddress["GlobalSectionSrclibsFrom"], saiAddress["GlobalSectionSrclibsTo"], true);
             }
-            theme.SetElementColorComplicated(color.LayerBackground, semiColor.TernaryRGB, address.LayerBackground[0], address.LayerBackground[1], true);
+            theme.SetElementColorComplicated(saiColorRGB["LayerBackground"], colorRGB.TernaryRGB, saiAddress["LayerBackgroundFrom"], saiAddress["LayerBackgroundTo"], true);
             #endregion
 
             #region TEXT COLOR
             int[] TextItems = [
-                address.BrushesSpecialText,
-                address.ContextMenuText,
-                // address.ContextMenuTextFocused,
-                address.ContextMenuTextHovered,
-                address.TopBarText,
-                // address.TopBarTextFocused,
-                address.TopBarTextHovered,
-                address.FileMenuScrollableText,
-                address.FileMenuTilesText,
-                address.BrushesText,
-                address.BrushesTabsText,
-                address.BrushesCirclesText,
-                address.ShitTextInWindows,
+                saiAddress["BrushesSpecialText"],
+                saiAddress["ContextMenuText"],
+                saiAddress["ContextMenuTextHovered"],
+                saiAddress["TopBarText"],
+                saiAddress["TopBarTextHovered"],
+                saiAddress["FileMenuScrollableText"],
+                saiAddress["FileMenuTilesText"],
+                saiAddress["BrushesText"],
+                saiAddress["BrushesTabsText"],
+                saiAddress["BrushesCirclesText"],
+                saiAddress["ShitTextInWindows"],
             ];
             foreach(int n in TextItems) {
                 theme.SetElementColor(color.Text, n);
             }
 
             byte[][] TextComplicatedItemsSrclibs = [ 
-                color.ShitColoredText,
-                color.FileMenuTreeText
+                saiColorRGB["ShitColoredText"],
+                saiColorRGB["FileMenuTreeText"],
             ];
             foreach(byte[] n in TextComplicatedItemsSrclibs) {
-                theme.SetElementColorComplicated(n, color.Text, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1]);
+                theme.SetElementColorComplicated(n, color.Text, saiAddress["GlobalSectionSrclibsFrom"], saiAddress["GlobalSectionSrclibsTo"]);
             }
 
-            // byte[][] TextComplicatedItemsAppskin = [
-            // ];
+            // byte[][] TextComplicatedItemsAppskin = [];
             // foreach(byte[] n in TextComplicatedItemsAppskin) {
-            //     theme.SetElementColorComplicated(n, color.Text, address.GlobalSectionAppskin[0], address.GlobalSectionAppskin[1]);
+            //     theme.SetElementColorComplicated(n, color.Text, saiAddress["GlobalSectionAppskinFrom"], saiAddress["GlobalSectionAppskinTo"]);
             // }
             #endregion
 
             #region SELECTABLE PRIMARY COLOR
             int[] SelectablePrimaryItems = [
-                address.SlidersColor,
-                address.ContextMenuArrows,
-                address.ContextMenuArrowsHovered,
-                address.ContextMenuCheckBoxes,
-                address.ContextMenuCheckBoxesHovered,
-                address.ContextMenuCheckBoxesMarks,
-                address.ContextMenuCheckBoxesMarksHovered,
-                address.ContextMenuRadioButtons,
-                address.ContextMenuRadioButtonsEmpty,
-                address.ContextMenuRadioButtonsHovered,
-                // address.ContextMenuArrowsFocused,
-                // address.ContextMenuCheckBoxesMarksFocused,
-                // address.ContextMenuCheckBoxesFocused,
-                // address.ContextMenuRadioButtonsFocused,
+                saiAddress["SlidersColor"],
+                saiAddress["ContextMenuArrows"],
+                saiAddress["ContextMenuArrowsHovered"],
+                saiAddress["ContextMenuCheckBoxes"],
+                saiAddress["ContextMenuCheckBoxesHovered"],
+                saiAddress["ContextMenuCheckBoxesMarks"],
+                saiAddress["ContextMenuCheckBoxesMarksHovered"],
+                saiAddress["ContextMenuRadioButtons"],
+                saiAddress["ContextMenuRadioButtonsEmpty"],
+                saiAddress["ContextMenuRadioButtonsHovered"],
+                saiAddress["saiFileInMenuBelowText"],
             ];
             foreach(int n in SelectablePrimaryItems) {
                 theme.SetElementColor(color.SelectablePrimary, n);
             }
             byte[][] SelectablePrimaryComplicatedItemsSrclibsTrue = [
-                color.SelectedElementOutlineActive,
-                color.SelectedElementOutlineHovered,
-                color.SelectedElementOutlineIdle,
-                color.SelectedElementBackgroundFocused,
-                color.SelectedElementOutlineFix1,
-                color.SelectedElementOutlineFix2,
-                color.SelectedElementOutlineFix3,
-                color.SelectedElementOutlineFix5,
-                color.SelectedElementOutlineFix6,
-                color.SelectedElementOutlineFix7,
-                color.SelectedElementOutlineFix8,
-                color.SelectedElementOutlineFix9,
-                color.SelectedElementOutlineFix10,
-                color.SelectedElementOutlineFix11,
-                color.ScrollBarFillHovered,
-                color.YesNoButtonsBackground,
-                color.ScrollBarAndServiceButtonsFill,
-                color.saiFileInMenuBelowBackgroundHovered,
-                color.FileMenuListElementsOutlineDefault,
-                color.FileMenuTreeTextFocused,
+                saiColorRGB["SelectedElementOutlineActive"],
+                saiColorRGB["SelectedElementOutlineHovered"],
+                saiColorRGB["SelectedElementOutlineIdle"],
+                saiColorRGB["SelectedElementBackgroundFocused"],
+                saiColorRGB["SelectedElementOutlineFix1"],
+                saiColorRGB["SelectedElementOutlineFix2"],
+                saiColorRGB["SelectedElementOutlineFix3"],
+                saiColorRGB["SelectedElementOutlineFix5"],
+                saiColorRGB["SelectedElementOutlineFix6"],
+                saiColorRGB["SelectedElementOutlineFix7"],
+                saiColorRGB["SelectedElementOutlineFix8"],
+                saiColorRGB["SelectedElementOutlineFix9"],
+                saiColorRGB["SelectedElementOutlineFix10"],
+                saiColorRGB["SelectedElementOutlineFix11"],
+                saiColorRGB["ScrollBarFillHovered"],
+                saiColorRGB["YesNoButtonsBackground"],
+                saiColorRGB["ScrollBarAndServiceButtonsFill"],
+                saiColorRGB["saiFileInMenuBelowBackgroundHovered"],
+                saiColorRGB["FileMenuListElementsOutlineDefault"],
+                saiColorRGB["FileMenuTreeTextFocused"],
             ];
             foreach(byte[] n in SelectablePrimaryComplicatedItemsSrclibsTrue) {
-                theme.SetElementColorComplicated(n, semiColor.SelectablePrimaryRGB, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], true);
+                theme.SetElementColorComplicated(n, colorRGB.SelectablePrimaryRGB, saiAddress["GlobalSectionSrclibsFrom"], saiAddress["GlobalSectionSrclibsTo"], true);
             }
 
             byte[][] SelectablePrimaryComplicatedItemsAppskinTrue = [
-                color.SelectedLayerOutlineActiveHovered,
-                color.SelectedLayerOutlineFocused,
-                color.SelectedLayerInnerOutlineActive,
-                color.SelectedLayerInnerOutlineHovered,
-                color.SelectedLayerInnerOutlineFocused,
-                color.SelectedLayerInnerOutlineGrabbed,
-                // color.LayerOutline,
-                color.LayerBackgroundFocused,
-                color.SelectedLayerBackgroundGrabbed,
-                color.LayerBackgroundGrabbed,
-                color.FileMenuListCategoryArrows,
+                saiColorRGB["SelectedLayerOutlineActiveHovered"],
+                saiColorRGB["SelectedLayerOutlineFocused"],
+                saiColorRGB["SelectedLayerInnerOutlineActive"],
+                saiColorRGB["SelectedLayerInnerOutlineHovered"],
+                saiColorRGB["SelectedLayerInnerOutlineFocused"],
+                saiColorRGB["SelectedLayerInnerOutlineGrabbed"],
+                saiColorRGB["LayerBackgroundFocused"],
+                saiColorRGB["SelectedLayerBackgroundGrabbed"],
+                saiColorRGB["LayerBackgroundGrabbed"],
+                saiColorRGB["FileMenuListCategoryArrows"],
             ];
             foreach(byte[] n in SelectablePrimaryComplicatedItemsAppskinTrue) {
-                theme.SetElementColorComplicated(n, semiColor.SelectablePrimaryRGB, address.GlobalSectionAppskin[0], address.GlobalSectionAppskin[1], true);
+                theme.SetElementColorComplicated(n, colorRGB.SelectablePrimaryRGB, saiAddress["GlobalSectionAppskinFrom"], saiAddress["GlobalSectionAppskinTo"], true);
             }
             #endregion
 
             #region SELECTABLE SECONDARY COLOR
             int[] SelectableSecondaryItems = [
-                // address.SlidersInActiveBackground,
-                address.SlidersActiveBackground,
-                address.SlidersActiveBackgroundHoveredFocused,
+                saiAddress["SlidersActiveBackground"],
+                saiAddress["SlidersActiveBackgroundHoveredFocused"],
+                saiAddress["saiFileInMenuBelowPercents"],
             ];
             foreach(int n in SelectableSecondaryItems) {
                 theme.SetElementColor(color.SelectableSecondary, n);
             }
 
             byte[][] SelectableSecondaryComplicatedItemsAppskinTrue = [
-                color.SelectedLayerBackgroundActive,
-                color.SelectedLayerBackgroundHovered,
-                color.SelectedLayerBackgroundFocused,
+                saiColorRGB["SelectedLayerBackgroundActive"],
+                saiColorRGB["SelectedLayerBackgroundHovered"],
+                saiColorRGB["SelectedLayerBackgroundFocused"],
             ];
             foreach(byte[] n in SelectableSecondaryComplicatedItemsAppskinTrue) {
-                theme.SetElementColorComplicated(n, semiColor.SelectableSecondaryRGB, address.GlobalSectionAppskin[0], address.GlobalSectionAppskin[1], true);
+                theme.SetElementColorComplicated(n, colorRGB.SelectableSecondaryRGB, saiAddress["GlobalSectionAppskinFrom"], saiAddress["GlobalSectionAppskinTo"], true);
             }
 
             byte[][] SelectableSecondaryComplicatedItemsSrclibsTrue = [
-                color.ScrollBarFillFocused,
-                color.ScrollBarOutlineHovered,
-                color.ScrollBarOutlineHoveredFix1,
-                color.ScrollBarOutlineHoveredFix2,
-                // color.ScrollBarOutlineHoveredFix3,
-                color.ScrollBarOutlineFocused,
-                color.ScrollBarOutlineFocusedFix1,
-                color.ScrollBarOutlineFocusedFix2,
-                color.YesNoButtonsOutline,
-                color.YesNoButtonsOutlineFix1,
-                color.YesNoButtonsOutlineFix2,
-                color.YesNoButtonsOutlineFix3,
-                color.ScrollBarAndServiceButtonsOutline,
-                color.ScrollBarAndServiceButtonsOutlineFix1,
-                color.ScrollBarAndServiceButtonsOutlineFix2,
-                color.saiFileInMenuBelowOutlineHovered,
-                color.FileMenuTreeTextHovered,
+                saiColorRGB["ScrollBarFillFocused"],
+                saiColorRGB["ScrollBarOutlineHovered"],
+                saiColorRGB["ScrollBarOutlineHoveredFix1"],
+                saiColorRGB["ScrollBarOutlineHoveredFix2"],
+                saiColorRGB["ScrollBarOutlineFocused"],
+                saiColorRGB["ScrollBarOutlineFocusedFix1"],
+                saiColorRGB["ScrollBarOutlineFocusedFix2"],
+                saiColorRGB["YesNoButtonsOutline"],
+                saiColorRGB["YesNoButtonsOutlineFix1"],
+                saiColorRGB["YesNoButtonsOutlineFix2"],
+                saiColorRGB["YesNoButtonsOutlineFix3"],
+                saiColorRGB["ScrollBarAndServiceButtonsOutline"],
+                saiColorRGB["ScrollBarAndServiceButtonsOutlineFix1"],
+                saiColorRGB["ScrollBarAndServiceButtonsOutlineFix2"],
+                saiColorRGB["saiFileInMenuBelowOutlineHovered"],
+                saiColorRGB["FileMenuTreeTextHovered"],
             ];
             foreach(byte[] n in SelectableSecondaryComplicatedItemsSrclibsTrue) {
-                theme.SetElementColorComplicated(n, semiColor.SelectableSecondaryRGB, address.GlobalSectionSrclibs[0], address.GlobalSectionSrclibs[1], true);
+                theme.SetElementColorComplicated(n, colorRGB.SelectableSecondaryRGB, saiAddress["GlobalSectionSrclibsFrom"], saiAddress["GlobalSectionSrclibsTo"], true);
             }
             #endregion
 
@@ -426,7 +407,7 @@ namespace YumToolkit {
             console.SendMessage(serviceMessage.DefaultThemeHasBeenRestored, ConsoleColor.DarkGreen);
         }
         static AppHelper() {
-            Get = new AppHelper {
+            appHelper = new AppHelper {
                 ThemeColors = new Dictionary<string, string>()
             };
         }

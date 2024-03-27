@@ -1,5 +1,5 @@
 namespace YumToolkit.Core.Interfaces {
-    interface ISemiColor {
+    interface IColorRGB {
         byte[] PrimaryRGB { get; set; }
         byte[] SecondaryRGB { get; set; }
         byte[] TernaryRGB { get; set; }

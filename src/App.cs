@@ -20,7 +20,7 @@ namespace YumToolkit {
                 consoleDrawing.CONSOLE_DRAW_MAIN();
                 while(!consoleDrawing.isSelected) { consoleDrawing.CONSOLE_MENU(); };
                 // Running selected ai
-                AppHelper.Get._Action();
+                appHelper._Action();
 
             goto InterfaceBegin;
 

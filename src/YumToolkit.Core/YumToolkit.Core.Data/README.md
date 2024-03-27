@@ -154,3 +154,7 @@
 |76.2|`00 00 00`|`0x00534E68`|Context menu Radio Buttons [ idle ]|
 |76.3|`00 00 00`|`0x00534E70`|Context menu Radio Buttons [ hovered ]|
 |76.4|`00 00 00`|`0x00534E78`|Context menu Radio Buttons [ focused ]|
+|77.1|`00 00 00`|`0x0036FC10`|.sai file in menu below text|
+|77.2|`00 00 00`|`0x0036FC28`|.sai file in menu below text percents|
+|78|`DB EF FF`|`section .srclibs`|Context Menu element selected background.|
+|79|`C4 E6 FF`|`section .srclibs`|Context Menu element selected inner outline.|

@@ -2,7 +2,7 @@ using YumToolkit.Global;
 using YumToolkit.Core.Interfaces;
 
 namespace YumToolkit.Core.Data {
-    class _SemiColor : _Globals, ISemiColor {
+    class _ColorRGB : _Globals, IColorRGB {
         public byte[] PrimaryRGB { get; set; }
         public byte[] SecondaryRGB { get; set; }
         public byte[] TernaryRGB { get; set; }
@@ -58,7 +58,7 @@ namespace YumToolkit.Core.Data {
         public byte[] SecondaryArtifactsColor4 { get; set; }
         
 
-        public _SemiColor() {
+        public _ColorRGB() {
             PrimaryRGB = [];
             SecondaryRGB = [];
             TernaryRGB = [];
