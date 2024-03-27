@@ -4,7 +4,7 @@
 
 Themes stores in `themes` folder as `.json` files. File names → Themes titles.
 <br/>
-You can check example theme in `supchyan's dark.json`.
+You can check example theme in [supchyan's dark.json](https://github.com/supchyan/yum2-theme-toolkit/blob/main/themes/supchyan's%20dark.json).
 
 ### Important!
 All colors must be in `HEX` encoding with `ARGB` order. To evade visual artifats, I can suggest to equate `A` with brightest channel in color sequence.
@@ -18,7 +18,7 @@ _Color's example: `#DD50DD60`, where `A` is equal to `G` channel._
 
 Темы храняться в директории `Themes` с расширением `.json`. Имена файлов → Названия тем.
 <br/>
-Вы можете просмотреть пример темы в `supchyan's dark.json`.
+Вы можете просмотреть пример темы в [supchyan's dark.json](https://github.com/supchyan/yum2-theme-toolkit/blob/main/themes/supchyan's%20dark.json).
 
 ### Важно!
 Все цвета должны быть записаны в `HEX` кодировке с порядком `ARGB`. Для избежания артефактов, я рекомендую приравнивать `A` к самому яркому каналу в наборе.

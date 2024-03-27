@@ -3,10 +3,10 @@
 </div>
 <br />
 
-### `themes toolkit for SAI 2 64bit patch ver. 2024.02.22` `*`
-### [English](#introduction) & [Русский](#вступление)
-<br/>
+### <p align=center>`themes toolkit for SAI 2 64bit patch ver. 2024.02.22` `*`</p>
 
+### <p align=center>`*` Current research status: ~83%</p>
+### [English](#introduction) & [Русский](#вступление)
 ## 🌔Introduction:
 ``` 
 * I'm almost sure, this toolkit won't work with other sai versions,
@@ -28,12 +28,13 @@ Just unzip application build in sai2's root directory. Launch and select theme t
 <br/><br/>
 
 ## 🌒Resources:
-### 🎨 Creating custom themes → [Themes](https://github.com/supchyan/yum2-theme-toolkit/tree/main/themes)
-### 💾 Check out releases → [Releases](https://github.com/supchyan/yum2-theme-toolkit/releases/tag/whale)
+### 🎨 Creating custom themes → [Themes](https://github.com/supchyan/yum2-theme-toolkit/tree/main/themes/README.md)
+### 🖌️ Found colors table → [Addresses and Colors](https://github.com/supchyan/yum2-theme-toolkit/blob/main/src/YumToolkit.Core/YumToolkit.Core.Data/README.md)
+### 💾 Check out releases → [Releases](https://github.com/supchyan/yum2-theme-toolkit/releases/)
 <br/>
 
 ## 🌑Screenshots:
-![screenshot](https://github.com/supchyan/yum2-theme-toolkit/assets/123704468/f22eb0d1-a0ee-41e0-a98d-f72e3ee1a901)
+![image](https://github.com/supchyan/yum2-theme-toolkit/assets/123704468/eeea3a12-d837-4fe7-91b6-cb9a2d9d3d86)
 <br/><br/>
 
 ## 🌔Вступление:
@@ -57,10 +58,10 @@ Just unzip application build in sai2's root directory. Launch and select theme t
 <br/><br/>
 
 ## 🌒Ресурсы:
-### 🎨 Создание собственных тем → [Themes](https://github.com/supchyan/yum2-theme-toolkit/tree/main/Themes)
-### 💾 Последние релизы → [Releases](https://github.com/supchyan/yum2-theme-toolkit/releases/tag/whale)
+### 🎨 Создание собственных тем → [Themes](https://github.com/supchyan/yum2-theme-toolkit/tree/main/themes/README.md)
+### 🖌️ Таблица найденных цветов → [Addresses and Colors](https://github.com/supchyan/yum2-theme-toolkit/blob/main/src/YumToolkit.Core/YumToolkit.Core.Data/README.md)
+### 💾 Последние релизы → [Releases](https://github.com/supchyan/yum2-theme-toolkit/releases/)
 <br/>
 
 ## 🌑Скриншоты:
-![screenshot](https://github.com/supchyan/yum2-theme-toolkit/assets/123704468/6260b839-3d5b-4973-b416-4ee510b4bf89)
-
+![image](https://github.com/supchyan/yum2-theme-toolkit/assets/123704468/127c11f9-7aac-4316-9b4d-6a0d155c172a)
