@@ -7,7 +7,7 @@ using System.Drawing;
 
 namespace YumToolkit {
     class AppHelper : _Globals {
-        Dictionary<string, string>? ThemeColors { get; set; }
+        Dictionary<string, byte[]>? themeColor { get; set; }
         Dictionary<string, byte[]>? saiColorARGB { get; set; }
         Dictionary<string, byte[]>? saiColorRGB { get; set; }
         Dictionary<string, int>? saiAddress { get; set; }
@@ -25,7 +25,6 @@ namespace YumToolkit {
             if(index > 3) index = 3;
 
             switch(index) {
-                
                 case 0: 
                     Environment.Exit(0);
                 break;
@@ -42,9 +41,7 @@ namespace YumToolkit {
                 case 3: 
                     ReColor();
                 break;
-
             }
-            
         }
 
         void ReColor() {
@@ -63,7 +60,7 @@ namespace YumToolkit {
             
 
             // Getting theme vaules:
-            ThemeColors = JsonSerializer.Deserialize<Dictionary<string,string>>(File.ReadAllText($"{consoleDrawing.ThemesList[consoleDrawing.Choice]}"));
+            themeColor = JsonSerializer.Deserialize<Dictionary<string,string>>(File.ReadAllText($"{consoleDrawing.ThemesList[consoleDrawing.Choice]}"))?.ConvertToByteColorDictionary();
             
             // Getting replacment libraries:
             saiAddress = JsonSerializer.Deserialize<Dictionary<string,string>>(File.ReadAllText(path.saiAddressFile))?.ConvertToDecimalAddressDictionary();
@@ -71,18 +68,10 @@ namespace YumToolkit {
             saiColorRGB = JsonSerializer.Deserialize<Dictionary<string,string>>(File.ReadAllText(path.saiColorRGBFile))?.ConvertToByteColorDictionaryRGB();
             
             // Returning if nothing to replace to:
-            if(ThemeColors is null || saiAddress is null || saiColorARGB is null || saiColorRGB is null) { return; }
+            if(themeColor is null || saiAddress is null || saiColorARGB is null || saiColorRGB is null) { return; }
             
-            // Applying colors to... colors:
-            color.Primary = ThemeColors["Primary"].toByteColor();
-            color.Secondary = ThemeColors["Secondary"].toByteColor();
-            color.Ternary = ThemeColors["Ternary"].toByteColor();
-            color.Text = ThemeColors["Text"].toByteColor();
-            color.SelectablePrimary = ThemeColors["SelectablePrimary"].toByteColor();
-            color.SelectableSecondary = ThemeColors["SelectableSecondary"].toByteColor();
-
-            colorRGB.ConfigureRGBColors();
-            colorRGB.ConfigureArtifactsColors();
+            colorRGB.ConfigureRGBColors(themeColor, saiColorRGB);
+            colorRGB.ConfigureArtifactsColors(saiColorRGB["Secondary"], saiColorRGB["Ternary"]);
 
             // Creating tmp .exe to replace binary data inside:
             if(!File.Exists(name.tmp)) { file.CreateTmpFile(); }
@@ -91,7 +80,7 @@ namespace YumToolkit {
             theme.binary = theme.ReadTmpFile(name.tmp);
 
             // Painting color circle. It's too complicated, so I disabled it for now.
-            // theme.FixColorPicker(colorRGB.TernaryRGB,saiAddress["GlobalSectionAppskin[0],saiAddress["GlobalSectionAppskin[1]);
+            // theme.FixColorPicker(saiColorRGB["Ternary"],saiAddress["GlobalSectionAppskin[0],saiAddress["GlobalSectionAppskin[1]);
 
             #region PRIMARY COLOR
             int[] PrimaryItems = [
@@ -106,14 +95,14 @@ namespace YumToolkit {
                 saiAddress["ContextMenuRadioButtonsFocused"],
             ];
             foreach(int n in PrimaryItems) {
-                theme.SetElementColor(color.Primary, n);
+                theme.SetElementColor(themeColor["Primary"], n);
             }
 
             byte[][] PrimaryComplicatedItemsSrclibs = [
                 saiColorRGB["BurgerButtonsOutlineSlidersOutline"],
             ];
             foreach(byte[] n in PrimaryComplicatedItemsSrclibs) {
-                theme.SetElementColorComplicated(n, color.Primary, saiAddress["GlobalSectionSrclibsFrom"], saiAddress["GlobalSectionSrclibsTo"]);
+                theme.SetElementColorComplicated(n, themeColor["Primary"], saiAddress["GlobalSectionSrclibsFrom"], saiAddress["GlobalSectionSrclibsTo"]);
             }
             byte[][] PrimaryRGBComplicatedItemsSrclibsTrue = [
                 saiColorRGB["BurgerButtonsOutline1"],
@@ -127,7 +116,7 @@ namespace YumToolkit {
                 saiColorRGB["FileMenuTreeTabsFix2"],
             ];
             foreach(byte[] n in PrimaryRGBComplicatedItemsSrclibsTrue) {
-                theme.SetElementColorComplicated(n, colorRGB.PrimaryRGB, saiAddress["GlobalSectionSrclibsFrom"], saiAddress["GlobalSectionSrclibsTo"], true);
+                theme.SetElementColorComplicated(n, saiColorRGB["Primary"], saiAddress["GlobalSectionSrclibsFrom"], saiAddress["GlobalSectionSrclibsTo"], true);
             }
 
             byte[][] PrimaryRGBComplicatedItemsAppskinTrue = [
@@ -135,7 +124,7 @@ namespace YumToolkit {
                 saiColorRGB["FileMenuBackground"],
             ];
             foreach(byte[] n in PrimaryRGBComplicatedItemsAppskinTrue) {
-                theme.SetElementColorComplicated(n, colorRGB.PrimaryRGB, saiAddress["GlobalSectionAppskinFrom"], saiAddress["GlobalSectionAppskinTo"], true);
+                theme.SetElementColorComplicated(n, saiColorRGB["Primary"], saiAddress["GlobalSectionAppskinFrom"], saiAddress["GlobalSectionAppskinTo"], true);
             }
             #endregion
 
@@ -153,11 +142,11 @@ namespace YumToolkit {
                 saiAddress["RadioButtonsBackground"],
             ];
             foreach(int n in SecondaryItems) {
-                theme.SetElementColor(color.Secondary, n);
+                theme.SetElementColor(themeColor["Secondary"], n);
             }
 
-            theme.SetElementColorWithTotalReplacment(colorRGB.SecondaryRGB, saiAddress["HoveredEmptyBrushesBackgroundFrom"], saiAddress["HoveredEmptyBrushesBackgroundTo"]);
-            theme.SetElementColorWithTotalReplacment(colorRGB.SecondaryRGB, saiAddress["HoveredLayersBackgroundFrom"], saiAddress["HoveredLayersBackgroundTo"]);
+            theme.SetElementColorWithTotalReplacment(saiColorRGB["Secondary"], saiAddress["HoveredEmptyBrushesBackgroundFrom"], saiAddress["HoveredEmptyBrushesBackgroundTo"]);
+            theme.SetElementColorWithTotalReplacment(saiColorRGB["Secondary"], saiAddress["HoveredLayersBackgroundFrom"], saiAddress["HoveredLayersBackgroundTo"]);
             
             byte[][] SecondaryComplicatedItemsSrclibs = [
                 saiColorARGB["InActiveScrollBarsBackground"],
@@ -165,10 +154,10 @@ namespace YumToolkit {
                 saiColorARGB["ColorPickerCircleBody"],
             ];
             foreach(byte[] n in SecondaryComplicatedItemsSrclibs) {
-                theme.SetElementColorComplicated(n, color.Secondary, saiAddress["GlobalSectionSrclibsFrom"], saiAddress["GlobalSectionSrclibsTo"]);
+                theme.SetElementColorComplicated(n, themeColor["Secondary"], saiAddress["GlobalSectionSrclibsFrom"], saiAddress["GlobalSectionSrclibsTo"]);
             }
 
-            theme.SetElementColorComplicated(saiColorRGB["ActiveCanvasBackgroundFix"], color.Secondary, saiAddress["GlobalSectionTextFrom"], saiAddress["GlobalSectionTextTo"], true);
+            theme.SetElementColorComplicated(saiColorRGB["ActiveCanvasBackgroundFix"], themeColor["Secondary"], saiAddress["GlobalSectionTextFrom"], saiAddress["GlobalSectionTextTo"], true);
 
             byte[][] SecondaryRGBComplicatedItemsSrclibs = [
                 saiColorRGB["SelectedElementBackgroundIdle"],
@@ -178,7 +167,7 @@ namespace YumToolkit {
                 saiColorRGB["FileMenuListElementsBackgroundDefault"],
             ];
             foreach(byte[] n in SecondaryRGBComplicatedItemsSrclibs) {
-                theme.SetElementColorComplicated(n, colorRGB.SecondaryRGB, saiAddress["GlobalSectionSrclibsFrom"], saiAddress["GlobalSectionSrclibsTo"], true);
+                theme.SetElementColorComplicated(n, saiColorRGB["Secondary"], saiAddress["GlobalSectionSrclibsFrom"], saiAddress["GlobalSectionSrclibsTo"], true);
             }
 
             byte[][] SecondaryRGBComplicatedItemsSrclibsTrue = [
@@ -188,7 +177,7 @@ namespace YumToolkit {
                 colorRGB.SecondaryArtifactsColor4,
             ];
             foreach(byte[] n in SecondaryRGBComplicatedItemsSrclibsTrue) {
-                theme.SetElementColorComplicated(n, colorRGB.SecondaryRGB, saiAddress["GlobalSectionSrclibsFrom"], saiAddress["GlobalSectionSrclibsTo"], true);
+                theme.SetElementColorComplicated(n, saiColorRGB["Secondary"], saiAddress["GlobalSectionSrclibsFrom"], saiAddress["GlobalSectionSrclibsTo"], true);
             }
             #endregion
 
@@ -201,14 +190,14 @@ namespace YumToolkit {
                 saiAddress["ResizeWindowGrabber"],
             ];
             foreach(int n in TernaryItems) {
-                theme.SetElementColor(color.Ternary, n);
+                theme.SetElementColor(themeColor["Ternary"], n);
             }
 
             byte[][] TernaryComplicatedItemsSrclibs = [
                 saiColorRGB["RadioButtonsMaskFixBurgerButtonsBackground"],
             ];
             foreach(byte[] n in TernaryComplicatedItemsSrclibs) {
-                theme.SetElementColorComplicated(n, color.Ternary, saiAddress["GlobalSectionSrclibsFrom"], saiAddress["GlobalSectionSrclibsTo"]);
+                theme.SetElementColorComplicated(n, themeColor["Ternary"], saiAddress["GlobalSectionSrclibsFrom"], saiAddress["GlobalSectionSrclibsTo"]);
             }
 
             byte[][] TernaryComplicatedItemsAppskin = [
@@ -216,10 +205,10 @@ namespace YumToolkit {
                 saiColorARGB["WhatIsThisColor2"],
             ];
             foreach(byte[] n in TernaryComplicatedItemsAppskin) {
-                theme.SetElementColorComplicated(n, color.Ternary, saiAddress["GlobalSectionAppskinFrom"], saiAddress["GlobalSectionAppskinTo"]);
+                theme.SetElementColorComplicated(n, themeColor["Ternary"], saiAddress["GlobalSectionAppskinFrom"], saiAddress["GlobalSectionAppskinTo"]);
             }
 
-            theme.SetElementColorComplicated(saiColorARGB["BrushesBackgroundFileMenuBackgroundScrollBlockBackground"], color.Ternary, saiAddress["BrushesFileMenuTilesScrollableListsBackgroundFrom"], saiAddress["BrushesFileMenuTilesScrollableListsBackgroundTo"]);
+            theme.SetElementColorComplicated(saiColorARGB["BrushesBackgroundFileMenuBackgroundScrollBlockBackground"], themeColor["Ternary"], saiAddress["BrushesFileMenuTilesScrollableListsBackgroundFrom"], saiAddress["BrushesFileMenuTilesScrollableListsBackgroundTo"]);
             
             byte[][] TernaryRGBComplicatedItemsSrclibsTrue = [
                 colorRGB.TernaryArtifactsColor1,
@@ -250,9 +239,9 @@ namespace YumToolkit {
                 saiColorRGB["FileMenuTreeTabsFix8"],
             ];
             foreach(byte[] n in TernaryRGBComplicatedItemsSrclibsTrue) {
-                theme.SetElementColorComplicated(n, colorRGB.TernaryRGB, saiAddress["GlobalSectionSrclibsFrom"], saiAddress["GlobalSectionSrclibsTo"], true);
+                theme.SetElementColorComplicated(n, saiColorRGB["Ternary"], saiAddress["GlobalSectionSrclibsFrom"], saiAddress["GlobalSectionSrclibsTo"], true);
             }
-            theme.SetElementColorComplicated(saiColorRGB["LayerBackground"], colorRGB.TernaryRGB, saiAddress["LayerBackgroundFrom"], saiAddress["LayerBackgroundTo"], true);
+            theme.SetElementColorComplicated(saiColorRGB["LayerBackground"], saiColorRGB["Ternary"], saiAddress["LayerBackgroundFrom"], saiAddress["LayerBackgroundTo"], true);
             #endregion
 
             #region TEXT COLOR
@@ -270,7 +259,7 @@ namespace YumToolkit {
                 saiAddress["ShitTextInWindows"],
             ];
             foreach(int n in TextItems) {
-                theme.SetElementColor(color.Text, n);
+                theme.SetElementColor(themeColor["Text"], n);
             }
 
             byte[][] TextComplicatedItemsSrclibs = [ 
@@ -278,12 +267,12 @@ namespace YumToolkit {
                 saiColorRGB["FileMenuTreeText"],
             ];
             foreach(byte[] n in TextComplicatedItemsSrclibs) {
-                theme.SetElementColorComplicated(n, color.Text, saiAddress["GlobalSectionSrclibsFrom"], saiAddress["GlobalSectionSrclibsTo"]);
+                theme.SetElementColorComplicated(n, themeColor["Text"], saiAddress["GlobalSectionSrclibsFrom"], saiAddress["GlobalSectionSrclibsTo"]);
             }
 
             // byte[][] TextComplicatedItemsAppskin = [];
             // foreach(byte[] n in TextComplicatedItemsAppskin) {
-            //     theme.SetElementColorComplicated(n, color.Text, saiAddress["GlobalSectionAppskinFrom"], saiAddress["GlobalSectionAppskinTo"]);
+            //     theme.SetElementColorComplicated(n, themeColor["Text"], saiAddress["GlobalSectionAppskinFrom"], saiAddress["GlobalSectionAppskinTo"]);
             // }
             #endregion
 
@@ -302,7 +291,7 @@ namespace YumToolkit {
                 saiAddress["saiFileInMenuBelowText"],
             ];
             foreach(int n in SelectablePrimaryItems) {
-                theme.SetElementColor(color.SelectablePrimary, n);
+                theme.SetElementColor(themeColor["SelectablePrimary"], n);
             }
             byte[][] SelectablePrimaryComplicatedItemsSrclibsTrue = [
                 saiColorRGB["SelectedElementOutlineActive"],
@@ -327,7 +316,7 @@ namespace YumToolkit {
                 saiColorRGB["FileMenuTreeTextFocused"],
             ];
             foreach(byte[] n in SelectablePrimaryComplicatedItemsSrclibsTrue) {
-                theme.SetElementColorComplicated(n, colorRGB.SelectablePrimaryRGB, saiAddress["GlobalSectionSrclibsFrom"], saiAddress["GlobalSectionSrclibsTo"], true);
+                theme.SetElementColorComplicated(n, saiColorRGB["SelectablePrimary"], saiAddress["GlobalSectionSrclibsFrom"], saiAddress["GlobalSectionSrclibsTo"], true);
             }
 
             byte[][] SelectablePrimaryComplicatedItemsAppskinTrue = [
@@ -343,7 +332,7 @@ namespace YumToolkit {
                 saiColorRGB["FileMenuListCategoryArrows"],
             ];
             foreach(byte[] n in SelectablePrimaryComplicatedItemsAppskinTrue) {
-                theme.SetElementColorComplicated(n, colorRGB.SelectablePrimaryRGB, saiAddress["GlobalSectionAppskinFrom"], saiAddress["GlobalSectionAppskinTo"], true);
+                theme.SetElementColorComplicated(n, saiColorRGB["SelectablePrimary"], saiAddress["GlobalSectionAppskinFrom"], saiAddress["GlobalSectionAppskinTo"], true);
             }
             #endregion
 
@@ -354,7 +343,7 @@ namespace YumToolkit {
                 saiAddress["saiFileInMenuBelowPercents"],
             ];
             foreach(int n in SelectableSecondaryItems) {
-                theme.SetElementColor(color.SelectableSecondary, n);
+                theme.SetElementColor(themeColor["SelectableSecondary"], n);
             }
 
             byte[][] SelectableSecondaryComplicatedItemsAppskinTrue = [
@@ -363,7 +352,7 @@ namespace YumToolkit {
                 saiColorRGB["SelectedLayerBackgroundFocused"],
             ];
             foreach(byte[] n in SelectableSecondaryComplicatedItemsAppskinTrue) {
-                theme.SetElementColorComplicated(n, colorRGB.SelectableSecondaryRGB, saiAddress["GlobalSectionAppskinFrom"], saiAddress["GlobalSectionAppskinTo"], true);
+                theme.SetElementColorComplicated(n, saiColorRGB["SelectableSecondary"], saiAddress["GlobalSectionAppskinFrom"], saiAddress["GlobalSectionAppskinTo"], true);
             }
 
             byte[][] SelectableSecondaryComplicatedItemsSrclibsTrue = [
@@ -385,7 +374,7 @@ namespace YumToolkit {
                 saiColorRGB["FileMenuTreeTextHovered"],
             ];
             foreach(byte[] n in SelectableSecondaryComplicatedItemsSrclibsTrue) {
-                theme.SetElementColorComplicated(n, colorRGB.SelectableSecondaryRGB, saiAddress["GlobalSectionSrclibsFrom"], saiAddress["GlobalSectionSrclibsTo"], true);
+                theme.SetElementColorComplicated(n, saiColorRGB["SelectableSecondary"], saiAddress["GlobalSectionSrclibsFrom"], saiAddress["GlobalSectionSrclibsTo"], true);
             }
             #endregion
 
@@ -407,9 +396,7 @@ namespace YumToolkit {
             console.SendMessage(serviceMessage.DefaultThemeHasBeenRestored, ConsoleColor.DarkGreen);
         }
         static AppHelper() {
-            appHelper = new AppHelper {
-                ThemeColors = new Dictionary<string, string>()
-            };
+            appHelper = new AppHelper { };
         }
     }
 }

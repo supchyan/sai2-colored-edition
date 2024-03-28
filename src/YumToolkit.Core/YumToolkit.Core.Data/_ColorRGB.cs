@@ -3,11 +3,6 @@ using YumToolkit.Core.Interfaces;
 
 namespace YumToolkit.Core.Data {
     class _ColorRGB : _Globals, IColorRGB {
-        public byte[] PrimaryRGB { get; set; }
-        public byte[] SecondaryRGB { get; set; }
-        public byte[] TernaryRGB { get; set; }
-        public byte[] SelectablePrimaryRGB { get; set; }
-        public byte[] SelectableSecondaryRGB { get; set; }
         /// <summary>
         /// # FF FF Ternary[0]
         /// </summary>
@@ -59,12 +54,6 @@ namespace YumToolkit.Core.Data {
         
 
         public _ColorRGB() {
-            PrimaryRGB = [];
-            SecondaryRGB = [];
-            TernaryRGB = [];
-            SelectablePrimaryRGB = [];
-            SelectableSecondaryRGB = [];
-
             // Artifacts fix
             TernaryArtifactsColor1 = [];
             TernaryArtifactsColor2 = [];
@@ -79,23 +68,24 @@ namespace YumToolkit.Core.Data {
             SecondaryArtifactsColor3 = [];
             SecondaryArtifactsColor4 = [];
         }
-        public void ConfigureRGBColors() {
-            PrimaryRGB = color.Primary.NoAlpha();
-            SecondaryRGB = color.Secondary.NoAlpha();
-            TernaryRGB = color.Ternary.NoAlpha();
-            SelectablePrimaryRGB = color.SelectablePrimary.NoAlpha();
-            SelectableSecondaryRGB = color.SelectableSecondary.NoAlpha();
+        // TODO: 
+        public void ConfigureRGBColors(Dictionary<string, byte[]> clone_from, Dictionary<string, byte[]> clone_to) {
+            foreach(var pair in clone_from) {
+                clone_to[pair.Key] = clone_from[pair.Key].NoAlpha();
+            }
         }
-        public void ConfigureArtifactsColors() {
-            string s = SecondaryRGB.toHEXColor();
+        public void ConfigureArtifactsColors(byte[] secondary, byte[] ternary) {
+            string s = secondary.toHEXColor();
             s = $"{s[0]}{s[1]}";
+            
             SecondaryArtifactsColor1 = $"#00F8F8{s}".toByteColor().NoAlpha();
             SecondaryArtifactsColor2 = $"#00{s}F8F8".toByteColor().NoAlpha();
             SecondaryArtifactsColor3 = $"#00F8{s}{s}".toByteColor().NoAlpha();
             SecondaryArtifactsColor4 = $"#00{s}{s}F8".toByteColor().NoAlpha();
 
-            string t = TernaryRGB.toHEXColor();
+            string t = ternary.toHEXColor();
             t = $"{t[0]}{t[1]}";
+
             TernaryArtifactsColor1 = $"#00FFFF{t}".toByteColor().NoAlpha();
             TernaryArtifactsColor2 = $"#00{t}FFFF".toByteColor().NoAlpha();
             TernaryArtifactsColor3 = $"#00FF{t}{t}".toByteColor().NoAlpha();

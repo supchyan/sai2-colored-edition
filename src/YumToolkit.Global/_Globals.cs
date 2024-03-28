@@ -4,7 +4,6 @@ using YumToolkit.Core.UI;
 
 namespace YumToolkit.Global {
     class _Globals {
-        public static _Color color = new();
         public static _Name name = new();
         public static _Path path = new();
         public static _ColorRGB colorRGB = new();

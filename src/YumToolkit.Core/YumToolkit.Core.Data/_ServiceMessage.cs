@@ -11,7 +11,6 @@ namespace YumToolkit.Core.Data {
         public string DefaultThemeHasBeenRestored { get; }
         public string ThemeHasBeenApplied { get; }
         public string OriginalFileIsBusy { get; }
-        
         public _ServiceMessage() {
             ExitMessage = "Press any key to continue...";
             ThemeFolderIsNotExist = $"[ ERROR ] '{path.ThemesFolder}' folder could not be found. {ExitMessage}";
