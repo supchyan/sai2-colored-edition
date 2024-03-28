@@ -63,9 +63,9 @@ Just unzip this application's build in root directory with `sai2.exe`. Launch an
 **To create custom themes, check this out ->** [Themes](https://github.com/supchyan/yum2-theme-toolkit/tree/main/themes/).
 <br/><br/>
 
-## 🌑Screenshots:
+## 🌒Screenshots:
 ![image](https://github.com/supchyan/yum2-theme-toolkit/assets/123704468/4978d7ac-55be-4f0b-9cad-e2662bbf1fa4)
-![image](https://github.com/supchyan/yum2-theme-toolkit/assets/123704468/8d431528-5685-42d7-a9b6-a84a80d65efb)
+![image](https://github.com/supchyan/yum2-theme-toolkit/assets/123704468/1131c3c0-398c-46fd-9b78-431cd6d78a97)
 <br/>
 🐳<br/><br/><br/>
 
@@ -90,8 +90,8 @@ Just unzip this application's build in root directory with `sai2.exe`. Launch an
 **Для создания собственных тем см. ->** [Темы](https://github.com/supchyan/yum2-theme-toolkit/tree/main/themes/).
 <br/><br/>
 
-## 🌑Скриншоты:
+## 🌒Скриншоты:
 ![image](https://github.com/supchyan/yum2-theme-toolkit/assets/123704468/4978d7ac-55be-4f0b-9cad-e2662bbf1fa4)
-![image](https://github.com/supchyan/yum2-theme-toolkit/assets/123704468/8d431528-5685-42d7-a9b6-a84a80d65efb)
+![image](https://github.com/supchyan/yum2-theme-toolkit/assets/123704468/e79070d6-a833-437d-b03e-95e291898bf4)
 <br/>
 🐳
