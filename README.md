@@ -28,13 +28,13 @@ Just unzip application build in sai2's root directory. Launch and select theme t
 <br/><br/>
 
 ## 🌒Resources:
-### 🎨 Creating custom themes → [Themes](https://github.com/supchyan/yum2-theme-toolkit/tree/main/themes/README.md)
-### 🖌️ Found colors table → [Addresses and Colors](https://github.com/supchyan/yum2-theme-toolkit/blob/main/src/YumToolkit.Core/YumToolkit.Core.Data/README.md)
+### 🎨 Creating custom themes → [Themes](https://github.com/supchyan/yum2-theme-toolkit/tree/main/themes/)
+### 🖌️ Found colors table → [Addresses and Colors](https://github.com/supchyan/yum2-theme-toolkit/blob/main/data/)
 ### 💾 Check out releases → [Releases](https://github.com/supchyan/yum2-theme-toolkit/releases/)
 <br/>
 
 ## 🌑Screenshots:
-![image](https://github.com/supchyan/yum2-theme-toolkit/assets/123704468/9926ab75-46a2-4931-9dba-6a671c248c1d)
+![image](https://github.com/supchyan/yum2-theme-toolkit/assets/123704468/e35daceb-1d24-4e3b-81c6-cf80c32de607)
 <br/><br/>
 
 ## 🌔Вступление:
@@ -58,10 +58,10 @@ Just unzip application build in sai2's root directory. Launch and select theme t
 <br/><br/>
 
 ## 🌒Ресурсы:
-### 🎨 Создание собственных тем → [Themes](https://github.com/supchyan/yum2-theme-toolkit/tree/main/themes/README.md)
-### 🖌️ Таблица найденных цветов → [Addresses and Colors](https://github.com/supchyan/yum2-theme-toolkit/blob/main/src/YumToolkit.Core/YumToolkit.Core.Data/README.md)
+### 🎨 Создание собственных тем → [Themes](https://github.com/supchyan/yum2-theme-toolkit/tree/main/themes/)
+### 🖌️ Таблица найденных цветов → [Addresses and Colors](https://github.com/supchyan/yum2-theme-toolkit/blob/main/data/)
 ### 💾 Последние релизы → [Releases](https://github.com/supchyan/yum2-theme-toolkit/releases/)
 <br/>
 
 ## 🌑Скриншоты:
-![image](https://github.com/supchyan/yum2-theme-toolkit/assets/123704468/86d29143-8211-42f1-aa18-2a5f8a353077)
+![image](https://github.com/supchyan/yum2-theme-toolkit/assets/123704468/e35daceb-1d24-4e3b-81c6-cf80c32de607)
