@@ -65,7 +65,7 @@ Just unzip this application's build in root directory with `sai2.exe`. Launch an
 
 ## 🌑Screenshots:
 ![image](https://github.com/supchyan/yum2-theme-toolkit/assets/123704468/4978d7ac-55be-4f0b-9cad-e2662bbf1fa4)
-![image](https://github.com/supchyan/yum2-theme-toolkit/assets/123704468/8d431528-5685-42d7-a9b6-a84a80d65efb)
+![image](https://github.com/supchyan/yum2-theme-toolkit/assets/123704468/d16b095d-aecc-4224-be26-09ff29b75d45)
 <br/>
 🐳<br/><br/><br/>
 
@@ -92,6 +92,6 @@ Just unzip this application's build in root directory with `sai2.exe`. Launch an
 
 ## 🌑Скриншоты:
 ![image](https://github.com/supchyan/yum2-theme-toolkit/assets/123704468/4978d7ac-55be-4f0b-9cad-e2662bbf1fa4)
-![image](https://github.com/supchyan/yum2-theme-toolkit/assets/123704468/8d431528-5685-42d7-a9b6-a84a80d65efb)
+![image](https://github.com/supchyan/yum2-theme-toolkit/assets/123704468/d16b095d-aecc-4224-be26-09ff29b75d45)
 <br/>
 🐳
