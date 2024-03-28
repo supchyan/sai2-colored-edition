@@ -34,7 +34,7 @@ Just unzip application build in sai2's root directory. Launch and select theme t
 <br/>
 
 ## 🌑Screenshots:
-![image](https://github.com/supchyan/yum2-theme-toolkit/assets/123704468/4b72bf57-5064-4ca7-9ae2-3ebb6ee42583)
+![image](https://github.com/supchyan/yum2-theme-toolkit/assets/123704468/e35daceb-1d24-4e3b-81c6-cf80c32de607)
 <br/><br/>
 
 ## 🌔Вступление:
@@ -64,4 +64,4 @@ Just unzip application build in sai2's root directory. Launch and select theme t
 <br/>
 
 ## 🌑Скриншоты:
-![image](https://github.com/supchyan/yum2-theme-toolkit/assets/123704468/4b72bf57-5064-4ca7-9ae2-3ebb6ee42583)
+![image](https://github.com/supchyan/yum2-theme-toolkit/assets/123704468/e35daceb-1d24-4e3b-81c6-cf80c32de607)
