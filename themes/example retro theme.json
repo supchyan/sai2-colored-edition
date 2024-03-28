@@ -1,8 +1,8 @@
 {
-    "Primary":  "#356360",
-    "Secondary": "#478580",
-    "Ternary": "#66CC88",
-    "Text": "#555555",
-    "SelectablePrimary": "#FFDDAA",
-    "SelectableSecondary": "#998567"
+    "Primary":  "#457275",
+    "Secondary": "#93c4b1",
+    "Ternary": "#cce7b5",
+    "Text": "#162223",
+    "SelectablePrimary": "#7AAB98",
+    "SelectableSecondary": "#5A8A77"
 }

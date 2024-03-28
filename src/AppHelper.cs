@@ -98,12 +98,6 @@ namespace YumToolkit {
                 theme.SetElementColor(themeColor["Primary"].NoAlpha(), n);
             }
 
-            byte[][] PrimaryRGBComplicatedItemsSrclibs = [
-                saiColorRGB["BurgerButtonsOutlineSlidersOutline"],
-            ];
-            foreach(byte[] n in PrimaryRGBComplicatedItemsSrclibs) {
-                theme.SetElementColorComplicated(n, themeColor["Primary"].NoAlpha(), saiAddress["GlobalSectionSrclibsFrom"], saiAddress["GlobalSectionSrclibsTo"]);
-            }
             byte[][] PrimaryRGBComplicatedItemsSrclibsTrue = [
                 saiColorRGB["FileMenuTreeTabsFix2"],
                 saiColorRGB["BurgerButtonsOutline1"],
@@ -112,6 +106,19 @@ namespace YumToolkit {
                 saiColorRGB["saiFileInMenuBelowOutline"],
                 saiColorRGB["saiFileInMenuBelowOutlineFix"],
                 saiColorRGB["saiFileInMenuBelowInnerOutline"],
+
+                saiColorRGB["BurgerButtonsOutlineSlidersOutline"],
+                saiColorRGB["BurgerButtonsOutline4"],
+                saiColorRGB["BurgerButtonsOutline2"],
+                saiColorRGB["BordersFix1"],
+                saiColorRGB["BordersFix2"],
+                saiColorRGB["BordersFix3"],
+                saiColorRGB["BordersFix4"],
+                saiColorRGB["BordersFix5"],
+                saiColorRGB["BordersFix6"],
+                saiColorRGB["BordersFix7"],
+                saiColorRGB["FileMenuListElementsBackgroundDefault"],
+                // saiColorRGB["BordersFix8"],
             ];
             foreach(byte[] n in PrimaryRGBComplicatedItemsSrclibsTrue) {
                 theme.SetElementColorComplicated(n, themeColor["Primary"].NoAlpha(), saiAddress["GlobalSectionSrclibsFrom"], saiAddress["GlobalSectionSrclibsTo"], true);
@@ -162,7 +169,7 @@ namespace YumToolkit {
                 saiColorRGB["SelectedElementBackgroundActive"],
                 saiColorRGB["SelectedElementBackgroundHovered"],
                 saiColorRGB["FileMenuListElementsBackgroundHovered"],
-                saiColorRGB["FileMenuListElementsBackgroundDefault"],
+                // saiColorRGB["FileMenuListElementsBackgroundDefault"],
                 saiColorRGB["BurgerButtonsOutlineFix"],
                 colorRGB.SecondaryArtifactsColor1,
                 colorRGB.SecondaryArtifactsColor2,
@@ -190,23 +197,23 @@ namespace YumToolkit {
 
             byte[][] TernaryRGBComplicatedItemsAppskin = [
                 saiColorRGB["EmplyElementsInBrushesUI"],
-                saiColorRGB["WhatIsThisColor2"],
+                // saiColorRGB["WhatIsThisColor2"],
             ];
             foreach(byte[] n in TernaryRGBComplicatedItemsAppskin) {
                 theme.SetElementColorComplicated(n, themeColor["Ternary"].NoAlpha(), saiAddress["GlobalSectionAppskinFrom"], saiAddress["GlobalSectionAppskinTo"]);
             }
 
             byte[][] TernaryRGBComplicatedItemsSrclibsTrue = [
-                saiColorRGB["BurgerButtonsOutline4"],
-                saiColorRGB["BurgerButtonsOutline2"],
-                saiColorRGB["BordersFix1"],
-                saiColorRGB["BordersFix2"],
-                saiColorRGB["BordersFix3"],
-                saiColorRGB["BordersFix4"],
-                saiColorRGB["BordersFix5"],
-                saiColorRGB["BordersFix6"],
-                saiColorRGB["BordersFix7"],
-                saiColorRGB["BordersFix8"],
+                // saiColorRGB["BurgerButtonsOutline4"],
+                // saiColorRGB["BurgerButtonsOutline2"],
+                // saiColorRGB["BordersFix1"],
+                // saiColorRGB["BordersFix2"],
+                // saiColorRGB["BordersFix3"],
+                // saiColorRGB["BordersFix4"],
+                // saiColorRGB["BordersFix5"],
+                // saiColorRGB["BordersFix6"],
+                // saiColorRGB["BordersFix7"],
+                saiColorRGB["BordersFixBurgerButtonsBackgroundColorLinesBackground"],
                 saiColorRGB["EmptyScrollBarBackground"],
                 saiColorRGB["ScrollBarOutlineHoveredFix3"],
                 saiColorRGB["saiFileInMenuBelowBackground"],
