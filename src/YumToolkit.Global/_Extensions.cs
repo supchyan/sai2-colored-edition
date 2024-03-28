@@ -47,7 +47,7 @@ namespace YumToolkit.Global {
         public static Dictionary<string, byte[]> ConvertToByteColorDictionary(this Dictionary<string,string> dictionary) {
             var tmp = new Dictionary<string, byte[]>();
             foreach(var pair in dictionary) {
-                tmp[pair.Key] = pair.Value.toByteColor();
+                tmp[pair.Key] = $"#00{pair.Value.Substring(1)}".toByteColor();
 
             } return tmp;
         }
