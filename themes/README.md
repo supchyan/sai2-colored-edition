@@ -7,10 +7,9 @@ To get started, I suggest to check out these examples: [exmaple dark.json](https
 
 ### Important!
 ```json 
-All colors must be in `HEX` encoding with `ARGB` order.
-Alpha channel isn't important, so feel free to set it to 0.
+All colors must be in `HEX` encoding with `RGB` order.
 ```
-_Example color: `#0050DD60`._
+_Example color: `#50DD60`._
 <br/><br/>
 
 ## 🎨Создание своей темы
@@ -22,8 +21,7 @@ _Example color: `#0050DD60`._
 
 ### Важно!
 ```json 
-Все цвета должны быть в `HEX` кодировке с порядком `ARGB`.
-Alpha канал не влияет на цвет элементов, так что просто ставьте его равным нулю 0.
+Все цвета должны быть в `HEX` кодировке с порядком `RGB`.
 ```
-_Пример цвета: `#0050DD60`._
+_Пример цвета: `#50DD60`._
 <br/><br/>
