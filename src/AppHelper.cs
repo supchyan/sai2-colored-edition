@@ -80,7 +80,7 @@ namespace YumToolkit {
             theme.binary = theme.ReadTmpFile(name.tmp);
 
             // Painting color circle. It's too complicated, so I disabled it for now.
-            // theme.FixColorPicker(themeColor["Ternary"].NoAlpha(),saiAddress["GlobalSectionAppskin[0],saiAddress["GlobalSectionAppskin[1]);
+            // theme.FixColorPicker(themeColor["Ternary"].NoAlpha(),saiAddress["GlobalSectionAppskinFrom"], saiAddress["GlobalSectionAppskinTo"]);
 
             #region PRIMARY COLOR
             int[] PrimaryItems = [
