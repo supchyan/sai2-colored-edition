@@ -128,7 +128,7 @@
 |67.1|`E6 E6 E6`|`section .srclibs`|File menu list Elements background. [ hovered ]|
 |67.2|`ED ED ED`|`section .srclibs`|File menu list Elements background. [ default ]|*`deafult` means u see this on first open. like last selected item or kind of.*|
 |68|`8E 8E 8E`|`section .srclibs`|File menu list Elements outline. [ default ]|*`deafult` means u see this on first open. like last selected item or kind of.*|
-|69.1|`EE EE EE`|`section .srclibs`|File menu tree non-selected tab artifacts fix.|*Borders fix 9 color does the same! It's not documented, but does the same job. It will be better to find certain address for this, but it's to complicated, so keep it in mind. EE EE EE is the color of the burger button's outline, hidden in `section .srclibs`.*|
+|69.1|`EE EE EE`|`section .srclibs`|File menu tree non-selected tab artifacts fix.|*`BordersFix9` Color does the same! That color isn't documented here, but doing the same job. I guess, it'll be better to find certain addresses for `#eeeeee` elements, but it's to complicated, so keep it in mind. Btw, #eeeeee is color of the burger buttons outlines, which is hidden in `section .srclibs` too.*|
 |69.2|`F3 F3 F3`|`section .srclibs`|File menu tree non-selected tab artifacts fix.|*primary  color*|
 |69.3|`A7 A7 A7`|`section .srclibs`|File menu tree non-selected tab artifacts fix.|*ternary  color*|
 |69.4|`B8 B8 B8`|`section .srclibs`|File menu tree non-selected tab artifacts fix.|*ternary  color*|
