@@ -96,5 +96,8 @@
     "BurgerButtonsOutlineFix": "#00DBDBDB",
     "BrushesBackgroundFileMenuBackgroundScrollBlockBackground": "#00FFFFFF",
     "EmplyElementsInBrushesUI": "#00F0F0F0",
-    "WhatIsThisColor2": "#00ACACAC"
+    "WhatIsThisColor2": "#00ACACAC",
+    "InActiveBurgerButtonsOutline": "#00C0C0C0",
+    "InActiveBurgerButtonsOutlineFix1": "#00C9C9C9",
+    "InActiveBurgerButtonsOutlineFix2": "#00CECECE"
 }

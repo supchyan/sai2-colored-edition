@@ -93,6 +93,13 @@ namespace YumToolkit {
                 saiAddress["ContextMenuCheckBoxesMarksFocused"],
                 saiAddress["ContextMenuCheckBoxesFocused"],
                 saiAddress["ContextMenuRadioButtonsFocused"],
+                saiAddress["InActiveText"],
+                saiAddress["SliderBarHovered"],
+                saiAddress["ScrollBarArrowUp"],
+                saiAddress["ScrollBarArrowDown"],
+                saiAddress["ScrollBarArrowLeft"],
+                saiAddress["ScrollBarArrowRight"],
+                saiAddress["ClosedListArrow"],
             ];
             foreach(int n in PrimaryItems) {
                 theme.SetElementColor(themeColor["Primary"].NoAlpha(), n);
@@ -118,7 +125,9 @@ namespace YumToolkit {
                 saiColorRGB["BordersFix6"],
                 saiColorRGB["BordersFix7"],
                 saiColorRGB["FileMenuListElementsBackgroundDefault"],
-                // saiColorRGB["BordersFix8"],
+                saiColorRGB["InActiveBurgerButtonsOutline"],
+                saiColorRGB["InActiveBurgerButtonsOutlineFix1"],
+                saiColorRGB["InActiveBurgerButtonsOutlineFix2"],
             ];
             foreach(byte[] n in PrimaryRGBComplicatedItemsSrclibsTrue) {
                 theme.SetElementColorComplicated(n, themeColor["Primary"].NoAlpha(), saiAddress["GlobalSectionSrclibsFrom"], saiAddress["GlobalSectionSrclibsTo"], true);

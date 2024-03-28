@@ -71,5 +71,13 @@
     "ContextMenuRadioButtonsFocused": "0x00534E78",
     "saiFileInMenuBelowText": "0x0036FC10",
     "saiFileInMenuBelowPercents": "0x0036FC28",
-    "BrushesTextFix": "0x00370780"
+    "BrushesTextFix": "0x00370780",
+    "SliderBarHovered": "0x0031B4C4",
+    "StabilizerBackground": "0x000F9B60",
+    "ButtonsInLayersFill": "0x003715E0",
+    "ScrollBarArrowUp":"0x00535068",
+    "ScrollBarArrowDown":"0x005350C0",
+    "ScrollBarArrowLeft":"0x00534F28",
+    "ScrollBarArrowRight":"0x00534F80",
+    "ClosedListArrow":"0x005366C0"
 }

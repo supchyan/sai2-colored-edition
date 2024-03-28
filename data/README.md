@@ -23,8 +23,10 @@
 |12.3| `00 00 00`|`0x00534C28`|Context menu text. [ focused ]|
 |13.1| `F8 F8 F8`|`0x00534ED8`|Slider's outline. [ horizontal ]|
 |13.2| `F8 F8 F8`|`0x00535018`|Slider's outline. [ vertical ]|
-|14.1| `F8 F8 F8`|`0x00535068`|Slider arrow up.|*no left and right arrows*| 
-|14.2| `F8 F8 F8`|`0x005350C0`|Slider arrow down.|*no left and right arrows*|
+|14.1| `F8 F8 F8`|`0x00535068`|Scroll bar arrow up.|
+|14.2| `F8 F8 F8`|`0x005350C0`|Scroll bar  arrow down.|
+|14.3|`FF FF FF`|`0x00534F28`|Scroll bar arrow left.|
+|14.4|`FF FF FF`|`0x00534F80`|Scroll bar arrow right.|
 |15| `F8 F8 F8`|`0x00535280`|Windows resize grabber.|
 |16.1| `F8 F8 F8`|`0x00535CD8`|Tabs resize grabber. [ horizontal ]|
 |16.2| `F8 F8 F8`|`0x00535E28`|Tabs resize grabber. [ vertical ]|
@@ -163,3 +165,10 @@
 |82|`C0 C0 C0`|`0x001BC95B`|Text color of inactive elements in UI.|
 |83|`00 00 00`|`0x00370780`|Fix for brushes multiple lines text color (check `26`).
 |84|`DB DB DB`|`section .srclibs`|Burger buttons `grey outline` fix.|
+|85|`C0 C0 C0`|`section .srclibs`|Inactive Burger buttons outline.|
+|85|`C9 C9 C9`|`section .srclibs`|Inactive Burger buttons outline edges fix.|
+|85|`CE CE CE`|`section .srclibs`|Inactive Burger buttons outline edges fix.|
+|86|`C0 C0 C0`|`0x0031B4C4`|Slider bar. [ hovered / focused ]|
+|87|`FF FF FF`|`0x000F9B60`|Stabilizer minimized background.|
+|88|`FF FF FF`|`0x003715E0`|That buttons in layers fill. (hide / selected or what is this...)|
+|90|`FF FF FF`|`0x005366C0`|Closed list arrow.|

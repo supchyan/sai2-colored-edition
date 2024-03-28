@@ -7,9 +7,9 @@
         <Nullable>enable</Nullable>
         <ApplicationIcon>Yum2Tools.ico</ApplicationIcon>
         <OutputPath>build</OutputPath>
-        <Version>0.8</Version>
-        <AssemblyVersion>0.8</AssemblyVersion>
-        <FileVersion>0.8</FileVersion>
+        <Version>0.9</Version>
+        <AssemblyVersion>0.9</AssemblyVersion>
+        <FileVersion>0.9</FileVersion>
         <Authors>supchyan</Authors>
         <Product>Yum2Tools</Product>
     </PropertyGroup>
