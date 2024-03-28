@@ -1,26 +1,29 @@
 ## 🎨Creating custom theme
 [Русская версия ↓](#создание-своей-темы)
 <br/><br/>
-
-Themes stores in `themes` folder as `.json` files. File names → Themes titles.
+Themes stores in `themes` folder as `.json` files. File name → Theme title.
 <br/>
-You can check example theme in [supchyan's dark.json](https://github.com/supchyan/yum2-theme-toolkit/blob/main/themes/supchyan's%20dark.json).
+To get started, I suggest to check out these examples: [exmaple dark.json](https://github.com/supchyan/yum2-theme-toolkit/blob/main/themes/example%20dark.json) & [exmaple retro.json](https://github.com/supchyan/yum2-theme-toolkit/blob/main/themes/example%20retro.json).
 
 ### Important!
-All colors must be in `HEX` encoding with `ARGB` order. To evade visual artifats, I can suggest to equate `A` with brightest channel in color sequence.
-<br/>
-_Color's example: `#DD50DD60`, where `A` is equal to `G` channel._
+```json 
+All colors must be in `HEX` encoding with `ARGB` order.
+Alpha channel isn't important, so feel free to set it to 0.
+```
+_Example color: `#0050DD60`._
 <br/><br/>
 
 ## 🎨Создание своей темы
 [English version ↑](#creating-custom-theme)
 <br/><br/>
-
-Темы храняться в директории `Themes` с расширением `.json`. Имена файлов → Названия тем.
+Темы храняться в директории `Themes` с расширением `.json`. Имя файла → Название темы.
 <br/>
-Вы можете просмотреть пример темы в [supchyan's dark.json](https://github.com/supchyan/yum2-theme-toolkit/blob/main/themes/supchyan's%20dark.json).
+Для быстроты понимания принципов создания тем, рекомендую ознакомиться с этими примерами: [exmaple dark.json](https://github.com/supchyan/yum2-theme-toolkit/blob/main/themes/example%20dark.json) & [exmaple retro.json](https://github.com/supchyan/yum2-theme-toolkit/blob/main/themes/example%20retro.json).
 
 ### Важно!
-Все цвета должны быть записаны в `HEX` кодировке с порядком `ARGB`. Для избежания артефактов, я рекомендую приравнивать `A` к самому яркому каналу в наборе.
-<br/>
-_Пример записи цвета: `#DD50DD60`, где `A` канал равен самому яркому `G`._
+```json 
+Все цвета должны быть в `HEX` кодировке с порядком `ARGB`.
+Alpha канал не влияет на цвет элементов, так что просто ставьте его равным нулю 0.
+```
+_Пример цвета: `#0050DD60`._
+<br/><br/>
