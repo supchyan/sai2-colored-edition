@@ -68,12 +68,12 @@ namespace YumToolkit.Core.Data {
             SecondaryArtifactsColor3 = [];
             SecondaryArtifactsColor4 = [];
         }
-        // TODO: 
-        public void ConfigureRGBColors(Dictionary<string, byte[]> clone_from, Dictionary<string, byte[]> clone_to) {
-            foreach(var pair in clone_from) {
-                clone_to[pair.Key] = clone_from[pair.Key].NoAlpha();
-            }
-        }
+        // // TODO: 
+        // public void ConfigureRGBColors(Dictionary<string, byte[]> clone_from, Dictionary<string, byte[]> clone_to) {
+        //     foreach(var pair in clone_from) {
+        //         clone_to[pair.Key] = clone_from[pair.Key].NoAlpha();
+        //     }
+        // }
         public void ConfigureArtifactsColors(byte[] secondary, byte[] ternary) {
             string s = secondary.toHEXColor();
             s = $"{s[0]}{s[1]}";

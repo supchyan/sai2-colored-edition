@@ -1,7 +1,6 @@
 {
     "InActiveScrollBarsBackground": "#F0F0F000",
-    "EmplyElementsInBrushesUI": "#F0F0F0F0",
-    "ColorPickerCircleBody": "#F8F8F8F8",
-    "WhatIsThisColor2": "#ACACACAC",
-    "BrushesBackgroundFileMenuBackgroundScrollBlockBackground": "#FFFFFFFF"
+    
+    "ColorPickerCircleBody": "#F8F8F8F8"
+    
 }

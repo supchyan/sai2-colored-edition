@@ -80,7 +80,6 @@
     "FileMenuListElementsBackgroundHovered": "#00E6E6E6",
     "FileMenuListElementsBackgroundDefault": "#00EDEDED",
     "FileMenuListElementsOutlineDefault": "#008E8E8E",
-    "FileMenuTreeTabsFix1": "#00EEEEEE",
     "FileMenuTreeTabsFix2": "#00F3F3F3",
     "FileMenuTreeTabsFix3": "#00A7A7A7",
     "FileMenuTreeTabsFix4": "#00B8B8B8",
@@ -91,5 +90,11 @@
     "FileMenuListCategoryArrows": "#00343434",
     "FileMenuTreeText": "#00404040",
     "FileMenuTreeTextHovered": "#004020C0",
-    "FileMenuTreeTextFocused": "#00C06040"
+    "FileMenuTreeTextFocused": "#00C06040",
+    "BlueSelectableElements": "#005030FF",
+    "BlueSelectableElementsText": "#004020C0",
+    "BurgerButtonsOutlineFix": "#00DBDBDB",
+    "BrushesBackgroundFileMenuBackgroundScrollBlockBackground": "#00FFFFFF",
+    "EmplyElementsInBrushesUI": "#00F0F0F0",
+    "WhatIsThisColor2": "#00ACACAC"
 }

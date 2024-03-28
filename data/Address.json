@@ -39,8 +39,8 @@
     "BrushesSpecialText": "0x00370768",
     "BrushesTabsText": "0x003706D0",
     "BrushesCirclesText": "0x00370900",
-    "BrushesFileMenuTilesScrollableListsBackgroundFrom": "0x004D1038",
-    "BrushesFileMenuTilesScrollableListsBackgroundTo": "0x004D1C33",
+    "BrushesFileMenuTilesScrollableListsBackgroundFrom": "0x004D1036",
+    "BrushesFileMenuTilesScrollableListsBackgroundTo": "0x004D1C35",
     "LayerServiceButtonsFrom": "0x004DD400",
     "LayerServiceButtonsTo": "0x004FC2AF",
     "GlobalSectionTextFrom": "0x00000400",
@@ -70,5 +70,6 @@
     "ContextMenuRadioButtonsHovered": "0x00534E70",
     "ContextMenuRadioButtonsFocused": "0x00534E78",
     "saiFileInMenuBelowText": "0x0036FC10",
-    "saiFileInMenuBelowPercents": "0x0036FC28"
+    "saiFileInMenuBelowPercents": "0x0036FC28",
+    "BrushesTextFix": "0x00370780"
 }

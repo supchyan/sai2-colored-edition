@@ -128,7 +128,7 @@
 |67.1|`E6 E6 E6`|`section .srclibs`|File menu list Elements background. [ hovered ]|
 |67.2|`ED ED ED`|`section .srclibs`|File menu list Elements background. [ default ]|*`deafult` means u see this on first open. like last selected item or kind of.*|
 |68|`8E 8E 8E`|`section .srclibs`|File menu list Elements outline. [ default ]|*`deafult` means u see this on first open. like last selected item or kind of.*|
-|69.1|`EE EE EE`|`section .srclibs`|File menu tree non-selected tab artifacts fix.|*primary  color*|
+|69.1|`EE EE EE`|`section .srclibs`|File menu tree non-selected tab artifacts fix.|*Borders fix 9 color does the same! It's not documented, but does the same job. It will be better to find certain address for this, but it's to complicated, so keep it in mind. EE EE EE is the color of the burger button's outline, hidden in `section .srclibs`.*|
 |69.2|`F3 F3 F3`|`section .srclibs`|File menu tree non-selected tab artifacts fix.|*primary  color*|
 |69.3|`A7 A7 A7`|`section .srclibs`|File menu tree non-selected tab artifacts fix.|*ternary  color*|
 |69.4|`B8 B8 B8`|`section .srclibs`|File menu tree non-selected tab artifacts fix.|*ternary  color*|
@@ -158,3 +158,8 @@
 |77.2|`00 00 00`|`0x0036FC28`|.sai file in menu below text percents|
 |78|`DB EF FF`|`section .srclibs`|Context Menu element selected background.|
 |79|`C4 E6 FF`|`section .srclibs`|Context Menu element selected inner outline.|
+|80|`50 30 FF`|`section .srclibs`|Expand Arrows, scale & angle sliders, selectable elements in settings and etc.|
+|81|`40 20 C0`|`section .text`|Text color for all from `80`.|
+|82|`C0 C0 C0`|`0x001BC95B`|Text color of inactive elements in UI.|
+|83|`00 00 00`|`0x00370780`|Fix for brushes multiple lines text color (check `26`).
+|84|`DB DB DB`|`section .srclibs`|Burger buttons `grey outline` fix.|
