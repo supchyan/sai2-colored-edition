@@ -14,7 +14,6 @@ namespace YumToolkit.Core.Data {
             original = $"{sai2}{exe}";
             tmp = $"{sai2}.tmp{exe}";
             old = $"{sai2}.old{exe}";
-            
         }
     }
 }

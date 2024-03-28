@@ -77,20 +77,17 @@ namespace YumToolkit.Core.Data {
         public void ConfigureArtifactsColors(byte[] secondary, byte[] ternary) {
             string s = secondary.toHEXColor();
             s = $"{s[0]}{s[1]}";
-            
+            string t = ternary.toHEXColor();
+            t = $"{t[0]}{t[1]}";
+
             SecondaryArtifactsColor1 = $"#00F8F8{s}".toByteColor().NoAlpha();
             SecondaryArtifactsColor2 = $"#00{s}F8F8".toByteColor().NoAlpha();
             SecondaryArtifactsColor3 = $"#00F8{s}{s}".toByteColor().NoAlpha();
             SecondaryArtifactsColor4 = $"#00{s}{s}F8".toByteColor().NoAlpha();
-
-            string t = ternary.toHEXColor();
-            t = $"{t[0]}{t[1]}";
-
             TernaryArtifactsColor1 = $"#00FFFF{t}".toByteColor().NoAlpha();
             TernaryArtifactsColor2 = $"#00{t}FFFF".toByteColor().NoAlpha();
             TernaryArtifactsColor3 = $"#00FF{t}{t}".toByteColor().NoAlpha();
             TernaryArtifactsColor4 = $"#00{t}{t}FF".toByteColor().NoAlpha();
-
             TernaryArtifactsColor5 = $"#00F8F8{t}".toByteColor().NoAlpha();
             TernaryArtifactsColor6 = $"#00{t}F8F8".toByteColor().NoAlpha();
             TernaryArtifactsColor7 = $"#00F8{t}{t}".toByteColor().NoAlpha();
