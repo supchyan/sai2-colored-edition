@@ -1,30 +1,28 @@
-## 🎨Creating custom theme
-[Русская версия ↓](#создание-своей-темы)
-<br/><br/>
-Themes stores in `themes` folder as `.json` files. File name → Theme title.
+## 🎨Creating custom theme `en`
+Created themes stores in `themes` folder as `.json` files. File name → Theme title.
 <br/>
-To get started, I suggest to check out these examples:<br/>
-[exmaple cappuccino theme.json](https://github.com/supchyan/yum2-theme-toolkit/blob/main/themes/example%20cappuccino%20theme.json) & [exmaple retro theme.json](https://github.com/supchyan/yum2-theme-toolkit/blob/main/themes/example%20retro%20theme.json).
+To get started, I suggest to check out these examples:
+> ### [cappuccino-theme.json](https://github.com/supchyan/yum2-theme-toolkit/blob/main/themes/example-cappuccino-theme.json)
+> ### [retro-theme.json](https://github.com/supchyan/yum2-theme-toolkit/blob/main/themes/example-retro-theme.json)
+<br/>
 
 ### Important!
 ```json 
 All colors must be in `HEX` encoding in `RGB` order
 ```
->Example color: `#50DD60`.
+_Example color:_ `#50DD60`
 <br/>
 
-## 🎨Создание своей темы
-[English version ↑](#creating-custom-theme)
-<br/><br/>
-Темы храняться в директории `Themes` с расширением `.json`. Имя файла → Название темы.
+## 🎨Создание своей темы `ru`
+Созданные темы храняться в директории `themes` в виде `.json` файлов. Имя файла → Название темы.
 <br/>
-Для быстроты понимания принципов создания тем, рекомендую ознакомиться с этими примерами:<br/>
-[exmaple cappuccino theme.json](https://github.com/supchyan/yum2-theme-toolkit/blob/main/themes/example%20cappuccino%20theme.json) & [exmaple retro theme.json](https://github.com/supchyan/yum2-theme-toolkit/blob/main/themes/example%20retro%20theme.json).
+Для быстроты понимания принципов создания тем, рекомендую ознакомиться с этими примерами:
+> ### [cappuccino-theme.json](https://github.com/supchyan/yum2-theme-toolkit/blob/main/themes/example-cappuccino-theme.json)
+> ### [retro-theme.json](https://github.com/supchyan/yum2-theme-toolkit/blob/main/themes/example-retro-theme.json)
+<br/>
 
 ### Важно!
 ```json 
 Все цвета должны быть в `HEX` кодировке с порядком `RGB`
 ```
->Пример цвета: `#50DD60`.
-<br/>
-
+_Пример цвета:_ `#50DD60`
