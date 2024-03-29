@@ -79,7 +79,7 @@ namespace YumToolkit {
             // Reading tmp .exe:
             theme.binary = theme.ReadTmpFile(name.tmp);
 
-            // Painting color circle. It's too complicated, so I disabled it for now.
+            // Color picker. Little bit chunky, but not bad at all:
             theme.FixColorPicker(themeColor["Ternary"].NoAlpha(),saiAddress["ColorCircleFrom"], saiAddress["ColorCircleTo"]);
 
             #region PRIMARY COLOR
@@ -104,7 +104,6 @@ namespace YumToolkit {
                 saiAddress["ScaleAngleArrow"],
                 saiAddress["ColorSlidersArrows"],
                 saiAddress["ScaleAngleSliderFillLeft"],
-                // saiAddress["ScaleAngleSliderFillRight"],
             ];
             foreach(int n in PrimaryItems) {
                 theme.SetElementColor(themeColor["Primary"].NoAlpha(), n);

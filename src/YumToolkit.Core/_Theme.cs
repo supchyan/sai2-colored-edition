@@ -54,10 +54,8 @@ namespace YumToolkit.Core {
             }
             
         }
-        // TODO: Should fix color picker's circle, but doesn't. Thinking on better solution right now.. 
+        // TODO: Color picker has white outline. Thinking on better solution right now.. 
         public void FixColorPicker(byte[] to_color, int start_index, int end_index) {
-            string R = string.Empty, G = string.Empty, B = string.Empty; 
-            string r = string.Empty, g = string.Empty, b = string.Empty; 
             string hexLets = "ABCDEF", hexNums = "0123456789", hexAll = "0123456789ABCDEF";
             byte[] cirCol = [];
 
