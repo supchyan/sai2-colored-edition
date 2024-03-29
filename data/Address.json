@@ -83,5 +83,11 @@
     "ColorCircleFrom":"0x0038F030",
     "ColorCircleTo":"0x003AE315",
     "GlobalTopBar":"0x005352C0",
-    "GlobalTopBarInActive":"0x005352B8"
+    "GlobalTopBarInActive":"0x005352B8",
+    "FolderOverlayText":"0x000F0E86",
+    "FolderArrowOpened":"0x003703E8",
+    "ScaleAngleArrow":"0x00536D20",
+    "ColorSlidersArrows":"0x00536EB8",
+    "ScaleAngleSliderFillLeft":"0x00536C70",
+    "ScaleAngleSliderFillRight":"0x00536CC8"
 }

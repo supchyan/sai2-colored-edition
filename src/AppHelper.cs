@@ -100,7 +100,11 @@ namespace YumToolkit {
                 saiAddress["ScrollBarArrowLeft"],
                 saiAddress["ScrollBarArrowRight"],
                 saiAddress["ClosedListArrow"],
-                saiAddress["GlobalTopBar"]
+                saiAddress["GlobalTopBar"],
+                saiAddress["ScaleAngleArrow"],
+                saiAddress["ColorSlidersArrows"],
+                saiAddress["ScaleAngleSliderFillLeft"],
+                // saiAddress["ScaleAngleSliderFillRight"],
             ];
             foreach(int n in PrimaryItems) {
                 theme.SetElementColor(themeColor["Primary"].NoAlpha(), n);
@@ -156,7 +160,9 @@ namespace YumToolkit {
                 saiAddress["SlidersInActiveBackground"],
                 saiAddress["BookmarkBackgroundAndOutlinesSomewhere"],
                 saiAddress["RadioButtonsBackground"],
-                saiAddress["GlobalTopBarInActive"]
+                saiAddress["GlobalTopBarInActive"],
+                saiAddress["FolderArrowOpened"],
+                saiAddress["ScaleAngleSliderFillRight"],
             ];
             foreach(int n in SecondaryItems) {
                 theme.SetElementColor(themeColor["Secondary"].NoAlpha(), n);
@@ -264,6 +270,7 @@ namespace YumToolkit {
                 saiAddress["BrushesTabsText"],
                 saiAddress["BrushesCirclesText"],
                 saiAddress["ShitTextInWindows"],
+                saiAddress["FolderOverlayText"],
             ];
             foreach(int n in TextItems) {
                 theme.SetElementColor(themeColor["Text"].NoAlpha(), n);
@@ -278,12 +285,12 @@ namespace YumToolkit {
                 theme.SetElementColorComplicated(n, themeColor["Text"], saiAddress["GlobalSectionSrclibsFrom"], saiAddress["GlobalSectionSrclibsTo"]);
             }
 
-            byte[][] TextComplicatedItemsTextTrue = [
-                saiColorRGB["FolderOverlayText"],
-            ];
-            foreach(byte[] n in TextComplicatedItemsTextTrue) {
-                theme.SetElementColorComplicated(n, themeColor["Text"].NoAlpha(), saiAddress["GlobalSectionTextFrom"], saiAddress["GlobalSectionTextTo"],true);
-            }
+            // byte[][] TextComplicatedItemsTextTrue = [
+            //     saiColorRGB["FolderOverlayText"],
+            // ];
+            // foreach(byte[] n in TextComplicatedItemsTextTrue) {
+            //     theme.SetElementColorComplicated(n, themeColor["Text"].NoAlpha(), saiAddress["GlobalSectionTextFrom"], saiAddress["GlobalSectionTextTo"],true);
+            // }
             #endregion
 
             #region SELECTABLE PRIMARY COLOR

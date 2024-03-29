@@ -191,7 +191,6 @@
 |96.2|`multiple`|`0x003AE315`|Color circle end.|
 |97.1|`303030`|`0x005352C0`|Global Top Bar (where buttons minimize/maximize/close).|
 |97.2|`D0D0D0`|`0x005352B8`|Global Top Bar. [ inactive ]|
-
 |98.1|`F0F0E8`|`section .appskin`|Folder background.|
 |98.2|`E8E7E0`|`section .appskin`|Folder background. [ hovered ]|
 |98.3|`D3E9FF` `DCEDFF`|`section .appskin`|Folder background. [ focused ]|*focused means hold mouse button on it*|
@@ -203,7 +202,12 @@
 |101.1|`DCC0EA`|`section .appskin`|Folder inner outline selected. [ hovered ]|
 |101.2|`B5D8FA` `BADAFA`|`section .appskin`|Folder inner outline selected. [ focused ]|
 |102|`3386CC`|`section .appskin`|Folder service buttons selected. [ focused ]|
-|103|`6050FF`|`section .appskin`|Folder arrow [ hovered ]|
+|103|`6050FF`|`section .appskin`|Folder arrow. [ hovered ]|
 |104|`606060`|`section .appskin`|Folder arrow. [ closed ]|
-|105|`800060`|`section .text`|Folder overlay text. ( Normal, multiply and etc. stuff )|
-|106|`F5F5ED` `FAFAF2`|`section .appskin`|Folder behind background.|
+|105|`606060`|`0x003703E8`|Folder arrow. [ opened ]|
+|106|`800060`|`0x000F0E86`|Folder overlay text. ( Normal, multiply and etc. stuff )|
+|107|`F5F5ED` `FAFAF2`|`section .appskin`|Folder behind background.|
+|108|`000000`|`0x00536D20`|Scale&Angle arrow.|
+|109|`000000`|`0x00536EB8`|Color sliders arrows. (HSV / RGB / etc.)|
+|110.1|`808080`|`0x00536C70`|Scale & Angle slider fill [ left ]|
+|110.2|`808080`|`0x00536CC8`|Scale & Angle slider fill [ right ]|
