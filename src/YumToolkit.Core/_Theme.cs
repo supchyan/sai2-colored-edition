@@ -56,52 +56,114 @@ namespace YumToolkit.Core {
         }
         // TODO: Should fix color picker's circle, but doesn't. Thinking on better solution right now.. 
         public void FixColorPicker(byte[] to_color, int start_index, int end_index) {
-            string channel = string.Empty;
-            string chArr = "ABCDEF";
-            string numArr = "0123456789";
-            byte[] circleColor = [];
-            for(int ch = 0; ch < 6; ch++) {
-                for(int num = 0; num < 10; num++) {
-                    channel = $"{chArr[ch]}{numArr[num]}";
-                    circleColor = $"#00{channel}{channel}{channel}".toByteColor().NoAlpha();
-                    // Finds certain sequence position and moves on until the end
-                    int value = 1;
-                    // Find certain sequence position and move on until the end
-                    for(int index = start_index; index < end_index; index += value) {
-                        if(WrongSequence(binary, index, circleColor)) { continue; }
+            string R = string.Empty, G = string.Empty, B = string.Empty; 
+            string r = string.Empty, g = string.Empty, b = string.Empty; 
+            string hexLets = "ABCDEF", hexNums = "0123456789", hexAll = "0123456789ABCDEF";
+            byte[] cirCol = [];
+
+            // For colors like letter + num in each channel
+            foreach(var o in hexLets) {
+                foreach(var i in hexNums) {
+                    cirCol = $"#00{o}{i}{o}{i}{o}{i}".toByteColor().NoAlpha();
+                    for(int n = start_index; n < end_index; n++) {
+                        if(WrongSequence(binary, n, cirCol)) { continue; }
                         // Change color in certain sequence
-                        for(int col_index = 0; col_index  < to_color.Length; col_index++) { binary[index + col_index] = to_color[col_index]; }
+                        for(int col_index = 0; col_index  < to_color.Length; col_index++) { binary[n + col_index] = to_color[col_index]; }
                     }
                 }
             }
-            for(int ch = 0; ch < 6; ch++) {
-                for(int ch2 = 0; ch2 < 6; ch2++) {
-                    channel = $"{chArr[ch]}{chArr[ch2]}";
-                    circleColor = $"#00{channel}{channel}{channel}".toByteColor().NoAlpha();
-                    // Finds certain sequence position and moves on until the end
-                    int value = 1;
-                    // Find certain sequence position and move on until the end
-                    for(int index = start_index; index < end_index; index += value) {
-                        if(WrongSequence(binary, index, circleColor)) { continue; }
+
+            // For colors like letter + letter in each channel
+            foreach(var o in hexLets) {
+                foreach(var oo in hexLets) {
+                    cirCol = $"#00{o}{oo}{o}{oo}{o}{oo}".toByteColor().NoAlpha();
+                    for(int n = start_index; n < end_index; n++) {
+                        if(WrongSequence(binary, n, cirCol)) { continue; }
                         // Change color in certain sequence
-                        for(int col_index = 0; col_index  < to_color.Length; col_index++) { binary[index + col_index] = to_color[col_index]; }
+                        for(int col_index = 0; col_index  < to_color.Length; col_index++) { binary[n + col_index] = to_color[col_index]; }
                     }
                 }
             }
-            for(int num = 0; num < 10; num++) {
-                for(int ch = 0; ch < 6; ch++) {
-                    channel = $"{numArr[num]}{chArr[ch]}";
-                    circleColor = $"#00{channel}{channel}{channel}".toByteColor().NoAlpha();
-                    // Finds certain sequence position and moves on until the end
-                    int value = 1;
-                    // Find certain sequence position and move on until the end
-                    for(int index = start_index; index < end_index; index += value) {
-                        if(WrongSequence(binary, index, circleColor)) { continue; }
+
+            // For colors like num + letter in each channel
+            foreach(var i in hexNums) {
+                foreach(var o in hexLets) {
+                    cirCol = $"#00{i}{o}{i}{o}{i}{o}".toByteColor().NoAlpha();
+                    for(int n = start_index; n < end_index; n++) {
+                        if(WrongSequence(binary, n, cirCol)) { continue; }
                         // Change color in certain sequence
-                        for(int col_index = 0; col_index  < to_color.Length; col_index++) { binary[index + col_index] = to_color[col_index]; }
+                        for(int col_index = 0; col_index  < to_color.Length; col_index++) { binary[n + col_index] = to_color[col_index]; }
                     }
                 }
             }
+
+            // // CA -> F9 fixes
+
+            // // F9CAE2 - > F9F9CA
+            // for(int o = 2; o < hexLets.Length; o++) {
+            //     for(int i = 9; i < hexAll.Length; i++) {
+            //         cirCol = $"#00F9{hexLets[o]}{hexAll[i]}E2".toByteColor().NoAlpha();
+            //         for(int n = start_index; n < end_index; n++) {
+            //             if(WrongSequence(binary, n, cirCol)) { continue; }
+            //             // Change color in certain sequence
+            //             for(int col_index = 0; col_index  < to_color.Length; col_index++) { binary[n + col_index] = to_color[col_index]; }
+            //         }
+            //     }
+            // }
+            // for(int o = 2; o < hexLets.Length; o++) {
+            //     for(int i = 2; i < hexAll.Length; i++) {
+            //         cirCol = $"#00F9F9{hexLets[o]}{hexAll[i]}".toByteColor().NoAlpha();
+            //         for(int n = start_index; n < end_index; n++) {
+            //             if(WrongSequence(binary, n, cirCol)) { continue; }
+            //             // Change color in certain sequence
+            //             for(int col_index = 0; col_index  < to_color.Length; col_index++) { binary[n + col_index] = to_color[col_index]; }
+            //         }
+            //     }
+            // }
+
+            // // F9F9CA - > CAF9E2
+            // for(int o = 2; o < hexLets.Length; o++) {
+            //     for(int i = 0; i < hexAll.Length; i++) {
+            //         cirCol = $"#00{o}{i}F9CA".toByteColor().NoAlpha();
+            //         for(int n = start_index; n < end_index; n++) {
+            //             if(WrongSequence(binary, n, cirCol)) { continue; }
+            //             // Change color in certain sequence
+            //             for(int col_index = 0; col_index  < to_color.Length; col_index++) { binary[n + col_index] = to_color[col_index]; }
+            //         }
+            //     }
+            // }
+            // for(int o = 2; o < hexLets.Length; o++) {
+            //     for(int i = 2; i < hexAll.Length; i++) {
+            //         cirCol = $"#00CAF9{hexLets[o]}{hexAll[i]}".toByteColor().NoAlpha();
+            //         for(int n = start_index; n < end_index; n++) {
+            //             if(WrongSequence(binary, n, cirCol)) { continue; }
+            //             // Change color in certain sequence
+            //             for(int col_index = 0; col_index  < to_color.Length; col_index++) { binary[n + col_index] = to_color[col_index]; }
+            //         }
+            //     }
+            // }
+
+            // // CAF9E2 -> CACAF9
+            // for(int o = 2; o < hexLets.Length; o++) {
+            //     for(int i = 0; i < hexAll.Length; i++) {
+            //         cirCol = $"#00{o}{i}F9E2".toByteColor().NoAlpha();
+            //         for(int n = start_index; n < end_index; n++) {
+            //             if(WrongSequence(binary, n, cirCol)) { continue; }
+            //             // Change color in certain sequence
+            //             for(int col_index = 0; col_index  < to_color.Length; col_index++) { binary[n + col_index] = to_color[col_index]; }
+            //         }
+            //     }
+            // }
+            // for(int o = 4; o < hexLets.Length; o++) {
+            //     for(int i = 2; i < hexAll.Length; i++) {
+            //         cirCol = $"#00CACA{hexLets[o]}{hexAll[i]}".toByteColor().NoAlpha();
+            //         for(int n = start_index; n < end_index; n++) {
+            //             if(WrongSequence(binary, n, cirCol)) { continue; }
+            //             // Change color in certain sequence
+            //             for(int col_index = 0; col_index  < to_color.Length; col_index++) { binary[n + col_index] = to_color[col_index]; }
+            //         }
+            //     }
+            // }
         }
         /// <summary>
         /// Saves current theme changes.

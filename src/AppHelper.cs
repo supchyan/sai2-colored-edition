@@ -80,7 +80,7 @@ namespace YumToolkit {
             theme.binary = theme.ReadTmpFile(name.tmp);
 
             // Painting color circle. It's too complicated, so I disabled it for now.
-            // theme.FixColorPicker(themeColor["Ternary"].NoAlpha(),saiAddress["GlobalSectionAppskinFrom"], saiAddress["GlobalSectionAppskinTo"]);
+            theme.FixColorPicker(themeColor["Ternary"].NoAlpha(),saiAddress["ColorCircleFrom"], saiAddress["ColorCircleTo"]);
 
             #region PRIMARY COLOR
             int[] PrimaryItems = [
@@ -338,12 +338,17 @@ namespace YumToolkit {
                 saiColorRGB["ServiceButtonsBackgroundAndOutlineFocused"],
                 saiColorRGB["BrushesBackgroundGrabbed"],
                 saiColorRGB["BrushesOutlineGrabbed"],
-                saiColorRGB["SeviceButotnsBackground2"],
-                saiColorRGB["SeviceButotnsOutline2"],
-                saiColorRGB["SeviceButotnsOutline2Fix1"],
-                saiColorRGB["SeviceButotnsOutline2Fix2"],
-                saiColorRGB["SeviceButotnsOutline2Fix3"],
-                saiColorRGB["SeviceButotnsOutline2Fix4"],
+                saiColorRGB["ServiceButtonsBackground2"],
+                saiColorRGB["ServiceButtonsOutline2"],
+                saiColorRGB["ServiceButtonsOutline2Fix1"],
+                saiColorRGB["ServiceButtonsOutline2Fix2"],
+                saiColorRGB["ServiceButtonsOutline2Fix3"],
+                saiColorRGB["ServiceButtonsOutline2Fix4"],
+                saiColorRGB["ServiceButtonsBackground3"],
+                saiColorRGB["ServiceButtonsOutline3"],
+                saiColorRGB["ServiceButtonsOutline3Fix1"],
+                saiColorRGB["ServiceButtonsOutline3Fix2"],
+                saiColorRGB["ServiceButtonsOutline3Fix3"],
             ];
             foreach(byte[] n in SelectablePrimaryRGBComplicatedItemsSrclibsTrue) {
                 theme.SetElementColorComplicated(n, themeColor["SelectablePrimary"].NoAlpha(), saiAddress["GlobalSectionSrclibsFrom"], saiAddress["GlobalSectionSrclibsTo"], true);

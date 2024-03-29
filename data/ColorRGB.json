@@ -109,10 +109,15 @@
     "ServiceButtonsBackgroundAndOutlineFocused":"#00E3E3FF",
     "BrushesBackgroundGrabbed":"#00DBEFFF",
     "BrushesOutlineGrabbed":"#00C4E6FF",
-    "SeviceButotnsBackground2":"#00E5EDF5",
-    "SeviceButotnsOutline2":"#00E0EAF3",
-    "SeviceButotnsOutline2Fix1":"#00D1E0EE",
-    "SeviceButotnsOutline2Fix2":"#00E1E9F0",
-    "SeviceButotnsOutline2Fix3":"#00D6E3F0",
-    "SeviceButotnsOutline2Fix4":"#00DBE7F2"
+    "ServiceButtonsBackground2":"#00E5EDF5",
+    "ServiceButtonsOutline2":"#00E0EAF3",
+    "ServiceButtonsOutline2Fix1":"#00D1E0EE",
+    "ServiceButtonsOutline2Fix2":"#00E1E9F0",
+    "ServiceButtonsOutline2Fix3":"#00D6E3F0",
+    "ServiceButtonsOutline2Fix4":"#00DBE7F2",
+    "ServiceButtonsBackground3":"#00B5CAFF",
+    "ServiceButtonsOutline3":"#005F87FF",
+    "ServiceButtonsOutline3Fix1":"#007196FF",
+    "ServiceButtonsOutline3Fix2":"#008DABFF",
+    "ServiceButtonsOutline3Fix3":"#00CBDBFF"
 }

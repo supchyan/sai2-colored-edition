@@ -187,3 +187,5 @@
 |95.3|`E1E9F0`|`section .srclibs`|Service buttons outline 2 fix.|
 |95.4|`D6E3F0`|`section .srclibs`|Service buttons outline 2 fix.|
 |95.5|`DBE7F2`|`section .srclibs`|Service buttons outline 2 fix.|
+|96.1|`multiple`|`0x0038F030`|Color circle begin.|
+|96.2|`multiple`|`0x003AE315`|Color circle end.|

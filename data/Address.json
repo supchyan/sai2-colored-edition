@@ -79,5 +79,7 @@
     "ScrollBarArrowDown":"0x005350C0",
     "ScrollBarArrowLeft":"0x00534F28",
     "ScrollBarArrowRight":"0x00534F80",
-    "ClosedListArrow":"0x005366C0"
+    "ClosedListArrow":"0x005366C0",
+    "ColorCircleFrom":"0x0038F030",
+    "ColorCircleTo":"0x003AE315"
 }
