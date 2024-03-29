@@ -172,3 +172,12 @@
 |87|`FF FF FF`|`0x000F9B60`|Stabilizer minimized background.|
 |88|`FF FF FF`|`0x003715E0`|That buttons in layers fill. (hide / selected or what is this...)|
 |90|`FF FF FF`|`0x005366C0`|Closed list arrow.|
+|91.1|`D3 D3 FF`|`section .srclibs`|Service buttons outline fix. [ hovered ]|
+|91.2|`B8 B8 FF`|`section .srclibs`|Service buttons outline fix. [ hovered ]|
+|91.3|`8F 8F FF`|`section .srclibs`|Service buttons outline. [ hovered ]|
+|91.4|`8A 8A FF`|`section .srclibs`|Service buttons outline. [ focused ]|
+|91.5|`BB BB FF`|`section .srclibs`|Service buttons outline fix. [ focused ]|
+|91.6|`98 98 FF`|`section .srclibs`|Service buttons outline fix. [ focused ]|
+|91.7|`E3 E3 FF`|`section .srclibs`|Service buttons outline fix. Service buttons background [ focused ]|
+|92|`DB EF FF`|`section .srclibs`|Brushes background. [ grabbed ]|
+|93|`C4 E6 FF`|`section .srclibs`|Brushes outline. [ grabbed ]|

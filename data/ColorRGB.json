@@ -99,5 +99,14 @@
     "WhatIsThisColor2": "#00ACACAC",
     "InActiveBurgerButtonsOutline": "#00C0C0C0",
     "InActiveBurgerButtonsOutlineFix1": "#00C9C9C9",
-    "InActiveBurgerButtonsOutlineFix2": "#00CECECE"
+    "InActiveBurgerButtonsOutlineFix2": "#00CECECE",
+    "ServiceButtonsOutline":"#00D3D3FF",
+    "ServiceButtonsOutlineFix1":"#00B8B8FF",
+    "ServiceButtonsOutlineFix2":"#008F8FFF",
+    "ServiceButtonsOutlineFocused":"#008A8AFF",
+    "ServiceButtonsOutlineFocusedFix1":"#00BBBBFF",
+    "ServiceButtonsOutlineFocusedFix2":"#009898FF",
+    "ServiceButtonsBackgroundAndOutlineFocused":"#00E3E3FF",
+    "BrushesBackgroundGrabbed":"#00DBEFFF",
+    "BrushesOutlineGrabbed":"#00C4E6FF"
 }

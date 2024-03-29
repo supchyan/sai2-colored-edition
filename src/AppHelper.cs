@@ -294,6 +294,7 @@ namespace YumToolkit {
                 saiAddress["ContextMenuRadioButtonsEmpty"],
                 saiAddress["ContextMenuRadioButtonsHovered"],
                 saiAddress["saiFileInMenuBelowText"],
+                saiAddress["ButtonsInLayersFill"],
             ];
             foreach(int n in SelectablePrimaryItems) {
                 theme.SetElementColor(themeColor["SelectablePrimary"].NoAlpha(), n);
@@ -328,6 +329,15 @@ namespace YumToolkit {
                 saiColorRGB["FileMenuListElementsOutlineDefault"],
                 saiColorRGB["FileMenuTreeTextFocused"],
                 saiColorRGB["BlueSelectableElements"],
+                saiColorRGB["ServiceButtonsOutline"],
+                saiColorRGB["ServiceButtonsOutlineFix1"],
+                saiColorRGB["ServiceButtonsOutlineFix2"],
+                saiColorRGB["ServiceButtonsOutlineFocused"],
+                saiColorRGB["ServiceButtonsOutlineFocusedFix1"],
+                saiColorRGB["ServiceButtonsOutlineFocusedFix2"],
+                saiColorRGB["ServiceButtonsBackgroundAndOutlineFocused"],
+                saiColorRGB["BrushesBackgroundGrabbed"],
+                saiColorRGB["BrushesOutlineGrabbed"],
             ];
             foreach(byte[] n in SelectablePrimaryRGBComplicatedItemsSrclibsTrue) {
                 theme.SetElementColorComplicated(n, themeColor["SelectablePrimary"].NoAlpha(), saiAddress["GlobalSectionSrclibsFrom"], saiAddress["GlobalSectionSrclibsTo"], true);
