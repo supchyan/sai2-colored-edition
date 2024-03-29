@@ -338,6 +338,12 @@ namespace YumToolkit {
                 saiColorRGB["ServiceButtonsBackgroundAndOutlineFocused"],
                 saiColorRGB["BrushesBackgroundGrabbed"],
                 saiColorRGB["BrushesOutlineGrabbed"],
+                saiColorRGB["SeviceButotnsBackground2"],
+                saiColorRGB["SeviceButotnsOutline2"],
+                saiColorRGB["SeviceButotnsOutline2Fix1"],
+                saiColorRGB["SeviceButotnsOutline2Fix2"],
+                saiColorRGB["SeviceButotnsOutline2Fix3"],
+                saiColorRGB["SeviceButotnsOutline2Fix4"],
             ];
             foreach(byte[] n in SelectablePrimaryRGBComplicatedItemsSrclibsTrue) {
                 theme.SetElementColorComplicated(n, themeColor["SelectablePrimary"].NoAlpha(), saiAddress["GlobalSectionSrclibsFrom"], saiAddress["GlobalSectionSrclibsTo"], true);
