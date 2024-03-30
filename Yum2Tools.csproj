@@ -12,6 +12,7 @@
         <FileVersion>0.9.1</FileVersion>
         <Authors>supchyan</Authors>
         <Product>Yum2Tools</Product>
+        <JsonSerializerIsReflectionEnabledByDefault>true</JsonSerializerIsReflectionEnabledByDefault>
     </PropertyGroup>
 
     <ItemGroup>
