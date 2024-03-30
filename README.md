@@ -3,7 +3,7 @@
 </div>
 <br />
 
-### <p align=center>`themes toolkit for SAI 2 64bit patch ver. 2024.02.22` `*`</p>
+# <p align=center>SAI 2 - Colored Edition</p>
 <div align="center" style="padding-left: 100px;">
 <table style="width:100%">
   <th>
@@ -38,62 +38,72 @@
 </div>
 
 ```json
-  * Still in pre-release: ~93% is ready!
+  * Still in pre-release: ~94% is ready!
 ```
 ### <div align="center">[English](#introduction) & [Русский](#вступление)</div>
 
 ## 🌔Introduction:
-``` 
-* I'm almost sure, this toolkit won't work with other sai versions,
-  so keep it in mind.
-
-* If you know .exe principles, you can try
-  to adapt this tools for any sai patches.
-  Major chance, patch differences won't be a big problem,
-  so sequences seeking shouldn't be complicated.
-
-* SAI 2 is a license software, so you need an .slc file
-  to run it properly. ( Rock and stone )
-  I don't care, how do you plan to receive a license, I just made a toolkit.
-```
+This toolkit is based on `sai2 64bit 2024.02.22`. It's just an **original sai2**, which supports this theme changer.</br>
+Yeah, this is license sai2 version, but I screwed theme swap to it.</br></br>
+Thats it, good luck to install! ^^</br>
 <br/>
 
 ## 🌓How to install:
-Just unzip this application's build in root directory with `sai2.exe`. Launch and select theme to apply.<br/>
-**To create custom themes, check this out ->** [Themes](https://github.com/supchyan/yum2-theme-toolkit/tree/main/themes/)</br>
-**Fully supported sai2 version** -> [Other repo](https://github.com/supchyan/sai2-colored-edition)
-<br/><br/>
+Downloaded build contains: `sai2.exe` и `Yum2Tools.exe`, where<br/>
+`sai2.exe` - your sai2;<br/>
+`Yum2Tools.exe` - toolkit to install themes.<br/><br/>
+
+All downloaded / created themes located in `themes` directory.</br>
+Check [this](https://github.com/supchyan/yum2-theme-toolkit/tree/main/themes/) topic, if you interested in creating your custom theme.</br></br>
+
+To remove restricted mode on sai's startup, **you must have license file**.</br>
+If you already have license, or know, how to _receive it_,
+sai's activation is the same as on other patches.</br></br>
+
+So, to change theme, just launch `Yum2Tools.exe` and select theme, you want to install, then wait 'till the process end.</br>
+Close the toolkit and launch brand new colored `sai2.exe`.</br></br>
+
+_P.S. After theme installation, directory will meet `sai2.old` file, which is backup version of the **original theme**,</br>
+so if you want to restore theme to original one or recolor sai again - keep this backup file.</br></br>_
+
+If you faced any problems on any of steps, feel free to contact me on [discord server](https://discord.gg/dGF8p9UGyM).</br>
+I'll help all I can.
 
 ## 🌒Screenshots:
-![image](https://github.com/supchyan/yum2-theme-toolkit/assets/123704468/226731c3-3ccd-4d70-8af4-90ddf3ecedde)
-![image](https://github.com/supchyan/yum2-theme-toolkit/assets/123704468/b443a2b5-2413-4ddf-9ba4-8a4f9bc6e9ce)
+![image](https://github.com/supchyan/yum2-theme-toolkit/assets/123704468/39a873f4-60e5-4d8b-9af6-32dfc66da814)
+![image](https://github.com/supchyan/yum2-theme-toolkit/assets/123704468/ddd822f6-9f12-4b65-a8a5-d55a4ae71f65)
 <br/>
 🐳<br/><br/><br/>
 
 ## 🌔Вступление:
-``` 
-* Я почти уверен, что этот набор инструментов не будет работать на других версиях sai,
-  так что помните об этом.
-
-* Если вы знаете принцип работы .exe файлов, то можете сами попробовать
-  адаптировать эти инструменты под другие патчи sai.
-  Велика вероятность, что изменения в патчах некритичны,
-  так что найти нужные байты вполне реально.
-
-* SAI 2 - это лицензионный продукт, так что вам нужен .slc файл
-  для корректной работы программы. ( Камень я не дам )
-  Мне всё равно, как вы получили лицензию, я просто сделал этот набор инструментов.
-```
-<br/>
+Этот набор инструментов создан на безе sai2 64bit 2024.02.22.</br>
+По большей части, это просто **оригинальная sai2**, которая поддерживает мой набор инструментов.</br>
+Да, это лицензионная версия sai2, к которой я прикрутил поддержку кстомных тем.</br>
+Вот и все. Удачного использования! ^^</br>
 
 ## 🌓Установка и настройка:
-Просто распакуйте содержимое архива с билдом этого приложения в коренную папку с `sai2.exe`. Запустите программу и выберите тему, которую хотите установить.<br/>
-**Для создания собственных тем см. ->** [Темы](https://github.com/supchyan/yum2-theme-toolkit/tree/main/themes/)</br>
-**Версия sai2 с полной поддержкой этой утилиты** -> [Другой репозиторий](https://github.com/supchyan/sai2-colored-edition)
-<br/><br/>
+Скаченный вами архив содержит два исполняемых файла: `sai2.exe` и `Yum2Tools.exe`, где<br/>
+`sai2.exe` - сама саи;<br/>
+`Yum2Tools.exe` - инструмент для установки нужной вам темы.<br/><br/>
+
+В папке `themes` хранятся все созданные или скаченные вами темы.</br>
+Ознакомьтесь с [этой](https://github.com/supchyan/yum2-theme-toolkit/tree/main/themes/) статьей, чтобы узнать больше про создание кастомных тем.</br></br>
+
+Для полноценной работы sai, **вам необходимо иметь файл лицензии**.</br>
+Если он у вас уже есть, или вы знаете, как его _получить_,
+то способ активации программы такой же, как и на любой другой версии sai.</br></br>
+
+Итак, для смены темы, запустите `Yum2Tools.exe` и просто выберите тему, которую хотите установить, после чего ждите завершения операции.</br>
+Закрывайте утилиту и запускайте `sai2.exe` уже в новом облике.</br></br>
+
+_P.S. После установки темы, в папке с программой появится файл `sai2.old`, который является резервной копией **оригинальной темы**,</br>
+так что прошу его сохранить в случае, если захотите убрать установленную тему или поставить другую.</br></br>_
+
+Если вы столкнулись с проблемой на любом из этапов, можете связаться со мной на моем [discord сервере](https://discord.gg/dGF8p9UGyM).</br>
+Буду рад помочь всем, чем смогу. Так же, будет здорово, если вы поделитесь своим опытом использования.
 
 ## 🌒Скриншоты:
-![image](https://github.com/supchyan/yum2-theme-toolkit/assets/123704468/8ddab385-5c54-42f9-9cab-0b3ddeb83351)
-![image](https://github.com/supchyan/yum2-theme-toolkit/assets/123704468/d45caee3-faae-4505-b075-6f970a26eb46)
+![image](https://github.com/supchyan/yum2-theme-toolkit/assets/123704468/89aaaefb-6939-4e3a-97f3-ee206236bfe1)
+![image](https://github.com/supchyan/yum2-theme-toolkit/assets/123704468/452487ac-cd6e-4165-b34d-d4e667e2f2d5)
 <br/>
 🐳
