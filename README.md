@@ -60,7 +60,8 @@
 
 ## 🌓How to install:
 Just unzip this application's build in root directory with `sai2.exe`. Launch and select theme to apply.<br/>
-**To create custom themes, check this out ->** [Themes](https://github.com/supchyan/yum2-theme-toolkit/tree/main/themes/).
+**To create custom themes, check this out ->** [Themes](https://github.com/supchyan/yum2-theme-toolkit/tree/main/themes/)</br>
+**Fully supported sai2 version** -> [Other repo](https://github.com/supchyan/sai2-colored-edition)
 <br/><br/>
 
 ## 🌒Screenshots:
@@ -87,7 +88,8 @@ Just unzip this application's build in root directory with `sai2.exe`. Launch an
 
 ## 🌓Установка и настройка:
 Просто распакуйте содержимое архива с билдом этого приложения в коренную папку с `sai2.exe`. Запустите программу и выберите тему, которую хотите установить.<br/>
-**Для создания собственных тем см. ->** [Темы](https://github.com/supchyan/yum2-theme-toolkit/tree/main/themes/).
+**Для создания собственных тем см. ->** [Темы](https://github.com/supchyan/yum2-theme-toolkit/tree/main/themes/)</br>
+**Версия sai2 с полной поддержкой этой утилиты** -> [Другой репозиторий](https://github.com/supchyan/sai2-colored-edition)
 <br/><br/>
 
 ## 🌒Скриншоты:
