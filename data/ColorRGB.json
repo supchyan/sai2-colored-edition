@@ -138,5 +138,10 @@
     "FolderArrowHovered":"#006050FF",
     "FolderArrowClosed":"#00606060",
     "FolderBehindBackground1":"#00F5F5ED",
-    "FolderBehindBackground2":"#00FAFAF2"
+    "FolderBehindBackground2":"#00FAFAF2",
+    "AnotherSelectableOutlineFocused":"#005488D7",
+    "AnotherSelectableOutlineFocusedFix1":"#006E9CE0",
+    "AnotherSelectableOutlineFocusedFix2":"#00B6CBEA",
+    "AnotherSelectableInnerOutlineFocused":"#00D9E8F8",
+    "AnotherSelectableInnerOutlineFocusedFix":"#00B6CDED"
 }

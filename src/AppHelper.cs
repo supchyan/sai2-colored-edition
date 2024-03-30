@@ -104,6 +104,9 @@ namespace YumToolkit {
                 saiAddress["ScaleAngleArrow"],
                 saiAddress["ColorSlidersArrows"],
                 saiAddress["ScaleAngleSliderFillLeft"],
+                saiAddress["GreyNoteText"],
+                saiAddress["SettingsListBackground"],
+                saiAddress["RadioButtonsBackgroundActive"],
             ];
             foreach(int n in PrimaryItems) {
                 theme.SetElementColor(themeColor["Primary"].NoAlpha(), n);
@@ -158,10 +161,16 @@ namespace YumToolkit {
                 saiAddress["ContextMenu"],
                 saiAddress["SlidersInActiveBackground"],
                 saiAddress["BookmarkBackgroundAndOutlinesSomewhere"],
-                saiAddress["RadioButtonsBackground"],
                 saiAddress["GlobalTopBarInActive"],
                 saiAddress["FolderArrowOpened"],
                 saiAddress["ScaleAngleSliderFillRight"],
+                saiAddress["TopBarTextFocused"],
+                saiAddress["ContextMenuTextFocused"],
+                saiAddress["SomeMinimizedListsBackground"],
+                saiAddress["CheckBoxesBackground"],
+                saiAddress["StabilizerBackground"],
+                saiAddress["RadioButtonsBackground"],
+                saiAddress["RadioButtonsBackgroundHovered"],
             ];
             foreach(int n in SecondaryItems) {
                 theme.SetElementColor(themeColor["Secondary"].NoAlpha(), n);
@@ -215,6 +224,8 @@ namespace YumToolkit {
                 saiAddress["TabsResizeGrabberVertical"],
                 saiAddress["ScaleAngleSliders"],
                 saiAddress["ResizeWindowGrabber"],
+                saiAddress["ContextMenuListBackground"],
+                saiAddress["ContextMenuListSeparatorBackground"],
             ];
             foreach(int n in TernaryItems) {
                 theme.SetElementColor(themeColor["Ternary"].NoAlpha(), n);
@@ -270,6 +281,8 @@ namespace YumToolkit {
                 saiAddress["BrushesCirclesText"],
                 saiAddress["ShitTextInWindows"],
                 saiAddress["FolderOverlayText"],
+                saiAddress["BrushCircles"],
+                saiAddress["WindowTitles"],
             ];
             foreach(int n in TextItems) {
                 theme.SetElementColor(themeColor["Text"].NoAlpha(), n);
@@ -306,6 +319,7 @@ namespace YumToolkit {
                 saiAddress["ContextMenuRadioButtonsHovered"],
                 saiAddress["saiFileInMenuBelowText"],
                 saiAddress["ButtonsInLayersFill"],
+                saiAddress["BlueNoteText"],
             ];
             foreach(int n in SelectablePrimaryItems) {
                 theme.SetElementColor(themeColor["SelectablePrimary"].NoAlpha(), n);
@@ -360,6 +374,11 @@ namespace YumToolkit {
                 saiColorRGB["ServiceButtonsOutline3Fix1"],
                 saiColorRGB["ServiceButtonsOutline3Fix2"],
                 saiColorRGB["ServiceButtonsOutline3Fix3"],
+                saiColorRGB["AnotherSelectableOutlineFocused"],
+                saiColorRGB["AnotherSelectableOutlineFocusedFix1"],
+                saiColorRGB["AnotherSelectableOutlineFocusedFix2"],
+                saiColorRGB["AnotherSelectableInnerOutlineFocused"],
+                saiColorRGB["AnotherSelectableInnerOutlineFocusedFix"],
             ];
             foreach(byte[] n in SelectablePrimaryRGBComplicatedItemsSrclibsTrue) {
                 theme.SetElementColorComplicated(n, themeColor["SelectablePrimary"].NoAlpha(), saiAddress["GlobalSectionSrclibsFrom"], saiAddress["GlobalSectionSrclibsTo"], true);
@@ -447,6 +466,7 @@ namespace YumToolkit {
         }
         void RemoveTheme() {
             if(!file.IsOldFileExists()) { return; }
+            if(!file.IsOriginalFileExists()) { return; }
             if(file.IsFileBusy()) { return; }
 
             console.ShowWaitMessage();

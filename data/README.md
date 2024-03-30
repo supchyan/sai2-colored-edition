@@ -40,7 +40,9 @@
 |23.1| `FFFFFF`|`0x00535568`|Top left buttons. [ minimize ]|
 |23.2| `FFFFFF`|`0x00535590`|Top left buttons. [ maximize ]|
 |23.3| `FFFFFF`|`0x005355E0`|Top left buttons. [ close ]|
-|24| `FFFFFF`|`0x0053644C`|Radio Buttons background.|
+|24.1| `FFFFFF`|`0x00536498`|Radio Buttons background.|
+|24.2| `FFFFFF`|`0x00536514`|Radio Buttons background. [ hovered ]|
+|24.3| `FFFFFF`|`0x00536590`|Radio Buttons background. [ active ]|
 |25.1| `000000`|`0x00370A40`|File menu text. [ in lists ]|
 |25.2| `000000`|`0x00370B30`|File menu text. [ in tiles ]|
 |26| `000000`|`0x00370760`|Brushes text.|
@@ -211,3 +213,17 @@
 |109|`000000`|`0x00536EB8`|Color sliders arrows. (HSV / RGB / etc.)|
 |110.1|`808080`|`0x00536C70`|Scale & Angle slider fill [ left ]|
 |110.2|`808080`|`0x00536CC8`|Scale & Angle slider fill [ right ]|
+|111|`709090`|`0x000DE017`|Grey note text in settings and etc. ("This mode doesn't support WinTab driver..." and more on)|
+|112|`444488`|0x000DDF30|Blue note text in settings and etc. ("Coodrdinate Control Mode...")|
+|113|`000000`|0x000E81AD|Brush circles.|
+|114|`FFFFFF`|`0x0014C569`|Settings left side background.|
+|115|`FFFFFF`|`0x001F05BA`|Some Minimized lists background. Stablizier in the same category, but has unique address is `87`.|
+|116.1|`FFFFFF`|`0x001ECC89`|Context menu lists background.|
+|116.2|`FFFFFF`|`0x001ECC23`|Context menu lists separator background fix.|
+|117|`FFFFFF`|`0x001B1D49`|Window titles.|
+|118|`FFFFFF`|`0x001C4481`|Check boxes background.|
+|119.1|`5488D7`|`section .srclibs`|Another selectable outline. [ focused ]|
+|119.2|`6E9CE0`|`section .srclibs`|Another selectable outline fix 1. [ focused ]|
+|119.3|`B6CBEA`|`section .srclibs`|Another selectable outline fix 2. [ focused ]|
+|119.4|`D9E8F8`|`section .srclibs`|Another selectable inner outline. [ focused ]|
+|119.5|`B6CDED`|`section .srclibs`|Another selectable inner outline fix. [ focused ]|

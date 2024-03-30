@@ -32,7 +32,9 @@
     "MinimizeApplicationIcon": "0x00535568",
     "MaximizeApplicationIcon": "0x00535590",
     "CloseApplicationIcon": "0x005355E0",
-    "RadioButtonsBackground": "0x0053644C",
+    "RadioButtonsBackground": "0x00536498",
+    "RadioButtonsBackgroundHovered":"0x00536514",
+    "RadioButtonsBackgroundActive":"0x00536590",
     "FileMenuScrollableText": "0x00370A40",
     "FileMenuTilesText": "0x00370B30",
     "BrushesText": "0x00370760",
@@ -89,5 +91,14 @@
     "ScaleAngleArrow":"0x00536D20",
     "ColorSlidersArrows":"0x00536EB8",
     "ScaleAngleSliderFillLeft":"0x00536C70",
-    "ScaleAngleSliderFillRight":"0x00536CC8"
+    "ScaleAngleSliderFillRight":"0x00536CC8",
+    "GreyNoteText":"0x000DE017",
+    "BlueNoteText":"0x000DDF30",
+    "BrushCircles":"0x000E81AD",
+    "SettingsListBackground":"0x0014C569",
+    "SomeMinimizedListsBackground":"0x001F05BA",
+    "ContextMenuListBackground":"0x001ECC89",
+    "ContextMenuListSeparatorBackground":"0x001ECC23",
+    "WindowTitles":"0x001B1D49",
+    "CheckBoxesBackground":"0x001C4481"
 }
