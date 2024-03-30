@@ -23,11 +23,14 @@ namespace YumToolkit.Core.UI {
             WriteLine(msg, color);
             Console.ReadKey();
         }
+        public void ShowWaitMessage() {
+            console.WriteLine(message.OperationIsProcessing, ConsoleColor.DarkYellow);
+        }
         public void CloseConsole() {
             Environment.Exit(0);
         }
         public _Console() {
-            if(!Directory.Exists(path.ThemesFolder)) { SendMessage(serviceMessage.ThemeFolderIsNotExist, ConsoleColor.DarkRed); CloseConsole(); }
+            if(!Directory.Exists(path.ThemesFolder)) { SendMessage(message.ThemeFolderIsNotExist, ConsoleColor.DarkRed); CloseConsole(); }
         }
     }
 }

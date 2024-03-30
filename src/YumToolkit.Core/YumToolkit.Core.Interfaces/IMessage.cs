@@ -1,5 +1,5 @@
 namespace YumToolkit.Core.Interfaces {
-    interface IServiceMessage {
+    interface IMessage {
         string ExitMessage { get; }
         string ThemeFolderIsNotExist { get; }
         string OldFileIsNotExist { get; }
@@ -8,5 +8,6 @@ namespace YumToolkit.Core.Interfaces {
         string DefaultThemeHasBeenRestored { get; }
         string ThemeHasBeenApplied { get; }
         string OriginalFileIsBusy { get; }
+        string OperationIsProcessing { get; }
     }
 }

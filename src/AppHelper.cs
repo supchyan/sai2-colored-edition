@@ -57,7 +57,8 @@ namespace YumToolkit {
                 // This won't delete sai2.old.exe! Just cloning it to original one:
                 file.ReplaceOriginalFile();
             }
-            
+
+            console.ShowWaitMessage();
 
             // Getting theme vaules:
             themeColor = JsonSerializer.Deserialize<Dictionary<string,string>>(File.ReadAllText($"{consoleDrawing.ThemesList[consoleDrawing.Choice]}"))?.ConvertToByteColorDictionary();
@@ -449,11 +450,13 @@ namespace YumToolkit {
             if(!file.IsOldFileExists()) { return; }
             if(file.IsFileBusy()) { return; }
 
+            console.ShowWaitMessage();
+
             File.Delete(name.original);
             file.ReplaceOriginalFile();
             file.DeleteOldFile();
 
-            console.SendMessage(serviceMessage.DefaultThemeHasBeenRestored, ConsoleColor.DarkGreen);
+            console.SendMessage(message.DefaultThemeHasBeenRestored, ConsoleColor.DarkGreen);
         }
         static AppHelper() {
             appHelper = new AppHelper { };

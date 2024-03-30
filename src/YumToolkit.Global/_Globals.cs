@@ -7,7 +7,7 @@ namespace YumToolkit.Global {
         public static _Name name = new();
         public static _Path path = new();
         public static _ColorRGB colorRGB = new();
-        public static _ServiceMessage serviceMessage = new();
+        public static _Message message = new();
         public static _Console console = new();
         public static _ConsoleAnimator consoleAnimator = new();
         public static _ConsoleDrawing consoleDrawing = new();

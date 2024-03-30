@@ -6,6 +6,7 @@ namespace YumToolkit.Core.UI {
     class _ConsoleAnimator : _Globals, IConsoleAnimator {
         public string[] Stick { get; }
         public string[] Emote { get; }
+        public string[] SinWave { get; }
         public void SetFrame(string frame, bool safe_drawing, Vector2 sprite_pos, int delay) {
             if(safe_drawing) {
                 Console.SetCursorPosition((int)sprite_pos.X, (int)sprite_pos.Y);
@@ -16,6 +17,7 @@ namespace YumToolkit.Core.UI {
         public _ConsoleAnimator() {
             Stick = [ "\\","|","/","-" ];
             Emote = [ "<.<  ","<.<  ","-.-  "," -.- ","  -.-","  >.>","  >.>","  -.-"," -.- ","-.-  " ];
+            SinWave = [@"_/‾\_/‾\_/‾\_/‾\_",@"/‾\_/‾\_/‾\_/‾\_/",@"‾\_/‾\_/‾\_/‾\_/‾",@"\_/‾\_/‾\_/‾\_/‾\"];
         }
     }
 }

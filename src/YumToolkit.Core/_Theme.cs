@@ -7,7 +7,7 @@ namespace YumToolkit.Core {
             return File.ReadAllBytes(tmp_file_name);
         }
         public void SetElementColor(byte[] to_color, int color_address) {
-            if(!File.Exists(name.tmp)) { console.SendMessage(serviceMessage.TmpFileIsNotExist, ConsoleColor.DarkRed); return; } 
+            if(!File.Exists(name.tmp)) { console.SendMessage(message.TmpFileIsNotExist, ConsoleColor.DarkRed); return; } 
             // Replaces certain color sequence:
             for(int i = 0; i < to_color.Length; i++) { binary[color_address + i] = to_color[i]; }
         }
@@ -32,7 +32,7 @@ namespace YumToolkit.Core {
         /// Useful to fix different kind of artifacts. False as default.
         /// </param>
         public void SetElementColorComplicated(byte[] from_color, byte[] to_color, int start_index, int end_index, bool isArtifacted = false) {
-            if(!File.Exists(name.tmp)) { console.SendMessage(serviceMessage.TmpFileIsNotExist, ConsoleColor.DarkRed); return; }
+            if(!File.Exists(name.tmp)) { console.SendMessage(message.TmpFileIsNotExist, ConsoleColor.DarkRed); return; }
             
             int value = isArtifacted ? 1 : to_color.Length;
             // Find certain sequence position and move on until the end
@@ -44,7 +44,7 @@ namespace YumToolkit.Core {
             
         }
         public void SetElementColorWithTotalReplacment(byte[] to_color, int start_index, int end_index) {
-            if(!File.Exists(name.tmp)) { console.SendMessage(serviceMessage.TmpFileIsNotExist, ConsoleColor.DarkRed); return; }
+            if(!File.Exists(name.tmp)) { console.SendMessage(message.TmpFileIsNotExist, ConsoleColor.DarkRed); return; }
             
             int value = to_color.Length;
             // Find sequence position and move on until the end
@@ -169,7 +169,7 @@ namespace YumToolkit.Core {
         public void SaveTheme() {
             if(file.IsFileBusy()) { return; }
             File.WriteAllBytes(name.original, binary);
-            console.SendMessage(serviceMessage.ThemeHasBeenApplied, ConsoleColor.DarkGreen);
+            console.SendMessage(message.ThemeHasBeenApplied, ConsoleColor.DarkGreen);
         }
     }
 }

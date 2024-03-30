@@ -27,9 +27,9 @@ namespace YumToolkit.Core.UI {
             // 28 symbols for theme name is max value!
 
             console.WriteLine("");
-            console.WriteLine("  ╭─────────────────────────────────╮"); // 1
-            console.WriteLine("  │ Yum2Tools                       │"); // 2
-            console.WriteLine("  ╰─────────────────────────────────╯"); // 3
+            console.WriteLine("  ╭───────────╮ ╭───────────────────╮"); // 1
+            console.WriteLine("  │ Yum2Tools │ │                   │"); // 2
+            console.WriteLine("  ╰───────────╯ ╰───────────────────╯"); // 3
             console.WriteLine("  ╭─────────────────────────────────╮"); // 4
             console.WriteLine("  │ Select one in list below:       │"); // 5
             console.WriteLine("  ├─────────────────────────────────┤"); // 6
@@ -77,8 +77,8 @@ namespace YumToolkit.Core.UI {
         void CONSOLE_ASCIIMATION() {
             while(true) {
                 if(InterfaceHasBeenDrawn) {
-                    foreach(string frame in consoleAnimator.Emote) {
-                        consoleAnimator.SetFrame(frame, InterfaceHasBeenDrawn, new Vector2(29,2), 90);
+                    foreach(string frame in consoleAnimator.SinWave) {
+                        consoleAnimator.SetFrame(frame, InterfaceHasBeenDrawn, new Vector2(18,2), 120);
                         if(!InterfaceHasBeenDrawn) { break; }
                     }
                 }
