@@ -2,3 +2,7 @@
 /obj
 /old
 /build
+/Properties
+/.vs
+/.github
+*.user
