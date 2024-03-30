@@ -49,9 +49,9 @@ Thats it, good luck to install! ^^</br>
 <br/>
 
 ## 🌓How to install:
-Downloaded build contains: `sai2.exe` и `Yum2Tools.exe`, where<br/>
+Downloaded build contains: `sai2.exe` and `yum-toolkit.exe`, where<br/>
 `sai2.exe` - your sai2;<br/>
-`Yum2Tools.exe` - toolkit to install themes.<br/><br/>
+`yum-toolkit.exe` - toolkit to install themes.<br/><br/>
 
 All downloaded / created themes located in `themes` directory.</br>
 Check [this](https://github.com/supchyan/yum2-theme-toolkit/tree/main/themes/) topic, if you interested in creating your custom theme.</br></br>
@@ -60,7 +60,7 @@ To remove restricted mode on sai's startup, **you must have license file**.</br>
 If you already have license, or know, how to _receive it_,
 sai's activation is the same as on other patches.</br></br>
 
-So, to change theme, just launch `Yum2Tools.exe` and select theme, you want to install, then wait 'till the process end.</br>
+So, to change theme, just launch `yum-toolkit.exe` and select theme, you want to install, then wait 'till the process end.</br>
 Close the toolkit and launch brand new colored `sai2.exe`.</br></br>
 
 _P.S. After theme installation, directory will meet `sai2.old` file, which is backup version of the **original theme**,</br>
@@ -82,9 +82,9 @@ I'll help all I can.
 Вот и все. Удачного использования! ^^</br>
 
 ## 🌓Установка и настройка:
-Скаченный вами архив содержит два исполняемых файла: `sai2.exe` и `Yum2Tools.exe`, где<br/>
+Скаченный вами архив содержит два исполняемых файла: `sai2.exe` и `yum-toolkit.exe`, где<br/>
 `sai2.exe` - сама саи;<br/>
-`Yum2Tools.exe` - инструмент для установки нужной вам темы.<br/><br/>
+`yum-toolkit.exe` - инструмент для установки нужной вам темы.<br/><br/>
 
 В папке `themes` хранятся все созданные или скаченные вами темы.</br>
 Ознакомьтесь с [этой](https://github.com/supchyan/yum2-theme-toolkit/tree/main/themes/) статьей, чтобы узнать больше про создание кастомных тем.</br></br>
@@ -93,7 +93,7 @@ I'll help all I can.
 Если он у вас уже есть, или вы знаете, как его _получить_,
 то способ активации программы такой же, как и на любой другой версии sai.</br></br>
 
-Итак, для смены темы, запустите `Yum2Tools.exe` и просто выберите тему, которую хотите установить, после чего ждите завершения операции.</br>
+Итак, для смены темы, запустите `yum-toolkit.exe` и просто выберите тему, которую хотите установить, после чего ждите завершения операции.</br>
 Закрывайте утилиту и запускайте `sai2.exe` уже в новом облике.</br></br>
 
 _P.S. После установки темы, в папке с программой появится файл `sai2.old`, который является резервной копией **оригинальной темы**,</br>
