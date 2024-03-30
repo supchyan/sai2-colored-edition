@@ -23,7 +23,6 @@ namespace YumToolkit {
             // so index can't be greater than 3, while no more unique menu choices inside.
             int index = consoleDrawing.MaxListValue - consoleDrawing.Choice;
             if(index > 3) index = 3;
-
             switch(index) {
                 case 0: 
                     Environment.Exit(0);
