@@ -38,7 +38,7 @@
 </div>
 
 ```json
-  * Still in pre-release: ~89% is ready!
+  * Still in pre-release: ~93% is ready!
 ```
 ### <div align="center">[English](#introduction) & [Русский](#вступление)</div>
 
