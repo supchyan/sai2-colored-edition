@@ -73,7 +73,8 @@ namespace YumToolkit.Core.UI {
         #region ui logic
         void _DrawTitle() {
             console.WriteLine();
-            console.WriteLine($"{DotsHandler()} Select one in list below", ConsoleColor.DarkGray);
+            console.Write($"{DotsHandler()} ", ConsoleColor.DarkGreen); console.Write("Select one in list below", ConsoleColor.DarkGray);
+            console.WriteLine();
             console.WriteLine();
             console.WriteLine("Themes:");
         }
@@ -81,8 +82,8 @@ namespace YumToolkit.Core.UI {
             for(int i = 0; i < MenuContent.Count; i++) {
                 if(i == Selection) {
                     if(MenuContent[i] != Separator)
-                    console.WriteLine($"{Selector} {MenuContent[i]}", ConsoleColor.DarkYellow);
-                    else console.WriteLine($"{Separator}{Separator}", ConsoleColor.DarkYellow);
+                    console.WriteLine($"{Selector} {MenuContent[i]}", ConsoleColor.DarkGreen);
+                    else console.WriteLine($"{Separator}{Separator}", ConsoleColor.DarkGreen);
                 }
                 else {
                     if(MenuContent[i] != Separator)
