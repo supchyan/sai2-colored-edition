@@ -46,7 +46,7 @@ namespace YumToolkit {
         public void _Action() {
             var select = consoleDrawing.MenuSize - consoleDrawing.Selection;
 
-            if(select >= 3)
+            if(select >= 4)
             Set_Theme.Invoke();
 
             if(select == 2)

@@ -6,8 +6,12 @@ namespace YumToolkit.Core.UI {
         public int Selection { get; set; }
         public int MenuSize { get; set; }
 
-        string[] Stick { get; set; } = ["⠋","⠙","⠸","⠴","⠦","⠇"];
-        int StickPosition { get; set; } = 0;
+        string[] Dots { get; set; } = ["⠋","⠙","⠸","⠴","⠦","⠇"];
+        int DotsPosition { get; set; } = 0;
+
+        string Separator { get; set; } = "-";
+        string Selector { get; set; } = "◉ ";
+        string EmptySelector { get; set; } = "○";
 
         public List<string> ThemesList { get; }
         public List<string> MenuContent { get; } = new List<string>();
@@ -47,7 +51,7 @@ namespace YumToolkit.Core.UI {
             } else {
                 Selection = MenuSize;
             }
-            StickPosition--;
+            DotsPosition--;
         }
         void _DownArrowPressed() {
             if(Selection != MenuSize) {
@@ -55,7 +59,7 @@ namespace YumToolkit.Core.UI {
             } else {
                 Selection = 0;
             }
-            StickPosition++;
+            DotsPosition++;
         }
         void _ListenUserInput() {
             var input = Console.ReadKey();
@@ -69,17 +73,27 @@ namespace YumToolkit.Core.UI {
         #region ui logic
         void _DrawTitle() {
             console.WriteLine();
-            console.WriteLine($"{StickHandler()} Select one in list below:", ConsoleColor.DarkGray);
+            console.WriteLine($"{DotsHandler()} Select one in list below:", ConsoleColor.DarkGray);
         }
         void _DrawContent() {
             for(int i = 0; i < MenuContent.Count; i++) {
-                if(i == Selection) console.WriteLine($"{MenuContent[i]}", ConsoleColor.DarkYellow);
-                else console.WriteLine($"{MenuContent[i]}");
+                if(i == Selection) {
+                    if(MenuContent[i] != Separator)
+                    console.WriteLine($"{Selector} {MenuContent[i]}", ConsoleColor.DarkYellow);
+                    else console.WriteLine($"{Separator}{Separator}", ConsoleColor.DarkYellow);
+                }
+                else {
+                    if(MenuContent[i] != Separator)
+                    console.WriteLine($"{EmptySelector} {MenuContent[i]}");
+                    else console.WriteLine($"{MenuContent[i]}");
+                }
             }
         }
         void _DrawTips() {
             console.WriteLine();
-            console.WriteLine("[ ↑↓ ] and [ Enter ] to navigate.", ConsoleColor.DarkGray);
+            console.WriteLine("[ ↑↓ ] and [ Enter ]", ConsoleColor.DarkGray);
+            console.WriteLine("   to navigate ☶", ConsoleColor.DarkGray);
+            
         }
         void _LoadContentToMenu() {
             if(!OperatingSystem.IsWindows()) { return; }
@@ -87,7 +101,8 @@ namespace YumToolkit.Core.UI {
             foreach(var theme_title in ThemesList) {
                 MenuContent.Add($"{Path.GetFileNameWithoutExtension(theme_title)}");
             }
-            MenuContent.Add("Restore theme to default");
+            MenuContent.Add(Separator);
+            MenuContent.Add("Restore theme to 'default'");
             MenuContent.Add("Visit project's GitHub page");
             MenuContent.Add($"Exit {Console.Title}");
 
@@ -106,10 +121,10 @@ namespace YumToolkit.Core.UI {
         }
         #endregion
 
-        string StickHandler() {
-            if(StickPosition > Stick.Length - 1) StickPosition = 0;
-            else if(StickPosition < 0) StickPosition = Stick.Length - 1;
-            return Stick[StickPosition];
+        string DotsHandler() {
+            if(DotsPosition > Dots.Length - 1) DotsPosition = 0;
+            else if(DotsPosition < 0) DotsPosition = Dots.Length - 1;
+            return Dots[DotsPosition];
         }
         
         public _ConsoleDrawing() {
