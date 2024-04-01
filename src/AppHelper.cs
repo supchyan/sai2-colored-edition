@@ -100,12 +100,15 @@ namespace YumToolkit {
             // so i found patterns, where it located and can be protectly colored, before main coloring processes:
             #region 0 PRIMARY COLOR
             theme.SetElementColorComplicated(saiColorRGB["SlidersBackgroundTransparent2"].NoAlpha(), themeColor["Primary"].NoAlpha(), saiAddress["SlidersBackgroundTransparentFrom"], saiAddress["SlidersBackgroundTransparentTo"]);
+
+            theme.SetElementColorComplicated(saiColorRGB["ActiveCanvasBackgroundFix"], themeColor["Primary"], saiAddress["GlobalSectionTextFrom"], saiAddress["GlobalSectionTextTo"], true);
+
             #endregion
 
             #region 0 SECONDARY COLOR
             theme.SetElementColorWithTotalReplacment(themeColor["Secondary"].NoAlpha(), saiAddress["HoveredEmptyBrushesBackgroundFrom"], saiAddress["HoveredEmptyBrushesBackgroundTo"]);
             theme.SetElementColorWithTotalReplacment(themeColor["Secondary"].NoAlpha(), saiAddress["HoveredLayersBackgroundFrom"], saiAddress["HoveredLayersBackgroundTo"]);
-            theme.SetElementColorComplicated(saiColorRGB["ActiveCanvasBackgroundFix"], themeColor["Secondary"], saiAddress["GlobalSectionTextFrom"], saiAddress["GlobalSectionTextTo"], true);
+            // theme.SetElementColorComplicated(saiColorRGB["ActiveCanvasBackgroundFix"], themeColor["Secondary"], saiAddress["GlobalSectionTextFrom"], saiAddress["GlobalSectionTextTo"], true);
             theme.SetElementColorComplicated(saiColorRGB["SlidersBackgroundTransparent1"].NoAlpha(), themeColor["Secondary"].NoAlpha(), saiAddress["SlidersBackgroundTransparentFrom"], saiAddress["SlidersBackgroundTransparentTo"]);
             byte[][] SlidersPrivelegySelectableTernaryTrue = [
                 saiColorRGB["SlidersBackgroundTransparentLineFix1"],
@@ -138,6 +141,12 @@ namespace YumToolkit {
             // Main regions, which contains basic coloring operations:
             #region PRIMARY COLOR
             int[] PrimaryItems = [
+
+                saiAddress["ActiveCanvasBackground"],
+                saiAddress["ActiveCanvasBackground2"],
+                saiAddress["ActiveCanvasBackground3"],
+                saiAddress["ActiveCanvasBackground4"],
+
                 saiAddress["InActiveCanvasBackground"],
                 saiAddress["BehindLayersUIBackground"],
                 saiAddress["BrushBorders"],
@@ -208,10 +217,10 @@ namespace YumToolkit {
 
             #region SECONDARY COLOR
             int[] SecondaryItems = [
-                saiAddress["ActiveCanvasBackground"],
-                saiAddress["ActiveCanvasBackground2"],
-                saiAddress["ActiveCanvasBackground3"],
-                saiAddress["ActiveCanvasBackground4"],
+                // saiAddress["ActiveCanvasBackground"],
+                // saiAddress["ActiveCanvasBackground2"],
+                // saiAddress["ActiveCanvasBackground3"],
+                // saiAddress["ActiveCanvasBackground4"],
                 saiAddress["Separator"],
                 saiAddress["TopBar"],
                 saiAddress["ContextMenu"],
@@ -219,6 +228,7 @@ namespace YumToolkit {
                 saiAddress["BookmarkBackgroundAndOutlinesSomewhere"],
                 saiAddress["GlobalTopBarInActive"],
                 saiAddress["FolderArrowOpened"],
+                saiAddress["FolderArrowClosed"],
                 saiAddress["ScaleAngleSliderFillRight"],
                 saiAddress["TopBarTextFocused"],
                 saiAddress["ContextMenuTextFocused"],
@@ -245,7 +255,6 @@ namespace YumToolkit {
             
             byte[][] SecondaryRGBComplicatedItemsAppskinTrue = [
                 saiColorRGB["FolderBackgroundHovered"],
-                saiColorRGB["FolderArrowClosed"],
             ];
             foreach(byte[] n in SecondaryRGBComplicatedItemsAppskinTrue) {
                 theme.SetElementColorComplicated(n, themeColor["Secondary"].NoAlpha(), saiAddress["GlobalSectionAppskinFrom"], saiAddress["GlobalSectionAppskinTo"], true);
@@ -378,6 +387,8 @@ namespace YumToolkit {
                 saiAddress["saiFileInMenuBelowText"],
                 saiAddress["ButtonsInLayersFill"],
                 saiAddress["BlueNoteText"],
+                saiAddress["FolderArrowHovered1"],
+                saiAddress["FolderArrowHovered2"],
             ];
             foreach(int n in SelectablePrimaryItems) {
                 theme.SetElementColor(themeColor["SelectablePrimary"].NoAlpha(), n);
@@ -466,7 +477,6 @@ namespace YumToolkit {
                 saiColorRGB["FolderInnerOutlineSelectedFocused1"],
                 saiColorRGB["FolderInnerOutlineSelectedFocused2"],
                 saiColorRGB["FolderServiceButtonsSelectedFocused"],
-                saiColorRGB["FolderArrowHovered"],
             ];
             foreach(byte[] n in SelectablePrimaryRGBComplicatedItemsAppskinTrue) {
                 theme.SetElementColorComplicated(n, themeColor["SelectablePrimary"].NoAlpha(), saiAddress["GlobalSectionAppskinFrom"], saiAddress["GlobalSectionAppskinTo"], true);

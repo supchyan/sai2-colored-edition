@@ -205,8 +205,8 @@
 |101.1|`DCC0EA`|`section .appskin`|Folder inner outline selected. [ hovered ]|
 |101.2|`B5D8FA` `BADAFA`|`section .appskin`|Folder inner outline selected. [ focused ]|
 |102|`3386CC`|`section .appskin`|Folder service buttons selected. [ focused ]|
-|103|`6050FF`|`section .appskin`|Folder arrow. [ hovered ]|
-|104|`606060`|`section .appskin`|Folder arrow. [ closed ]|
+|103|`6050FF`|`0x003703C0` `0x003703F0`|Folder arrow. [ hovered ]|
+|104|`606060`|`0x003703B8`|Folder arrow. [ closed ]|
 |105|`606060`|`0x003703E8`|Folder arrow. [ opened ]|
 |106|`800060`|`0x000F0E86`|Folder overlay text. ( Normal, multiply and etc. stuff )|
 |107|`F5F5ED` `FAFAF2`|`section .appskin`|Folder behind background.|

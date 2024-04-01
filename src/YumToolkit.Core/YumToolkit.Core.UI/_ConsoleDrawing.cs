@@ -16,6 +16,8 @@ namespace YumToolkit.Core.UI {
         public List<string> ThemesList { get; }
         public List<string> MenuContent { get; } = new List<string>();
 
+        bool ThemeCap { get; set; }
+
         #region input events
         public delegate void EnterPressed();
         event EnterPressed Enter_Pressed;
@@ -76,7 +78,8 @@ namespace YumToolkit.Core.UI {
             console.Write($"{DotsHandler()} ", ConsoleColor.DarkGreen); console.Write("Select one in list below", ConsoleColor.DarkGray);
             console.WriteLine();
             console.WriteLine();
-            console.WriteLine("Themes:");
+            if(!ThemeCap) { console.Write("["); console.Write($"{ThemesList.Count}", ConsoleColor.DarkGreen); console.WriteLine($"/{10}] Themes: "); }
+            else { console.Write("["); console.Write($"{ThemesList.Count}", ConsoleColor.DarkRed); console.WriteLine($"/{10}] Themes: "); } 
         }
         void _DrawContent() {
             for(int i = 0; i < MenuContent.Count; i++) {
@@ -102,6 +105,7 @@ namespace YumToolkit.Core.UI {
             if(!OperatingSystem.IsWindows()) { return; }
 
             foreach(var theme_title in ThemesList) {
+                if(MenuContent.Count > 9) { ThemeCap = true; break; }
                 MenuContent.Add($"{Path.GetFileNameWithoutExtension(theme_title)}");
             }
             MenuContent.Add(Separator);
