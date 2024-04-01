@@ -63,11 +63,10 @@ sai's activation is the same as on other patches.</br></br>
 So, to change theme, just launch `yum-toolkit.exe` and select theme, you want to install, then wait 'till the process end.</br>
 Close the toolkit and launch brand new colored `sai2.exe`.</br></br>
 
-_P.S. After theme installation, directory will meet `sai2.old` file, which is backup version of the **original theme**,</br>
-so if you want to restore theme to original one or recolor sai again - keep this backup file.</br></br>_
+_P.S. After theme installation, directory will meet `sai2.old` file, which is backup version of the **original theme**, so if you want to restore theme to original one or recolor sai again - keep this backup file.</br></br>_
 
 If you faced any problems on any of steps, feel free to contact me on [discord server](https://discord.gg/dGF8p9UGyM).</br>
-I'll help all I can.
+I'll help all I can. Also, it will be cool to get your feedback, so if you like this tools or not, notify me too!
 
 ## 🌒Screenshots:
 ![image](https://github.com/supchyan/yum2-theme-toolkit/assets/123704468/39a873f4-60e5-4d8b-9af6-32dfc66da814)
@@ -97,8 +96,7 @@ I'll help all I can.
 Итак, для смены темы, запустите `yum-toolkit.exe` и просто выберите тему, которую хотите установить, после чего ждите завершения операции.</br>
 Закрывайте утилиту и запускайте `sai2.exe` уже в новом облике.</br></br>
 
-_P.S. После установки темы, в папке с программой появится файл `sai2.old`, который является резервной копией **оригинальной темы**,</br>
-так что прошу его сохранить в случае, если захотите убрать установленную тему или поставить другую.</br></br>_
+_P.S. После установки темы, в папке с программой появится файл `sai2.old`, который является резервной копией **оригинальной темы**, так что прошу его сохранить в случае, если захотите убрать установленную тему или поставить другую.</br></br>_
 
 Если вы столкнулись с проблемой на любом из этапов, можете связаться со мной на моем [discord сервере](https://discord.gg/dGF8p9UGyM).</br>
 Буду рад помочь всем, чем смогу. Так же, будет здорово, если вы поделитесь своим опытом использования.
