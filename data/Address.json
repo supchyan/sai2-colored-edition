@@ -100,5 +100,18 @@
     "ContextMenuListBackground":"0x001ECC89",
     "ContextMenuListSeparatorBackground":"0x001ECC23",
     "WindowTitles":"0x001B1D49",
-    "CheckBoxesBackground":"0x001C4481"
+    "CheckBoxesBackground":"0x001C4481",
+    "OkCancelButtonsText":"0x001BC96A",
+    "OkCancelButtonsTextInActive":"0x001BC9C0",
+    "OkCancelButtonsTextHovered":"0x001BC974",
+    "OkCancelButtonsTextFocused1":"0x001BC9B6",
+    "OkCancelButtonsTextFocused2":"0x001BC988",
+    "OkCancelButtonsTextFocused3":"0x001BC97E",
+    "OkCancelButtonsTextDisfocused1":"0x001BC9A2",
+    "OkCancelButtonsTextDisfocused2":"0x001BC9AC",
+    "OkCancelButtonsTextDisfocused3":"0x001BC998",
+    "PathLineInFileMenuBackground":"0x001F2C13",
+    "AssetManagerLeftBackground":"0x000E31E4",
+    "SlidersBackgroundTransparentFrom":"0x004CB849",
+    "SlidersBackgroundTransparentTo":"0x004CBB60"
 }

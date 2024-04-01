@@ -1,17 +1,16 @@
-using YumToolkit.Core.Interfaces.UI;
 using YumToolkit.Global;
 
 namespace YumToolkit.Core.UI {
-    class _Console : _Globals, IConsole {
+    class _Console : _Globals {
 
-        public void Write(string line, ConsoleColor  text_color = ConsoleColor.White, ConsoleColor bg_color = ConsoleColor.Black) {
+        public void Write(string line = "", ConsoleColor  text_color = ConsoleColor.White, ConsoleColor bg_color = ConsoleColor.Black) {
             Console.ForegroundColor = text_color;
             Console.BackgroundColor = bg_color;
             Console.Write(line); 
             Console.ForegroundColor = ConsoleColor.White;
             Console.BackgroundColor = ConsoleColor.Black;
         }
-        public void WriteLine(string line, ConsoleColor text_color = ConsoleColor.White, ConsoleColor bg_color = ConsoleColor.Black) {
+        public void WriteLine(string line = "", ConsoleColor text_color = ConsoleColor.White, ConsoleColor bg_color = ConsoleColor.Black) {
             Console.ForegroundColor = text_color;
             Console.BackgroundColor = bg_color;
             Console.WriteLine(line); 

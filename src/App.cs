@@ -6,19 +6,14 @@ namespace YumToolkit {
             
             // Setting Default console props:
             Console.OutputEncoding = System.Text.Encoding.UTF8;
-            Console.Title = "Yum2Tools";
+            Console.Title = "yum-toolkit";
             Console.CursorVisible = false;
-
-            if(!OperatingSystem.IsWindows()) {
-                Console.WriteLine($"This program cannot be run on {Environment.OSVersion}... Or can't be :)");
-                return;
-            }    
             
             InterfaceBegin:
 
-                consoleDrawing.CONSOLE_RESTART();
-                consoleDrawing.CONSOLE_DRAW_MAIN();
-                while(!consoleDrawing.isSelected) { consoleDrawing.CONSOLE_MENU(); };
+                consoleDrawing.Begin();
+                while(consoleDrawing.Looping) { consoleDrawing.UI(); };
+
                 // Running selected ai
                 appHelper._Action();
 

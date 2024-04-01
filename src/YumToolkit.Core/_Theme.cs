@@ -169,6 +169,7 @@ namespace YumToolkit.Core {
         public void SaveTheme() {
             if(file.IsFileBusy()) { return; }
             File.WriteAllBytes(name.original, binary);
+            if(File.Exists(name.tmp)) { file.DeleteTmpFile(); }
             console.SendMessage(message.ThemeHasBeenApplied, ConsoleColor.DarkGreen);
         }
     }

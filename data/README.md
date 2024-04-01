@@ -46,7 +46,8 @@
 |25.1| `000000`|`0x00370A40`|File menu text. [ in lists ]|
 |25.2| `000000`|`0x00370B30`|File menu text. [ in tiles ]|
 |26| `000000`|`0x00370760`|Brushes text.|
-|27| `FFFFFF FF`|`section .srclibs`|Backgrounds in Brushes, File menu, Scroll blocks.|*has artifacts, but no artifacts, when all channels has the same value*|
+|27.1| `FFFFFF`|`section .srclibs`|Backgrounds in Brushes, File menu, Scroll blocks.|*has artifacts, but no artifacts, when all channels has the same value*|
+|27.2|`E8F4FF`|`section .srclibs`|SelectableBrushesButtonsRightCLicked|
 |28| `F2F2F200`|`section .srclibs`|Burger buttons outline.|
 |29| `F4F4F400`|`section .srclibs`|Burger buttons outline.|
 |30| `E4E4E400`|`section .srclibs`|Burger buttons outline.|*has artifacts*|
@@ -227,3 +228,19 @@
 |119.3|`B6CBEA`|`section .srclibs`|Another selectable outline fix 2. [ focused ]|
 |119.4|`D9E8F8`|`section .srclibs`|Another selectable inner outline. [ focused ]|
 |119.5|`B6CDED`|`section .srclibs`|Another selectable inner outline fix. [ focused ]|
+|120.1|`FFFFFF`|`0x001BC96A`|OK / CANCEL text.|
+|120.2|`FFFFFF`|`0x001BC974`|OK / CANCEL text. [ hovered ]|
+|120.3|`FFFFFF`|`0x001BC9B6` `0x001BC988` `0x001BC97E`|OK / CANCEL text. [ focused ]|
+|120.4|`FFFFFF`|`0x001BC9A2` `0x001BC9AC` `0x001BC998`|OK / CANCEL text. [ disfocused  ]|
+|120.5|`FFFFFF`|`0x001BC9C0`|OK / CANCEL text. [ inactive ]|
+|121|`FFFFFF`|`0x001F2C13`|Path line in File menu background.|
+|121|`FFFFFF`|`0x000E31E4`|Asset manager background.|
+|122|`E0F0FF`|`0x000E31E4`|Selectable background right clicked.|
+|123.1|`FCFCFC`|`from 0x004CB849 to 0x004CBB60`|Sliders background transparent. (that transparent squares color)|
+|123.2|`F0F0F0`|`from 0x004CB849 to 0x004CBB60`|Sliders background transparents. (that transparent squares color)|
+|123.3|`F4F4F4` `FFFFFF`|`from 0x004CB849 to 0x004CBB60`|Transparent squares in sliders Fix.|*it's literally a bug in sai, just a line inside that slider background, so... it is a color.*|
+|123.4|`C0C0C0`|`from 0x004CB849 to 0x004CBB60`|Sliders bar background transparent. (that transparent squares color)|
+|123.5|`D0D0D0`|`from 0x004CB849 to 0x004CBB60`|Sliders bar background transparent. (that transparent squares color)|
+|123.6|`C6C6C6`|`from 0x004CB849 to 0x004CBB60`|Sliders bar background transparent line fix|*it's literally a bug in sai, just a line inside that slider background, so... it is a color.*|
+|124.1|`EBF1F7`|`section .srclibs`|Burger buttons background right clicked non selected.|
+|124.2|`D5E2EF` `E6EEF6` `E3EAF0` `DAE5F1`|`section .srclibs`|Burger buttons outline right clicked non selected.|

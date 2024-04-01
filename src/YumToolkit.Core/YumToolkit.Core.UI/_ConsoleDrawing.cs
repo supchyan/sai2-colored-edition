@@ -1,96 +1,134 @@
-using System.Numerics;
-using YumToolkit.Core.Interfaces.UI;
 using YumToolkit.Global;
 
 namespace YumToolkit.Core.UI {
-    class _ConsoleDrawing : _Globals, IConsoleDrawing {
-        public int Choice { get; set; }
-        public bool isSelected { get; set; }
-        public int MaxListValue { get; }
+    class _ConsoleDrawing : _Globals { // , IConsoleDrawing
+        public bool Looping { get; set; } = true;
+        public int Selection { get; set; }
+        public int MenuSize { get; set; }
+
+        string[] Stick { get; set; } = ["⠋","⠙","⠸","⠴","⠦","⠇"];
+        int StickPosition { get; set; } = 0;
+
         public List<string> ThemesList { get; }
+        public List<string> MenuContent { get; } = new List<string>();
 
-        public Thread ASCIImation { get; }
-        // Protects interface from `break lines` when drawing animation
-        public bool InterfaceHasBeenDrawn { get; set; }
+        #region input events
+        public delegate void EnterPressed();
+        event EnterPressed Enter_Pressed;
 
-        public void CONSOLE_RESTART() {
-            InterfaceHasBeenDrawn = false;
-            isSelected = false;
-            Choice = 0;
+        public delegate void UpArrowPressed();
+        event UpArrowPressed Up_Pressed;
 
-            Console.Clear();
-            Console.SetCursorPosition(0, 0);
-        }
-        public void CONSOLE_DRAW_MAIN() {
+        public delegate void DownArrowPressed();
+        event DownArrowPressed Down_Pressed;
+        public delegate void ListenUserInput();
+        event ListenUserInput Listen_User_Input;
+        #endregion
 
-            // ● ○ // ╭─╮ ├ ┤ // │ │ // ╰─╯
-            // 28 symbols for theme name is max value!
+        #region ui events
+        public delegate void LoadContentToMenu();
+        event LoadContentToMenu Load_Content_To_Menu;
 
-            console.WriteLine("");
-            console.WriteLine("  ╭───────────╮ ╭───────────────────╮"); // 1
-            console.WriteLine("  │ Yum2Tools │ │                   │"); // 2
-            console.WriteLine("  ╰───────────╯ ╰───────────────────╯"); // 3
-            console.WriteLine("  ╭─────────────────────────────────╮"); // 4
-            console.WriteLine("  │ Select one in list below:       │"); // 5
-            console.WriteLine("  ├─────────────────────────────────┤"); // 6
-            foreach(string theme in ThemesList)
-            {
-                var line = $"{Path.GetFileNameWithoutExtension(theme)}";
-                if(line.Length <= 27) {
-                    // Fill free space with spaces [ space with spaces lol kek ]
-                    while(line.Length < 27) {
-                        line += ' ';
-                    }
+        public delegate void DrawTitle();
+        event DrawTitle Draw_Title;
 
-                } else {
-                    line = $"{line.Substring(0, 24)}...";
-                }
+        public delegate void DrawContent();
+        event DrawContent Draw_Content;
 
-            console.WriteLine($"  │ ○ {line                     }   │"); // 7
+        public delegate void DrawTips();
+        event DrawTips Draw_Tips;
+        #endregion
+
+        #region input logic
+        void _EnterPressed() { Looping = false; }
+        void _UpArrowPressed() {
+            if(Selection != 0) {
+                Selection--;
+            } else {
+                Selection = MenuSize;
             }
-            console.WriteLine("  │ ○ Restore to default theme      │"); // 8
-            console.WriteLine("  │ ○ Visit project's GitHub page   │"); // 9
-            console.WriteLine("  │ ○ Exit Yum2Tools                │"); // 10
-            console.WriteLine("  ╰─────────────────────────────────╯"); // 11
-            console.WriteLine("   [ ↑↓ ] and [ Enter ] to navigate. ", ConsoleColor.DarkGray); // 14
-
-            Console.SetCursorPosition(4, 7);
-            console.Write("●");
-
-            InterfaceHasBeenDrawn = true;
-
+            StickPosition--;
         }
-        public void CONSOLE_MENU() {
+        void _DownArrowPressed() {
+            if(Selection != MenuSize) {
+                Selection++;
+            } else {
+                Selection = 0;
+            }
+            StickPosition++;
+        }
+        void _ListenUserInput() {
             var input = Console.ReadKey();
 
-            Console.SetCursorPosition(4, 7 + Choice); console.Write("○");
-            if(input.Key == ConsoleKey.UpArrow) { Choice = Choice > 0 ? Choice - 1 : MaxListValue; }
-            if(input.Key == ConsoleKey.DownArrow) {  Choice = Choice < MaxListValue ? Choice + 1 : 0; }
-            Console.SetCursorPosition(4, 7 + Choice); console.Write("●");
+            if(input.Key == ConsoleKey.UpArrow) { Up_Pressed.Invoke(); }
+            if(input.Key == ConsoleKey.DownArrow) { Down_Pressed.Invoke(); }
+            if(input.Key == ConsoleKey.Enter) { Enter_Pressed.Invoke(); }
+        }
+        #endregion
 
-            if(input.Key == ConsoleKey.Enter) {
-                InterfaceHasBeenDrawn = false;
-                isSelected = true;
-                Console.Clear();
+        #region ui logic
+        void _DrawTitle() {
+            console.WriteLine();
+            console.WriteLine($"{StickHandler()} Select one in list below:", ConsoleColor.DarkGray);
+        }
+        void _DrawContent() {
+            for(int i = 0; i < MenuContent.Count; i++) {
+                if(i == Selection) console.WriteLine($"{MenuContent[i]}", ConsoleColor.DarkYellow);
+                else console.WriteLine($"{MenuContent[i]}");
             }
         }
-        void CONSOLE_ASCIIMATION() {
-            while(true) {
-                if(InterfaceHasBeenDrawn) {
-                    foreach(string frame in consoleAnimator.SinWave) {
-                        consoleAnimator.SetFrame(frame, InterfaceHasBeenDrawn, new Vector2(18,2), 120);
-                        if(!InterfaceHasBeenDrawn) { break; }
-                    }
-                }
-            }
+        void _DrawTips() {
+            console.WriteLine();
+            console.WriteLine("[ ↑↓ ] and [ Enter ] to navigate.", ConsoleColor.DarkGray);
         }
+        void _LoadContentToMenu() {
+            if(!OperatingSystem.IsWindows()) { return; }
+
+            foreach(var theme_title in ThemesList) {
+                MenuContent.Add($"{Path.GetFileNameWithoutExtension(theme_title)}");
+            }
+            MenuContent.Add("Restore theme to default");
+            MenuContent.Add("Visit project's GitHub page");
+            MenuContent.Add($"Exit {Console.Title}");
+
+            MenuSize = MenuContent.Count - 1;
+        }
+        #endregion
+
+        #region drawing
+        public void Begin() { Looping = true; Selection = 0; }
+        public void UI() {
+            Draw_Title.Invoke();
+            Draw_Content.Invoke();
+            Draw_Tips.Invoke();
+            Listen_User_Input.Invoke();
+
+            Console.Clear();
+        }
+        #endregion
+
+        string StickHandler() {
+            if(StickPosition > Stick.Length - 1) StickPosition = 0;
+            else if(StickPosition < 0) StickPosition = Stick.Length - 1;
+            return Stick[StickPosition];
+        }
+        
         public _ConsoleDrawing() {
+
+            Load_Content_To_Menu += _LoadContentToMenu;
+
+            Enter_Pressed += _EnterPressed;
+            Up_Pressed += _UpArrowPressed;
+            Down_Pressed += _DownArrowPressed;
+
+            Draw_Title += _DrawTitle;
+            Draw_Content += _DrawContent;
+            Draw_Tips += _DrawTips;
+
+            Listen_User_Input += _ListenUserInput;
+
             ThemesList = Directory.GetFiles(path.ThemesFolder).ToList();
-            MaxListValue = ThemesList.Count + 2;
-            isSelected = false;
-            InterfaceHasBeenDrawn = false;
-            ASCIImation = new Thread(CONSOLE_ASCIIMATION) { IsBackground = true };
-            ASCIImation.Start();
+            Load_Content_To_Menu.Invoke();
         }
     }
 }
