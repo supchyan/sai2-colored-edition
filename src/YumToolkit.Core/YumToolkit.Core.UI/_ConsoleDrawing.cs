@@ -73,7 +73,9 @@ namespace YumToolkit.Core.UI {
         #region ui logic
         void _DrawTitle() {
             console.WriteLine();
-            console.WriteLine($"{DotsHandler()} Select one in list below:", ConsoleColor.DarkGray);
+            console.WriteLine($"{DotsHandler()} Select one in list below", ConsoleColor.DarkGray);
+            console.WriteLine();
+            console.WriteLine("Themes:");
         }
         void _DrawContent() {
             for(int i = 0; i < MenuContent.Count; i++) {
