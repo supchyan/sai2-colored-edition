@@ -215,8 +215,8 @@
 |110.1|`808080`|`0x00536C70`|Scale & Angle slider fill [ left ]|
 |110.2|`808080`|`0x00536CC8`|Scale & Angle slider fill [ right ]|
 |111|`709090`|`0x000DE017`|Grey note text in settings and etc. ("This mode doesn't support WinTab driver..." and more on)|
-|112|`444488`|0x000DDF30|Blue note text in settings and etc. ("Coodrdinate Control Mode...")|
-|113|`000000`|0x000E81AD|Brush circles.|
+|112|`444488`|`0x000DDF30`|Blue note text in settings and etc. ("Coodrdinate Control Mode...")|
+|113|`000000`|`0x000E81AD`|Brush circles.|
 |114|`FFFFFF`|`0x0014C569`|Settings left side background.|
 |115|`FFFFFF`|`0x001F05BA`|Some Minimized lists background. Stablizier in the same category, but has unique address is `87`.|
 |116.1|`FFFFFF`|`0x001ECC89`|Context menu lists background.|
