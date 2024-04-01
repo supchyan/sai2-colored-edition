@@ -28,11 +28,11 @@ namespace YumToolkit {
 
         #region events logic
         void _SetTheme() {
-            if(File.Exists(name.original) && file.IsFileBusy()) { return; }
+            if(!file.IsFileBusy(true))
             SetThemeToSelected();
         }
         void _RestoreTheme() {
-            if(File.Exists(name.original) && file.IsFileBusy()) { return; }
+            if(!file.IsFileBusy(true))
             RestoreThemeToDefault();
         }
         void _GithubLink() {
@@ -60,12 +60,13 @@ namespace YumToolkit {
         }
 
         void SetThemeToSelected() {
+            
+            if(!file.IsOriginalFileExists(true)) { return; }
 
             // Creating backup file to restore data or replace original file
             // with backup one to recolor it:
-            if(!File.Exists(name.old)) { file.CreateOldFile(); }
+            if(!file.IsOldFileExists()) { file.CreateOldFile(); }
             else {
-                File.Delete(name.original);
                 // This won't delete sai2.old.exe! Just cloning it to original one:
                 file.ReplaceOriginalFile();
             }
@@ -526,7 +527,7 @@ namespace YumToolkit {
             
         }
         void RestoreThemeToDefault() {
-            if(!file.IsOldFileExists()) { return; }
+            if(!file.IsOldFileExists(true)) { return; }
 
             console.ShowWaitMessage();
 

@@ -23,6 +23,7 @@ namespace YumToolkit.Core.UI {
             Console.ReadKey();
         }
         public void ShowWaitMessage() {
+            Console.Clear();
             console.WriteLine(message.OperationIsProcessing, ConsoleColor.DarkYellow);
         }
         public void CloseConsole() {

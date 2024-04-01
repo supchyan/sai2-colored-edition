@@ -98,12 +98,11 @@ namespace YumToolkit.Core.UI {
         #region drawing
         public void Begin() { Looping = true; Selection = 0; }
         public void UI() {
+            Console.Clear();
             Draw_Title.Invoke();
             Draw_Content.Invoke();
             Draw_Tips.Invoke();
             Listen_User_Input.Invoke();
-
-            Console.Clear();
         }
         #endregion
 
