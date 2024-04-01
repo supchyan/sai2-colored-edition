@@ -66,7 +66,7 @@ Close the toolkit and launch brand new colored `sai2.exe`.</br></br>
 _P.S. After theme installation, directory will meet `sai2.old` file, which is backup version of the **original theme**, so if you want to restore theme to original one or recolor sai again - keep this backup file.</br></br>_
 
 If you faced any problems on any of steps, feel free to contact me on [discord server](https://discord.gg/dGF8p9UGyM).</br>
-I'll help all I can.
+I'll help all I can. Also, it will be cool to get your feedback, so if you like this tools or not, notify me too!
 
 ## 🌒Screenshots:
 ![image](https://github.com/supchyan/yum2-theme-toolkit/assets/123704468/39a873f4-60e5-4d8b-9af6-32dfc66da814)
