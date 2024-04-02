@@ -8,7 +8,7 @@
 <table style="width:100%">
   <th>
     <a href="https://github.com/supchyan/yum2-theme-toolkit/tree/main/themes/">
-      <img src="https://github.com/supchyan/yum2-theme-toolkit/assets/123704468/81871a32-7ba5-49af-ade0-ffd070ad2043" width="24"/>
+      <img src="https://github.com/supchyan/sai2-colored-edition/assets/123704468/e174f1c7-a8bd-424f-801e-025930177841" width="24"/>
       </br>
       <span>Theme examples</span>
     </a>  
