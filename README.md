@@ -42,13 +42,13 @@
 ```
 ### <div align="center">[English](#introduction) & [Русский](#вступление)</div>
 
-## 🌔Introduction:
+## 🌔Introduction
 This toolkit is based on `sai2 64bit 2024.02.22`. It's just an **original sai2**, which supports this theme changer.</br>
 Yeah, this is license sai2 version, but I screwed theme swap to it.</br></br>
 
 Thats it, good luck in use! ^^</br></br>
 
-## 🌓How to install:
+## 🌓How to install
 Downloaded build contains: `sai2.exe` and `yum-toolkit.exe`, where<br/>
 `sai2.exe` - your sai2;<br/>
 `yum-toolkit.exe` - toolkit to install themes.<br/><br/>
@@ -68,21 +68,21 @@ _P.S. After theme installation, directory will meet `sai2.old` file, which is ba
 If you faced any problems on any of steps, feel free to contact me on [discord server](https://discord.gg/dGF8p9UGyM).</br>
 I'll help all I can. Also, it will be cool to get your feedback, so if you like this tools or not, notify me too!
 
-## 🌒Screenshots:
+## 🌒Screenshots
 ![image](https://github.com/supchyan/sai2-colored-edition/assets/123704468/dbe7efca-5865-4585-93d7-fc3541c33575)
 ![image](https://github.com/supchyan/sai2-colored-edition/assets/123704468/9e74f3b5-ac05-4890-bb7e-abeae43bb404)
 ![image](https://github.com/supchyan/sai2-colored-edition/assets/123704468/5389d452-b83f-4a30-b50d-ac655947be77)
 <br/>
 🐳<br/><br/><br/>
 
-## 🌔Вступление:
+## 🌔Вступление
 Этот набор инструментов создан на безе `sai2 64bit 2024.02.22`.</br>
 По большей части, это просто **оригинальная sai2**, которая поддерживает мой набор инструментов.</br>
 Да, это лицензионная версия sai2, к которой я прикрутил поддержку кстомных тем.</br><br/>
 
 Вот и все. Удачного использования! ^^</br><br/>
 
-## 🌓Установка и настройка:
+## 🌓Установка и настройка
 Скаченный вами архив содержит два исполняемых файла: `sai2.exe` и `yum-toolkit.exe`, где<br/>
 `sai2.exe` - сама саи;<br/>
 `yum-toolkit.exe` - инструмент для установки нужной вам темы.<br/><br/>
@@ -102,7 +102,7 @@ _P.S. После установки темы, в папке с программ�
 Если вы столкнулись с проблемой на любом из этапов, можете связаться со мной на моем [discord сервере](https://discord.gg/dGF8p9UGyM).</br>
 Буду рад помочь всем, чем смогу. Так же, будет здорово, если вы поделитесь своим опытом использования.
 
-## 🌒Скриншоты:
+## 🌒Скриншоты
 ![image](https://github.com/supchyan/sai2-colored-edition/assets/123704468/26d762d6-5dab-4e9b-b3be-b87ec18cab4c)
 ![image](https://github.com/supchyan/sai2-colored-edition/assets/123704468/842179dc-45eb-4cbf-82fa-9aa4cf1a7106)
 ![image](https://github.com/supchyan/sai2-colored-edition/assets/123704468/797b709f-c0f8-446f-bd28-7c1c3caace1f)
