@@ -71,6 +71,7 @@ I'll help all I can. Also, it will be cool to get your feedback, so if you like 
 ## 🌒Screenshots:
 ![image](https://github.com/supchyan/yum2-theme-toolkit/assets/123704468/39a873f4-60e5-4d8b-9af6-32dfc66da814)
 ![image](https://github.com/supchyan/yum2-theme-toolkit/assets/123704468/ddd822f6-9f12-4b65-a8a5-d55a4ae71f65)
+![image](https://github.com/supchyan/sai2-colored-edition/assets/123704468/5389d452-b83f-4a30-b50d-ac655947be77)
 <br/>
 🐳<br/><br/><br/>
 
@@ -104,5 +105,6 @@ _P.S. После установки темы, в папке с программ�
 ## 🌒Скриншоты:
 ![image](https://github.com/supchyan/yum2-theme-toolkit/assets/123704468/89aaaefb-6939-4e3a-97f3-ee206236bfe1)
 ![image](https://github.com/supchyan/yum2-theme-toolkit/assets/123704468/452487ac-cd6e-4165-b34d-d4e667e2f2d5)
+![image](https://github.com/supchyan/sai2-colored-edition/assets/123704468/797b709f-c0f8-446f-bd28-7c1c3caace1f)
 <br/>
 🐳
