@@ -10,14 +10,14 @@ namespace YumToolkit.Core.UI {
         int DotsPosition { get; set; } = 0;
 
         string Separator { get; set; } = "-";
-        string Selector { get; set; } = "◉ ";
-        string EmptySelector { get; set; } = "○";
+        string Selector { get; set; } = "** ";
+        string EmptySelector { get; set; } = "* ";
 
-        public List<string> ThemesList { get; }
+        public List<string> ThemesList { get; set; }
         public List<string> MenuContent { get; } = new List<string>();
 
         bool ThemeCap { get; set; }
-
+        
         #region input events
         public delegate void EnterPressed();
         event EnterPressed Enter_Pressed;
@@ -32,8 +32,8 @@ namespace YumToolkit.Core.UI {
         #endregion
 
         #region ui events
-        public delegate void LoadContentToMenu();
-        event LoadContentToMenu Load_Content_To_Menu;
+        public delegate void UpdateContentMenu();
+        event UpdateContentMenu Update_Content_Menu;
 
         public delegate void DrawTitle();
         event DrawTitle Draw_Title;
@@ -101,9 +101,12 @@ namespace YumToolkit.Core.UI {
             console.WriteLine("   to navigate ☶", ConsoleColor.DarkGray);
             
         }
-        void _LoadContentToMenu() {
+        void _UpdateContentMenu() {
             if(!OperatingSystem.IsWindows()) { return; }
 
+            MenuContent.Clear();
+
+            ThemesList = Directory.GetFiles(path.ThemesFolder).ToList();
             foreach(var theme_title in ThemesList) {
                 if(MenuContent.Count > 9) { ThemeCap = true; break; }
                 MenuContent.Add($"{Path.GetFileNameWithoutExtension(theme_title)}");
@@ -118,12 +121,21 @@ namespace YumToolkit.Core.UI {
         #endregion
 
         #region drawing
-        public void Begin() { Looping = true; Selection = 0; }
+        public void Begin() {
+            Looping = true;
+            Selection = 0;
+        }
         public void UI() {
             Console.Clear();
+            
+            // это должно триггерить прикол, который true, если в папке стало иное кол-во тем.
+            Update_Content_Menu.Invoke();
+            
             Draw_Title.Invoke();
             Draw_Content.Invoke();
             Draw_Tips.Invoke();
+
+            // а это должно триггерить прикол, который true, если нужная кнопка была нажата.
             Listen_User_Input.Invoke();
         }
         #endregion
@@ -134,9 +146,16 @@ namespace YumToolkit.Core.UI {
             return Dots[DotsPosition];
         }
         
-        public _ConsoleDrawing() {
+        public  _ConsoleDrawing() {
 
-            Load_Content_To_Menu += _LoadContentToMenu;
+            Console.OutputEncoding = System.Text.Encoding.UTF8;
+            Console.Title = "yum-toolkit";
+            Console.CursorVisible = false;
+            if(OperatingSystem.IsWindows()) { 
+                Console.SetBufferSize(Console.WindowWidth, Console.WindowHeight);
+            }
+
+            Update_Content_Menu += _UpdateContentMenu;
 
             Enter_Pressed += _EnterPressed;
             Up_Pressed += _UpArrowPressed;
@@ -149,7 +168,7 @@ namespace YumToolkit.Core.UI {
             Listen_User_Input += _ListenUserInput;
 
             ThemesList = Directory.GetFiles(path.ThemesFolder).ToList();
-            Load_Content_To_Menu.Invoke();
+            
         }
     }
 }

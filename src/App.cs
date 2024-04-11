@@ -4,20 +4,15 @@ namespace YumToolkit {
     class App : _Globals {
         static void Main(string[] args) {
             
-            // Setting Default console props:
-            Console.OutputEncoding = System.Text.Encoding.UTF8;
-            Console.Title = "yum-toolkit";
-            Console.CursorVisible = false;
-            
-            InterfaceBegin:
+            AppBegin:
 
                 consoleDrawing.Begin();
                 while(consoleDrawing.Looping) { consoleDrawing.UI(); };
 
-                // Running selected ai
+                // selected ai implementation
                 appHelper._Action();
 
-            goto InterfaceBegin;
+            goto AppBegin;
 
         }
     }
