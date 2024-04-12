@@ -46,17 +46,10 @@ namespace YumToolkit {
         public void _Action() {
             var select = consoleDrawing.MenuSize - consoleDrawing.Selection;
 
-            if(select >= 4)
-            Set_Theme.Invoke();
-
-            if(select == 2)
-            Restore_Theme.Invoke();
-            
-            if(select == 1)
-            GitHub_Link.Invoke();
-            
-            if(select == 0)
-            Exit_Application.Invoke();
+            if(select >= 4) Set_Theme.Invoke();
+            if(select == 2) Restore_Theme.Invoke();
+            if(select == 1) GitHub_Link.Invoke();
+            if(select == 0) Exit_Application.Invoke();
         }
 
         void SetThemeToSelected() {
@@ -74,7 +67,7 @@ namespace YumToolkit {
             console.ShowWaitMessage();
 
             // Getting theme vaules:
-            themeColor = JsonSerializer.Deserialize<Dictionary<string,string>>(File.ReadAllText($"{consoleDrawing.ThemesList[consoleDrawing.Selection]}"))?.ConvertToByteColorDictionary();
+            themeColor = JsonSerializer.Deserialize<Dictionary<string,string>>(File.ReadAllText($"{consoleDrawing.pubThemesList[consoleDrawing.Selection]}"))?.ConvertToByteColorDictionary();
             
             // Getting replacment libraries:
             saiAddress = JsonSerializer.Deserialize<Dictionary<string,string>>(File.ReadAllText(path.saiAddressFile))?.ConvertToDecimalAddressDictionary();
