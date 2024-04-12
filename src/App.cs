@@ -9,8 +9,6 @@ namespace YumToolkit {
                 while(consoleDrawing.MainLoop) { 
                     consoleDrawing.ListenForChanges(); 
                 };
-                // selected ai implementation
-                appHelper._Action();
             goto AppBegin;
         }
     }

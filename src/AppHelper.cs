@@ -4,6 +4,7 @@ using System.Runtime.InteropServices;
 using YumToolkit.Global;
 using YumToolkit.Core;
 using System.Drawing;
+using YumToolkit.Core.UI;
 
 namespace YumToolkit {
     class AppHelper : _Globals {
@@ -12,45 +13,23 @@ namespace YumToolkit {
         Dictionary<string, byte[]>? saiColorRGB { get; set; }
         Dictionary<string, int>? saiAddress { get; set; }
 
-        #region events
-        public delegate void SetTheme();
-        event SetTheme Set_Theme;
-
-        public delegate void RestoreTheme();
-        event RestoreTheme Restore_Theme;
-
-        public delegate void GitHubLink();
-        event GitHubLink GitHub_Link;
-
-        public delegate void ExitApplication();
-        event ExitApplication Exit_Application;
-        #endregion
-
-        #region events logic
-        void _SetTheme() {
+        #region app logic
+        public void SetTheme() {
             if(!file.IsFileBusy(true))
             SetThemeToSelected();
         }
-        void _RestoreTheme() {
+        public void RestoreTheme() {
             if(!file.IsFileBusy(true))
             RestoreThemeToDefault();
         }
-        void _GithubLink() {
+        public void GitHubLink() {
             if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows)) { Process.Start(new ProcessStartInfo("cmd", $"/c start {path.GitHubLink}")); }
             else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux)) { Process.Start("xdg-open", path.GitHubLink); }
         }
-        void _ExitApplication() {
+        public void ExitApplication() {
             Environment.Exit(0);
         }
         #endregion
-        public void _Action() {
-            var select = consoleDrawing.MenuSize - consoleDrawing.Selection;
-
-            if(select >= 4) Set_Theme.Invoke();
-            if(select == 2) Restore_Theme.Invoke();
-            if(select == 1) GitHub_Link.Invoke();
-            if(select == 0) Exit_Application.Invoke();
-        }
 
         void SetThemeToSelected() {
             
@@ -540,11 +519,6 @@ namespace YumToolkit {
 
             console.SendMessage(message.DefaultThemeHasBeenRestored, ConsoleColor.DarkGreen);
         }
-        public AppHelper() {
-            Set_Theme += _SetTheme;
-            Restore_Theme += _RestoreTheme;
-            GitHub_Link += _GithubLink;
-            Exit_Application += _ExitApplication; 
-        }
+        public AppHelper() { }
     }
 }

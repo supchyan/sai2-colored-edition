@@ -8,18 +8,19 @@ namespace YumToolkit.Core.UI {
         public bool MainLoop => _MainLoop;
 
         static int _Selection { get; set; }
-        public int Selection => _Selection;
+        public int Selection => _Selection + minIndex;
 
         static int _MenuSize { get; set; }
-        public int MenuSize => _MenuSize;
 
         static string[] Dots = ["⠋","⠙","⠸","⠴","⠦","⠇"];
         static int _DotsPosition;
 
-        static string Separator { get; set; } = "-";
+        static string NextPageOperator { get; set; } = "->";
+        string SelectedNextPageOperator { get; set; } = "-->";
         static string Selector { get; set; } = "** ";
         static string EmptySelector { get; set; } = "* ";
 
+        static int Page, MaxPage, minIndex;
         static List<string> oldThemesList { get; set; } = new List<string>();
         static List<string> ThemesList { get; set; } = new List<string>();
         public List<string> pubThemesList => ThemesList;
@@ -27,14 +28,21 @@ namespace YumToolkit.Core.UI {
         static List<string> _MenuContent { get; } = new List<string>();
         public List<string> MenuContent => _MenuContent;
 
-        const int MenuCap = 10;
-        static bool MenuCapIsReached { get; set; }
+        const int ThemesCap = 5;
 
         static bool UpdateUI { get; set; }
 
 
         #region input logic
         static void EnterPressed() {
+            
+            var select = _MenuSize - _Selection;
+            if(select >= 4) appHelper.SetTheme();
+            if(select == 3) GoToNextPage();
+            if(select == 2) appHelper.RestoreTheme();
+            if(select == 1) appHelper.GitHubLink();
+            if(select == 0) appHelper.ExitApplication();
+
             _MainLoop = false;
         }
         static void UpArrowPressed() {
@@ -56,10 +64,22 @@ namespace YumToolkit.Core.UI {
         });
         Thread themesListener = new Thread(() => {
             Start: while (_MainLoop) {
-                ThemesList = Directory.GetFiles(path.ThemesFolder).ToList();
+                
+                if(Page > MaxPage) { 
+                    PageLimitIsReached();
+                    InvokeListUpdates(); 
+                }
+
+                ThemesList = Directory.GetFiles(path.ThemesFolder).ToList();                
                 if(oldThemesList.Count != ThemesList.Count) {
-                    oldThemesList = ThemesList;
-                    UpdateContentMenu();
+                    InvokeListUpdates();
+
+                } else {
+                    for(int i = 0; i < ThemesList.Count; i++) {
+                        if(oldThemesList[i] != ThemesList[i]) {
+                            InvokeListUpdates();
+                        }
+                    }
                 }
             } goto Start;
         });
@@ -70,18 +90,18 @@ namespace YumToolkit.Core.UI {
             console.Write($"{DotsHandler()} ", ConsoleColor.DarkGreen); console.Write("Select one in list below", ConsoleColor.DarkGray);
             console.WriteLine();
             console.WriteLine();
-            if(!MenuCapIsReached) { console.Write("["); console.Write($"{ThemesList.Count}", ConsoleColor.DarkGreen); console.WriteLine($"/{MenuCap}] Themes: "); }
-            else { console.Write("["); console.Write($"{ThemesList.Count}", ConsoleColor.DarkRed); console.WriteLine($"/{MenuCap}] Themes (first {MenuCap} a-z): "); } 
+            console.WriteLine($"Page [{Page} / {MaxPage}]:");
         }
+
         void DrawContent() {
             for(int i = 0; i < _MenuContent.Count; i++) {
                 if(i == _Selection) {
-                    if(_MenuContent[i] != Separator)
+                    if(_MenuContent[i] != NextPageOperator)
                     console.WriteLine($"{Selector} {_MenuContent[i]}", ConsoleColor.DarkGreen);
-                    else console.WriteLine($"{Separator}{Separator}", ConsoleColor.DarkGreen);
+                    else console.WriteLine($"{SelectedNextPageOperator}", ConsoleColor.DarkGreen);
                 }
                 else {
-                    if(_MenuContent[i] != Separator)
+                    if(_MenuContent[i] != NextPageOperator)
                     console.WriteLine($"{EmptySelector} {_MenuContent[i]}");
                     else console.WriteLine($"{_MenuContent[i]}");
                 }
@@ -89,9 +109,22 @@ namespace YumToolkit.Core.UI {
         }
         void DrawTips() {
             console.WriteLine();
-            console.WriteLine($"   --------------------", ConsoleColor.DarkGray);
+            console.WriteLine($"   -------------------- {Selection}", ConsoleColor.DarkGray);
             console.WriteLine($"   use [↑↓] and [Enter]", ConsoleColor.DarkGray);
             console.WriteLine($"   to navigate the menu", ConsoleColor.DarkGray);
+        }
+        static void InvokeListUpdates() {
+            UpdatePages();
+            UpdateContentMenu();
+            oldThemesList = ThemesList;
+        }
+        static void UpdatePages() {
+            MaxPage = -1;
+            foreach(var i in ThemesList) {
+                if(ThemesList.IndexOf(i) % ThemesCap == 0) { 
+                    MaxPage++;
+                }
+            }
         }
         static void UpdateContentMenu() {
             if(!OperatingSystem.IsWindows()) { return; }
@@ -100,12 +133,18 @@ namespace YumToolkit.Core.UI {
 
             ThemesList.Sort(); // Sorting themes alphabetically 
 
-            foreach(var theme_title in ThemesList) {
-                if(_MenuContent.Count >= MenuCap) { MenuCapIsReached = true; break; }
-                else MenuCapIsReached = false;
-                _MenuContent.Add($"{Path.GetFileNameWithoutExtension(theme_title)}");
+            if(ThemesList.Count > minIndex + ThemesCap) {
+                for(int i = minIndex; i < minIndex + ThemesCap; i++) {
+                    _MenuContent.Add($"{Path.GetFileNameWithoutExtension(ThemesList[i])}");
+                }
+            } else {
+                for(int i = minIndex; i < ThemesList.Count; i++) {
+                    _MenuContent.Add($"{Path.GetFileNameWithoutExtension(ThemesList[i])}");
+                }
             }
-            _MenuContent.Add(Separator);
+            
+
+            _MenuContent.Add(NextPageOperator);
             _MenuContent.Add("Restore theme to 'default'");
             _MenuContent.Add("Visit project's GitHub page");
             _MenuContent.Add($"Exit {Console.Title}");
@@ -120,6 +159,14 @@ namespace YumToolkit.Core.UI {
         #endregion
 
         #region services
+        static void GoToNextPage() {
+            if(Page < MaxPage) { Page++; minIndex += ThemesCap;}
+            else { Page = 0; minIndex = 0; } 
+        }
+        static void PageLimitIsReached() {
+            Page--;
+            minIndex -= ThemesCap;
+        }
         static void ChangeState(ConsoleKey key) {
             if(key is ConsoleKey.DownArrow) DownArrowPressed();
             if(key is ConsoleKey.UpArrow) UpArrowPressed();
