@@ -66,14 +66,14 @@ namespace YumToolkit.Core.UI {
         #endregion
 
         #region draw ui
-        static void DrawTitle() {
+        void DrawTitle() {
             console.Write($"{DotsHandler()} ", ConsoleColor.DarkGreen); console.Write("Select one in list below", ConsoleColor.DarkGray);
             console.WriteLine();
             console.WriteLine();
             if(!MenuCapIsReached) { console.Write("["); console.Write($"{ThemesList.Count}", ConsoleColor.DarkGreen); console.WriteLine($"/{MenuCap}] Themes: "); }
             else { console.Write("["); console.Write($"{ThemesList.Count}", ConsoleColor.DarkRed); console.WriteLine($"/{MenuCap}] Themes (first {MenuCap} a-z): "); } 
         }
-        static void DrawContent() {
+        void DrawContent() {
             for(int i = 0; i < _MenuContent.Count; i++) {
                 if(i == _Selection) {
                     if(_MenuContent[i] != Separator)
@@ -87,7 +87,7 @@ namespace YumToolkit.Core.UI {
                 }
             }
         }
-        static void DrawTips() {
+        void DrawTips() {
             console.WriteLine();
             console.WriteLine($"   --------------------", ConsoleColor.DarkGray);
             console.WriteLine($"   use [↑↓] and [Enter]", ConsoleColor.DarkGray);
@@ -141,7 +141,7 @@ namespace YumToolkit.Core.UI {
             _MainLoop = true;
             _Selection = 0;
         }
-        static string DotsHandler() {
+        string DotsHandler() {
             if(_DotsPosition > Dots.Length - 1) _DotsPosition = 0;
             else if(_DotsPosition < 0) _DotsPosition = Dots.Length - 1;
             return Dots[_DotsPosition];
