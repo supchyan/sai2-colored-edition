@@ -12,7 +12,6 @@ namespace YumToolkit {
                 // selected ai implementation
                 appHelper._Action();
             goto AppBegin;
-
         }
     }
 }

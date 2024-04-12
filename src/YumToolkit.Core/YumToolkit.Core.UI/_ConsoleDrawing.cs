@@ -85,8 +85,8 @@ namespace YumToolkit.Core.UI {
             console.Write($"{DotsHandler()} ", ConsoleColor.DarkGreen); console.Write("Select one in list below", ConsoleColor.DarkGray);
             console.WriteLine();
             console.WriteLine();
-            if(!MenuCapIsReached) { console.Write("["); console.Write($"{ThemesList.Count}", ConsoleColor.DarkGreen); console.WriteLine($"/{10}] Themes: "); }
-            else { console.Write("["); console.Write($"{ThemesList.Count}", ConsoleColor.DarkRed); console.WriteLine($"/{MenuCap}] Themes: "); } 
+            if(!MenuCapIsReached) { console.Write("["); console.Write($"{ThemesList.Count}", ConsoleColor.DarkGreen); console.WriteLine($"/{MenuCap}] Themes: "); }
+            else { console.Write("["); console.Write($"{ThemesList.Count}", ConsoleColor.DarkRed); console.WriteLine($"/{MenuCap}] Themes (first {MenuCap} a-z): "); } 
         }
         static void DrawContent() {
             for(int i = 0; i < _MenuContent.Count; i++) {
@@ -112,6 +112,8 @@ namespace YumToolkit.Core.UI {
             if(!OperatingSystem.IsWindows()) { return; }
             
             _MenuContent.Clear();
+
+            ThemesList.Sort(); // Sorting themes alphabetically 
 
             foreach(var theme_title in ThemesList) {
                 if(_MenuContent.Count >= MenuCap) { MenuCapIsReached = true; break; }
