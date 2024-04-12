@@ -46,7 +46,7 @@ namespace YumToolkit {
             console.ShowWaitMessage();
 
             // Getting theme vaules:
-            themeColor = JsonSerializer.Deserialize<Dictionary<string,string>>(File.ReadAllText($"{consoleDrawing.pubThemesList[consoleDrawing.Selection]}"))?.ConvertToByteColorDictionary();
+            themeColor = JsonSerializer.Deserialize<Dictionary<string,string>>(File.ReadAllText($"{content.pubThemesList[content.IndexSelection]}"))?.ConvertToByteColorDictionary();
             
             // Getting replacment libraries:
             saiAddress = JsonSerializer.Deserialize<Dictionary<string,string>>(File.ReadAllText(path.saiAddressFile))?.ConvertToDecimalAddressDictionary();

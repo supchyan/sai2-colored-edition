@@ -3,12 +3,12 @@
 namespace YumToolkit {
     class App : _Globals {
         static void Main(string[] args) {
-            consoleDrawing.RunThreads();
+            input.listener.Start();
             AppBegin:
-            consoleDrawing.Begin();
-                while(consoleDrawing.MainLoop) { 
-                    consoleDrawing.ListenForChanges(); 
-                };
+            drawing.Begin();
+            while(drawing.MainLoop) { 
+                drawing.ListenForChanges(); 
+            };
             goto AppBegin;
         }
     }
