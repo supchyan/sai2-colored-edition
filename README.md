@@ -73,7 +73,7 @@ I'll help all I can. Also, it will be cool to get your feedback, so if you like 
   * THEMES WORKS FINE ONLY AT 125% UI SCALE. MAKE SURE, YOU SET IT UP PROPERLY!
 ```
 Also, make sure to check out the screenshots below; It should be looked definitely the same as your software, except of UI elements position.</br>
-If some UI elements didn't looks the same as screenshots has, I'm pretty sure, it's software UI scale problem, so check message in borders above. I'm going to fix this bug in the future, tho.</br></br>
+If some UI elements doesn't look the same as screenshots has, I'm pretty sure, it's software UI scale problem, so check message in borders above. I'm going to fix this bug in the future, tho.</br></br>
 
 ## 🌑Screenshots
 ![image](https://github.com/supchyan/sai2-colored-edition/assets/123704468/dbe7efca-5865-4585-93d7-fc3541c33575)
