@@ -6,7 +6,7 @@ namespace YumToolkit {
             consoleDrawing.RunThreads();
             AppBegin:
             consoleDrawing.Begin();
-                while(consoleDrawing.Looping) { 
+                while(consoleDrawing.MainLoop) { 
                     consoleDrawing.ListenForChanges(); 
                 };
                 // selected ai implementation

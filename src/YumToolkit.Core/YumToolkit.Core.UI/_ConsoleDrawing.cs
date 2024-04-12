@@ -4,8 +4,8 @@ using YumToolkit.Global;
 
 namespace YumToolkit.Core.UI {
     class _ConsoleDrawing : _Globals { // , IConsoleDrawing
-        static bool _Looping { get; set; } = true;
-        public bool Looping => _Looping;
+        static bool _MainLoop { get; set; } = true;
+        public bool MainLoop => _MainLoop;
 
         static int _Selection { get; set; }
         public int Selection => _Selection;
@@ -13,8 +13,8 @@ namespace YumToolkit.Core.UI {
         static int _MenuSize { get; set; }
         public int MenuSize => _MenuSize;
 
-        static string[] Dots { get; set; } = ["⠋","⠙","⠸","⠴","⠦","⠇"];
-        static int _DotsPosition { get; set; } = 0;
+        static string[] Dots = ["⠋","⠙","⠸","⠴","⠦","⠇"];
+        static int _DotsPosition;
 
         static string Separator { get; set; } = "-";
         static string Selector { get; set; } = "** ";
@@ -32,24 +32,10 @@ namespace YumToolkit.Core.UI {
 
         static bool UpdateUI { get; set; }
 
-        #region events
-        static event Action<ConsoleKey> ChangeState = key => {
-            if(key is ConsoleKey.DownArrow) DownArrowPressed();
-            if(key is ConsoleKey.UpArrow) UpArrowPressed();
-            if(key is ConsoleKey.Enter) EnterPressed();
-            UpdateContentMenu();
-        };
-        event Action<bool> DrawUI = condition => {
-            if(!condition) { return; }
-            Console.Clear();
-            DrawTitle(); DrawContent(); DrawTips();
-            UpdateUI = false;
-        };
-        #endregion
 
         #region input logic
         static void EnterPressed() {
-            _Looping = false;
+            _MainLoop = false;
         }
         static void UpArrowPressed() {
             _Selection--;
@@ -63,13 +49,13 @@ namespace YumToolkit.Core.UI {
         
         #region threads
         Thread inputListener = new Thread(() => {
-            Start: while(_Looping) {
+            Start: while(_MainLoop) {
                 var input = Console.ReadKey();
                 ChangeState(input.Key);
             } goto Start;
         });
         Thread themesListener = new Thread(() => {
-            Start: while (_Looping) {
+            Start: while (_MainLoop) {
                 ThemesList = Directory.GetFiles(path.ThemesFolder).ToList();
                 if(oldThemesList.Count != ThemesList.Count) {
                     oldThemesList = ThemesList;
@@ -81,7 +67,6 @@ namespace YumToolkit.Core.UI {
 
         #region draw ui
         static void DrawTitle() {
-            // console.WriteLine();
             console.Write($"{DotsHandler()} ", ConsoleColor.DarkGreen); console.Write("Select one in list below", ConsoleColor.DarkGray);
             console.WriteLine();
             console.WriteLine();
@@ -135,13 +120,25 @@ namespace YumToolkit.Core.UI {
         #endregion
 
         #region services
+        static void ChangeState(ConsoleKey key) {
+            if(key is ConsoleKey.DownArrow) DownArrowPressed();
+            if(key is ConsoleKey.UpArrow) UpArrowPressed();
+            if(key is ConsoleKey.Enter) EnterPressed();
+            UpdateContentMenu();
+        }
+        void DrawUI (bool condition) {
+            if(!condition) { return; }
+            Console.Clear();
+            DrawTitle(); DrawContent(); DrawTips();
+            UpdateUI = false;
+        }
         public void ListenForChanges() { DrawUI(UpdateUI); }
         public void RunThreads() {
             inputListener.Start();
             themesListener.Start();
         }
         public void Begin() {
-            _Looping = true;
+            _MainLoop = true;
             _Selection = 0;
         }
         static string DotsHandler() {
