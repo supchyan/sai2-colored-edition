@@ -13,7 +13,7 @@ namespace YumToolkit.Core.Data {
             ThemesFolder = "./themes";
             JsonExtension = ".json";
             GitHubLink = "https://github.com/supchyan/yum2-theme-toolkit";
-            DataFolder = "./data";
+            DataFolder = "./init/data";
             saiAddressFile = $"{DataFolder}/Address{JsonExtension}";
             saiColorARGBFile = $"{DataFolder}/ColorARGB{JsonExtension}";
             saiColorRGBFile = $"{DataFolder}/ColorRGB{JsonExtension}";
