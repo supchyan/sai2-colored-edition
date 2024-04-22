@@ -14,7 +14,7 @@
     </a>  
   </th>
   <th>
-    <a href="https://github.com/supchyan/yum2-theme-toolkit/blob/main/data/">
+    <a href="https://github.com/supchyan/yum2-theme-toolkit/blob/main/init/data/">
       <img src="https://github.com/supchyan/yum2-theme-toolkit/assets/123704468/691a8bad-a32d-4ef2-a8a4-d3c7e210c11e" width="24"/>
       </br>
       <span>Colors & Addresses</span>
