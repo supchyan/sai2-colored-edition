@@ -7,29 +7,29 @@
 <div align="center" style="padding-left: 100px;">
 <table style="width:100%">
   <th>
-    <a href="https://github.com/supchyan/yum2-theme-toolkit/tree/main/themes/">
+    <a href="https://github.com/supchyan/sai2-colored-edition/tree/main/themes/">
       <img src="https://github.com/supchyan/sai2-colored-edition/assets/123704468/e174f1c7-a8bd-424f-801e-025930177841" width="24"/>
       </br>
       <span>Theme examples</span>
     </a>  
   </th>
   <th>
-    <a href="https://github.com/supchyan/yum2-theme-toolkit/blob/main/init/data/">
-      <img src="https://github.com/supchyan/yum2-theme-toolkit/assets/123704468/691a8bad-a32d-4ef2-a8a4-d3c7e210c11e" width="24"/>
+    <a href="https://github.com/supchyan/sai2-colored-edition/blob/main/init/data/">
+      <img src="https://github.com/supchyan/sai2-colored-edition/assets/123704468/691a8bad-a32d-4ef2-a8a4-d3c7e210c11e" width="24"/>
       </br>
       <span>Colors & Addresses</span>
     </a>  
   </th>
   <th>
-    <a href="https://github.com/supchyan/yum2-theme-toolkit/releases">
-      <img src="https://github.com/supchyan/yum2-theme-toolkit/assets/123704468/f2c7603f-030b-4dc1-8984-f49a4532097e" width="24"/>
+    <a href="https://github.com/supchyan/sai2-colored-edition/releases">
+      <img src="https://github.com/supchyan/sai2-colored-edition/assets/123704468/f2c7603f-030b-4dc1-8984-f49a4532097e" width="24"/>
       </br>
       <span>Latest releases</span>
     </a>  
   </th>
   <th>
     <a href="https://discord.gg/dGF8p9UGyM">
-      <img src="https://github.com/supchyan/yum2-theme-toolkit/assets/123704468/037e74ed-d5cc-4f4c-b668-0c004180b3ab" width="24"/>
+      <img src="https://github.com/supchyan/sai2-colored-edition/assets/123704468/037e74ed-d5cc-4f4c-b668-0c004180b3ab" width="24"/>
       </br>
       <span>My Discord</span>
     </a>  
