@@ -4,7 +4,7 @@
 |1| `C0C0C0`|`0x001BC95B`|Inactive text.|
 |2| `C0C0C0`|`0x00534688`|Inactive canvas and minimap's backgrounds.|
 |3| `B0B0B0`|`0x0053468C`|Background behind layers UI.|
-|4.1| `B0B0 B0`|`0x0018838B`|Active canvas background.| *has artifacts, but has fix below* |
+|4.1| `B0B0B0`|`0x0018838B`|Active canvas background.| *has artifacts, but has fix below* |
 |4.2| `B0B0B0`|`0x001880AC`|Active canvas background.| *has artifacts, but has fix below* |
 |4.3| `B0B0B0`|`0x0018A004`|Active canvas background.| *has artifacts, but has fix below* |
 |4.4| `B0B0B0`|`0x0001AE93`|Active canvas background.| *has artifacts, but has fix below* |
@@ -13,14 +13,14 @@
 |6.2| `F8F8F8`|`0x00534678`|Global UI borders.|
 |7| `E0E0E0`|`0x00534680`|Brushes UI outlines.|
 |8| `D0D0D0`|`0x00534684`|Brushes separator.|
-|9| `F8F8F8`|`0x005349D0`|Topbar.|
-|10.1| `000000`|`0x00534A98`|Topbar text. [ idle ]|
-|10.2| `000000`|`0x00534AA0`|Topbar text. [ hovered ]|
-|10.3| `000000`|`0x00534AA8`|Topbar text. [ focused ]|
-|11| `F8F8F8`|`0x00534B60`|Context menu.|
-|12.1| `000000`|`0x00534C18`|Context menu text. [ idle ]|
-|12.2| `000000`| `0x00534C20`|Context menu text. [ hovered ]|
-|12.3| `000000`|`0x00534C28`|Context menu text. [ focused ]|
+|9| `F8F8F8`|`0x005349D0``0x00537D50``0x0053B150``0x005316E0`|Topbar.|
+|10.1| `000000`|`0x00534A98``0x005317A8``0x00537E18``0x0053B218`|Topbar text. [ idle ]|
+|10.2| `000000`|`0x00534AA0``0x005317B0``0x00537E20``0x0053B220`|Topbar text. [ hovered ]|
+|10.3| `000000`|`0x00534AA8``0x005317B8``0x00537E28``0x0053B228`|Topbar text. [ focused ]|
+|11| `F8F8F8`|`0x00534B60``0x00537EE0``0x0053B2E0``0x00531870`|Context menu.|
+|12.1| `000000`|`0x00534C18``0x00531928``0x0053B398``0x00537F98`|Context menu text. [ idle ]|
+|12.2| `000000`| `0x00534C20``0x00531930``0x0053B3A0``0x00537FA0`|Context menu text. [ hovered ]|
+|12.3| `000000`|`0x00534C28``0x00531938``0x0053B3A8``0x00537FA8`|Context menu text. [ focused ]|
 |13.1| `F8F8F8`|`0x00534ED8`|Slider's outline. [ horizontal ]|
 |13.2| `F8F8F8`|`0x00535018`|Slider's outline. [ vertical ]|
 |14.1| `F8F8F8`|`0x00535068`|Scroll bar arrow up.|
@@ -99,7 +99,7 @@
 |52.3| `A8EEFF`|`section .appskin`|Selected Layer inner outline. [ focused ]|
 |52.4| `BFF3FF`|`section .appskin`|Selected Layer inner outline. [ grabbed ]|
 |54.1| `DBF8FF`|`section .appskin`|Layer background. [ focused ]|
-|54.2|`F6F6FF`|`from 0x0048E5F6 to 0x0048FB9D`|Layers background. [ hovered ]|
+|54.2|`F6F6FF`|`from 0x0048E5F6 to 0x0049A6BF`|Layers background. [ hovered ]|
 |54.3|`B0B0B0`|`from 0x0048E5F6 to 0x0048FB9D`|Layers background. Addition to `57.1`. [ hovered ]|
 |55| `EEEE EE`|`section .srclibs`|FileMenu tree tabs.|*DON'T USE, DIDN'T FIND PATTERNS!*|
 |56| `F6F6 FF`|`from 0x004880F2 to 0x00488CF1`|Hovered empty brushes.|
@@ -121,7 +121,7 @@
 |62.1|`707070`|`section .srclibs`|Scrollbar outline; Service Buttons outline.|
 |62.2|`7D7D7D`|`section .srclibs`|Scrollbar outline Fix; Service Buttons outline Fix.|
 |62.3|`8C8C8C`|`section .srclibs`|Scrollbar outline Fix; Service Buttons outline Fix.|
-|63|`FFFFFF`|`from 0x0048D018 to 0x0048E5BF`|Layers background.|
+|63|`FFFFFF`|`from 0x0048D018 to 0x0049927F`|Layers background.|
 |63|`E3F9FF`|`section .appskin`|Layers background. [ grabbed ]|
 |64.1|`EBEBEB`|`section .srclibs`|.sai file in menu below background.|
 |64.2|`E7E7E7`|`section .srclibs`|.sai file in menu below background. [ hovered ]|
@@ -192,8 +192,14 @@
 |95.5|`DBE7F2`|`section .srclibs`|Service buttons outline 2 fix.|
 |96.1|`multiple`|`0x0038F030`|Color circle begin.|
 |96.2|`multiple`|`0x003AE315`|Color circle end.|
+|96.3|`multiple`|`0x003D1B70`|Color circle begin 2.|
+|96.4|`multiple`|`0x003FF9CD`|Color circle end 2.|
+|96.5|`multiple`|`0x00437300`|Color circle begin 3.|
+|96.6|`multiple`|`0x004852F5`|Color circle end 3.|
+|96.7|`multiple`|`0x00359F90`|Color circle begin 3.|
+|96.8|`multiple`|`0x0036E3C5`|Color circle end 3.|
 |97.1|`303030`|`0x005352C0`|Global Top Bar (where buttons minimize/maximize/close).|
-|97.2|`D0D0D0`|`0x005352B8`|Global Top Bar. [ inactive ]|
+|97.2|`D0D0D0`|`0x005352B8``0x00531FC8``0x00538638``0x0053BA38`|Global Top Bar. [ inactive ]|
 |98.1|`F0F0E8`|`section .appskin`|Folder background.|
 |98.2|`E8E7E0`|`section .appskin`|Folder background. [ hovered ]|
 |98.3|`D3E9FF` `DCEDFF`|`section .appskin`|Folder background. [ focused ]|*focused means hold mouse button on it*|
@@ -217,7 +223,7 @@
 |111|`709090`|`0x000DE017`|Grey note text in settings and etc. ("This mode doesn't support WinTab driver..." and more on)|
 |112|`444488`|`0x000DDF30`|Blue note text in settings and etc. ("Coodrdinate Control Mode...")|
 |113|`000000`|`0x000E81AD`|Brush circles.|
-|114|`FFFFFF`|`0x0014C569`|Settings left side background.|
+|114|`FFFFFF`|`0x0014C569``0x003413D0``0x003B0A30`|Settings left side background.|
 |115|`FFFFFF`|`0x001F05BA`|Some Minimized lists background. Stablizier in the same category, but has unique address is `87`.|
 |116.1|`FFFFFF`|`0x001ECC89`|Context menu lists background.|
 |116.2|`FFFFFF`|`0x001ECC23`|Context menu lists separator background fix.|
@@ -244,3 +250,4 @@
 |123.6|`C6C6C6`|`from 0x004CB849 to 0x004CBB60`|Sliders bar background transparent line fix|*it's literally a bug in sai, just a line inside that slider background, so... it is a color.*|
 |124.1|`EBF1F7`|`section .srclibs`|Burger buttons background right clicked non selected.|
 |124.2|`D5E2EF` `E6EEF6` `E3EAF0` `DAE5F1`|`section .srclibs`|Burger buttons outline right clicked non selected.|
+|125|`0000ff`|`0x00341188``0x00401FF8``0x003B07E8`|blue brushes text 100%|

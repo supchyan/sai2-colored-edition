@@ -67,6 +67,9 @@ namespace YumToolkit {
 
             // Color picker. Little bit chunky, but not bad at all:
             theme.FixColorPicker(themeColor["Ternary"].NoAlpha(), saiAddress["ColorCircleFrom"], saiAddress["ColorCircleTo"]);
+            theme.FixColorPicker(themeColor["Ternary"].NoAlpha(), saiAddress["ColorCircleFrom2"], saiAddress["ColorCircleTo2"]);
+            theme.FixColorPicker(themeColor["Ternary"].NoAlpha(), saiAddress["ColorCircleFrom3"], saiAddress["ColorCircleTo3"]);
+            theme.FixColorPicker(themeColor["Ternary"].NoAlpha(), saiAddress["ColorCircleFrom4"], saiAddress["ColorCircleTo4"]);
 
             // These regions is for elements, that has amount of artifacts under the main coloring,
             // so i found patterns, where it located and can be protectly colored, before main coloring processes:
@@ -80,6 +83,7 @@ namespace YumToolkit {
             #region 0 SECONDARY COLOR
             theme.SetElementColorWithTotalReplacment(themeColor["Secondary"].NoAlpha(), saiAddress["HoveredEmptyBrushesBackgroundFrom"], saiAddress["HoveredEmptyBrushesBackgroundTo"]);
             theme.SetElementColorWithTotalReplacment(themeColor["Secondary"].NoAlpha(), saiAddress["HoveredLayersBackgroundFrom"], saiAddress["HoveredLayersBackgroundTo"]);
+            theme.SetElementColorComplicated(saiColorRGB["SelectedElementBackgroundHovered"].NoAlpha(),themeColor["Secondary"].NoAlpha(), saiAddress["HoveredLayersBackgroundFrom2"], saiAddress["HoveredLayersBackgroundTo2"], true);
             // theme.SetElementColorComplicated(saiColorRGB["ActiveCanvasBackgroundFix"], themeColor["Secondary"], saiAddress["GlobalSectionTextFrom"], saiAddress["GlobalSectionTextTo"], true);
             theme.SetElementColorComplicated(saiColorRGB["SlidersBackgroundTransparent1"].NoAlpha(), themeColor["Secondary"].NoAlpha(), saiAddress["SlidersBackgroundTransparentFrom"], saiAddress["SlidersBackgroundTransparentTo"]);
             byte[][] SlidersPrivelegySelectableTernaryTrue = [
@@ -121,6 +125,9 @@ namespace YumToolkit {
 
                 saiAddress["InActiveCanvasBackground"],
                 saiAddress["BehindLayersUIBackground"],
+                saiAddress["BehindLayersUIBackground2"],
+                saiAddress["BehindLayersUIBackground3"],
+                saiAddress["BehindLayersUIBackground4"],
                 saiAddress["BrushBorders"],
                 saiAddress["SlidersVertical"],
                 saiAddress["SlidersHorizontal"],
@@ -136,11 +143,21 @@ namespace YumToolkit {
                 saiAddress["ScrollBarArrowRight"],
                 saiAddress["ClosedListArrow"],
                 saiAddress["GlobalTopBar"],
+                saiAddress["GlobalTopBar2"],
+                saiAddress["GlobalTopBar3"],
+                saiAddress["GlobalTopBar4"],
+                saiAddress["GlobalTopBar5"],
+                saiAddress["GlobalTopBar6"],
+                saiAddress["GlobalTopBar7"],
+                saiAddress["GlobalTopBar8"],
                 saiAddress["ScaleAngleArrow"],
                 saiAddress["ColorSlidersArrows"],
                 saiAddress["ScaleAngleSliderFillLeft"],
                 saiAddress["GreyNoteText"],
                 saiAddress["SettingsListBackground"],
+                saiAddress["SettingsListBackground2"],
+                saiAddress["SettingsListBackground3"],
+                saiAddress["SettingsListBackground4"],
                 saiAddress["RadioButtonsBackgroundActive"],
                 saiAddress["OkCancelButtonsTextInActive"],
                 saiAddress["AssetManagerLeftBackground"],
@@ -195,15 +212,30 @@ namespace YumToolkit {
                 // saiAddress["ActiveCanvasBackground4"],
                 saiAddress["Separator"],
                 saiAddress["TopBar"],
+                saiAddress["TopBar2"],
+                saiAddress["TopBar3"],
+                saiAddress["TopBar4"],
                 saiAddress["ContextMenu"],
+                saiAddress["ContextMenu2"],
+                saiAddress["ContextMenu3"],
+                saiAddress["ContextMenu4"],
                 saiAddress["SlidersInActiveBackground"],
                 saiAddress["BookmarkBackgroundAndOutlinesSomewhere"],
                 saiAddress["GlobalTopBarInActive"],
+                saiAddress["GlobalTopBarInActive2"],
+                saiAddress["GlobalTopBarInActive3"],
+                saiAddress["GlobalTopBarInActive4"],
                 saiAddress["FolderArrowOpened"],
                 saiAddress["FolderArrowClosed"],
                 saiAddress["ScaleAngleSliderFillRight"],
                 saiAddress["TopBarTextFocused"],
+                saiAddress["TopBarTextFocused2"],
+                saiAddress["TopBarTextFocused3"],
+                saiAddress["TopBarTextFocused4"],
                 saiAddress["ContextMenuTextFocused"],
+                saiAddress["ContextMenuTextFocused2"],
+                saiAddress["ContextMenuTextFocused3"],
+                saiAddress["ContextMenuTextFocused4"],
                 saiAddress["SomeMinimizedListsBackground"],
                 saiAddress["CheckBoxesBackground"],
                 saiAddress["StabilizerBackground"],
@@ -299,11 +331,26 @@ namespace YumToolkit {
 
             #region TEXT COLOR
             int[] TextItems = [
+                saiAddress["BrushesBlueText"],
+                saiAddress["BrushesBlueText2"],
+                saiAddress["BrushesBlueText3"],
                 saiAddress["BrushesSpecialText"],
                 saiAddress["ContextMenuText"],
+                saiAddress["ContextMenuText2"],
+                saiAddress["ContextMenuText3"],
+                saiAddress["ContextMenuText4"],
                 saiAddress["ContextMenuTextHovered"],
+                saiAddress["ContextMenuTextHovered2"],
+                saiAddress["ContextMenuTextHovered3"],
+                saiAddress["ContextMenuTextHovered4"],
                 saiAddress["TopBarText"],
+                saiAddress["TopBarText2"],
+                saiAddress["TopBarText3"],
+                saiAddress["TopBarText4"],
                 saiAddress["TopBarTextHovered"],
+                saiAddress["TopBarTextHovered2"],
+                saiAddress["TopBarTextHovered3"],
+                saiAddress["TopBarTextHovered4"],
                 saiAddress["FileMenuScrollableText"],
                 saiAddress["FileMenuTilesText"],
                 saiAddress["BrushesText"],

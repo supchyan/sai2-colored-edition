@@ -37,6 +37,9 @@ namespace YumToolkit.Global {
         public static byte[] NoAlpha(this byte[] c) {
             return [ c[0], c[1], c[2] ];
         }
+        public static byte[] Reverse(this byte[] c) {
+            return [ c[2], c[1], c[0] ];
+        }
         public static Dictionary<string, int> ConvertToDecimalAddressDictionary(this Dictionary<string,string> dictionary) {
             var tmp = new Dictionary<string, int>();
             foreach(var pair in dictionary) {
