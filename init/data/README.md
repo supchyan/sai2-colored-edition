@@ -31,7 +31,7 @@
 |16.1| `F8F8F8`|`0x00535CD8`|Tabs resize grabber. [ horizontal ]|
 |16.2| `F8F8F8`|`0x00535E28`|Tabs resize grabber. [ vertical ]|
 |17| `F8F8F8`|`0x005370D0`|Behind tree background in File menu.|
-|18| `F8F8F8`|`0x00536C00`|Scale & Angle under minimap.|
+|18| `F8F8F8`|`0x00536C00``0x00533980``0x00533990``0x005339D8``0x005339E8``0x00539FF0``0x0053A000``0x0053A048``0x0053A058``0x0053D3F0``0x0053D400``0x0053D448``0x0053D458`|Scale & Angle under minimap.|
 |19| `FFFFFF`|`0x0031B4B8`|InActive sliders background.|*also active lists background somewhere*|
 |20| `FFFFFF`|`0x0031B498`|Active sliders background. [ idle ]|
 |20| `FFFFFF`|`0x0031B49C`|Active sliders background. [ hovered and focused ]|
@@ -60,7 +60,7 @@
 |37| `F8F8F8F8`|`section .appskin`|Color picker circle.|*has artifacts*|
 |38| `F8F8F8F8`|`section .srclibs`|Burger buttons background, sliders outlines, list outlines.|*has artifacts*|
 |39| `F8F8F8F8`|`from 0x004DD400 to 0x004FC2AF`|Burger buttons background, sliders outlines, list outlines. Alternative painting for `38`.|
-|40| `00000000`|`0x003706D0`|Brushes text.|
+|40| `00000000`|`0x003706D0``0x00370768``0x003706D0``0x00370900``0x00370780``0x00341320``0x003410F0``0x00341180``0x003411A0``0x003B0750``0x003B07E0``0x003B0800``0x00401F60``0x00401FF0``0x00402010``0x00402190``0x003B0980`|Brushes text.|
 |41| `00000000`|`0x00370900`|Brushes size text.|
 |42| `0000FF`|`0x00370768`|Blue brushes text. ( selection brushes )|
 |43| `804020`|`section .srclibs`|"Shit" colored text.|
@@ -114,7 +114,7 @@
 |58.7|`9F9FFF`|`section .srclibs`|Scrollbar Outline Fix. [ focused ]|
 |59|`7C96E2`|`section .srclibs`|Yes No Buttons background.|
 |60.1|`4267D6`|`section .srclibs`|Yes No Buttons outline.|
-|60.2|`5375D9`|`section .srclibs`|Yes No Buttons outline fix.|
+|60.2|`5375D9``797979``ACACAC``7373FF``A5A5FF``6A87DF``4F71D9``7F95D9``D3D3D3``6C6CF0``8A8AF9``A3A3F1``A5A5FC`|`section .srclibs`|Yes No Buttons outline fix.|
 |60.3|`6C88DE`|`section .srclibs`|Yes No Buttons outline fix.|
 |60.3|`A5B4E1`|`section .srclibs`|Yes No Buttons outline fix.|*it's 4 pix on edges, so probably should be paintent to SelectablePrimary*|
 |61|`969696`|`section .srclibs`|Scrollbar Fill; Service Buttons fill.|
@@ -252,3 +252,9 @@
 |124.1|`EBF1F7`|`section .srclibs`|Burger buttons background right clicked non selected.|
 |124.2|`D5E2EF` `E6EEF6` `E3EAF0` `DAE5F1`|`section .srclibs`|Burger buttons outline right clicked non selected.|
 |125|`0000ff`|`0x00341188``0x00401FF8``0x003B07E8`|blue brushes text 100%|
+|126|`CDCDCD``C4C4C4`|section .srclibs|blue outline artifacts|
+|127|`C7C7C7``C7C7FB``A2A2C8``F6F6FF``8EE4FB``97B6BF``A3E9FC``9CB7BF`|section .srclibs|another outline fix|
+|128|`DDDDDD``D7D7D7``ACD8FF``CAE3FA`|section .srclibs|topbar outline fix|
+|129|`D0D0D0`|section .srclibs|section separators|
+|130|`6050FF`|section .appskin|blue fixes elements hovered|
+|131|`606060`|section .appskin|grey fixes elements closed|

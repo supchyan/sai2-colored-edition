@@ -144,7 +144,6 @@ namespace YumToolkit {
                 saiAddress["GlobalTopBar8"],
                 saiAddress["ScaleAngleArrow"],
                 saiAddress["ColorSlidersArrows"],
-                saiAddress["ScaleAngleSliderFillLeft"],
                 saiAddress["GreyNoteText"],
                 saiAddress["SettingsListBackground"],
                 saiAddress["SettingsListBackground2"],
@@ -152,6 +151,20 @@ namespace YumToolkit {
                 saiAddress["SettingsListBackground4"],
                 saiAddress["OkCancelButtonsTextInActive"],
                 saiAddress["AssetManagerLeftBackground"],
+                saiAddress["ScaleAngleSliders2"],
+                saiAddress["ScaleAngleSliders3"],
+                saiAddress["ScaleAngleSliders4"],
+                saiAddress["ScaleAngleSliders5"],
+                saiAddress["ScaleAngleSliders6"],
+                saiAddress["ScaleAngleSliders7"],
+                saiAddress["ScaleAngleSliders8"],
+                saiAddress["ScaleAngleSliders9"],
+                saiAddress["ScaleAngleSliders10"],
+                saiAddress["ScaleAngleSliders11"],
+                saiAddress["ScaleAngleSliders12"],
+                saiAddress["ScaleAngleSliders13"],
+                saiAddress["ScaleAngleSliders14"],
+                saiAddress["ScaleAngleSliders15"],
             ];
             foreach(int n in PrimaryItems) {
                 theme.SetElementColor(themeColor["Primary"].NoAlpha(), n);
@@ -175,6 +188,12 @@ namespace YumToolkit {
                 saiColorRGB["BordersFix5"],
                 saiColorRGB["BordersFix6"],
                 saiColorRGB["BordersFix7"],
+                saiColorRGB["BordersFix8"],
+                saiColorRGB["BordersFix10"],
+                saiColorRGB["BordersFix11"],
+                saiColorRGB["BordersFix12"],
+                saiColorRGB["BordersFix14"],
+                saiColorRGB["Separators"],
                 saiColorRGB["FileMenuListElementsBackgroundDefault"],
                 saiColorRGB["InActiveBurgerButtonsOutline"],
                 saiColorRGB["InActiveBurgerButtonsOutlineFix1"],
@@ -185,6 +204,9 @@ namespace YumToolkit {
             }
 
             byte[][] PrimaryRGBComplicatedItemsAppskinTrue = [
+                saiColorRGB["BordersFix13"],
+                saiColorRGB["BordersFix15"],
+                saiColorRGB["BordersFix16"],
                 saiColorRGB["LayerOutline"],
                 saiColorRGB["FileMenuBackground"],
                 saiColorRGB["FolderBehindBackground1"],
@@ -216,9 +238,9 @@ namespace YumToolkit {
                 saiAddress["GlobalTopBarInActive2"],
                 saiAddress["GlobalTopBarInActive3"],
                 saiAddress["GlobalTopBarInActive4"],
-                saiAddress["FolderArrowOpened"],
-                saiAddress["FolderArrowClosed"],
-                saiAddress["ScaleAngleSliderFillRight"],
+                // saiAddress["FolderArrowOpened"],
+                // saiAddress["FolderArrowClosed"],
+                // saiAddress["BlueFixesHovered"],
                 saiAddress["TopBarTextFocused"],
                 saiAddress["TopBarTextFocused2"],
                 saiAddress["TopBarTextFocused3"],
@@ -250,6 +272,8 @@ namespace YumToolkit {
             
             byte[][] SecondaryRGBComplicatedItemsAppskinTrue = [
                 saiColorRGB["FolderBackgroundHovered"],
+                saiColorRGB["BordersFix17"],
+                saiColorRGB["BordersFix18"],
             ];
             foreach(byte[] n in SecondaryRGBComplicatedItemsAppskinTrue) {
                 theme.SetElementColorComplicated(n, themeColor["Secondary"].NoAlpha(), saiAddress["GlobalSectionAppskinFrom"], saiAddress["GlobalSectionAppskinTo"], true);
@@ -274,10 +298,10 @@ namespace YumToolkit {
 
             #region TERNARY COLOR
             int[] TernaryItems = [
+                saiAddress["ScaleAngleSlidersBg"],
                 saiAddress["GlobalBorders"],
                 saiAddress["GlobalBorders2"],
                 saiAddress["TabsResizeGrabberVertical"],
-                saiAddress["ScaleAngleSliders"],
                 saiAddress["ResizeWindowGrabber"],
                 saiAddress["ContextMenuListBackground"],
                 saiAddress["ContextMenuListSeparatorBackground"],
@@ -502,15 +526,6 @@ namespace YumToolkit {
                 saiAddress["ContextMenuContent118"],
                 saiAddress["ContextMenuContent119"],
                 saiAddress["ContextMenuContent120"],
-                saiAddress["ContextMenuArrows"],
-                saiAddress["ContextMenuArrowsHovered"],
-                saiAddress["ContextMenuCheckBoxes"],
-                saiAddress["ContextMenuCheckBoxesHovered"],
-                saiAddress["ContextMenuCheckBoxesMarks"],
-                saiAddress["ContextMenuCheckBoxesMarksHovered"],
-                saiAddress["ContextMenuRadioButtons"],
-                saiAddress["ContextMenuRadioButtonsEmpty"],
-                saiAddress["ContextMenuRadioButtonsHovered"],
             ];
             foreach(int n in TextItems) {
                 theme.SetElementColor(themeColor["Text"].NoAlpha(), n);
@@ -539,8 +554,8 @@ namespace YumToolkit {
                 saiAddress["saiFileInMenuBelowText"],
                 saiAddress["ButtonsInLayersFill"],
                 saiAddress["BlueNoteText"],
-                saiAddress["FolderArrowHovered1"],
-                saiAddress["FolderArrowHovered2"],
+                // saiAddress["FolderArrowHovered1"],
+                // saiAddress["FolderArrowHovered2"],
             ];
             foreach(int n in SelectablePrimaryItems) {
                 theme.SetElementColor(themeColor["SelectablePrimary"].NoAlpha(), n);
@@ -605,12 +620,15 @@ namespace YumToolkit {
                 saiColorRGB["BurgerButtonsOutlineRightClicked2"],
                 saiColorRGB["BurgerButtonsOutlineRightClicked3"],
                 saiColorRGB["BurgerButtonsOutlineRightClicked4"],
+                saiColorRGB["BurgerButtonsOutlineRightClicked4"],
             ];
             foreach(byte[] n in SelectablePrimaryRGBComplicatedItemsSrclibsTrue) {
                 theme.SetElementColorComplicated(n, themeColor["SelectablePrimary"].NoAlpha(), saiAddress["GlobalSectionSrclibsFrom"], saiAddress["GlobalSectionSrclibsTo"], true);
             }
 
             byte[][] SelectablePrimaryRGBComplicatedItemsAppskinTrue = [
+                saiColorRGB["BlueFixesHovered"],
+                saiColorRGB["GreyFixesClosed"],
                 saiColorRGB["SelectedLayerOutlineActiveHovered"],
                 saiColorRGB["SelectedLayerOutlineFocused"],
                 saiColorRGB["SelectedLayerInnerOutlineActive"],
@@ -671,6 +689,18 @@ namespace YumToolkit {
                 saiColorRGB["YesNoButtonsOutlineFix1"],
                 saiColorRGB["YesNoButtonsOutlineFix2"],
                 saiColorRGB["YesNoButtonsOutlineFix3"],
+                saiColorRGB["YesNoButtonsOutlineFix4"],
+                saiColorRGB["YesNoButtonsOutlineFix5"],
+                saiColorRGB["YesNoButtonsOutlineFix6"],
+                saiColorRGB["YesNoButtonsOutlineFix7"],
+                saiColorRGB["YesNoButtonsOutlineFix8"],
+                saiColorRGB["YesNoButtonsOutlineFix9"],
+                saiColorRGB["YesNoButtonsOutlineFix10"],
+                saiColorRGB["YesNoButtonsOutlineFix11"],
+                saiColorRGB["YesNoButtonsOutlineFix12"],
+                saiColorRGB["YesNoButtonsOutlineFix13"],
+                saiColorRGB["YesNoButtonsOutlineFix14"],
+                saiColorRGB["YesNoButtonsOutlineFix15"],
                 saiColorRGB["ScrollBarAndServiceButtonsOutline"],
                 saiColorRGB["ScrollBarAndServiceButtonsOutlineFix1"],
                 saiColorRGB["ScrollBarAndServiceButtonsOutlineFix2"],
@@ -678,6 +708,10 @@ namespace YumToolkit {
                 saiColorRGB["FileMenuTreeTextHovered"],
                 saiColorRGB["BrushesButtonsBackgroundRightClicked"],
                 saiColorRGB["BurgerButtonsBackgroundRightClicked"],
+                saiColorRGB["TopbarOutlineFix"],
+                saiColorRGB["TopbarOutlineFix2"],
+                saiColorRGB["TopbarOutlineFix3"],
+                saiColorRGB["TopbarOutlineFix4"],
             ];
             foreach(byte[] n in SelectableSecondaryRGBComplicatedItemsSrclibsTrue) {
                 theme.SetElementColorComplicated(n, themeColor["SelectableSecondary"].NoAlpha(), saiAddress["GlobalSectionSrclibsFrom"], saiAddress["GlobalSectionSrclibsTo"], true);
