@@ -1,8 +1,7 @@
 using YumToolkit.Global;
-using YumToolkit.Core.Interfaces;
 
 namespace YumToolkit.Core.Data {
-    class _ColorRGB : _Globals, IColorRGB {
+    class _ColorRGB : _Globals {
         /// <summary>
         /// # FF FF Ternary[0]
         /// </summary>

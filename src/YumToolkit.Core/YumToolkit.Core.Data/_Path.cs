@@ -1,7 +1,5 @@
-using YumToolkit.Core.Interfaces;
-
 namespace YumToolkit.Core.Data {
-    class _Path : IPath {
+    class _Path {
         public string ThemesFolder { get; }
         public string JsonExtension { get; }
         public string GitHubLink { get; }

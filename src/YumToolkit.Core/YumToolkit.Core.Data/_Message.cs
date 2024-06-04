@@ -1,8 +1,7 @@
-using YumToolkit.Core.Interfaces;
 using YumToolkit.Global;
 
 namespace YumToolkit.Core.Data {
-    class _Message : _Globals, IMessage {
+    class _Message : _Globals {
         public string ExitMessage { get; }
         public string ThemeFolderIsNotExist { get; }
         public string OldFileIsNotExist { get; }

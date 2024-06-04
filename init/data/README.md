@@ -43,9 +43,9 @@
 |24.1| `FFFFFF`|`0x00536498`|Radio Buttons background.|
 |24.2| `FFFFFF`|`0x00536514`|Radio Buttons background. [ hovered ]|
 |24.3| `FFFFFF`|`0x00536590`|Radio Buttons background. [ active ]|
-|25.1| `000000`|`0x00370A40`|File menu text. [ in lists ]|
-|25.2| `000000`|`0x00370B30`|File menu text. [ in tiles ]|
-|26| `000000`|`0x00370760`|Brushes text.|
+|25.1| `000000`|`0x00370A40``0x00341460``0x003B0AC0``0x004022D0`|File menu text. [ in lists ]|
+|25.2| `000000`|`0x00370B30``0x00341550``0x003B0BB0``0x004023C0`|File menu text. [ in tiles ]|
+|26| `000000`|`0x00370760``0x00370780``0x00341320``0x003410F0``0x00341180``0x003411A0``0x003B0750``0x003B07E0``0x003B0800``0x00401F60``0x00401FF0``0x00402010``0x00402190``0x003B0980`|Brushes text.|
 |27.1| `FFFFFF`|`section .srclibs`|Backgrounds in Brushes, File menu, Scroll blocks.|*has artifacts, but no artifacts, when all channels has the same value*|
 |27.2|`E8F4FF`|`section .srclibs`|SelectableBrushesButtonsRightCLicked|
 |28| `F2F2F200`|`section .srclibs`|Burger buttons outline.|
@@ -146,19 +146,20 @@
 |71.2|`4020C0`|`section .srclibs`|File menu Tree text [ hovered ]|
 |71.3|`C06040`|`section .srclibs`|File menu Tree text [ focused ]|
 |72.2|`804020`|`0x000DDEC0`|Shit text in windows.|
-|73.1|`000000`|`0x00534C68`|Context menu Arrows [ idle ]|
-|73.2|`000000`|`0x00534C70`|Context menu Arrows [ hovered ]|
-|73.3|`000000`|`0x00534C78`|Context menu Arrows [ focused ]|
-|74.1|`000000`|`0x00534DA8`|Context menu Check boxes [ idle ]|
-|74.2|`000000`|`0x00534DB0`|Context menu Check boxes [ hovered ]|
-|74.3|`000000`|`0x00534DB8`|Context menu Check boxes [ focused ]|
-|75.1|`000000`|`0x00534DE8`|Context menu Check box marks [ idle ]|
-|75.2|`000000`|`0x00534DF0`|Context menu Check box marks [ hovered ]|
-|75.3|`000000`|`0x00534DF8`|Context menu Check box marks [ focused ]|
+|73.1|`000000`|`0x00534C68``0x00531978`|Context menu Arrows [ idle ]|
+|73.2|`000000`|`0x00534C70``0x00531980`|Context menu Arrows [ hovered ]|
+|73.3|`000000`|`0x00534C78``0x00531988`|Context menu Arrows [ focused ]|
+|74.1|`000000`|`0x00534DA8``0x00531AB8`|Context menu Check boxes [ idle ]|
+|74.2|`000000`|`0x00534DB0``0x00531AC0`|Context menu Check boxes [ hovered ]|
+|74.3|`000000`|`0x00534DB8``0x00531AC8`|Context menu Check boxes [ focused ]|
+|75.1|`000000`|`0x00534DE8``0x00531AF8`|Context menu Check box marks [ idle ]|
+|75.2|`000000`|`0x00534DF0``0x00531B00`|Context menu Check box marks [ hovered ]|
+|75.3|`000000`|`0x00534DF8``0x00531B08`|Context menu Check box marks [ focused ]|
 |76.1|`000000`|`0x00534E28`|Context menu Radio Buttons [ empty ]|
-|76.2|`000000`|`0x00534E68`|Context menu Radio Buttons [ idle ]|
-|76.3|`000000`|`0x00534E70`|Context menu Radio Buttons [ hovered ]|
-|76.4|`000000`|`0x00534E78`|Context menu Radio Buttons [ focused ]|
+|76.2|`000000`|`0x00534E68``0x00531B38``0x00531B78`|Context menu Radio Buttons [ idle ]|
+|76.3|`000000`|`0x00534E70``0x00531B40``0x00531B80`|Context menu Radio Buttons [ hovered ]|
+|76.4|`000000`|`0x00534E78``0x00531B48``0x00531B88`|Context menu Radio Buttons [ focused ]|
+|76.5|`000000`|`0x00537FE8``0x00537FF0``0x00537FF8``0x00538028``0x00538030``0x00538038``0x00538068``0x00538070``0x00538078``0x005380A8``0x005380B0``0x005380B8``0x005380E8``0x005380F0``0x005380F8``0x00538128``0x00538130``0x00538138``0x00538168``0x00538170``0x00538178``0x005381A8``0x005381B0``0x005381B8``0x005381E8``0x005381F0``0x005381F8``0x0053B398``0x0053B3A0``0x0053B3A8``0x0053B3E8``0x0053B3F0``0x0053B3F8``0x0053B428``0x0053B430``0x0053B438``0x0053B468``0x0053B470``0x0053B478``0x0053B4A8``0x0053B4B0``0x0053B4B8``0x0053B4E8``0x0053B4F0``0x0053B4F8``0x0053B528``0x0053B530``0x0053B538``0x0053B568``0x0053B570``0x0053B578``0x0053B5A8``0x0053B5B0``0x0053B5B8``0x0053B5F0``0x0053B5F8``0x00531928``0x00531930``0x00531938``0x00531978``0x00531980``0x00531988``0x005319B8``0x005319C0``0x005319C8``0x005319F8``0x00531A00``0x00531A08``0x00531A38``0x00531A40``0x00531A48``0x00531A78``0x00531A80``0x00531A88``0x00531AB8``0x00531AC0``0x00531AC8``0x00531AF8``0x00531B00``0x00531B08``0x00531B38``0x00531B40``0x00531B48``0x00531B78``0x00531B80``0x00531B88``0x00534C18``0x00534C20``0x00534C28``0x00534C68``0x00534C70``0x00534C78``0x00534CA8``0x00534CB0``0x00534CB8``0x00534CE8``0x00534CF0``0x00534CF8``0x00534D28``0x00534D30``0x00534D38``0x00534D68``0x00534D70``0x00534D78``0x00534DA8``0x00534DB0``0x00534DB8``0x00534DE8``0x00534DF0``0x00534DF8``0x00534E28``0x00534E30``0x00534E38``0x00534E68``0x00534E70``0x00534E78``0x00537F98``0x00537FA0``0x00537FA8`|ContextMenuContent
 |77.1|`000000`|`0x0036FC10`|.sai file in menu below text|
 |77.2|`000000`|`0x0036FC28`|.sai file in menu below text percents|
 |78|`DBEFFF`|`section .srclibs`|Context Menu element selected background.|

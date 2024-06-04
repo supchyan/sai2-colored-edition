@@ -1,7 +1,5 @@
-using YumToolkit.Core.Interfaces;
-
 namespace YumToolkit.Core.Data {
-    class _Name : IName {
+    class _Name {
         string sai2 { get; }
         string exe { get; }
         public string original { get; }
