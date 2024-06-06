@@ -14,7 +14,7 @@
     </a>  
   </th>
   <th>
-    <a href="https://github.com/supchyan/sai2-colored-edition/blob/main/init/data/">
+    <a href="https://github.com/supchyan/sai2-colored-edition/tree/main/ref/init/data">
       <img src="https://github.com/supchyan/sai2-colored-edition/assets/123704468/691a8bad-a32d-4ef2-a8a4-d3c7e210c11e" width="24"/>
       </br>
       <span>Colors & Addresses</span>
@@ -38,42 +38,34 @@
 </div>
 
 ```json
-  * IMPORTANT! ~94% is ready.
+  * IMPORTANT! ~95% is ready.
 ```
 ### <div align="center">[English](#introduction) & [Русский](#вступление)</div>
 
 ## 🌔Introduction
-This toolkit is based on `sai2 64bit 2024.02.22`. It's just an **original sai2**, which supports this theme changer.</br>
-Yeah, this is license sai2 version, but I screwed theme swap to it.</br></br>
+Toolkit based on `sai2 64bit 2024.02.22`. So, this is **full sai2**, which supports custom themes.
+</br></br>
 
-Thats it, good luck in use! ^^</br></br>
+Any questions? Contact me on my [GitHub Server](https://discord.gg/dGF8p9UGyM). I'll do my best.
+</br></br>
+
+Thats it, good luck in use! ^^
+</br></br>
 
 ## 🌓How to install
-Downloaded build contains: `sai2.exe` and `yum-toolkit.exe`, where<br/>
-`sai2.exe` - your sai2;<br/>
-`yum-toolkit.exe` - toolkit to install themes.<br/><br/>
+Get last version from this repo and extract it to any folder you want! Run and enjoy B-)
+</br></br>
 
-All downloaded / created themes located in `themes` directory.</br>
-Check [this](https://github.com/supchyan/yum2-theme-toolkit/tree/main/themes/) topic, if you interested in creating your custom theme.</br></br>
+To work well, you need a license file. I can't give it to you, so it's not a my problem tho.</br>
+*Probably, other git repo can help you, but I didn't say that.*
+</br></br>
 
-To remove restricted mode on sai's startup, **you must have license file**.</br>
-If you already have license, or know, how to _receive it_,
-sai's activation is the same as on other patches.</br></br>
+License should be placed in `ref` folder. License file can be named as you wish.
+</br></br>
 
-So, to change theme, just launch `yum-toolkit.exe` and select theme, you want to install, then wait 'till the process end.</br>
-Close the toolkit and launch brand new colored `sai2.exe`.</br></br>
-
-_P.S. After theme installation, directory will meet `sai2.old` file, which is backup version of the **original theme**, so if you want to restore theme to original one or recolor sai again - keep this backup file.</br></br>_
-
-If you faced any problems on any of steps, feel free to contact me on [discord server](https://discord.gg/dGF8p9UGyM).</br>
-I'll help all I can. Also, it will be cool to get your feedback, so if you like this tools or not, notify me too!</br></br>
-
-## 🌒IMPORTANT!
-```json
-  * THEMES WORKS FINE ONLY AT 125% UI SCALE. MAKE SURE, YOU SET IT UP PROPERLY!
-```
-Also, make sure to check out the screenshots below; It should be looked definitely the same as your software, except of UI elements position.</br>
-If some UI elements doesn't look the same as screenshots has, I'm pretty sure, it's software UI scale problem, so check message in borders above. I'm going to fix this bug in the future, tho.</br></br>
+## 🌒Custom themes
+Quick start guide can be found [here](https://github.com/supchyan/sai2-colored-edition/tree/main/themes)
+</br></br>
 
 ## 🌑Screenshots
 ![image](https://github.com/supchyan/sai2-colored-edition/assets/123704468/dbe7efca-5865-4585-93d7-fc3541c33575)
@@ -83,38 +75,29 @@ If some UI elements doesn't look the same as screenshots has, I'm pretty sure, i
 🐳<br/><br/><br/>
 
 ## 🌔Вступление
-Этот набор инструментов создан на безе `sai2 64bit 2024.02.22`.</br>
-По большей части, это просто **оригинальная sai2**, которая поддерживает мой набор инструментов.</br>
-Да, это лицензионная версия sai2, к которой я прикрутил поддержку кстомных тем.</br><br/>
+Набор инструментов создан на безе `sai2 64bit 2024.02.22`. То есть, это **полноценный sai2**, который поддерживает кастомные темы.
+</br></br>
 
-Вот и все. Удачного использования! ^^</br><br/>
+Есть вопрос? Задайте на моем [GitHub Сервере](https://discord.gg/dGF8p9UGyM). Постараюсь помочь.
+</br></br>
 
-## 🌓Установка и настройка
-Скаченный вами архив содержит два исполняемых файла: `sai2.exe` и `yum-toolkit.exe`, где<br/>
-`sai2.exe` - сама саи;<br/>
-`yum-toolkit.exe` - инструмент для установки нужной вам темы.<br/><br/>
+Вот и все. Удачного пользования! ^^
+</br><br/>
 
-В папке `themes` хранятся все созданные или скаченные вами темы.</br>
-Ознакомьтесь с [этой](https://github.com/supchyan/yum2-theme-toolkit/tree/main/themes/) статьей, чтобы узнать больше про создание кастомных тем.</br></br>
+## 🌓Установка
+Скачайте последнюю версию с этого репозитория. Распакуйте куда угодно и запускайте.
+</br></br>
 
-Для полноценной работы sai, **вам необходимо иметь файл лицензии**.</br>
-Если он у вас уже есть, или вы знаете, как его _получить_,
-то способ активации программы такой же, как и на любой другой версии sai.</br></br>
+Для полноценной работы вам потребуется файл лицензии. Такой я вам не могу предоставить, так что это не моя головная боль.</br>
+*Возможно, другие git репозитории по саи вам помогут ответить на этот вопрос, но я вам этого не говорил.*
+</br></br>
 
-Итак, для смены темы, запустите `yum-toolkit.exe` и просто выберите тему, которую хотите установить, после чего ждите завершения операции.</br>
-Закрывайте утилиту и запускайте `sai2.exe` уже в новом облике.</br></br>
+Файл лицензии должен быть помещён в папку `ref`. Назвать этот файл можете, как хотите.
+</br></br>
 
-_P.S. После установки темы, в папке с программой появится файл `sai2.old`, который является резервной копией **оригинальной темы**, так что прошу его сохранить в случае, если захотите убрать установленную тему или поставить другую.</br></br>_
-
-Если вы столкнулись с проблемой на любом из этапов, можете связаться со мной на моем [discord сервере](https://discord.gg/dGF8p9UGyM).</br>
-Буду рад помочь всем, чем смогу. Так же, будет здорово, если вы поделитесь своим опытом использования.</br><br/>
-
-## 🌒ВАЖНО!
-```json
-  * ТЕМЫ РАБОТАЮТ БЕЗ АРТЕФАКТОВ ТОЛЬКО НА 125% РАЗМЕРЕ ИНТЕРФЕЙСА. УБЕДИТЕСЬ, ЧТО ОН У ВАС ВЫСТАВЛЕН ПРАВИЛЬНО!
-```
-Так же сверьтесь со скриншотами ниже; У вас всё должно выглядеть и работать точно так же, за исключением расположения элементов интерфейса.</br>
-Если какие-то элементы не покрашены, как на скриншотах ниже, я почти уверен, что дело в размере интерфейса программы, следовательно, обратите внимание на сообщение в рамочке выше. В будущем я поправлю этот баг при необходимости.</br></br>
+## 🌒Кастомные темы
+О том, как их создавать, или как они выглядят, можете ознакомиться [здесь](https://github.com/supchyan/sai2-colored-edition/tree/main/themes)
+</br></br>
 
 ## 🌑Скриншоты
 ![image](https://github.com/supchyan/sai2-colored-edition/assets/123704468/26d762d6-5dab-4e9b-b3be-b87ec18cab4c)
