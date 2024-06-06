@@ -40,51 +40,19 @@
 ```json
   * IMPORTANT! ~95% is ready.
 ```
-### <div align="center">[English](#introduction) & [Русский](#вступление)</div>
+[Go to EN](#introduction)
 
-## 🌔Introduction
-Toolkit based on `sai2 64bit 2024.02.22`. So, this is **full sai2**, which supports custom themes.
-</br></br>
-
-Any questions? Contact me on my [GitHub Server](https://discord.gg/dGF8p9UGyM). I'll do my best.
-</br></br>
-
-Thats it, good luck in use! ^^
-</br></br>
-
-## 🌓How to install
-Get last version from this repo and extract it to any folder you want! Run and enjoy B-)
-</br></br>
-
-To work well, you need a license file. I can't give it to you, so it's not a my problem tho.</br>
-*Probably, other git repo can help you, but I didn't say that.*
-</br></br>
-
-License should be placed in `ref` folder. License file can be named as you wish.
-</br></br>
-
-## 🌒Custom themes
-Quick start guide can be found [here](https://github.com/supchyan/sai2-colored-edition/tree/main/themes)
-</br></br>
-
-## 🌑Screenshots
-![image](https://github.com/supchyan/sai2-colored-edition/assets/123704468/dbe7efca-5865-4585-93d7-fc3541c33575)
-![image](https://github.com/supchyan/sai2-colored-edition/assets/123704468/9e74f3b5-ac05-4890-bb7e-abeae43bb404)
-![image](https://github.com/supchyan/sai2-colored-edition/assets/123704468/5389d452-b83f-4a30-b50d-ac655947be77)
-<br/>
-🐳<br/><br/><br/>
-
-## 🌔Вступление
+## Вступление
 Набор инструментов создан на безе `sai2 64bit 2024.02.22`. То есть, это **полноценный sai2**, который поддерживает кастомные темы.
 </br></br>
 
-Есть вопрос? Задайте на моем [GitHub Сервере](https://discord.gg/dGF8p9UGyM). Постараюсь помочь.
+Есть вопрос? Задайте его на моем [GitHub Сервере](https://discord.gg/dGF8p9UGyM). Постараюсь помочь.
 </br></br>
 
 Вот и все. Удачного пользования! ^^
 </br><br/>
 
-## 🌓Установка
+## Установка
 Скачайте последнюю версию с этого репозитория. Распакуйте куда угодно и запускайте.
 </br></br>
 
@@ -95,13 +63,45 @@ Quick start guide can be found [here](https://github.com/supchyan/sai2-colored-e
 Файл лицензии должен быть помещён в папку `ref`. Назвать этот файл можете, как хотите.
 </br></br>
 
-## 🌒Кастомные темы
+## Кастомные темы
 О том, как их создавать, или как они выглядят, можете ознакомиться [здесь](https://github.com/supchyan/sai2-colored-edition/tree/main/themes)
 </br></br>
 
-## 🌑Скриншоты
+## Скриншоты
 ![image](https://github.com/supchyan/sai2-colored-edition/assets/123704468/26d762d6-5dab-4e9b-b3be-b87ec18cab4c)
 ![image](https://github.com/supchyan/sai2-colored-edition/assets/123704468/842179dc-45eb-4cbf-82fa-9aa4cf1a7106)
 ![image](https://github.com/supchyan/sai2-colored-edition/assets/123704468/797b709f-c0f8-446f-bd28-7c1c3caace1f)
+<br/>
+🐳<br/><br/><br/>
+
+## Introduction
+Toolkit based on `sai2 64bit 2024.02.22`. So, this is **full sai2**, which supports custom themes.
+</br></br>
+
+Any questions? Contact me on my [GitHub Server](https://discord.gg/dGF8p9UGyM). I'll do my best.
+</br></br>
+
+Thats it, good luck in use! ^^
+</br></br>
+
+## How to install
+Get last version from this repo and extract it to any folder you want! Run and enjoy B-)
+</br></br>
+
+To work well, you need a license file. I can't give it to you, so it's not a my problem tho.</br>
+*Probably, other git repo can help you, but I didn't say that.*
+</br></br>
+
+License should be placed in `ref` folder. License file can be named as you wish.
+</br></br>
+
+## Custom themes
+Quick start guide can be found [here](https://github.com/supchyan/sai2-colored-edition/tree/main/themes)
+</br></br>
+
+## Screenshots
+![image](https://github.com/supchyan/sai2-colored-edition/assets/123704468/dbe7efca-5865-4585-93d7-fc3541c33575)
+![image](https://github.com/supchyan/sai2-colored-edition/assets/123704468/9e74f3b5-ac05-4890-bb7e-abeae43bb404)
+![image](https://github.com/supchyan/sai2-colored-edition/assets/123704468/5389d452-b83f-4a30-b50d-ac655947be77)
 <br/>
 🐳
