@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:S2CE"
         mc:Ignorable="d"
-        Title="S2CE" Height="600" Width="800" Loaded="Window_Loaded" FontFamily="Monocraft" FontSize="15" SizeChanged="Window_Resized" WindowStartupLocation="CenterScreen" ResizeMode="CanResizeWithGrip">
+        Title="S2CE" Height="600" Width="800" Loaded="Window_Loaded" FontFamily="{StaticResource Monocraft}" FontSize="15" SizeChanged="Window_Resized" WindowStartupLocation="CenterScreen" ResizeMode="CanResizeWithGrip">
 
     <Grid Background="#FF1B1B1E">
         <Grid.ColumnDefinitions>

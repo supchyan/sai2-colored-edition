@@ -23,6 +23,8 @@
 		<Content Include="ref\init\data\*.json">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Content>
+
+        <Content Remove="res\Monocraft.ttf" />
 		
 		<Content Include="CHANGELOG.md">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
