@@ -1,6 +1,6 @@
 ## Table of the all colors and it's place in binary I found for `2024.02.22` patch:
 |Num|Color|Address|Description|Warnings|
-|:---:|:---:|:---:|:---|:---|
+|:---:|:---|:---|:---|:---|
 |1| `C0C0C0`|`0x001BC95B`|Inactive text.|
 |2| `C0C0C0`|`0x00534688`|Inactive canvas and minimap's backgrounds.|
 |3| `B0B0B0`|`0x0053468C`|Background behind layers UI.|
@@ -13,14 +13,14 @@
 |6.2| `F8F8F8`|`0x00534678`|Global UI borders.|
 |7| `E0E0E0`|`0x00534680`|Brushes UI outlines.|
 |8| `D0D0D0`|`0x00534684`|Brushes separator.|
-|9| `F8F8F8`|`0x005349D0``0x00537D50``0x0053B150``0x005316E0`|Topbar.|
-|10.1| `000000`|`0x00534A98``0x005317A8``0x00537E18``0x0053B218`|Topbar text. [ idle ]|
-|10.2| `000000`|`0x00534AA0``0x005317B0``0x00537E20``0x0053B220`|Topbar text. [ hovered ]|
-|10.3| `000000`|`0x00534AA8``0x005317B8``0x00537E28``0x0053B228`|Topbar text. [ focused ]|
-|11| `F8F8F8`|`0x00534B60``0x00537EE0``0x0053B2E0``0x00531870`|Context menu.|
-|12.1| `000000`|`0x00534C18``0x00531928``0x0053B398``0x00537F98`|Context menu text. [ idle ]|
-|12.2| `000000`| `0x00534C20``0x00531930``0x0053B3A0``0x00537FA0`|Context menu text. [ hovered ]|
-|12.3| `000000`|`0x00534C28``0x00531938``0x0053B3A8``0x00537FA8`|Context menu text. [ focused ]|
+|9| `F8F8F8`|`0x005349D0` `0x00537D50` `0x0053B150` `0x005316E0`|Topbar.|
+|10.1| `000000`|`0x00534A98` `0x005317A8` `0x00537E18` `0x0053B218`|Topbar text. [ idle ]|
+|10.2| `000000`|`0x00534AA0` `0x005317B0` `0x00537E20` `0x0053B220`|Topbar text. [ hovered ]|
+|10.3| `000000`|`0x00534AA8` `0x005317B8` `0x00537E28` `0x0053B228`|Topbar text. [ focused ]|
+|11| `F8F8F8`|`0x00534B60` `0x00537EE0` `0x0053B2E0` `0x00531870`|Context menu.|
+|12.1| `000000`|`0x00534C18` `0x00531928` `0x0053B398` `0x00537F98`|Context menu text. [ idle ]|
+|12.2| `000000`| `0x00534C20` `0x00531930` `0x0053B3A0` `0x00537FA0`|Context menu text. [ hovered ]|
+|12.3| `000000`|`0x00534C28` `0x00531938` `0x0053B3A8` `0x00537FA8`|Context menu text. [ focused ]|
 |13.1| `F8F8F8`|`0x00534ED8`|Slider's outline. [ horizontal ]|
 |13.2| `F8F8F8`|`0x00535018`|Slider's outline. [ vertical ]|
 |14.1| `F8F8F8`|`0x00535068`|Scroll bar arrow up.|
@@ -31,7 +31,7 @@
 |16.1| `F8F8F8`|`0x00535CD8`|Tabs resize grabber. [ horizontal ]|
 |16.2| `F8F8F8`|`0x00535E28`|Tabs resize grabber. [ vertical ]|
 |17| `F8F8F8`|`0x005370D0`|Behind tree background in File menu.|
-|18| `F8F8F8`|`0x00536C00``0x00533980``0x00533990``0x005339D8``0x005339E8``0x00539FF0``0x0053A000``0x0053A048``0x0053A058``0x0053D3F0``0x0053D400``0x0053D448``0x0053D458`|Scale & Angle under minimap.|
+|18| `F8F8F8`|`0x00536C00` `0x00533980` `0x00533990` `0x005339D8` `0x005339E8` `0x00539FF0` `0x0053A000` `0x0053A048` `0x0053A058` `0x0053D3F0` `0x0053D400` `0x0053D448` `0x0053D458`|Scale & Angle under minimap.|
 |19| `FFFFFF`|`0x0031B4B8`|InActive sliders background.|*also active lists background somewhere*|
 |20| `FFFFFF`|`0x0031B498`|Active sliders background. [ idle ]|
 |20| `FFFFFF`|`0x0031B49C`|Active sliders background. [ hovered and focused ]|
@@ -43,9 +43,9 @@
 |24.1| `FFFFFF`|`0x00536498`|Radio Buttons background.|
 |24.2| `FFFFFF`|`0x00536514`|Radio Buttons background. [ hovered ]|
 |24.3| `FFFFFF`|`0x00536590`|Radio Buttons background. [ active ]|
-|25.1| `000000`|`0x00370A40``0x00341460``0x003B0AC0``0x004022D0`|File menu text. [ in lists ]|
-|25.2| `000000`|`0x00370B30``0x00341550``0x003B0BB0``0x004023C0`|File menu text. [ in tiles ]|
-|26| `000000`|`0x00370760``0x00370780``0x00341320``0x003410F0``0x00341180``0x003411A0``0x003B0750``0x003B07E0``0x003B0800``0x00401F60``0x00401FF0``0x00402010``0x00402190``0x003B0980`|Brushes text.|
+|25.1| `000000`|`0x00370A40` `0x00341460` `0x003B0AC0` `0x004022D0`|File menu text. [ in lists ]|
+|25.2| `000000`|`0x00370B30` `0x00341550` `0x003B0BB0` `0x004023C0`|File menu text. [ in tiles ]|
+|26| `000000`|`0x00370760` `0x00370780` `0x00341320` `0x003410F0` `0x00341180` `0x003411A0` `0x003B0750` `0x003B07E0` `0x003B0800` `0x00401F60` `0x00401FF0` `0x00402010` `0x00402190` `0x003B0980`|Brushes text.|
 |27.1| `FFFFFF`|`section .srclibs`|Backgrounds in Brushes, File menu, Scroll blocks.|*has artifacts, but no artifacts, when all channels has the same value*|
 |27.2|`E8F4FF`|`section .srclibs`|SelectableBrushesButtonsRightCLicked|
 |28| `F2F2F200`|`section .srclibs`|Burger buttons outline.|
@@ -60,7 +60,7 @@
 |37| `F8F8F8F8`|`section .appskin`|Color picker circle.|*has artifacts*|
 |38| `F8F8F8F8`|`section .srclibs`|Burger buttons background, sliders outlines, list outlines.|*has artifacts*|
 |39| `F8F8F8F8`|`from 0x004DD400 to 0x004FC2AF`|Burger buttons background, sliders outlines, list outlines. Alternative painting for `38`.|
-|40| `00000000`|`0x003706D0``0x00370768``0x003706D0``0x00370900``0x00370780``0x00341320``0x003410F0``0x00341180``0x003411A0``0x003B0750``0x003B07E0``0x003B0800``0x00401F60``0x00401FF0``0x00402010``0x00402190``0x003B0980`|Brushes text.|
+|40| `00000000`|`0x003706D0` `0x00370768` `0x003706D0` `0x00370900` `0x00370780` `0x00341320` `0x003410F0` `0x00341180` `0x003411A0` `0x003B0750` `0x003B07E0` `0x003B0800` `0x00401F60` `0x00401FF0` `0x00402010` `0x00402190` `0x003B0980`|Brushes text.|
 |41| `00000000`|`0x00370900`|Brushes size text.|
 |42| `0000FF`|`0x00370768`|Blue brushes text. ( selection brushes )|
 |43| `804020`|`section .srclibs`|"Shit" colored text.|
@@ -114,7 +114,7 @@
 |58.7|`9F9FFF`|`section .srclibs`|Scrollbar Outline Fix. [ focused ]|
 |59|`7C96E2`|`section .srclibs`|Yes No Buttons background.|
 |60.1|`4267D6`|`section .srclibs`|Yes No Buttons outline.|
-|60.2|`5375D9``797979``ACACAC``7373FF``A5A5FF``6A87DF``4F71D9``7F95D9``D3D3D3``6C6CF0``8A8AF9``A3A3F1``A5A5FC`|`section .srclibs`|Yes No Buttons outline fix.|
+|60.2|`5375D9` `797979` `ACACAC` `7373FF` `A5A5FF` `6A87DF` `4F71D9` `7F95D9` `D3D3D3` `6C6CF0` `8A8AF9` `A3A3F1` `A5A5FC`|`section .srclibs`|Yes No Buttons outline fix.|
 |60.3|`6C88DE`|`section .srclibs`|Yes No Buttons outline fix.|
 |60.3|`A5B4E1`|`section .srclibs`|Yes No Buttons outline fix.|*it's 4 pix on edges, so probably should be paintent to SelectablePrimary*|
 |61|`969696`|`section .srclibs`|Scrollbar Fill; Service Buttons fill.|
@@ -146,20 +146,20 @@
 |71.2|`4020C0`|`section .srclibs`|File menu Tree text [ hovered ]|
 |71.3|`C06040`|`section .srclibs`|File menu Tree text [ focused ]|
 |72.2|`804020`|`0x000DDEC0`|Shit text in windows.|
-|73.1|`000000`|`0x00534C68``0x00531978`|Context menu Arrows [ idle ]|
-|73.2|`000000`|`0x00534C70``0x00531980`|Context menu Arrows [ hovered ]|
-|73.3|`000000`|`0x00534C78``0x00531988`|Context menu Arrows [ focused ]|
-|74.1|`000000`|`0x00534DA8``0x00531AB8`|Context menu Check boxes [ idle ]|
-|74.2|`000000`|`0x00534DB0``0x00531AC0`|Context menu Check boxes [ hovered ]|
-|74.3|`000000`|`0x00534DB8``0x00531AC8`|Context menu Check boxes [ focused ]|
-|75.1|`000000`|`0x00534DE8``0x00531AF8`|Context menu Check box marks [ idle ]|
-|75.2|`000000`|`0x00534DF0``0x00531B00`|Context menu Check box marks [ hovered ]|
-|75.3|`000000`|`0x00534DF8``0x00531B08`|Context menu Check box marks [ focused ]|
+|73.1|`000000`|`0x00534C68` `0x00531978`|Context menu Arrows [ idle ]|
+|73.2|`000000`|`0x00534C70` `0x00531980`|Context menu Arrows [ hovered ]|
+|73.3|`000000`|`0x00534C78` `0x00531988`|Context menu Arrows [ focused ]|
+|74.1|`000000`|`0x00534DA8` `0x00531AB8`|Context menu Check boxes [ idle ]|
+|74.2|`000000`|`0x00534DB0` `0x00531AC0`|Context menu Check boxes [ hovered ]|
+|74.3|`000000`|`0x00534DB8` `0x00531AC8`|Context menu Check boxes [ focused ]|
+|75.1|`000000`|`0x00534DE8` `0x00531AF8`|Context menu Check box marks [ idle ]|
+|75.2|`000000`|`0x00534DF0` `0x00531B00`|Context menu Check box marks [ hovered ]|
+|75.3|`000000`|`0x00534DF8` `0x00531B08`|Context menu Check box marks [ focused ]|
 |76.1|`000000`|`0x00534E28`|Context menu Radio Buttons [ empty ]|
-|76.2|`000000`|`0x00534E68``0x00531B38``0x00531B78`|Context menu Radio Buttons [ idle ]|
-|76.3|`000000`|`0x00534E70``0x00531B40``0x00531B80`|Context menu Radio Buttons [ hovered ]|
-|76.4|`000000`|`0x00534E78``0x00531B48``0x00531B88`|Context menu Radio Buttons [ focused ]|
-|76.5|`000000`|`0x00537FE8``0x00537FF0``0x00537FF8``0x00538028``0x00538030``0x00538038``0x00538068``0x00538070``0x00538078``0x005380A8``0x005380B0``0x005380B8``0x005380E8``0x005380F0``0x005380F8``0x00538128``0x00538130``0x00538138``0x00538168``0x00538170``0x00538178``0x005381A8``0x005381B0``0x005381B8``0x005381E8``0x005381F0``0x005381F8``0x0053B398``0x0053B3A0``0x0053B3A8``0x0053B3E8``0x0053B3F0``0x0053B3F8``0x0053B428``0x0053B430``0x0053B438``0x0053B468``0x0053B470``0x0053B478``0x0053B4A8``0x0053B4B0``0x0053B4B8``0x0053B4E8``0x0053B4F0``0x0053B4F8``0x0053B528``0x0053B530``0x0053B538``0x0053B568``0x0053B570``0x0053B578``0x0053B5A8``0x0053B5B0``0x0053B5B8``0x0053B5F0``0x0053B5F8``0x00531928``0x00531930``0x00531938``0x00531978``0x00531980``0x00531988``0x005319B8``0x005319C0``0x005319C8``0x005319F8``0x00531A00``0x00531A08``0x00531A38``0x00531A40``0x00531A48``0x00531A78``0x00531A80``0x00531A88``0x00531AB8``0x00531AC0``0x00531AC8``0x00531AF8``0x00531B00``0x00531B08``0x00531B38``0x00531B40``0x00531B48``0x00531B78``0x00531B80``0x00531B88``0x00534C18``0x00534C20``0x00534C28``0x00534C68``0x00534C70``0x00534C78``0x00534CA8``0x00534CB0``0x00534CB8``0x00534CE8``0x00534CF0``0x00534CF8``0x00534D28``0x00534D30``0x00534D38``0x00534D68``0x00534D70``0x00534D78``0x00534DA8``0x00534DB0``0x00534DB8``0x00534DE8``0x00534DF0``0x00534DF8``0x00534E28``0x00534E30``0x00534E38``0x00534E68``0x00534E70``0x00534E78``0x00537F98``0x00537FA0``0x00537FA8`|ContextMenuContent
+|76.2|`000000`|`0x00534E68` `0x00531B38` `0x00531B78`|Context menu Radio Buttons [ idle ]|
+|76.3|`000000`|`0x00534E70` `0x00531B40` `0x00531B80`|Context menu Radio Buttons [ hovered ]|
+|76.4|`000000`|`0x00534E78` `0x00531B48` `0x00531B88`|Context menu Radio Buttons [ focused ]|
+|76.5|`000000`|`0x00537FE8` `0x00537FF0` `0x00537FF8` `0x00538028` `0x00538030` `0x00538038` `0x00538068` `0x00538070` `0x00538078` `0x005380A8` `0x005380B0` `0x005380B8` `0x005380E8` `0x005380F0` `0x005380F8` `0x00538128` `0x00538130` `0x00538138` `0x00538168` `0x00538170` `0x00538178` `0x005381A8` `0x005381B0` `0x005381B8` `0x005381E8` `0x005381F0` `0x005381F8` `0x0053B398` `0x0053B3A0` `0x0053B3A8` `0x0053B3E8` `0x0053B3F0` `0x0053B3F8` `0x0053B428` `0x0053B430` `0x0053B438` `0x0053B468` `0x0053B470` `0x0053B478` `0x0053B4A8` `0x0053B4B0` `0x0053B4B8` `0x0053B4E8` `0x0053B4F0` `0x0053B4F8` `0x0053B528` `0x0053B530` `0x0053B538` `0x0053B568` `0x0053B570` `0x0053B578` `0x0053B5A8` `0x0053B5B0` `0x0053B5B8` `0x0053B5F0` `0x0053B5F8` `0x00531928` `0x00531930` `0x00531938` `0x00531978` `0x00531980` `0x00531988` `0x005319B8` `0x005319C0` `0x005319C8` `0x005319F8` `0x00531A00` `0x00531A08` `0x00531A38` `0x00531A40` `0x00531A48` `0x00531A78` `0x00531A80` `0x00531A88` `0x00531AB8` `0x00531AC0` `0x00531AC8` `0x00531AF8` `0x00531B00` `0x00531B08` `0x00531B38` `0x00531B40` `0x00531B48` `0x00531B78` `0x00531B80` `0x00531B88` `0x00534C18` `0x00534C20` `0x00534C28` `0x00534C68` `0x00534C70` `0x00534C78` `0x00534CA8` `0x00534CB0` `0x00534CB8` `0x00534CE8` `0x00534CF0` `0x00534CF8` `0x00534D28` `0x00534D30` `0x00534D38` `0x00534D68` `0x00534D70` `0x00534D78` `0x00534DA8` `0x00534DB0` `0x00534DB8` `0x00534DE8` `0x00534DF0` `0x00534DF8` `0x00534E28` `0x00534E30` `0x00534E38` `0x00534E68` `0x00534E70` `0x00534E78` `0x00537F98` `0x00537FA0` `0x00537FA8`|ContextMenuContent
 |77.1|`000000`|`0x0036FC10`|.sai file in menu below text|
 |77.2|`000000`|`0x0036FC28`|.sai file in menu below text percents|
 |78|`DBEFFF`|`section .srclibs`|Context Menu element selected background.|
@@ -200,7 +200,7 @@
 |96.7|`multiple`|`0x00359F90`|Color circle begin 3.|
 |96.8|`multiple`|`0x0036E3C5`|Color circle end 3.|
 |97.1|`303030`|`0x005352C0`|Global Top Bar (where buttons minimize/maximize/close).|
-|97.2|`D0D0D0`|`0x005352B8``0x00531FC8``0x00538638``0x0053BA38`|Global Top Bar. [ inactive ]|
+|97.2|`D0D0D0`|`0x005352B8` `0x00531FC8` `0x00538638` `0x0053BA38`|Global Top Bar. [ inactive ]|
 |98.1|`F0F0E8`|`section .appskin`|Folder background.|
 |98.2|`E8E7E0`|`section .appskin`|Folder background. [ hovered ]|
 |98.3|`D3E9FF` `DCEDFF`|`section .appskin`|Folder background. [ focused ]|*focused means hold mouse button on it*|
@@ -224,7 +224,7 @@
 |111|`709090`|`0x000DE017`|Grey note text in settings and etc. ("This mode doesn't support WinTab driver..." and more on)|
 |112|`444488`|`0x000DDF30`|Blue note text in settings and etc. ("Coodrdinate Control Mode...")|
 |113|`000000`|`0x000E81AD`|Brush circles.|
-|114|`FFFFFF`|`0x0014C569``0x003413D0``0x003B0A30`|Settings left side background.|
+|114|`FFFFFF`|`0x0014C569` `0x003413D0` `0x003B0A30`|Settings left side background.|
 |115|`FFFFFF`|`0x001F05BA`|Some Minimized lists background. Stablizier in the same category, but has unique address is `87`.|
 |116.1|`FFFFFF`|`0x001ECC89`|Context menu lists background.|
 |116.2|`FFFFFF`|`0x001ECC23`|Context menu lists separator background fix.|
@@ -251,10 +251,10 @@
 |123.6|`C6C6C6`|`from 0x004CB849 to 0x004CBB60`|Sliders bar background transparent line fix|*it's literally a bug in sai, just a line inside that slider background, so... it is a color.*|
 |124.1|`EBF1F7`|`section .srclibs`|Burger buttons background right clicked non selected.|
 |124.2|`D5E2EF` `E6EEF6` `E3EAF0` `DAE5F1`|`section .srclibs`|Burger buttons outline right clicked non selected.|
-|125|`0000ff`|`0x00341188``0x00401FF8``0x003B07E8`|blue brushes text 100%|
-|126|`CDCDCD``C4C4C4`|section .srclibs|blue outline artifacts|
-|127|`C7C7C7``C7C7FB``A2A2C8``F6F6FF``8EE4FB``97B6BF``A3E9FC``9CB7BF`|section .srclibs|another outline fix|
-|128|`DDDDDD``D7D7D7``ACD8FF``CAE3FA`|section .srclibs|topbar outline fix|
+|125|`0000ff`|`0x00341188` `0x00401FF8` `0x003B07E8`|blue brushes text 100%|
+|126|`CDCDCD` `C4C4C4`|section .srclibs|blue outline artifacts|
+|127|`C7C7C7` `C7C7FB` `A2A2C8` `F6F6FF` `8EE4FB` `97B6BF` `A3E9FC` `9CB7BF`|section .srclibs|another outline fix|
+|128|`DDDDDD` `D7D7D7` `ACD8FF` `CAE3FA`|section .srclibs|topbar outline fix|
 |129|`D0D0D0`|section .srclibs|section separators|
 |130|`6050FF`|section .appskin|blue fixes elements hovered|
 |131|`606060`|section .appskin|grey fixes elements closed|
