@@ -1,20 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using System.IO;
-using System.Linq;
-using System.Security.Principal;
 using System.Text;
-using System.Threading.Tasks;
+using System.Security.Principal;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using S2CE.Extensions;
+using System.Security.RightsManagement;
+using System.Windows.Media;
 
 namespace S2CE.Components
 {
@@ -31,7 +23,8 @@ namespace S2CE.Components
         {
             username.Text = $"{WindowsIdentity.GetCurrent().Name.Split('\\')[1]}!";
             
-            changeLog.Text = "dfsdfsdf";
+            
+            changeLog.Text = File.ReadAllText("CHANGELOG.md", Encoding.UTF8);
 
             var reader = Directory.GetFiles("./themes/");
 
@@ -85,9 +78,13 @@ namespace S2CE.Components
             mainTheme.Apply(selectedTheme);
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Git_ButtonClicked(object sender, RoutedEventArgs e)
         {
-            //gitStyle
+            Process.Start(new ProcessStartInfo("https://github.com/supchyan/sai2-colored-edition") { UseShellExecute = true });
+        }
+        private void Dis_ButtonClicked(object sender, RoutedEventArgs e)
+        {
+            Process.Start(new ProcessStartInfo("https://discord.gg/dGF8p9UGyM") { UseShellExecute = true });
         }
 
         private void Window_Resized(object sender, SizeChangedEventArgs e)
@@ -98,5 +95,7 @@ namespace S2CE.Components
         {
             appList.Height = this.ActualHeight - launchButton.ActualHeight - this.Margin.Top - this.Margin.Bottom - appList.Margin.Top - 80;
         }
+
+        
     }
 }

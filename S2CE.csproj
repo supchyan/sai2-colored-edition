@@ -8,14 +8,22 @@
 		<UseWPF>true</UseWPF>
 	</PropertyGroup>
 	<ItemGroup>
+
+		<Resource Include="res\Monocraft.ttf"></Resource>
+		
 		<Content Include="themes\*.json">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Content>
+		
 		<Content Include="ref\init\data\*.json">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Content>
-	</ItemGroup>
-	<ItemGroup>
-	  <Page Include="App.xaml" />
+		
+		<Content Include="CHANGELOG.md">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		
+		<Page Include="App.xaml" />
+		
 	</ItemGroup>
 </Project>
