@@ -29,7 +29,7 @@ namespace S2CE.Components
             
             try
             {
-                AddVanillaItem();
+                AddItem("classic_sai2", true);
 
                 var reader = Directory.GetFiles("./themes/");
                 foreach (var f in reader)
@@ -75,7 +75,7 @@ namespace S2CE.Components
             appList.Height = this.ActualHeight - launchButton.ActualHeight - this.Margin.Top - this.Margin.Bottom - appList.Margin.Top - 80;
         }
         
-        void AddItem(string f)
+        void AddItem(string f, bool vanilla = false)
         {
             ListBoxItem item = new ListBoxItem()
             {
@@ -89,8 +89,24 @@ namespace S2CE.Components
 
             item.Content = panel;
 
-            var colors = JsonSerializer.Deserialize<Dictionary<string, string>>(File.ReadAllText(f));
-
+            Dictionary<string, string> colors = new Dictionary<string, string>() {
+                { "0","#C0C0C0" },
+                { "1","#FFFFFF" },
+                { "2","#CCCCCC" },
+                { "3","#000000" },
+                { "4","#BBBBBB" },
+                { "5","#8E8E8E" },
+            };
+            
+            if (!vanilla)
+            {
+                colors = JsonSerializer.Deserialize<Dictionary<string, string>>(File.ReadAllText(f));
+            }
+            else
+            {
+                selectedTheme = f;
+                item.IsSelected = true;
+            }
             foreach (var col in colors.Values)
             {
                 panel.Children.Add(new Rectangle
@@ -113,51 +129,6 @@ namespace S2CE.Components
 
             item.Selected += Item_Selected;
             appList.Items.Add(item);
-        }
-        void AddVanillaItem()
-        {
-            ListBoxItem vanillaItem = new ListBoxItem()
-            {
-                Name = "classic_sai2",
-            };
-
-            StackPanel vanillaPanel = new StackPanel()
-            {
-                Orientation = Orientation.Horizontal,
-            };
-
-            vanillaItem.Content = vanillaPanel;
-
-            List<string> vanillaColors = new List<string>()
-                {
-                    "#C0C0C0", "#FFFFFF", "#CCCCCC", "#000000", "#BBBBBB", "#8E8E8E"
-                };
-
-            foreach (string color in vanillaColors)
-            {
-                vanillaPanel.Children.Add(new Rectangle
-                {
-                    Fill = new SolidColorBrush(Color.FromRgb(color.toByteColor()[2], color.toByteColor()[1], color.toByteColor()[0])),
-                    Width = 12,
-                    Height = 12,
-                    HorizontalAlignment = HorizontalAlignment.Center,
-                    VerticalAlignment = VerticalAlignment.Center,
-                });
-            }
-
-            vanillaPanel.Children.Add(new TextBlock()
-            {
-                Text = "classic_sai2",
-                VerticalAlignment = VerticalAlignment.Center,
-                HorizontalAlignment = HorizontalAlignment.Center,
-                Margin = new Thickness(10, 0, 0, 0),
-            });
-
-            vanillaItem.Selected += Item_Selected;
-
-            appList.Items.Add(vanillaItem);
-            appList.SelectedItem = vanillaItem;
-            selectedTheme = vanillaItem.Name;
         }
     }
 }
