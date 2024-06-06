@@ -58,8 +58,8 @@
             </Grid>
         </Grid>
         <GridSplitter Grid.Column="1" Margin="15,0,15,0"
-        Width="3" Background="#FF717070" 
-        HorizontalAlignment="Center" Cursor="SizeWE"/>
+            Width="3" Background="#FF717070" 
+            HorizontalAlignment="Center" Cursor="SizeWE"/>
         <Grid x:Name="rightGrid" Grid.Column="2" Margin="0,15,15,15">
             <StackPanel>
                 <Grid VerticalAlignment="Top" Height="{Binding Height, ElementName=textBlock}">

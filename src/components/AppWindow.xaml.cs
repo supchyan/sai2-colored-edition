@@ -5,8 +5,9 @@ using System.Security.Principal;
 using System.Windows;
 using System.Windows.Controls;
 using S2CE.Extensions;
-using System.Security.RightsManagement;
+using System.Text.Json;
 using System.Windows.Media;
+using System.Windows.Shapes;
 
 namespace S2CE.Components
 {
@@ -29,37 +30,93 @@ namespace S2CE.Components
             var reader = Directory.GetFiles("./themes/");
 
             // vanilla sai2 theme
-            try
-            {
-                ListBoxItem vanilla = new ListBoxItem()
+            try {
+                ListBoxItem vanillaItem = new ListBoxItem()
                 {
                     Name = "classic_sai2",
-                    Content = "classic_sai2",
                 };
 
-                vanilla.Selected += Item_Selected;
-                appList.Items.Add(vanilla);
-                appList.SelectedItem = vanilla;
-                selectedTheme = vanilla.Name;
+                StackPanel vanillaPanel = new StackPanel()
+                {
+                    Orientation = Orientation.Horizontal,
+                };
 
-            } catch (Exception ex)
-            {
-                Debug.Print(ex.ToString());
-            }
+                vanillaItem.Content = vanillaPanel;
+
+                List<string> vanillaColors = new List<string>()
+                {
+                    "#C0C0C0", "#FFFFFF", "#CCCCCC", "#000000", "#BBBBBB", "#8E8E8E"
+                };
+
+                foreach (string color in vanillaColors)
+                {
+                    vanillaPanel.Children.Add(new Rectangle {
+                        Fill = new SolidColorBrush(Color.FromRgb(color.toByteColor()[2], color.toByteColor()[1], color.toByteColor()[0])),
+                        Width = 12,
+                        Height = 12,
+                        HorizontalAlignment = HorizontalAlignment.Center,
+                        VerticalAlignment = VerticalAlignment.Center,
+                    });
+                }
+
+                vanillaPanel.Children.Add(new TextBlock()
+                {
+                    Text = "classic_sai2",
+                    VerticalAlignment = VerticalAlignment.Center,
+                    HorizontalAlignment = HorizontalAlignment.Center,
+                    Margin = new Thickness(10, 0, 0, 0),
+                });
+
+                vanillaItem.Selected += Item_Selected;
+
+                appList.Items.Add(vanillaItem);
+                appList.SelectedItem = vanillaItem;
+                selectedTheme = vanillaItem.Name;
+
+            } catch (Exception ex){ Debug.Print(ex.ToString()); }
 
             foreach (var f in reader)
             {
                 try
                 {
-                    var item = new ListBoxItem()
+                    ListBoxItem item = new ListBoxItem()
                     {
                         Name = f.PurifyName(),
-                        Content = f.PurifyName(),
                     };
+
+                    StackPanel panel = new StackPanel()
+                    {
+                        Orientation = Orientation.Horizontal,
+                    };
+
+                    item.Content = panel;
+
+                    var colors = JsonSerializer.Deserialize<Dictionary<string, string>>(File.ReadAllText(f));
+
+                    foreach(var col in colors.Values)
+                    {
+                        panel.Children.Add(new Rectangle
+                        {
+                            Fill = new SolidColorBrush(Color.FromRgb(col.toByteColor()[2], col.toByteColor()[1], col.toByteColor()[0])),
+                            Width = 12,
+                            Height = 12,
+                            HorizontalAlignment = HorizontalAlignment.Center,
+                            VerticalAlignment = VerticalAlignment.Center,
+                        });
+                    }
+
+                    panel.Children.Add(new TextBlock()
+                    {
+                        Text = f.PurifyName(),
+                        VerticalAlignment = VerticalAlignment.Center,
+                        HorizontalAlignment = HorizontalAlignment.Center,
+                        Margin = new Thickness(10, 0, 0, 0),
+                    });
+
                     item.Selected += Item_Selected;
                     appList.Items.Add(item);
                 }
-                catch { }
+                catch(Exception ex) { Debug.Print(ex.ToString()); }
             }
 
             SetListHeight();
