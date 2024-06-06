@@ -1,7 +1,8 @@
-using YumToolkit.Global;
+using S2CE.Extensions;
 
-namespace YumToolkit.Core.Data {
-    class _ColorRGB : _Globals {
+namespace S2CE.Tools
+{
+    class ColorS2CE {
         /// <summary>
         /// # FF FF Ternary[0]
         /// </summary>
@@ -52,7 +53,7 @@ namespace YumToolkit.Core.Data {
         public byte[] SecondaryArtifactsColor4 { get; set; }
         
 
-        public _ColorRGB() {
+        public ColorS2CE() {
             // Artifacts fix
             TernaryArtifactsColor1 = [];
             TernaryArtifactsColor2 = [];

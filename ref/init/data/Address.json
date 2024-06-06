@@ -17,27 +17,22 @@
     "TopBar2":"0x00537D50",
     "TopBar3":"0x0053B150",
     "TopBar4":"0x005316E0",
-    
     "TopBarText": "0x00534A98",
     "TopBarText2": "0x005317A8",
     "TopBarText3": "0x00537E18",
     "TopBarText4": "0x0053B218",
-
     "TopBarTextHovered": "0x00534AA0",
     "TopBarTextHovered2": "0x005317B0",
     "TopBarTextHovered3": "0x00537E20",
     "TopBarTextHovered4": "0x0053B220",
-
     "TopBarTextFocused": "0x00534AA8",
     "TopBarTextFocused2": "0x005317B8",
     "TopBarTextFocused3": "0x00537E28",
     "TopBarTextFocused4": "0x0053B228",
-
     "ContextMenu": "0x00534B60",
     "ContextMenu2": "0x00537EE0",
     "ContextMenu3": "0x0053B2E0",
     "ContextMenu4":"0x00531870",
-
     "SlidersVertical": "0x00535018",
     "SlidersHorizontal": "0x00534ED8",
     "ResizeWindowGrabber": "0x00535280",

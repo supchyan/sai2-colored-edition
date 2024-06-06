@@ -1,96 +1,96 @@
 using System.Text.Json;
+using System.IO;
 using System.Diagnostics;
-using System.Runtime.InteropServices;
-using YumToolkit.Global;
+using S2CE.Tools;
+using S2CE.Extensions;
 
-namespace YumToolkit {
-    class AppHelper : _Globals {
+namespace S2CE {
+    class MainTheme {
+
+        FileS2CE file = new();
+        ThemeS2CE theme = new();
+        ColorS2CE colorRGB = new();
+
         Dictionary<string, byte[]>? themeColor { get; set; }
-        Dictionary<string, byte[]>? saiColorARGB { get; set; }
-        Dictionary<string, byte[]>? saiColorRGB { get; set; }
         Dictionary<string, int>? saiAddress { get; set; }
+        Dictionary<string, byte[]>? saiColorRGB { get; set; }
 
-        #region app logic
-        public void SetTheme() {
-            if(!file.IsFileBusy(true))
-            SetThemeToSelected();
-        }
-        public void RestoreTheme() {
-            if(!file.IsFileBusy(true))
-            RestoreThemeToDefault();
-        }
-        public void GitHubLink() {
-            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows)) { Process.Start(new ProcessStartInfo("cmd", $"/c start {path.GitHubLink}")); }
-            else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux)) { Process.Start("xdg-open", path.GitHubLink); }
-        }
-        public void ExitApplication() {
-            Environment.Exit(0);
-        }
-        #endregion
+        public void Apply(string themeName) {
 
-        void SetThemeToSelected() {
-            
-            if(!file.IsOriginalFileExists(true)) { return; }
+            if (themeName == "classic_sai2")
+            {
+                try
+                {
+                    file.UpdateOriginalFile();
+                    file.DeleteOldFile();
+                    Process.Start(PathS2CE.sai2);
+                    Environment.Exit(0);
+                }
+                catch { }
+                return;
+            }
 
             // Creating backup file to restore data or replace original file
             // with backup one to recolor it:
-            if(!file.IsOldFileExists()) { file.CreateOldFile(); }
-            else {
-                // This won't delete sai2.old.exe! Just cloning it to original one:
-                file.ReplaceOriginalFile();
-            }
-
-            console.ShowWaitMessage();
+            if (!file.IsOldFileExists()) { file.CreateOldFile(); }
 
             // Getting theme vaules:
-            themeColor = JsonSerializer.Deserialize<Dictionary<string,string>>(File.ReadAllText($"{content.pubThemesList[content.IndexSelection]}"))?.ConvertToByteColorDictionary();
-            
+            themeColor = JsonSerializer.Deserialize<Dictionary<string, string>>(File.ReadAllText($"./themes/{themeName}.json"))?.ConvertToByteColorDictionary();
+
             // Getting replacment libraries:
-            saiAddress = JsonSerializer.Deserialize<Dictionary<string,string>>(File.ReadAllText(path.saiAddressFile))?.ConvertToDecimalAddressDictionary();
-            saiColorARGB = JsonSerializer.Deserialize<Dictionary<string,string>>(File.ReadAllText(path.saiColorARGBFile))?.ConvertToByteColorDictionary();
-            saiColorRGB = JsonSerializer.Deserialize<Dictionary<string,string>>(File.ReadAllText(path.saiColorRGBFile))?.ConvertToByteColorDictionaryRGB();
-            
+            saiAddress = JsonSerializer.Deserialize<Dictionary<string, string>>(File.ReadAllText("./ref/init/data/Address.json"))?.ConvertToDecimalAddressDictionary();
+            saiColorRGB = JsonSerializer.Deserialize<Dictionary<string, string>>(File.ReadAllText("./ref/init/data/ColorRGB.json"))?.ConvertToByteColorDictionaryRGB();
+
             // Returning if nothing to replace to:
-            if(themeColor is null || saiAddress is null || saiColorARGB is null || saiColorRGB is null) { return; }
-            
+            if (themeColor is null || saiAddress is null || saiColorRGB is null) { return; }
+
             // colorRGB.ConfigureRGBColors(themeColor, saiColorRGB);
             colorRGB.ConfigureArtifactsColors(themeColor["Secondary"].NoAlpha(), themeColor["Ternary"].NoAlpha());
 
-            // Creating tmp .exe to replace binary data inside:
-            if(!File.Exists(name.tmp)) { file.CreateTmpFile(); }
-
-            // Reading tmp .exe:
-            theme.binary = theme.ReadTmpFile(name.tmp);
-
             // Color picker. Little bit chunky, but not bad at all:
-            theme.FixColorPicker(themeColor["Ternary"].NoAlpha(), saiAddress["ColorCircleFrom"], saiAddress["ColorCircleTo"]);
-            theme.FixColorPicker(themeColor["Ternary"].NoAlpha(), saiAddress["ColorCircleFrom2"], saiAddress["ColorCircleTo2"]);
-            theme.FixColorPicker(themeColor["Ternary"].NoAlpha(), saiAddress["ColorCircleFrom3"], saiAddress["ColorCircleTo3"]);
-            theme.FixColorPicker(themeColor["Ternary"].NoAlpha(), saiAddress["ColorCircleFrom4"], saiAddress["ColorCircleTo4"]);
+            Thread partOne = new Thread(() => {
+                theme.FixColorPicker(themeColor["Ternary"].NoAlpha(), saiAddress["ColorCircleFrom"], saiAddress["ColorCircleTo"]);
+            }) { IsBackground = true };
+
+            Thread partTwo = new Thread(() => {
+                theme.FixColorPicker(themeColor["Ternary"].NoAlpha(), saiAddress["ColorCircleFrom2"], saiAddress["ColorCircleTo2"]);
+            }) { IsBackground = true };
+
+            Thread partThree = new Thread(() => {
+                theme.FixColorPicker(themeColor["Ternary"].NoAlpha(), saiAddress["ColorCircleFrom3"], saiAddress["ColorCircleTo3"]);
+            }) { IsBackground = true };
+
+            Thread partFour = new Thread(() => {
+                theme.FixColorPicker(themeColor["Ternary"].NoAlpha(), saiAddress["ColorCircleFrom4"], saiAddress["ColorCircleTo4"]);
+            }) { IsBackground = true };
+
+            partOne.Start();
+            partTwo.Start();
+            partThree.Start();
+            partFour.Start();
 
             // These regions is for elements, that has amount of artifacts under the main coloring,
             // so i found patterns, where it located and can be protectly colored, before main coloring processes:
             #region 0 PRIMARY COLOR
             theme.SetElementColorComplicated(saiColorRGB["SlidersBackgroundTransparent2"].NoAlpha(), themeColor["Primary"].NoAlpha(), saiAddress["SlidersBackgroundTransparentFrom"], saiAddress["SlidersBackgroundTransparentTo"]);
-
             theme.SetElementColorComplicated(saiColorRGB["ActiveCanvasBackgroundFix"], themeColor["Primary"], saiAddress["GlobalSectionTextFrom"], saiAddress["GlobalSectionTextTo"], true);
-
             #endregion
 
             #region 0 SECONDARY COLOR
             theme.SetElementColorWithTotalReplacment(themeColor["Secondary"].NoAlpha(), saiAddress["HoveredEmptyBrushesBackgroundFrom"], saiAddress["HoveredEmptyBrushesBackgroundTo"]);
             theme.SetElementColorWithTotalReplacment(themeColor["Secondary"].NoAlpha(), saiAddress["HoveredLayersBackgroundFrom"], saiAddress["HoveredLayersBackgroundTo"]);
-            theme.SetElementColorComplicated(saiColorRGB["SelectedElementBackgroundHovered"].NoAlpha(),themeColor["Secondary"].NoAlpha(), saiAddress["HoveredLayersBackgroundFrom2"], saiAddress["HoveredLayersBackgroundTo2"], true);
+            theme.SetElementColorComplicated(saiColorRGB["SelectedElementBackgroundHovered"].NoAlpha(), themeColor["Secondary"].NoAlpha(), saiAddress["HoveredLayersBackgroundFrom2"], saiAddress["HoveredLayersBackgroundTo2"], true);
             theme.SetElementColorComplicated(saiColorRGB["SlidersBackgroundTransparent1"].NoAlpha(), themeColor["Secondary"].NoAlpha(), saiAddress["SlidersBackgroundTransparentFrom"], saiAddress["SlidersBackgroundTransparentTo"]);
             byte[][] SlidersPrivelegySelectableTernaryTrue = [
                 saiColorRGB["SlidersBackgroundTransparentLineFix1"],
-                saiColorRGB["SlidersBackgroundTransparentLineFix2"]
+            saiColorRGB["SlidersBackgroundTransparentLineFix2"]
             ];
-            foreach(byte[] n in SlidersPrivelegySelectableTernaryTrue) {
+            foreach (byte[] n in SlidersPrivelegySelectableTernaryTrue)
+            {
                 theme.SetElementColorComplicated(n.NoAlpha(), themeColor["Secondary"].NoAlpha(), saiAddress["SlidersBackgroundTransparentFrom"], saiAddress["SlidersBackgroundTransparentTo"]);
             }
             #endregion
-            
+
             #region 0 TERNARY COLOR
             theme.SetElementColorComplicated(saiColorRGB["LayerBackground"], themeColor["Ternary"].NoAlpha(), saiAddress["LayerBackgroundFrom"], saiAddress["LayerBackgroundTo"], true);
             theme.SetElementColorComplicated(saiColorRGB["BrushesBackgroundFileMenuBackgroundScrollBlockBackground"], themeColor["Ternary"].NoAlpha(), saiAddress["BrushesFileMenuTilesScrollableListsBackgroundFrom"], saiAddress["BrushesFileMenuTilesScrollableListsBackgroundTo"]);
@@ -101,7 +101,8 @@ namespace YumToolkit {
                 saiColorRGB["SlidersBarBackgroundTransparent1"],
                 saiColorRGB["SlidersBarBackgroundTransparentLineFix1"]
             ];
-            foreach(byte[] n in SlidersPrivelegySelectablePrimaryTrue) {
+            foreach (byte[] n in SlidersPrivelegySelectablePrimaryTrue)
+            {
                 theme.SetElementColorComplicated(n.NoAlpha(), themeColor["SelectablePrimary"].NoAlpha(), saiAddress["SlidersBackgroundTransparentFrom"], saiAddress["SlidersBackgroundTransparentTo"]);
             }
             #endregion
@@ -113,12 +114,10 @@ namespace YumToolkit {
             // Main regions, which contains basic coloring operations:
             #region PRIMARY COLOR
             int[] PrimaryItems = [
-
                 saiAddress["ActiveCanvasBackground"],
                 saiAddress["ActiveCanvasBackground2"],
                 saiAddress["ActiveCanvasBackground3"],
                 saiAddress["ActiveCanvasBackground4"],
-
                 saiAddress["InActiveCanvasBackground"],
                 saiAddress["BehindLayersUIBackground"],
                 saiAddress["BehindLayersUIBackground2"],
@@ -166,7 +165,8 @@ namespace YumToolkit {
                 saiAddress["ScaleAngleSliders14"],
                 saiAddress["ScaleAngleSliders15"],
             ];
-            foreach(int n in PrimaryItems) {
+            foreach (int n in PrimaryItems)
+            {
                 theme.SetElementColor(themeColor["Primary"].NoAlpha(), n);
             }
 
@@ -199,7 +199,8 @@ namespace YumToolkit {
                 saiColorRGB["InActiveBurgerButtonsOutlineFix1"],
                 saiColorRGB["InActiveBurgerButtonsOutlineFix2"],
             ];
-            foreach(byte[] n in PrimaryRGBComplicatedItemsSrclibsTrue) {
+            foreach (byte[] n in PrimaryRGBComplicatedItemsSrclibsTrue)
+            {
                 theme.SetElementColorComplicated(n, themeColor["Primary"].NoAlpha(), saiAddress["GlobalSectionSrclibsFrom"], saiAddress["GlobalSectionSrclibsTo"], true);
             }
 
@@ -212,17 +213,14 @@ namespace YumToolkit {
                 saiColorRGB["FolderBehindBackground1"],
                 saiColorRGB["FolderBehindBackground2"],
             ];
-            foreach(byte[] n in PrimaryRGBComplicatedItemsAppskinTrue) {
+            foreach (byte[] n in PrimaryRGBComplicatedItemsAppskinTrue)
+            {
                 theme.SetElementColorComplicated(n, themeColor["Primary"].NoAlpha(), saiAddress["GlobalSectionAppskinFrom"], saiAddress["GlobalSectionAppskinTo"], true);
             }
             #endregion
 
             #region SECONDARY COLOR
             int[] SecondaryItems = [
-                // saiAddress["ActiveCanvasBackground"],
-                // saiAddress["ActiveCanvasBackground2"],
-                // saiAddress["ActiveCanvasBackground3"],
-                // saiAddress["ActiveCanvasBackground4"],
                 saiAddress["Separator"],
                 saiAddress["TopBar"],
                 saiAddress["TopBar2"],
@@ -238,47 +236,31 @@ namespace YumToolkit {
                 saiAddress["GlobalTopBarInActive2"],
                 saiAddress["GlobalTopBarInActive3"],
                 saiAddress["GlobalTopBarInActive4"],
-                // saiAddress["FolderArrowOpened"],
-                // saiAddress["FolderArrowClosed"],
-                // saiAddress["BlueFixesHovered"],
                 saiAddress["TopBarTextFocused"],
                 saiAddress["TopBarTextFocused2"],
                 saiAddress["TopBarTextFocused3"],
                 saiAddress["TopBarTextFocused4"],
-                // saiAddress["ContextMenuTextFocused"],
-                // saiAddress["ContextMenuTextFocused2"],
-                // saiAddress["ContextMenuTextFocused3"],
-                // saiAddress["ContextMenuTextFocused4"],
                 saiAddress["SomeMinimizedListsBackground"],
                 saiAddress["CheckBoxesBackground"],
                 saiAddress["StabilizerBackground"],
-                // saiAddress["RadioButtonsBackground"],
-                // saiAddress["RadioButtonsBackgroundHovered"],
                 saiAddress["PathLineInFileMenuBackground"],
             ];
-            foreach(int n in SecondaryItems) {
+            foreach (int n in SecondaryItems)
+            {
                 theme.SetElementColor(themeColor["Secondary"].NoAlpha(), n);
             }
 
-            // byte[][] SecondaryComplicatedItemsSrclibs = [
-            //     saiColorARGB["InActiveScrollBarsBackground"],
-            //     saiColorARGB["EmptyElementsInBrushesUI"],
-            //     saiColorARGB["ColorPickerCircleBody"],
-            // ];
-            // foreach(byte[] n in SecondaryComplicatedItemsSrclibs) {
-            //     theme.SetElementColorComplicated(n, themeColor["Secondary"], saiAddress["GlobalSectionSrclibsFrom"], saiAddress["GlobalSectionSrclibsTo"]);
-            // }
 
-            
             byte[][] SecondaryRGBComplicatedItemsAppskinTrue = [
                 saiColorRGB["FolderBackgroundHovered"],
                 saiColorRGB["BordersFix17"],
                 saiColorRGB["BordersFix18"],
             ];
-            foreach(byte[] n in SecondaryRGBComplicatedItemsAppskinTrue) {
+            foreach (byte[] n in SecondaryRGBComplicatedItemsAppskinTrue)
+            {
                 theme.SetElementColorComplicated(n, themeColor["Secondary"].NoAlpha(), saiAddress["GlobalSectionAppskinFrom"], saiAddress["GlobalSectionAppskinTo"], true);
             }
-                
+
 
             byte[][] SecondaryRGBComplicatedItemsSrclibsTrue = [
                 saiColorRGB["SelectedElementBackgroundIdle"],
@@ -291,7 +273,8 @@ namespace YumToolkit {
                 colorRGB.SecondaryArtifactsColor3,
                 colorRGB.SecondaryArtifactsColor4,
             ];
-            foreach(byte[] n in SecondaryRGBComplicatedItemsSrclibsTrue) {
+            foreach (byte[] n in SecondaryRGBComplicatedItemsSrclibsTrue)
+            {
                 theme.SetElementColorComplicated(n, themeColor["Secondary"].NoAlpha(), saiAddress["GlobalSectionSrclibsFrom"], saiAddress["GlobalSectionSrclibsTo"], true);
             }
             #endregion
@@ -306,16 +289,17 @@ namespace YumToolkit {
                 saiAddress["ContextMenuListBackground"],
                 saiAddress["ContextMenuListSeparatorBackground"],
             ];
-            foreach(int n in TernaryItems) {
+            foreach (int n in TernaryItems)
+            {
                 theme.SetElementColor(themeColor["Ternary"].NoAlpha(), n);
             }
 
             byte[][] TernaryRGBComplicatedItemsAppskinTrue = [
                 saiColorRGB["EmptyElementsInBrushesUI"],
                 saiColorRGB["FolderBackground"],
-                // saiColorRGB["WhatIsThisColor2"],
             ];
-            foreach(byte[] n in TernaryRGBComplicatedItemsAppskinTrue) {
+            foreach (byte[] n in TernaryRGBComplicatedItemsAppskinTrue)
+            {
                 theme.SetElementColorComplicated(n, themeColor["Ternary"].NoAlpha(), saiAddress["GlobalSectionAppskinFrom"], saiAddress["GlobalSectionAppskinTo"], true);
             }
 
@@ -339,7 +323,8 @@ namespace YumToolkit {
                 colorRGB.TernaryArtifactsColor7,
                 colorRGB.TernaryArtifactsColor8,
             ];
-            foreach(byte[] n in TernaryRGBComplicatedItemsSrclibsTrue) {
+            foreach (byte[] n in TernaryRGBComplicatedItemsSrclibsTrue)
+            {
                 theme.SetElementColorComplicated(n, themeColor["Ternary"].NoAlpha(), saiAddress["GlobalSectionSrclibsFrom"], saiAddress["GlobalSectionSrclibsTo"], true);
             }
             #endregion
@@ -349,14 +334,6 @@ namespace YumToolkit {
                 saiAddress["BrushesBlueText"],
                 saiAddress["BrushesBlueText2"],
                 saiAddress["BrushesBlueText3"],
-                // saiAddress["ContextMenuText"],
-                // saiAddress["ContextMenuText2"],
-                // saiAddress["ContextMenuText3"],
-                // saiAddress["ContextMenuText4"],
-                // saiAddress["ContextMenuTextHovered"],
-                // saiAddress["ContextMenuTextHovered2"],
-                // saiAddress["ContextMenuTextHovered3"],
-                // saiAddress["ContextMenuTextHovered4"],
                 saiAddress["TopBarText"],
                 saiAddress["TopBarText2"],
                 saiAddress["TopBarText3"],
@@ -402,10 +379,6 @@ namespace YumToolkit {
                 saiAddress["OkCancelButtonsTextDisfocused1"],
                 saiAddress["OkCancelButtonsTextDisfocused2"],
                 saiAddress["OkCancelButtonsTextDisfocused3"],
-                // saiAddress["ContextMenuArrowsFocused"],
-                // saiAddress["ContextMenuCheckBoxesMarksFocused"],
-                // saiAddress["ContextMenuCheckBoxesFocused"],
-                // saiAddress["ContextMenuRadioButtonsFocused"],
                 saiAddress["ContextMenuContent"],
                 saiAddress["ContextMenuContent2"],
                 saiAddress["ContextMenuContent3"],
@@ -527,7 +500,8 @@ namespace YumToolkit {
                 saiAddress["ContextMenuContent119"],
                 saiAddress["ContextMenuContent120"],
             ];
-            foreach(int n in TextItems) {
+            foreach (int n in TextItems)
+            {
                 theme.SetElementColor(themeColor["Text"].NoAlpha(), n);
             }
 
@@ -536,16 +510,10 @@ namespace YumToolkit {
                 saiColorRGB["ShitColoredText"],
                 saiColorRGB["FileMenuTreeText"],
             ];
-            foreach(byte[] n in TextComplicatedItemsSrclibs) {
+            foreach (byte[] n in TextComplicatedItemsSrclibs)
+            {
                 theme.SetElementColorComplicated(n, themeColor["Text"], saiAddress["GlobalSectionSrclibsFrom"], saiAddress["GlobalSectionSrclibsTo"]);
             }
-
-            // byte[][] TextComplicatedItemsTextTrue = [
-            //     saiColorRGB["FolderOverlayText"],
-            // ];
-            // foreach(byte[] n in TextComplicatedItemsTextTrue) {
-            //     theme.SetElementColorComplicated(n, themeColor["Text"].NoAlpha(), saiAddress["GlobalSectionTextFrom"], saiAddress["GlobalSectionTextTo"],true);
-            // }
             #endregion
 
             #region SELECTABLE PRIMARY COLOR
@@ -554,17 +522,17 @@ namespace YumToolkit {
                 saiAddress["saiFileInMenuBelowText"],
                 saiAddress["ButtonsInLayersFill"],
                 saiAddress["BlueNoteText"],
-                // saiAddress["FolderArrowHovered1"],
-                // saiAddress["FolderArrowHovered2"],
             ];
-            foreach(int n in SelectablePrimaryItems) {
+            foreach (int n in SelectablePrimaryItems)
+            {
                 theme.SetElementColor(themeColor["SelectablePrimary"].NoAlpha(), n);
             }
 
             byte[][] SelectablePrimaryComplicatedItemsTextTrue = [
                 saiColorRGB["BlueSelectableElementsText"],
             ];
-            foreach(byte[] n in SelectablePrimaryComplicatedItemsTextTrue) {
+            foreach (byte[] n in SelectablePrimaryComplicatedItemsTextTrue)
+            {
                 theme.SetElementColorComplicated(n, themeColor["SelectablePrimary"].NoAlpha(), saiAddress["GlobalSectionTextFrom"], saiAddress["GlobalSectionTextTo"], true);
             }
 
@@ -622,7 +590,8 @@ namespace YumToolkit {
                 saiColorRGB["BurgerButtonsOutlineRightClicked4"],
                 saiColorRGB["BurgerButtonsOutlineRightClicked4"],
             ];
-            foreach(byte[] n in SelectablePrimaryRGBComplicatedItemsSrclibsTrue) {
+            foreach (byte[] n in SelectablePrimaryRGBComplicatedItemsSrclibsTrue)
+            {
                 theme.SetElementColorComplicated(n, themeColor["SelectablePrimary"].NoAlpha(), saiAddress["GlobalSectionSrclibsFrom"], saiAddress["GlobalSectionSrclibsTo"], true);
             }
 
@@ -648,7 +617,8 @@ namespace YumToolkit {
                 saiColorRGB["FolderInnerOutlineSelectedFocused2"],
                 saiColorRGB["FolderServiceButtonsSelectedFocused"],
             ];
-            foreach(byte[] n in SelectablePrimaryRGBComplicatedItemsAppskinTrue) {
+            foreach (byte[] n in SelectablePrimaryRGBComplicatedItemsAppskinTrue)
+            {
                 theme.SetElementColorComplicated(n, themeColor["SelectablePrimary"].NoAlpha(), saiAddress["GlobalSectionAppskinFrom"], saiAddress["GlobalSectionAppskinTo"], true);
             }
             #endregion
@@ -659,7 +629,8 @@ namespace YumToolkit {
                 saiAddress["SlidersActiveBackgroundHoveredFocused"],
                 saiAddress["saiFileInMenuBelowPercents"],
             ];
-            foreach(int n in SelectableSecondaryItems) {
+            foreach (int n in SelectableSecondaryItems)
+            {
                 theme.SetElementColor(themeColor["SelectableSecondary"].NoAlpha(), n);
             }
 
@@ -673,7 +644,8 @@ namespace YumToolkit {
                 saiColorRGB["FolderBackgroundSelected1"],
                 saiColorRGB["FolderBackgroundSelected2"],
             ];
-            foreach(byte[] n in SelectableSecondaryRGBComplicatedItemsAppskinTrue) {
+            foreach (byte[] n in SelectableSecondaryRGBComplicatedItemsAppskinTrue)
+            {
                 theme.SetElementColorComplicated(n, themeColor["SelectableSecondary"].NoAlpha(), saiAddress["GlobalSectionAppskinFrom"], saiAddress["GlobalSectionAppskinTo"], true);
             }
 
@@ -713,26 +685,18 @@ namespace YumToolkit {
                 saiColorRGB["TopbarOutlineFix3"],
                 saiColorRGB["TopbarOutlineFix4"],
             ];
-            foreach(byte[] n in SelectableSecondaryRGBComplicatedItemsSrclibsTrue) {
+            foreach (byte[] n in SelectableSecondaryRGBComplicatedItemsSrclibsTrue)
+            {
                 theme.SetElementColorComplicated(n, themeColor["SelectableSecondary"].NoAlpha(), saiAddress["GlobalSectionSrclibsFrom"], saiAddress["GlobalSectionSrclibsTo"], true);
             }
             #endregion
 
             // Saving current theme changes:
             theme.SaveTheme();
-            
+            Process.Start(PathS2CE.sai2);
+            Environment.Exit(0);
+
         }
-        void RestoreThemeToDefault() {
-            if(!file.IsOldFileExists(true)) { return; }
-
-            console.ShowWaitMessage();
-
-            if(File.Exists(name.original)) { File.Delete(name.original); }
-            file.ReplaceOriginalFile();
-            file.DeleteOldFile();
-
-            console.SendMessage(message.DefaultThemeHasBeenRestored, ConsoleColor.DarkGreen);
-        }
-        public AppHelper() { }
+        public MainTheme() { }
     }
 }
