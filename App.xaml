@@ -118,6 +118,12 @@
                                     <Setter Property="Background" Value="#FF1B1B1E" TargetName="Border" />
                                     <Setter Property="Foreground" Value="#5A8A77" />
                                 </Trigger>
+                                <Trigger Property="IsEnabled" Value="False">
+                                    <Setter Property="BorderBrush" Value="#E7EA67" TargetName="Border" />
+                                    <Setter Property="BorderThickness" Value="4" TargetName="Border" />
+                                    <Setter Property="Background" Value="#FF1B1B1E" TargetName="Border" />
+                                    <Setter Property="Foreground" Value="#E7EA67" />
+                                </Trigger>
                             </ControlTemplate.Triggers>
                         </ControlTemplate>
                     </Setter.Value>

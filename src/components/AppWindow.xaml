@@ -68,7 +68,7 @@
                             Data="M6 0H8V2H6V0ZM10 4V2H8V4H6V6H4V8H2V10H0V12H2V14H4V16H6V18H8V20H10V18H12V16H14V14H16V20H18V10H16V8H14V6H12V4H10ZM10 4V6H12V8H14V10H16V12H14H12H10H8H6H4H2V10H4V8H6V6H8V4H10Z" />
                         <TextBlock x:Name="textBlock" FontSize="18" Text="Select your theme below" Foreground="#FFCCCCCC" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="0,0,20,0"/>
                     </StackPanel>
-                    <Button Name="launchButton" Content="Save &amp; Run" Click="launchButton_Click" HorizontalAlignment="Right" VerticalAlignment="Center" />
+                    <Button Name="launchButton" Content="Save &amp; Run" Click="Launch_ButtonClicked" HorizontalAlignment="Right" VerticalAlignment="Center" />
                 </Grid>
                 <ListBox Name="appList" Background="{x:Null}" Foreground="#FFCCCCCC" BorderBrush="{x:Null}" Margin="0,20,-20,0" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Hidden" VerticalContentAlignment="Center">
                 </ListBox>
