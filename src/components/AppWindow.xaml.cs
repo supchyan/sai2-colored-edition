@@ -25,20 +25,23 @@ namespace S2CE.Components
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             username.Text = $"{WindowsIdentity.GetCurrent().Name.Split('\\')[1]}!";
-            changeLog.Text = File.ReadAllText("CHANGELOG.md", Encoding.UTF8);
+            try
+            {
+                changeLog.Text = File.ReadAllText("CHANGELOG.md", Encoding.UTF8);
+            } catch
+            {
+                changeLog.Text = "Кто-то удалил мой CHANGELOG.md...";
+            }
 
             version.Text += AssemblyProductVersion.Substring(0,5);
 
-            try
-            {
-                AddItem("classic_sai2", true);
+            AddItem("classic_sai2", true);
 
-                var reader = Directory.GetFiles("./themes/");
-                foreach (var f in reader)
-                {
-                    AddItem(f);
-                }
-            } catch (Exception ex) { }
+            var reader = Directory.GetFiles("./themes/");
+            foreach (var f in reader)
+            {
+                AddItem(f);
+            }
 
             SetListHeight();
         }
@@ -78,20 +81,22 @@ namespace S2CE.Components
         }
         
         void AddItem(string f, bool vanilla = false)
-        {
-            ListBoxItem item = new ListBoxItem()
+        {   
+            try
             {
-                Name = f.PurifyName(),
-            };
+                ListBoxItem item = new ListBoxItem()
+                {
+                    Name = f.PurifyName(),
+                };
 
-            StackPanel panel = new StackPanel()
-            {
-                Orientation = Orientation.Horizontal,
-            };
+                StackPanel panel = new StackPanel()
+                {
+                    Orientation = Orientation.Horizontal,
+                };
 
-            item.Content = panel;
+                item.Content = panel;
 
-            Dictionary<string, string> colors = new Dictionary<string, string>() {
+                Dictionary<string, string> colors = new Dictionary<string, string>() {
                 { "0","#C0C0C0" },
                 { "1","#FFFFFF" },
                 { "2","#CCCCCC" },
@@ -99,38 +104,43 @@ namespace S2CE.Components
                 { "4","#BBBBBB" },
                 { "5","#8E8E8E" },
             };
-            
-            if (!vanilla)
-            {
-                colors = JsonSerializer.Deserialize<Dictionary<string, string>>(File.ReadAllText(f));
-            }
-            else
-            {
-                selectedTheme = f;
-                item.IsSelected = true;
-            }
-            foreach (var col in colors.Values)
-            {
-                panel.Children.Add(new Rectangle
+
+                if (!vanilla)
                 {
-                    Fill = new SolidColorBrush(Color.FromRgb(col.toByteColor()[2], col.toByteColor()[1], col.toByteColor()[0])),
-                    Width = 12,
-                    Height = 12,
-                    HorizontalAlignment = HorizontalAlignment.Center,
+                    colors = JsonSerializer.Deserialize<Dictionary<string, string>>(File.ReadAllText(f));
+                }
+                else
+                {
+                    selectedTheme = f;
+                    item.IsSelected = true;
+                }
+                foreach (var col in colors.Values)
+                {
+                    panel.Children.Add(new Rectangle
+                    {
+                        Fill = new SolidColorBrush(Color.FromRgb(col.toByteColor()[2], col.toByteColor()[1], col.toByteColor()[0])),
+                        Width = 12,
+                        Height = 12,
+                        HorizontalAlignment = HorizontalAlignment.Center,
+                        VerticalAlignment = VerticalAlignment.Center,
+                    });
+                }
+
+                panel.Children.Add(new TextBlock()
+                {
+                    Text = f.PurifyName(),
                     VerticalAlignment = VerticalAlignment.Center,
+                    HorizontalAlignment = HorizontalAlignment.Center,
+                    Margin = new Thickness(10, 0, 0, 0),
                 });
+
+                item.Selected += Item_Selected;
+                appList.Items.Add(item);
             }
-
-            panel.Children.Add(new TextBlock()
+            catch
             {
-                Text = f.PurifyName(),
-                VerticalAlignment = VerticalAlignment.Center,
-                HorizontalAlignment = HorizontalAlignment.Center,
-                Margin = new Thickness(10, 0, 0, 0),
-            });
 
-            item.Selected += Item_Selected;
-            appList.Items.Add(item);
+            }
         }
 
         private static string AssemblyProductVersion
