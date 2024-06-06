@@ -25,6 +25,7 @@
                 <TextBox Name="changeLog" TextWrapping="Wrap" Foreground="#FF9FFFDC" Text="This is changelog placeholder! If you see this, nothing is working properly here!" Background="{x:Null}" BorderBrush="{x:Null}" SelectionBrush="{x:Null}" Focusable="False" SelectionTextBrush="{x:Null}" Width="{Binding ActualWidth, ElementName=grid, Mode=OneWay}" SelectionOpacity="0" AllowDrop="False" IsHitTestVisible="False" IsTabStop="False" IsEnabled="False" Padding="-3,0,0,0" Margin="0,10,0,0" />
             </StackPanel>
             <Grid>
+                <TextBlock Name="version" Text="ver. " VerticalAlignment="Bottom" HorizontalAlignment="Right" Foreground="#FF717070"/>
                 <Button Name="gitButton" Click="Git_ButtonClicked" Padding="7" Margin="0,0,20,0" HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="{Binding Width, ElementName=gitButton}" ToolTip="Project on GitHub">
                     <Button.Content>
                         <Path HorizontalAlignment="Center" 

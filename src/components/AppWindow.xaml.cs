@@ -8,7 +8,7 @@ using S2CE.Extensions;
 using System.Text.Json;
 using System.Windows.Media;
 using System.Windows.Shapes;
-using System.Threading.Tasks;
+using System.Reflection;
 
 namespace S2CE.Components
 {
@@ -26,7 +26,9 @@ namespace S2CE.Components
         {
             username.Text = $"{WindowsIdentity.GetCurrent().Name.Split('\\')[1]}!";
             changeLog.Text = File.ReadAllText("CHANGELOG.md", Encoding.UTF8);
-            
+
+            version.Text += AssemblyProductVersion.Substring(0,5);
+
             try
             {
                 AddItem("classic_sai2", true);
@@ -129,6 +131,18 @@ namespace S2CE.Components
 
             item.Selected += Item_Selected;
             appList.Items.Add(item);
+        }
+
+        private static string AssemblyProductVersion
+        {
+            get
+            {
+                object[] attributes = Assembly.GetExecutingAssembly()
+                    .GetCustomAttributes(typeof(AssemblyInformationalVersionAttribute), false);
+                return attributes.Length == 0 ?
+                    "" :
+                    ((AssemblyInformationalVersionAttribute)attributes[0]).InformationalVersion;
+            }
         }
     }
 }
