@@ -38,7 +38,7 @@
 </div>
 
 ```json
-  * IMPORTANT! ~95% is ready.
+  * IMPORTANT! ~95% of sai2's components are colorable right now.
 ```
 [Go to EN](#introduction)
 
