@@ -21,14 +21,14 @@
 
 В целом можете использовать любые цвета, но я настоятельно рекомендую не использовать `#000000` и `#FFFFFF`, т.к. мои инструменты работают на реверс инжинеринге, что может потом просто поломать запуск sai2.
 
-Примеры тем смотрите в этой папке.
+Примеры тем смотрите в папке с этим файлом.
 </br></br>
 
 ## Про установку тем
 1. Открываете лаунчер
 2. Выбираете тему из списка
 3. Нажимаете `Save & Run`
-.<br/><br/>
+<br/><br/>
 
 *Далее просто откроется сам sai2 с нужной темой:* <br/>
 <img src="https://github.com/supchyan/sai2-colored-edition/assets/123704468/bdda1c9f-2a67-4277-a046-3ad364d099ee" width="600"/>
@@ -61,7 +61,7 @@ All colors is `HEX`. If you don't know what is this, intenet should help in that
 1. Open the launcher
 2. Choose theme in the list
 3. Click `Save & Run`
-.<br/><br/>
+<br/><br/>
 
 *Then sai2 is about to open with selected theme:* <br/>
 <img src="https://github.com/supchyan/sai2-colored-edition/assets/123704468/bdda1c9f-2a67-4277-a046-3ad364d099ee" width="600"/>
@@ -72,5 +72,5 @@ All colors is `HEX`. If you don't know what is this, intenet should help in that
 
 You can use any colors after all, but I'm highly recommend not to use `#000000` and `#FFFFFF`, because all of my toolkit works on reverse-engineering, so these colors can break sai2's launch at all. Just don't use it.
 
-Themes examples into this folder.
+Themes examples into this file's folder.
 
