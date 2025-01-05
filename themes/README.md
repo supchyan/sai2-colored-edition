@@ -4,7 +4,7 @@
 Все темы должны храниться в папке `themes`.
 
 ## Про названия
-Лаунчер имеет строгую типизацию названий, так что прошу учитывать это при создании своих тем.</br>
+Лаунчер имеет строгую типизацию имён, так что прошу учитывать это при назывании своих тем.</br>
 Название темы должно состоять только из `латинских букв` и `цифр`, но в качестве разделителя так же можете использовать символ `_`.
 </br></br>
 
@@ -39,22 +39,22 @@
 
 
 ## About location
-All themes should be stored in `themes` folder.
+All themes have to be stored into `themes` folder.
 
 ## About title
-Launcher has strict data typization, so pay attention to it.</br>
+Launcher has a strict data typization, so pay attention to it.</br>
 Theme's title should contain only `latin letters` and `numbers`, but you can use `_` as words separator.
 </br></br>
 
 *Title examples:*
 </br></br>
 
-`my_cool_theme_4_you` - *good*</br>
-`my cool theme 4 #$%!!!` - *won't be shown in launcher*
+`my_cool_theme_4_you` - *all good*</br>
+`my cool theme 4 #$%!!!` - *won't be visible in the launcher menu*
 </br></br>
 
 ## About colors
-All colors is `HEX`. If you don't know what is this, internet should help in that. But in two words it's just an `RGB` in `hexadecimal` presentation.
+All colors in theme files is in `HEX`. If you don't know what `HEX` is this, internet should help you. But in two words, `HEX` color is just a `RGB` color in the `hexadecimal` presentation.
 </br></br>
 
 ## About theme installation
@@ -63,14 +63,14 @@ All colors is `HEX`. If you don't know what is this, internet should help in tha
 3. Click `Save & Run`
 <br/><br/>
 
-*Then sai2 is about to open with selected theme:* <br/>
+*Then sai2 will open with selected theme:* <br/>
 <img src="https://github.com/supchyan/sai2-colored-edition/assets/123704468/bdda1c9f-2a67-4277-a046-3ad364d099ee" width="600"/>
 </br></br>
 
 <img src="https://github.com/supchyan/sai2-colored-edition/assets/123704468/3dac1d04-4496-4fae-b2a8-46f3c8ac9138" width="600"/>
 </br></br></br>
 
-You can use any colors after all, but I'm highly recommend not to use `#000000` and `#FFFFFF`, because all of my toolkit works on reverse-engineering, so these colors can break sai2's launch at all. Just don't use it.
+You can use any colors you want, but prevent from using of `#000000` and `#FFFFFF` colors, because all of my toolkit based on reverse-engineering, so these colors can break sai2's launch at all. **Just do not use them**.
 
-Themes examples into this file's folder.
+Themes examples you can find into this folder.
 
