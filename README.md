@@ -46,25 +46,25 @@
 Набор инструментов создан на безе `sai2 64bit 2024.02.22`. То есть, это **полноценный sai2**, который поддерживает кастомные темы.
 </br></br>
 
-Есть вопрос? Задайте его на моем [GitHub Сервере](https://discord.gg/dGF8p9UGyM). Постараюсь помочь.
+Есть вопросы? Можете задать их мне на моем [Discord Сервере](https://discord.gg/dGF8p9UGyM). Я постараюсь помочь всем, чем смогу.
 </br></br>
 
 Вот и все. Удачного пользования! ^^
 </br><br/>
 
 ## Установка
-Скачайте последнюю версию с этого репозитория. Распакуйте куда угодно и запускайте.
+Скачайте последнюю версию билда [отсюда](https://github.com/supchyan/sai2-colored-edition/releases). Распакуйте файлы в любую удобную вам папку, запускайте `S2CE.exe` и всё должно работать! 😎
 </br></br>
 
 Для полноценной работы вам потребуется файл лицензии. Такой я вам не могу предоставить, так что это не моя головная боль.</br>
-*Возможно, другие git репозитории по саи вам помогут ответить на этот вопрос, но я вам этого не говорил.*
+*Возможно, другой git репозиторий по саи вам поможет, но я вам этого не говорил.*
 </br></br>
 
-Файл лицензии должен быть помещён в папку `ref`. Назвать этот файл можете, как хотите.
+Файл лицензии должен быть помещён в папку `ref`. Называться файл лицензии может как угодно.
 </br></br>
 
 ## Кастомные темы
-О том, как их создавать, или как они выглядят, можете ознакомиться [здесь](https://github.com/supchyan/sai2-colored-edition/tree/main/themes)
+О том, как их создавать, или как они выглядят "внутри" - можете ознакомиться [здесь](https://github.com/supchyan/sai2-colored-edition/tree/main/themes)
 </br></br>
 
 ## Скриншоты
@@ -75,24 +75,24 @@
 🐳<br/><br/><br/>
 
 ## Introduction
-Toolkit based on `sai2 64bit 2024.02.22`. So, this is **full sai2**, which supports custom themes.
+Toolkit based on `sai2 64bit 2024.02.22`. So this is **full sai2**, which has custom themes support!
 </br></br>
 
-Any questions? Contact me on my [GitHub Server](https://discord.gg/dGF8p9UGyM). I'll do my best.
+Any questions? Contact me on my [Discord Server](https://discord.gg/dGF8p9UGyM). I'll do my best.
 </br></br>
 
-Thats it, good luck in use! ^^
+That's all, good luck in use! ^^
 </br></br>
 
 ## How to install
-Get last version from this repo and extract it to any folder you want! Run and enjoy B-)
+Get the last version on [Releases](https://github.com/supchyan/sai2-colored-edition/releases) page. Download and extract folder into any location you want! Run `S2CE.exe` and enjoy 😎
 </br></br>
 
-To work well, you need a license file. I can't give it to you, so it's not a my problem tho.</br>
-*Probably, other git repo can help you, but I didn't say that.*
+To let sai2 work well, you need a license file. I can't give it to you, so it's not a my problem tho.</br>
+*Probably, other git repo can help you to receive it, but I didn't say that.*
 </br></br>
 
-License should be placed in `ref` folder. License file can be named as you wish.
+License should be placed into `ref` folder. This license file can be named as you want.
 </br></br>
 
 ## Custom themes
