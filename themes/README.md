@@ -54,7 +54,7 @@ Theme's title should contain only `latin letters` and `numbers`, but you can use
 </br></br>
 
 ## About colors
-All colors is `HEX`. If you don't know what is this, intenet should help in that. But in two words it's just an `RGB` in `hexadecimal` presentation.
+All colors is `HEX`. If you don't know what is this, internet should help in that. But in two words it's just an `RGB` in `hexadecimal` presentation.
 </br></br>
 
 ## About theme installation
