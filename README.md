@@ -40,7 +40,7 @@
 ```json
   * IMPORTANT! ~95% of sai2's components are colorable right now.
 ```
-[English Version](#introduction)
+[English Description](#introduction)
 
 ## Вступление
 Набор инструментов создан на безе `sai2 64bit 2024.02.22`. То есть, это **полноценный sai2**, который поддерживает кастомные темы.
