@@ -40,7 +40,7 @@
 ```json
   * IMPORTANT! ~95% of sai2's components are colorable right now.
 ```
-[Go to EN](#introduction)
+[English Version](#introduction)
 
 ## Вступление
 Набор инструментов создан на безе `sai2 64bit 2024.02.22`. То есть, это **полноценный sai2**, который поддерживает кастомные темы.
@@ -85,7 +85,7 @@ That's all, good luck in use! ^^
 </br></br>
 
 ## How to install
-Get the last version on [Releases](https://github.com/supchyan/sai2-colored-edition/releases) page. Download and extract folder into any location you want! Run `S2CE.exe` and enjoy 😎
+Get the latest version on [Releases](https://github.com/supchyan/sai2-colored-edition/releases) page. Download and extract folder into any location you want! Run `S2CE.exe` and enjoy 😎
 </br></br>
 
 To let sai2 work well, you need a license file. I can't give it to you, so it's not a my problem tho.</br>
