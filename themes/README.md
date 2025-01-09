@@ -1,4 +1,4 @@
-[Go to EN](#about-location)
+[English Description](#about-location)
 
 ## Про местоположение
 Все темы должны храниться в папке `themes`.
