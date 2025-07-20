@@ -6,9 +6,9 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 		<ApplicationIcon>res\icon-grey.ico</ApplicationIcon>
 		<UseWPF>true</UseWPF>
-		<Version>1.0.1</Version>
-		<AssemblyVersion>1.0.1</AssemblyVersion>
-		<FileVersion>1.0.1</FileVersion>
+		<Version>1.0.2</Version>
+		<AssemblyVersion>1.0.2</AssemblyVersion>
+		<FileVersion>1.0.2</FileVersion>
 		<Authors>supchyan</Authors>
 		<Product>S2CE</Product>
 	</PropertyGroup>
@@ -20,7 +20,11 @@
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Content>
 		
-		<Content Include="ref\init\data\*.json">
+		<Content Include="ref\*.*">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		
+		<Content Include="ref\**\*.*">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Content>
 
