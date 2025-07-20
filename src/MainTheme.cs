@@ -197,6 +197,19 @@ namespace S2CE {
                 saiColorRGB["InActiveBurgerButtonsOutline"],
                 saiColorRGB["InActiveBurgerButtonsOutlineFix1"],
                 saiColorRGB["InActiveBurgerButtonsOutlineFix2"],
+                saiColorRGB["DockerColor"],
+                saiColorRGB["DockerHighlightColor"],
+                saiColorRGB["DockerColorFix1"],
+                saiColorRGB["DockerColorFix2"],
+                saiColorRGB["DockerColorFix3"],
+                saiColorRGB["DockerColorFix4"],
+                saiColorRGB["DockerColorFix5"],
+                saiColorRGB["DockerColorFix6"],
+                saiColorRGB["DockerColorFix7"],
+                saiColorRGB["DockerColorFix8"],
+                saiColorRGB["DockerColorFix9"],
+                saiColorRGB["DockerColorFix10"],
+                saiColorRGB["ResizeGrabberColor"],
             ];
             foreach (byte[] n in PrimaryRGBComplicatedItemsSrclibsTrue)
             {
