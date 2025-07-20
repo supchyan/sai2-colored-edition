@@ -6,7 +6,6 @@ using S2CE.Extensions;
 
 namespace S2CE {
     class MainTheme {
-
         FileS2CE file = new();
         ThemeS2CE theme = new();
         ColorS2CE colorRGB = new();
