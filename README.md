@@ -72,6 +72,10 @@
 ![image](https://github.com/supchyan/sai2-colored-edition/assets/123704468/842179dc-45eb-4cbf-82fa-9aa4cf1a7106)
 ![image](https://github.com/supchyan/sai2-colored-edition/assets/123704468/797b709f-c0f8-446f-bd28-7c1c3caace1f)
 <br/>
+
+## Разработчикам
+Если вы хотите собрать это проект из исходного кода, то сначала установите `.NET 8.0+`, а после просто запустите проект через `Visual Studio`. Это всё!
+
 🐳<br/><br/><br/>
 
 ## Introduction
@@ -104,4 +108,8 @@ Quick start guide can be found [here](https://github.com/supchyan/sai2-colored-e
 ![image](https://github.com/supchyan/sai2-colored-edition/assets/123704468/9e74f3b5-ac05-4890-bb7e-abeae43bb404)
 ![image](https://github.com/supchyan/sai2-colored-edition/assets/123704468/5389d452-b83f-4a30-b50d-ac655947be77)
 <br/>
+
+## Development
+If you want to build this project from source, you need to install `.NET 8.0+` and then just run this project with `Visual Studio`. That's it!
+
 🐳
