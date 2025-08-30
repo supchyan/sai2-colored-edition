@@ -6,13 +6,19 @@ using S2CE.Extensions;
 
 namespace S2CE {
     class MainTheme {
-        FileS2CE file = new();
-        ThemeS2CE theme = new();
-        ColorS2CE colorRGB = new();
 
-        Dictionary<string, byte[]>? themeColor { get; set; }
-        Dictionary<string, int>? saiAddress { get; set; }
+
+        FileS2CE    file        = new();
+        ThemeS2CE   theme       = new();
+        ColorS2CE   colorRGB    = new();
+
+        Dictionary<string, byte[]>? themeColor   { get; set; }
+        Dictionary<string, int>?    saiAddress  { get; set; }
         Dictionary<string, byte[]>? saiColorRGB { get; set; }
+
+
+        // true, whenever user want to theme the ciki circle
+        public bool AffectColorCircle           { get; set; } = true;
 
         public void Apply(string themeName) {
 
@@ -33,12 +39,32 @@ namespace S2CE {
             // with backup one to recolor it:
             if (!file.IsOldFileExists()) { file.CreateOldFile(); }
 
-            // Getting theme vaules:
-            themeColor = JsonSerializer.Deserialize<Dictionary<string, string>>(File.ReadAllText($"./themes/{themeName}.json"))?.ConvertToByteColorDictionary();
+            // Get theme vaules:
+            var themeDict = JsonSerializer.Deserialize<Dictionary<string, string>>(File.ReadAllText($"./themes/{themeName}.json"));
+
+            //Get `AffectColorCircle` trigger value
+            try
+            {
+                if (themeDict != null)
+                {
+                    AffectColorCircle = int.Parse(themeDict["AffectColorCircle"]) != 0;
+                }
+                    
+            }
+            catch (Exception e)
+            {
+                // null or undefined, so AffectColorCircle = true by default
+            }
+
+            // Remove AffectColorCircle from theme file since useless any further
+            themeDict?.Remove("AffectColorCircle");
+
+            themeColor = themeDict?.ConvertToByteColorDictionary();
 
             // Getting replacment libraries:
             saiAddress = JsonSerializer.Deserialize<Dictionary<string, string>>(File.ReadAllText("./ref/init/data/Address.json"))?.ConvertToDecimalAddressDictionary();
             saiColorRGB = JsonSerializer.Deserialize<Dictionary<string, string>>(File.ReadAllText("./ref/init/data/ColorRGB.json"))?.ConvertToByteColorDictionaryRGB();
+
 
             // Returning if nothing to replace to:
             if (themeColor is null || saiAddress is null || saiColorRGB is null) { return; }
@@ -46,27 +72,38 @@ namespace S2CE {
             // colorRGB.ConfigureRGBColors(themeColor, saiColorRGB);
             colorRGB.ConfigureArtifactsColors(themeColor["Secondary"].NoAlpha(), themeColor["Ternary"].NoAlpha());
 
-            // Color picker. Little bit chunky, but not bad at all:
-            Thread partOne = new Thread(() => {
-                theme.FixColorPicker(themeColor["Ternary"].NoAlpha(), saiAddress["ColorCircleFrom"], saiAddress["ColorCircleTo"]);
-            }) { IsBackground = true };
+            //Color picker. Little bit chunky, but not bad at all:
+            if (AffectColorCircle)
+            {
+                Thread partOne = new Thread(() =>
+                {
+                    theme.FixColorPicker(themeColor["Ternary"].NoAlpha(), saiAddress["ColorCircleFrom"], saiAddress["ColorCircleTo"]);
+                })
+                { IsBackground = true };
 
-            Thread partTwo = new Thread(() => {
-                theme.FixColorPicker(themeColor["Ternary"].NoAlpha(), saiAddress["ColorCircleFrom2"], saiAddress["ColorCircleTo2"]);
-            }) { IsBackground = true };
+                Thread partTwo = new Thread(() =>
+                {
+                    theme.FixColorPicker(themeColor["Ternary"].NoAlpha(), saiAddress["ColorCircleFrom2"], saiAddress["ColorCircleTo2"]);
+                })
+                { IsBackground = true };
 
-            Thread partThree = new Thread(() => {
-                theme.FixColorPicker(themeColor["Ternary"].NoAlpha(), saiAddress["ColorCircleFrom3"], saiAddress["ColorCircleTo3"]);
-            }) { IsBackground = true };
+                Thread partThree = new Thread(() =>
+                {
+                    theme.FixColorPicker(themeColor["Ternary"].NoAlpha(), saiAddress["ColorCircleFrom3"], saiAddress["ColorCircleTo3"]);
+                })
+                { IsBackground = true };
 
-            Thread partFour = new Thread(() => {
-                theme.FixColorPicker(themeColor["Ternary"].NoAlpha(), saiAddress["ColorCircleFrom4"], saiAddress["ColorCircleTo4"]);
-            }) { IsBackground = true };
+                Thread partFour = new Thread(() =>
+                {
+                    theme.FixColorPicker(themeColor["Ternary"].NoAlpha(), saiAddress["ColorCircleFrom4"], saiAddress["ColorCircleTo4"]);
+                })
+                { IsBackground = true };
 
-            partOne.Start();
-            partTwo.Start();
-            partThree.Start();
-            partFour.Start();
+                partOne.Start();
+                partTwo.Start();
+                partThree.Start();
+                partFour.Start();
+            }
 
             // These regions is for elements, that has amount of artifacts under the main coloring,
             // so i found patterns, where it located and can be protectly colored, before main coloring processes:

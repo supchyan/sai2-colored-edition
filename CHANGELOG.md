@@ -1,5 +1,17 @@
 За этот бортик можно потянуть, чтобы было удобнее читать логи -->
 
-Темы отображаются корректно на всех размерах интерфейса (до этого только 125%).
+[Drag this border to make a change log looks bigger] ---------------------->
 
-Переработан интерфейс лаунчера. Теперь он работает на WPF, и в принципе носит статус лаунчера, т.к. буквально запускает sai2. Надеюсь, это сделало его дружелюбнее. Тем не менее, лаунчер всё ещё в разработке, так что не судите его (меня) строго... :d
+Покрашено несколько новых адресов.
+
+[Several new addresses are theme-friendly]
+
+В файлах темы теперь можно включить или выключить покраску цветового круга. В последнем релизе на GitHub есть гайд
+
+[You can enable or disable color circle paint feature. Read the latest release on GitHub to get into]
+
+</>
+
+Thanks to these folks to make this project better:
+
+cherlormur, turnipmano, Allison

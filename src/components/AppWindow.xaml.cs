@@ -97,35 +97,41 @@ namespace S2CE.Components
                 item.Content = panel;
 
                 Dictionary<string, string> colors = new Dictionary<string, string>() {
-                { "0","#C0C0C0" },
-                { "1","#FFFFFF" },
-                { "2","#CCCCCC" },
-                { "3","#000000" },
-                { "4","#BBBBBB" },
-                { "5","#8E8E8E" },
-            };
+                    { "0","#C0C0C0" },
+                    { "1","#FFFFFF" },
+                    { "2","#CCCCCC" },
+                    { "3","#000000" },
+                    { "4","#BBBBBB" },
+                    { "5","#8E8E8E" },
+                };
 
                 if (!vanilla)
                 {
                     colors = JsonSerializer.Deserialize<Dictionary<string, string>>(File.ReadAllText(f));
+
+                    // Remove AffectColorCircle trigger
+                    colors?.Remove("AffectColorCircle");
                 }
                 else
                 {
                     selectedTheme = f;
                     item.IsSelected = true;
                 }
-                foreach (var col in colors.Values)
+                if (colors != null)
                 {
-                    panel.Children.Add(new Rectangle
+                    foreach (var col in colors.Values)
                     {
-                        Fill = new SolidColorBrush(Color.FromRgb(col.toByteColor()[2], col.toByteColor()[1], col.toByteColor()[0])),
-                        Width = 12,
-                        Height = 12,
-                        HorizontalAlignment = HorizontalAlignment.Center,
-                        VerticalAlignment = VerticalAlignment.Center,
-                    });
+                        panel.Children.Add(new Rectangle
+                        {
+                            Fill = new SolidColorBrush(Color.FromRgb(col.toByteColor()[2], col.toByteColor()[1], col.toByteColor()[0])),
+                            Width = 12,
+                            Height = 12,
+                            HorizontalAlignment = HorizontalAlignment.Center,
+                            VerticalAlignment = VerticalAlignment.Center,
+                        });
+                    }
                 }
-
+                
                 panel.Children.Add(new TextBlock()
                 {
                     Text = f.PurifyName(),
