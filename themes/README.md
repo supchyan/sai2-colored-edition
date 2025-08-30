@@ -23,6 +23,25 @@
 Примеры файлов тем смотрите в этой папке.
 </br></br>
 
+## Что такое AffectColorCircle
+Это триггер, который влияет на цвет фона вокруг цветового круга:
+
+<img width="280" height="300" alt="image" src="https://github.com/user-attachments/assets/6fc7affe-c440-4b2c-a88f-6de3b110305e" />
+
+```json
+{
+    "AffectColorCircle": "1"
+}
+```
+
+<img width="280" height="300" alt="image" src="https://github.com/user-attachments/assets/5a15f449-c6b2-494a-9501-1530ed3986ff" />
+
+```json
+{
+    "AffectColorCircle": "0"
+}
+```
+
 ## Про установку тем
 1. Открываете лаунчер
 2. Выбираете тему из списка
@@ -54,6 +73,26 @@ Themes' titles should contain only `latin letters` and `numbers`. You can use `_
 ## About colors
 The colors in themes' files are stored in `HEX`. If you don't know what `HEX` is that, internet should help you. But in two words, `HEX` color is just a `RGB` color in the `hexadecimal` presentation. `#FF0000` - RED, `#00FF00` - GREEN, `#0000FF` - BLUE and etc.
 </br></br>
+
+## What is AffectColorCircle
+This is a trigger to whether or not affect the color circle background:
+
+<img width="280" height="300" alt="image" src="https://github.com/user-attachments/assets/6fc7affe-c440-4b2c-a88f-6de3b110305e" />
+
+```json
+{
+    "AffectColorCircle": "1"
+}
+```
+
+<img width="280" height="300" alt="image" src="https://github.com/user-attachments/assets/5a15f449-c6b2-494a-9501-1530ed3986ff" />
+
+```json
+{
+    "AffectColorCircle": "0"
+}
+```
+
 
 ## About theme installation
 1. Open the launcher
