@@ -74,7 +74,7 @@
 <br/>
 
 ## Разработчикам
-Если вы хотите собрать это проект из исходного кода, то сначала установите `.NET 8.0+`, а после просто запустите проект через `Visual Studio`. Это всё!
+Если вы хотите собрать этот проект из исходного кода, установите `.NET SDK 8.0+` и запустите проект через `Visual Studio`.
 
 🐳<br/><br/><br/>
 
@@ -110,6 +110,6 @@ Quick start guide can be found [here](https://github.com/supchyan/sai2-colored-e
 <br/>
 
 ## Development
-If you want to build this project from source, you need to install `.NET 8.0+` and then just run this project with `Visual Studio`. That's it!
+If you want to build this project from source, you need to install `.NET SDK 8.0+` and compile this project using `Visual Studio`.
 
 🐳
