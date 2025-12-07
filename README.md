@@ -37,9 +37,10 @@
 </table>
 </div>
 
-```json
-  * IMPORTANT! ~95% of sai2's components are colorable right now.
-```
+> [!IMPORTANT]
+> I'm not contributing this project right now. If you want to help with reverse-engineering, you're welcome!<br>
+> It's around `95%` of sai2's components are colorable with this tools, so if you fine with this, you're welcome as well!
+
 [English Description](#introduction)
 
 ## Вступление
